@@ -1,0 +1,26 @@
+statsmodels.tsa.kalmanf.kalmanfilter.KalmanFilter
+=================================================
+
+.. currentmodule:: statsmodels.tsa.kalmanf.kalmanfilter
+
+.. autoclass:: KalmanFilter
+   :exclude-members:
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: generated/
+
+      ~KalmanFilter.R
+      ~KalmanFilter.T
+      ~KalmanFilter.Z
+      ~KalmanFilter.geterrors
+      ~KalmanFilter.loglike
+   
+   
+   
+   
+   
+   

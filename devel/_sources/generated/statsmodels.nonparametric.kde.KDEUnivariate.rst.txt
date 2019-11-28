@@ -1,0 +1,35 @@
+statsmodels.nonparametric.kde.KDEUnivariate
+===========================================
+
+.. currentmodule:: statsmodels.nonparametric.kde
+
+.. autoclass:: KDEUnivariate
+   :exclude-members:
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: generated/
+
+      ~KDEUnivariate.evaluate
+      ~KDEUnivariate.fit
+   
+   
+   
+   
+   
+   .. rubric:: Properties
+
+   .. autosummary::
+      :toctree: generated/
+
+      ~KDEUnivariate.cdf
+      ~KDEUnivariate.cumhazard
+      ~KDEUnivariate.entropy
+      ~KDEUnivariate.icdf
+      ~KDEUnivariate.sf
+   
+   
+   
