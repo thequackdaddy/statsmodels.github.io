@@ -33,16 +33,7 @@
    "metadata": {
     "collapsed": false
    },
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/datasets/utils.py:338: FutureWarning: load will return datasets containing pandas DataFrames and Series in the Future.  To suppress this message, specify as_pandas=False\n",
-      "  FutureWarning)\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "data = sm.datasets.sunspots.load()"
    ]

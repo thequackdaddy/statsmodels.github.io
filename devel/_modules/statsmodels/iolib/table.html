@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.iolib.table </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -602,7 +602,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">lmap</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="n">min_widths</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
-    <span class="k">def</span> <span class="nf">get_colwidths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleTable.get_colwidths"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.get_colwidths.html#statsmodels.iolib.table.SimpleTable.get_colwidths">[docs]</a>    <span class="k">def</span> <span class="nf">get_colwidths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return list, the widths of each column."""</span>
         <span class="n">call_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">output_format</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">iteritems</span><span class="p">(</span><span class="n">fmt_dict</span><span class="p">)):</span>
@@ -618,7 +618,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_colwidths</span><span class="p">(</span><span class="n">output_format</span><span class="p">,</span>
                                                        <span class="o">**</span><span class="n">fmt_dict</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
 
     <span class="k">def</span> <span class="nf">_get_fmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return dict, the formatting options.</span>
@@ -640,7 +640,7 @@
         <span class="n">fmt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_fmt</span><span class="p">(</span><span class="s1">'csv'</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_text</span><span class="p">(</span><span class="o">**</span><span class="n">fmt</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">as_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleTable.as_text"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.as_text.html#statsmodels.iolib.table.SimpleTable.as_text">[docs]</a>    <span class="k">def</span> <span class="nf">as_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return string, the table as text."""</span>
         <span class="c1"># fetch the text format, override with fmt_dict</span>
         <span class="n">fmt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_fmt</span><span class="p">(</span><span class="s1">'txt'</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">)</span>
@@ -662,7 +662,7 @@
         <span class="n">table_dec_below</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'table_dec_below'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">table_dec_below</span><span class="p">:</span>
             <span class="n">formatted_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table_dec_below</span> <span class="o">*</span> <span class="n">rowlen</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatted_rows</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatted_rows</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">as_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return string.</span>
@@ -728,7 +728,7 @@
         <span class="c1"># Replace $$ due to bug in GH 5444</span>
         <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatted_rows</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'$$'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">extend_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleTable.extend_right"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.extend_right.html#statsmodels.iolib.table.SimpleTable.extend_right">[docs]</a>    <span class="k">def</span> <span class="nf">extend_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
         <span class="sd">"""Return None.</span>
 <span class="sd">        Extend each row of `self` with corresponding row of `table`.</span>
 <span class="sd">        Does **not** import formatting from ``table``.</span>
@@ -740,7 +740,7 @@
 <span class="sd">        but that is not enforced.</span>
 <span class="sd">        """</span>
         <span class="k">for</span> <span class="n">row1</span><span class="p">,</span> <span class="n">row2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-            <span class="n">row1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span>
+            <span class="n">row1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleTable.label_cells"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.label_cells.html#statsmodels.iolib.table.SimpleTable.label_cells">[docs]</a>    <span class="k">def</span> <span class="nf">label_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
         <span class="sd">"""Return None.  Labels cells based on `func`.</span>

@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.arima_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -821,7 +821,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">ar_coeffs</span> <span class="o">=</span> <span class="n">yule_walker</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">ar_coeffs</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()]</span>
-                <span class="n">start_params</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">p</span><span class="p">:</span><span class="n">k</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">arma2ma</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="n">start_params</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">p</span><span class="p">:</span><span class="n">k</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">arma2ma</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lags</span><span class="o">=</span><span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
         <span class="k">if</span> <span class="n">q</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">arcoefs</span> <span class="o">=</span> <span class="n">yule_walker</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">p</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">start_params</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">k</span> <span class="o">+</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">arcoefs</span>

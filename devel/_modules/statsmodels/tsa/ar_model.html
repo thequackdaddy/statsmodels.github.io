@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -348,9 +348,9 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Only the univariate case is implemented"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fit_params</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="AR.initialize"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.initialize.html#statsmodels.tsa.ar_model.AR.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Initialization of the model (no-op)."""</span>
-        <span class="k">pass</span></div>
+        <span class="k">pass</span>
 
     <span class="k">def</span> <span class="nf">_transparams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -432,7 +432,7 @@
 
         <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">out_of_sample</span><span class="p">,</span> <span class="n">prediction_index</span>
 
-<div class="viewcode-block" id="AR.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.predict.html#statsmodels.tsa.ar_model.AR.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Construct in-sample and out-of-sample prediction.</span>
 
@@ -514,7 +514,7 @@
                                                        <span class="n">out_of_sample</span><span class="p">)</span>
             <span class="n">predictedvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">predictedvalues</span><span class="p">,</span> <span class="n">forecastvalues</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">predictedvalues</span></div>
+        <span class="k">return</span> <span class="n">predictedvalues</span>
 
     <span class="k">def</span> <span class="nf">_presample_varcov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -586,7 +586,7 @@
                              <span class="o">-</span> <span class="n">logdet</span> <span class="o">+</span> <span class="n">diffpVpinv</span> <span class="o">/</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">ssr</span> <span class="o">/</span> <span class="n">sigma2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">loglike</span>
 
-<div class="viewcode-block" id="AR.loglike"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.loglike.html#statsmodels.tsa.ar_model.AR.loglike">[docs]</a>    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The loglikelihood of an AR(p) process.</span>
 
@@ -634,9 +634,9 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loglike_css</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loglike_mle</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loglike_mle</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AR.score"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.score.html#statsmodels.tsa.ar_model.AR.score">[docs]</a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Compute the gradient of the log-likelihood at params.</span>
 
@@ -651,9 +651,9 @@
 <span class="sd">            The gradient computed using numerical methods.</span>
 <span class="sd">        """</span>
         <span class="n">loglike</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglike</span>
-        <span class="k">return</span> <span class="n">approx_fprime</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">loglike</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">approx_fprime</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">loglike</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AR.information"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.information.html#statsmodels.tsa.ar_model.AR.information">[docs]</a>    <span class="k">def</span> <span class="nf">information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Not implemented.</span>
 
@@ -662,9 +662,9 @@
 <span class="sd">        params : ndarray</span>
 <span class="sd">            The model parameters.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span></div>
+        <span class="k">return</span>
 
-<div class="viewcode-block" id="AR.hessian"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.hessian.html#statsmodels.tsa.ar_model.AR.hessian">[docs]</a>    <span class="k">def</span> <span class="nf">hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Compute the hessian using a numerical approximation.</span>
 
@@ -679,7 +679,7 @@
 <span class="sd">            The hessian evaluated at params.</span>
 <span class="sd">        """</span>
         <span class="n">loglike</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglike</span>
-        <span class="k">return</span> <span class="n">approx_hess</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">loglike</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">approx_hess</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">loglike</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_stackX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_ar</span><span class="p">,</span> <span class="n">trend</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -695,7 +695,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">k_trend</span> <span class="o">=</span> <span class="n">k_trend</span>
         <span class="k">return</span> <span class="n">X</span>
 
-<div class="viewcode-block" id="AR.select_order"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.select_order.html#statsmodels.tsa.ar_model.AR.select_order">[docs]</a>    <span class="k">def</span> <span class="nf">select_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxlag</span><span class="p">,</span> <span class="n">ic</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'mle'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">select_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxlag</span><span class="p">,</span> <span class="n">ic</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'mle'</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Select the lag order according to the information criterion.</span>
 
@@ -755,9 +755,9 @@
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">tvalues</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">stop</span><span class="p">:</span>
                     <span class="n">bestlag</span> <span class="o">=</span> <span class="n">lag</span>
                     <span class="k">break</span>
-        <span class="k">return</span> <span class="n">bestlag</span></div>
+        <span class="k">return</span> <span class="n">bestlag</span>
 
-<div class="viewcode-block" id="AR.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.AR.fit.html#statsmodels.tsa.ar_model.AR.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'cmle'</span><span class="p">,</span> <span class="n">ic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'cmle'</span><span class="p">,</span> <span class="n">ic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span>
             <span class="n">transparams</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">'lbfgs'</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
             <span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -917,7 +917,7 @@
         <span class="c1"># Set fit params since completed the fit</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_fit_params</span> <span class="o">=</span> <span class="n">fit_params</span>
-        <span class="k">return</span> <span class="n">ARResultsWrapper</span><span class="p">(</span><span class="n">arfit</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">ARResultsWrapper</span><span class="p">(</span><span class="n">arfit</span><span class="p">)</span></div>
 
 
 <span class="n">_preddoc</span> <span class="o">=</span> <span class="p">(</span><span class="n">AR</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>

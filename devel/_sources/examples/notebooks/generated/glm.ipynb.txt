@@ -203,7 +203,7 @@
       "Link Function:                  logit   Scale:                          1.0000\n",
       "Method:                          IRLS   Log-Likelihood:                -2998.6\n",
       "Date:                Thu, 28 Nov 2019   Deviance:                       4078.8\n",
-      "Time:                        12:24:32   Pearson chi2:                 4.05e+03\n",
+      "Time:                        15:42:48   Pearson chi2:                 4.05e+03\n",
       "No. Iterations:                     5                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",
@@ -584,14 +584,6 @@
       "  1.65660e+04 1.00000e+00]]\n",
       "[60.3 52.3 53.4 57.  68.7]\n"
      ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/datasets/utils.py:338: FutureWarning: load will return datasets containing pandas DataFrames and Series in the Future.  To suppress this message, specify as_pandas=False\n",
-      "  FutureWarning)\n"
-     ]
     }
    ],
    "source": [
@@ -625,7 +617,7 @@
       "Link Function:          inverse_power   Scale:                       0.0035843\n",
       "Method:                          IRLS   Log-Likelihood:                -83.017\n",
       "Date:                Thu, 28 Nov 2019   Deviance:                     0.087389\n",
-      "Time:                        12:24:33   Pearson chi2:                   0.0860\n",
+      "Time:                        15:42:49   Pearson chi2:                   0.0860\n",
       "No. Iterations:                     6                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",
@@ -704,7 +696,7 @@
       "Link Function:                    log   Scale:                      1.0531e-07\n",
       "Method:                          IRLS   Log-Likelihood:                 662.92\n",
       "Date:                Thu, 28 Nov 2019   Deviance:                   1.0215e-05\n",
-      "Time:                        12:24:33   Pearson chi2:                 1.02e-05\n",
+      "Time:                        15:42:49   Pearson chi2:                 1.02e-05\n",
       "No. Iterations:                     7                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",

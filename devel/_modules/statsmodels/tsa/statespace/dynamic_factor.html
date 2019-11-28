@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.dynamic_factor </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1402,7 +1402,7 @@
 
         <span class="k">return</span> <span class="n">coefficients</span>
 
-<div class="viewcode-block" id="DynamicFactorResults.plot_coefficients_of_determination"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.dynamic_factor.DynamicFactorResults.plot_coefficients_of_determination.html#statsmodels.tsa.statespace.dynamic_factor.DynamicFactorResults.plot_coefficients_of_determination">[docs]</a>    <span class="k">def</span> <span class="nf">plot_coefficients_of_determination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">plot_coefficients_of_determination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                            <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Plot the coefficients of determination</span>
@@ -1465,9 +1465,9 @@
 
             <span class="n">plot_idx</span> <span class="o">+=</span> <span class="mi">1</span>
 
-        <span class="k">return</span> <span class="n">fig</span></div>
+        <span class="k">return</span> <span class="n">fig</span>
 
-<div class="viewcode-block" id="DynamicFactorResults.get_prediction"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.dynamic_factor.DynamicFactorResults.get_prediction.html#statsmodels.tsa.statespace.dynamic_factor.DynamicFactorResults.get_prediction">[docs]</a>    <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        In-sample prediction and out-of-sample forecasting</span>
@@ -1566,7 +1566,7 @@
 
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">DynamicFactorResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span>
             <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="n">dynamic</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">separate_params</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

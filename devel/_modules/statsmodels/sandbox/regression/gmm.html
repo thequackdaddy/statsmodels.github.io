@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.regression.gmm </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -495,7 +495,7 @@
             <span class="k">return</span> <span class="n">fval</span>
 
 
-<div class="viewcode-block" id="IVRegressionResults.spec_hausman"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.regression.gmm.IVRegressionResults.spec_hausman.html#statsmodels.sandbox.regression.gmm.IVRegressionResults.spec_hausman">[docs]</a>    <span class="k">def</span> <span class="nf">spec_hausman</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dof</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">spec_hausman</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dof</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">'''Hausman's specification test</span>
 
 <span class="sd">        See Also</span>
@@ -524,11 +524,11 @@
         <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">params_diff</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">cov_diffpinv</span><span class="p">,</span> <span class="n">params_diff</span><span class="p">))</span><span class="o">/</span><span class="n">se2</span>
         <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">pval</span><span class="p">,</span> <span class="n">dof</span></div>
+        <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">pval</span><span class="p">,</span> <span class="n">dof</span>
 
 
 <span class="c1"># copied from regression results with small changes, no llf</span>
-<div class="viewcode-block" id="IVRegressionResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.regression.gmm.IVRegressionResults.summary.html#statsmodels.sandbox.regression.gmm.IVRegressionResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""Summarize the Regression Results</span>
 
 <span class="sd">        Parameters</span>
@@ -634,7 +634,7 @@
 
 
 
-        <span class="k">return</span> <span class="n">smry</span></div></div>
+        <span class="k">return</span> <span class="n">smry</span></div>
 
 
 

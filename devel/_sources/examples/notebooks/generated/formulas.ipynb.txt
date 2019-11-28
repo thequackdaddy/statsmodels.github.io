@@ -280,7 +280,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.287\n",
       "Method:                 Least Squares   F-statistic:                     6.636\n",
       "Date:                Thu, 28 Nov 2019   Prob (F-statistic):           1.07e-05\n",
-      "Time:                        12:25:33   Log-Likelihood:                -375.30\n",
+      "Time:                        15:43:40   Log-Likelihood:                -375.30\n",
       "No. Observations:                  85   AIC:                             764.6\n",
       "Df Residuals:                      78   BIC:                             781.7\n",
       "Df Model:                           6                                         \n",
@@ -543,7 +543,14 @@
       " [1.000e+00 5.100e+01 2.200e+01 1.122e+03]\n",
       " [1.000e+00 1.300e+01 6.100e+01 7.930e+02]\n",
       " [1.000e+00 4.600e+01 7.600e+01 3.496e+03]\n",
-      " [1.000e+00 6.900e+01 8.300e+01 5.727e+03]]\n"
+      " [1.000e+00 6.900e+01 8.300e+01 5.727e+03]]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n"
      ]
     }
    ],
@@ -578,7 +585,13 @@
       "1     38.0\n",
       "2     66.0\n",
       "3     80.0\n",
-      "4     79.0\n",
+      "4     79.0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "   Intercept  Literacy  Wealth  Literacy:Wealth\n",
       "0        1.0      37.0    73.0           2701.0\n",
       "1        1.0      51.0    22.0           1122.0\n",
@@ -612,7 +625,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.283\n",
       "Method:                 Least Squares   F-statistic:                     12.06\n",
       "Date:                Thu, 28 Nov 2019   Prob (F-statistic):           1.32e-06\n",
-      "Time:                        12:25:33   Log-Likelihood:                -377.13\n",
+      "Time:                        15:43:41   Log-Likelihood:                -377.13\n",
       "No. Observations:                  85   AIC:                             762.3\n",
       "Df Residuals:                      81   BIC:                             772.0\n",
       "Df Model:                           3                                         \n",

@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.cov_struct </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1207,7 +1207,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">endog_type</span> <span class="o">=</span> <span class="n">endog_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="mf">0.</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.initialize"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.initialize.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">(</span><span class="n">GlobalOddsRatio</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
@@ -1239,9 +1239,9 @@
         <span class="c1"># Initialize the dependence parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crude_or</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">observed_crude_oddsratio</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_dep</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crude_or</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crude_or</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.pooled_odds_ratio"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.pooled_odds_ratio.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.pooled_odds_ratio">[docs]</a>    <span class="k">def</span> <span class="nf">pooled_odds_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">pooled_odds_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the pooled odds ratio for a list of 2x2 tables.</span>
 
@@ -1266,7 +1266,7 @@
         <span class="n">wts</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="o">/</span> <span class="n">wtsum</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wts</span><span class="p">]</span>
         <span class="n">log_pooled_or</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">w</span> <span class="o">*</span> <span class="n">e</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">wts</span><span class="p">,</span> <span class="n">log_oddsratio</span><span class="p">)])</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_pooled_or</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_pooled_or</span><span class="p">)</span>
 
 <div class="viewcode-block" id="GlobalOddsRatio.covariance_matrix"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.covariance_matrix.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.covariance_matrix">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">covariance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_value</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
@@ -1275,7 +1275,7 @@
         <span class="n">vmat</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">expected_value</span><span class="p">,</span> <span class="n">expected_value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">vmat</span><span class="p">,</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="GlobalOddsRatio.observed_crude_oddsratio"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.observed_crude_oddsratio.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.observed_crude_oddsratio">[docs]</a>    <span class="k">def</span> <span class="nf">observed_crude_oddsratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">observed_crude_oddsratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        To obtain the crude (global) odds ratio, first pool all binary</span>
 <span class="sd">        indicators corresponding to a given pair of cut points (c,c'),</span>
@@ -1311,9 +1311,9 @@
                 <span class="n">tables</span><span class="p">[</span><span class="n">ky</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">endog_01</span><span class="p">[</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ix</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
                 <span class="n">tables</span><span class="p">[</span><span class="n">ky</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">endog_00</span><span class="p">[</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ix</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pooled_odds_ratio</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itervalues</span><span class="p">(</span><span class="n">tables</span><span class="p">)))</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pooled_odds_ratio</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itervalues</span><span class="p">(</span><span class="n">tables</span><span class="p">)))</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.get_eyy"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.get_eyy.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.get_eyy">[docs]</a>    <span class="k">def</span> <span class="nf">get_eyy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog_expval</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_eyy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog_expval</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a matrix V such that V[i,j] is the joint probability</span>
 <span class="sd">        that endog[i] = 1 and endog[j] = 1, based on the marginal</span>
@@ -1343,9 +1343,9 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">vmat</span><span class="p">[</span><span class="n">bdl</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">bdl</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bdl</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">bdl</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">evy</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">vmat</span></div>
+        <span class="k">return</span> <span class="n">vmat</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.update"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.update.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.update">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Update the global odds ratio based on the current value of</span>
@@ -1387,10 +1387,10 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="mf">1.</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">"dep_params became inf, resetting to 1"</span><span class="p">,</span>
-                          <span class="n">ConvergenceWarning</span><span class="p">)</span></div>
+                          <span class="n">ConvergenceWarning</span><span class="p">)</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.summary.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div>
 
 
 <span class="k">class</span> <span class="nc">OrdinalIndependence</span><span class="p">(</span><span class="n">CategoricalCovStruct</span><span class="p">):</span>

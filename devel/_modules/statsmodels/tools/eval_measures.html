@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+621)</span>
           <span class="md-header-nav__topic"> statsmodels.tools.eval_measures </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+621)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -430,7 +430,7 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="bias"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.bias.html#statsmodels.tools.eval_measures.bias">[docs]</a><span class="k">def</span> <span class="nf">bias</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">bias</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">"""bias, mean error</span>
 
 <span class="sd">    Parameters</span>
@@ -455,7 +455,7 @@
 <span class="sd">    """</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="medianbias"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.medianbias.html#statsmodels.tools.eval_measures.medianbias">[docs]</a><span class="k">def</span> <span class="nf">medianbias</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -589,7 +589,7 @@
 <span class="c1"># Information Criteria</span>
 <span class="c1"># ---------------------</span>
 
-<div class="viewcode-block" id="aic"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.aic.html#statsmodels.tools.eval_measures.aic">[docs]</a><span class="k">def</span> <span class="nf">aic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">aic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
     <span class="sd">"""Akaike information criterion</span>
 
 <span class="sd">    Parameters</span>
@@ -611,10 +611,10 @@
 <span class="sd">    https://en.wikipedia.org/wiki/Akaike_information_criterion</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">df_modelwc</span></div>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">df_modelwc</span>
 
 
-<div class="viewcode-block" id="aicc"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.aicc.html#statsmodels.tools.eval_measures.aicc">[docs]</a><span class="k">def</span> <span class="nf">aicc</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">aicc</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
     <span class="sd">"""Akaike information criterion (AIC) with small sample correction</span>
 
 <span class="sd">    Parameters</span>
@@ -636,10 +636,10 @@
 <span class="sd">    https://en.wikipedia.org/wiki/Akaike_information_criterion#AICc</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">df_modelwc</span> <span class="o">*</span> <span class="n">nobs</span> <span class="o">/</span> <span class="p">(</span><span class="n">nobs</span> <span class="o">-</span> <span class="n">df_modelwc</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">df_modelwc</span> <span class="o">*</span> <span class="n">nobs</span> <span class="o">/</span> <span class="p">(</span><span class="n">nobs</span> <span class="o">-</span> <span class="n">df_modelwc</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="bic"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.bic.html#statsmodels.tools.eval_measures.bic">[docs]</a><span class="k">def</span> <span class="nf">bic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">bic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
     <span class="sd">"""Bayesian information criterion (BIC) or Schwarz criterion</span>
 
 <span class="sd">    Parameters</span>
@@ -661,10 +661,10 @@
 <span class="sd">    https://en.wikipedia.org/wiki/Bayesian_information_criterion</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nobs</span><span class="p">)</span> <span class="o">*</span> <span class="n">df_modelwc</span></div>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nobs</span><span class="p">)</span> <span class="o">*</span> <span class="n">df_modelwc</span>
 
 
-<div class="viewcode-block" id="hqic"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.hqic.html#statsmodels.tools.eval_measures.hqic">[docs]</a><span class="k">def</span> <span class="nf">hqic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">hqic</span><span class="p">(</span><span class="n">llf</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">):</span>
     <span class="sd">"""Hannan-Quinn information criterion (HQC)</span>
 
 <span class="sd">    Parameters</span>
@@ -686,12 +686,12 @@
 <span class="sd">    Wikipedia does not say much</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nobs</span><span class="p">))</span> <span class="o">*</span> <span class="n">df_modelwc</span></div>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">llf</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nobs</span><span class="p">))</span> <span class="o">*</span> <span class="n">df_modelwc</span>
 
 
 <span class="c1"># IC based on residual sigma</span>
 
-<div class="viewcode-block" id="aic_sigma"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.aic_sigma.html#statsmodels.tools.eval_measures.aic_sigma">[docs]</a><span class="k">def</span> <span class="nf">aic_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">aic_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">"""Akaike information criterion</span>
 
 <span class="sd">    Parameters</span>
@@ -745,10 +745,10 @@
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">islog</span><span class="p">:</span>
         <span class="n">sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">aic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span></div>
+    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">aic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span>
 
 
-<div class="viewcode-block" id="aicc_sigma"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.aicc_sigma.html#statsmodels.tools.eval_measures.aicc_sigma">[docs]</a><span class="k">def</span> <span class="nf">aicc_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">aicc_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""Akaike information criterion (AIC) with small sample correction</span>
 
 <span class="sd">    Parameters</span>
@@ -780,10 +780,10 @@
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">islog</span><span class="p">:</span>
         <span class="n">sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">aicc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span></div>
+    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">aicc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span>
 
 
-<div class="viewcode-block" id="bic_sigma"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.bic_sigma.html#statsmodels.tools.eval_measures.bic_sigma">[docs]</a><span class="k">def</span> <span class="nf">bic_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">bic_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""Bayesian information criterion (BIC) or Schwarz criterion</span>
 
 <span class="sd">    Parameters</span>
@@ -815,7 +815,7 @@
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">islog</span><span class="p">:</span>
         <span class="n">sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">bic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span></div>
+    <span class="k">return</span> <span class="n">sigma2</span> <span class="o">+</span> <span class="n">bic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span>
 
 
 <div class="viewcode-block" id="hqic_sigma"><a class="viewcode-back" href="../../../generated/statsmodels.tools.eval_measures.hqic_sigma.html#statsmodels.tools.eval_measures.hqic_sigma">[docs]</a><span class="k">def</span> <span class="nf">hqic_sigma</span><span class="p">(</span><span class="n">sigma2</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">df_modelwc</span><span class="p">,</span> <span class="n">islog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
