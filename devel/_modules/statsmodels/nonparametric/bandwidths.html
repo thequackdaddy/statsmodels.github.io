@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+612)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
           <span class="md-header-nav__topic"> statsmodels.nonparametric.bandwidths </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+612)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -446,11 +446,13 @@
     <span class="n">bw</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">bw</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bandwidth_funcs</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bandwidth </span><span class="si">%s</span><span class="s2"> not understood"</span> <span class="o">%</span> <span class="n">bw</span><span class="p">)</span>
-<span class="c1">#TODO: uncomment checks when we have non-rule of thumb bandwidths for diff. kernels</span>
-<span class="c1">#    if kernel == "gauss":</span>
-    <span class="k">return</span> <span class="n">bandwidth_funcs</span><span class="p">[</span><span class="n">bw</span><span class="p">](</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span></div>
-<span class="c1">#    else:</span>
-<span class="c1">#        raise ValueError("Only Gaussian Kernels are currently supported")</span>
+    <span class="n">bandwidth</span> <span class="o">=</span> <span class="n">bandwidth_funcs</span><span class="p">[</span><span class="n">bw</span><span class="p">](</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">bandwidth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># eventually this can fall back on another selection criterion.</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="s2">"Selected KDE bandwidth is 0. Cannot estiamte density."</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bandwidth</span></div>
 </pre></div>
 
           </article>

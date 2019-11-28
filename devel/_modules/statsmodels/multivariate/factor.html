@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+612)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+619)</span>
           <span class="md-header-nav__topic"> statsmodels.multivariate.factor </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+612)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+619)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -328,7 +328,7 @@
                          <span class="s1">'(rows </span><span class="si">%d</span><span class="s1"> != cols </span><span class="si">%d</span><span class="s1">)'</span> <span class="o">%</span> <span class="n">corr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">Factor</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor"><a class="viewcode-back" href="../../../generated/statsmodels.multivariate.factor.Factor.html#statsmodels.multivariate.factor.Factor">[docs]</a><span class="k">class</span> <span class="nc">Factor</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Factor analysis</span>
 
@@ -762,10 +762,10 @@
         <span class="n">cm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">load</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">load</span> <span class="o">/</span> <span class="n">uniq</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">/</span> <span class="n">nobs</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
         <span class="n">load</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">load</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">load</span>
+        <span class="k">return</span> <span class="n">load</span></div>
 
 
-<div class="viewcode-block" id="FactorResults"><a class="viewcode-back" href="../../../generated/statsmodels.multivariate.factor.FactorResults.html#statsmodels.multivariate.factor.FactorResults">[docs]</a><span class="k">class</span> <span class="nc">FactorResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">FactorResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Factor results class</span>
 
@@ -1311,7 +1311,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
         <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uniqueness</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loadings</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span>
 </pre></div>
 
           </article>

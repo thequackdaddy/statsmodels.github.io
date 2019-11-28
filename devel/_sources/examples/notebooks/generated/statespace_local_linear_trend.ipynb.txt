@@ -186,7 +186,7 @@
       "Dep. Variable:                    lff   No. Observations:                   34\n",
       "Model:               LocalLinearTrend   Log Likelihood                  27.510\n",
       "Date:                Thu, 28 Nov 2019   AIC                            -49.020\n",
-      "Time:                        09:02:26   BIC                            -44.623\n",
+      "Time:                        12:25:39   BIC                            -44.623\n",
       "Sample:                    01-01-1970   HQIC                           -47.563\n",
       "                         - 01-01-2003                                         \n",
       "Covariance Type:                  opg                                         \n",
