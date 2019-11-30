@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+623)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+624)</span>
           <span class="md-header-nav__topic"> Rolling Regression </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+623)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+624)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -739,15 +739,6 @@ Date
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
-  return ptp(axis=axis, out=out, **kwargs)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
          const  Mkt-RF
@@ -764,6 +755,15 @@ Date
 2019-07  0.407324  1.110808
 2019-08  0.408477  1.116786
 2019-09  0.381874  1.117752
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+  return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
 </div>
 <p>We next plot the market loading along with a 95% point-wise confidence interval. The <code class="docutils literal notranslate"><span class="pre">alpha=False</span></code> omits the constant column, if present.</p>
@@ -859,8 +859,8 @@ Date
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-272 ms ± 13.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-53.4 ms ± 1.36 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+261 ms ± 2.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+51.6 ms ± 184 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 
@@ -913,7 +913,7 @@ Date
               
           </div>
             Last updated on
-              Nov 29, 2019.
+              Nov 30, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

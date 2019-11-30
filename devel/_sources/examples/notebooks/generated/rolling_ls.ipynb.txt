@@ -125,14 +125,6 @@
    },
    "outputs": [
     {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.\n",
-      "  return ptp(axis=axis, out=out, **kwargs)\n"
-     ]
-    },
-    {
      "name": "stdout",
      "output_type": "stream",
      "text": [
@@ -150,6 +142,14 @@
       "2019-07  0.407324  1.110808\n",
       "2019-08  0.408477  1.116786\n",
       "2019-09  0.381874  1.117752\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.\n",
+      "  return ptp(axis=axis, out=out, **kwargs)\n"
      ]
     }
    ],
@@ -313,14 +313,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "272 ms ± 13.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n"
+      "261 ms ± 2.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "53.4 ms ± 1.36 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+      "51.6 ms ± 184 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
      ]
     }
    ],
