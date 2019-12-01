@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+624)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
           <span class="md-header-nav__topic"> Rolling Regression </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+624)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -739,6 +739,15 @@ Date
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+  return ptp(axis=axis, out=out, **kwargs)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
          const  Mkt-RF
@@ -750,20 +759,11 @@ Date
 1926-11    NaN     NaN
             const    Mkt-RF
 Date
-2019-05  0.421958  1.104186
 2019-06  0.422862  1.101891
 2019-07  0.407324  1.110808
 2019-08  0.408477  1.116786
 2019-09  0.381874  1.117752
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
-  return ptp(axis=axis, out=out, **kwargs)
+2019-10  0.417572  1.122855
 </pre></div></div>
 </div>
 <p>We next plot the market loading along with a 95% point-wise confidence interval. The <code class="docutils literal notranslate"><span class="pre">alpha=False</span></code> omits the constant column, if present.</p>
@@ -827,11 +827,11 @@ Date
 <div class="highlight"><pre>
          Intercept    Mkt_RF       SMB       HML
 Date
-2019-05   0.272077  1.130398 -0.187002 -0.413320
 2019-06   0.266000  1.125214 -0.185912 -0.412686
 2019-07   0.263789  1.130699 -0.179602 -0.412318
 2019-08   0.241410  1.145853 -0.173493 -0.380134
-2019-09   0.283582  1.148374 -0.186205 -0.350745
+2019-09   0.283362  1.148361 -0.186190 -0.350970
+2019-10   0.312366  1.148031 -0.163546 -0.359405
 </pre></div></div>
 </div>
 
@@ -859,8 +859,8 @@ Date
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-261 ms ± 2.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-51.6 ms ± 184 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+265 ms ± 15.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+51.3 ms ± 242 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 
@@ -913,7 +913,7 @@ Date
               
           </div>
             Last updated on
-              Nov 30, 2019.
+              Dec 01, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
