@@ -71,7 +71,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="statsmodels.tsa.ar_model.ARResults.conf_int" href="generated/statsmodels.tsa.ar_model.ARResults.conf_int.html" />
-    <link rel="prev" title="statsmodels.tsa.ar_model.AR.exog_names" href="generated/statsmodels.tsa.ar_model.AR.exog_names.html" />
+    <link rel="prev" title="statsmodels.tsa.ar_model.AutoReg.seasonal" href="generated/statsmodels.tsa.ar_model.AutoReg.seasonal.html" />
   
    
 
@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model.ARResults </span>
         </div>
       </div>
@@ -190,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -340,9 +340,9 @@
 <dd class="field-odd"><dl>
 <dt><strong>model</strong><span class="classifier"><a class="reference internal" href="statsmodels.tsa.ar_model.AR.html#statsmodels.tsa.ar_model.AR" title="statsmodels.tsa.ar_model.AR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AR</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">instance</span></code></span></dt><dd><p>Reference to the model that is fit.</p>
 </dd>
-<dt><strong>params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The fitted parameters from the AR Model.</p>
+<dt><strong>params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The fitted parameters from the AR Model.</p>
 </dd>
-<dt><strong>normalized_cov_params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The array inv(dot(x.T,x)) where x contains the regressors in the
+<dt><strong>normalized_cov_params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The array inv(dot(x.T,x)) where x contains the regressors in the
 model.</p>
 </dd>
 <dt><strong>scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>An estimate of the scale of the model.</p>
@@ -363,7 +363,7 @@ model.</p>
 </dd>
 <dt><strong>n_totobs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The number of total observations in <cite>endog</cite>. Sometimes <cite>n</cite> in the docs.</p>
 </dd>
-<dt><strong>params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The fitted parameters of the model.</p>
+<dt><strong>params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The fitted parameters of the model.</p>
 </dd>
 <dt><strong>scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>Same as sigma2</p>
 </dd>
@@ -493,7 +493,7 @@ model.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="generated/statsmodels.tsa.ar_model.AR.exog_names.html" title="Material"
+            <a href="generated/statsmodels.tsa.ar_model.AutoReg.seasonal.html" title="Material"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -502,7 +502,7 @@ model.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> statsmodels.tsa.ar_model.AR.exog_names </span>
+                      class="md-footer-nav__direction"> Previous </span> statsmodels.tsa.ar_model.AutoReg.seasonal </span>
               </div>
             </a>
           
@@ -530,7 +530,7 @@ model.</p>
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

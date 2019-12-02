@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> statsmodels.emplike.descriptive </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -916,7 +916,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span></div>
 
-<div class="viewcode-block" id="DescStatUV.ci_var"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.ci_var.html#statsmodels.emplike.descriptive.DescStatUV.ci_var">[docs]</a>    <span class="k">def</span> <span class="nf">ci_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sig</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">ci_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sig</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the confidence interval for the variance.</span>
 
@@ -969,9 +969,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">r0</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">llim</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ci_limits_var</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">endog</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
         <span class="n">ulim</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ci_limits_var</span><span class="p">,</span> <span class="n">endog</span><span class="o">.</span><span class="n">var</span><span class="p">(),</span> <span class="n">upper_bound</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">llim</span><span class="p">,</span> <span class="n">ulim</span></div>
+        <span class="k">return</span> <span class="n">llim</span><span class="p">,</span> <span class="n">ulim</span>
 
-<div class="viewcode-block" id="DescStatUV.plot_contour"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.plot_contour.html#statsmodels.emplike.descriptive.DescStatUV.plot_contour">[docs]</a>    <span class="k">def</span> <span class="nf">plot_contour</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu_low</span><span class="p">,</span> <span class="n">mu_high</span><span class="p">,</span> <span class="n">var_low</span><span class="p">,</span> <span class="n">var_high</span><span class="p">,</span> <span class="n">mu_step</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">plot_contour</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu_low</span><span class="p">,</span> <span class="n">mu_high</span><span class="p">,</span> <span class="n">var_low</span><span class="p">,</span> <span class="n">var_high</span><span class="p">,</span> <span class="n">mu_step</span><span class="p">,</span>
                         <span class="n">var_step</span><span class="p">,</span>
                         <span class="n">levs</span><span class="o">=</span><span class="p">[</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">001</span><span class="p">]):</span>
         <span class="sd">"""</span>
@@ -1019,7 +1019,7 @@
                 <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_opt_var</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">pval</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_vect</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu_vect</span><span class="p">))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">mu_vect</span><span class="p">,</span> <span class="n">var_vect</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fig</span></div>
+        <span class="k">return</span> <span class="n">fig</span>
 
 <div class="viewcode-block" id="DescStatUV.test_skew"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.test_skew.html#statsmodels.emplike.descriptive.DescStatUV.test_skew">[docs]</a>    <span class="k">def</span> <span class="nf">test_skew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skew0</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1051,7 +1051,7 @@
             <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">new_weights</span><span class="o">.</span><span class="n">T</span>
         <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span></div>
 
-<div class="viewcode-block" id="DescStatUV.test_kurt"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.test_kurt.html#statsmodels.emplike.descriptive.DescStatUV.test_kurt">[docs]</a>    <span class="k">def</span> <span class="nf">test_kurt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kurt0</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_kurt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kurt0</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns -2 x log-likelihood and the p-value for the hypothesized</span>
 <span class="sd">        kurtosis.</span>
@@ -1079,9 +1079,9 @@
         <span class="n">p_val</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">llr</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">return_weights</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_weights</span><span class="o">.</span><span class="n">T</span>
-        <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span></div>
+        <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span>
 
-<div class="viewcode-block" id="DescStatUV.test_joint_skew_kurt"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.test_joint_skew_kurt.html#statsmodels.emplike.descriptive.DescStatUV.test_joint_skew_kurt">[docs]</a>    <span class="k">def</span> <span class="nf">test_joint_skew_kurt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skew0</span><span class="p">,</span> <span class="n">kurt0</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_joint_skew_kurt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skew0</span><span class="p">,</span> <span class="n">kurt0</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns - 2 x log-likelihood and the p-value for the joint</span>
 <span class="sd">        hypothesis test for skewness and kurtosis</span>
@@ -1112,9 +1112,9 @@
         <span class="n">p_val</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">llr</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">return_weights</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_weights</span><span class="o">.</span><span class="n">T</span>
-        <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span></div>
+        <span class="k">return</span> <span class="n">llr</span><span class="p">,</span> <span class="n">p_val</span>
 
-<div class="viewcode-block" id="DescStatUV.ci_skew"><a class="viewcode-back" href="../../../generated/generated/statsmodels.emplike.descriptive.DescStatUV.ci_skew.html#statsmodels.emplike.descriptive.DescStatUV.ci_skew">[docs]</a>    <span class="k">def</span> <span class="nf">ci_skew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">ci_skew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the confidence interval for skewness.</span>
 
@@ -1156,7 +1156,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">r0</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">llim</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ci_limits_skew</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">skew</span><span class="p">(</span><span class="n">endog</span><span class="p">))</span>
         <span class="n">ulim</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ci_limits_skew</span><span class="p">,</span> <span class="n">skew</span><span class="p">(</span><span class="n">endog</span><span class="p">),</span> <span class="n">upper_bound</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">llim</span><span class="p">,</span> <span class="n">ulim</span></div>
+        <span class="k">return</span> <span class="n">llim</span><span class="p">,</span> <span class="n">ulim</span>
 
     <span class="k">def</span> <span class="nf">ci_kurt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1447,7 +1447,7 @@
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

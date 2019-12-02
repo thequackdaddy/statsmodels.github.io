@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.arima_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -300,7 +300,7 @@
 <span class="kn">from</span> <span class="nn">statsmodels.tools.numdiff</span> <span class="kn">import</span> <span class="n">approx_hess_cs</span><span class="p">,</span> <span class="n">approx_fprime_cs</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">SpecificationWarning</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="n">array_like</span><span class="p">,</span> <span class="n">string_like</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.ar_model</span> <span class="kn">import</span> <span class="n">AR</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.ar_model</span> <span class="kn">import</span> <span class="n">AutoReg</span><span class="p">,</span> <span class="n">ar_select_order</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_process</span> <span class="kn">import</span> <span class="n">arma2ma</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.base</span> <span class="kn">import</span> <span class="n">tsa_model</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.kalmanf</span> <span class="kn">import</span> <span class="n">KalmanFilter</span>
@@ -787,13 +787,14 @@
                     <span class="n">maxlag</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="p">(</span><span class="n">nobs</span> <span class="o">/</span> <span class="mf">100.</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">)))</span>
                     <span class="k">if</span> <span class="n">maxlag</span> <span class="o">&gt;=</span> <span class="n">nobs</span><span class="p">:</span>
                         <span class="n">maxlag</span> <span class="o">=</span> <span class="n">nobs</span> <span class="o">-</span> <span class="mi">1</span>
-                    <span class="n">armod</span> <span class="o">=</span> <span class="n">AR</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ic</span><span class="o">=</span><span class="s1">'bic'</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'nc'</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="n">maxlag</span><span class="p">)</span>
+                    <span class="n">mod</span> <span class="o">=</span> <span class="n">ar_select_order</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">maxlag</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)</span><span class="o">.</span><span class="n">model</span>
+                    <span class="n">armod</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">start_ar_lags</span> <span class="o">&gt;=</span> <span class="n">nobs</span><span class="p">:</span>
                         <span class="n">start_ar_lags</span> <span class="o">=</span> <span class="n">nobs</span> <span class="o">-</span> <span class="mi">1</span>
-                    <span class="n">armod</span> <span class="o">=</span> <span class="n">AR</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trend</span><span class="o">=</span><span class="s1">'nc'</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="n">start_ar_lags</span><span class="p">)</span>
+                    <span class="n">armod</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">start_ar_lags</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
                 <span class="n">arcoefs_tmp</span> <span class="o">=</span> <span class="n">armod</span><span class="o">.</span><span class="n">params</span>
-                <span class="n">p_tmp</span> <span class="o">=</span> <span class="n">armod</span><span class="o">.</span><span class="n">k_ar</span>
+                <span class="n">p_tmp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">armod</span><span class="o">.</span><span class="n">ar_lags</span><span class="p">)</span>
                 <span class="c1"># it's possible in small samples that optimal lag-order</span>
                 <span class="c1"># does not leave enough obs. No consistent way to fix.</span>
                 <span class="k">if</span> <span class="n">p_tmp</span> <span class="o">+</span> <span class="n">q</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">endog</span><span class="p">):</span>
@@ -1806,11 +1807,11 @@
     <span class="k">def</span> <span class="nf">resid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">geterrors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_arma_results_predict</span><span class="p">)</span>
+<div class="viewcode-block" id="ARMAResults.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.arima_model.ARMAResults.predict.html#statsmodels.tsa.arima_model.ARMAResults.predict">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_arma_results_predict</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">dynamic</span><span class="p">,</span>
-                                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_forecast_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
         <span class="n">sigma2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma2</span>
@@ -1887,7 +1888,7 @@
 
         <span class="k">return</span> <span class="n">forecast</span><span class="p">,</span> <span class="n">fcasterr</span><span class="p">,</span> <span class="n">conf_int</span>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+<div class="viewcode-block" id="ARMAResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.arima_model.ARMAResults.summary.html#statsmodels.tsa.arima_model.ARMAResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""Summarize the Model</span>
 
 <span class="sd">        Parameters</span>
@@ -1985,9 +1986,9 @@
                                       <span class="n">stubs</span><span class="o">=</span><span class="n">stubs</span><span class="p">)</span>
 
             <span class="n">smry</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roots_table</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">smry</span>
+        <span class="k">return</span> <span class="n">smry</span></div>
 
-    <span class="k">def</span> <span class="nf">summary2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">"</span><span class="si">%.4f</span><span class="s2">"</span><span class="p">):</span>
+<div class="viewcode-block" id="ARMAResults.summary2"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.arima_model.ARMAResults.summary2.html#statsmodels.tsa.arima_model.ARMAResults.summary2">[docs]</a>    <span class="k">def</span> <span class="nf">summary2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">"</span><span class="si">%.4f</span><span class="s2">"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Experimental summary function for ARIMA Results</span>
 
@@ -2077,9 +2078,9 @@
             <span class="n">smry</span><span class="o">.</span><span class="n">add_df</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">"</span><span class="si">%17.4f</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">smry</span><span class="o">.</span><span class="n">add_title</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">smry</span>
+        <span class="k">return</span> <span class="n">smry</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_predict</span><span class="p">)</span>
+<div class="viewcode-block" id="ARMAResults.plot_predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.arima_model.ARMAResults.plot_predict.html#statsmodels.tsa.arima_model.ARMAResults.plot_predict">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_predict</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">plot_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                      <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">plot_insample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_ax</span>
@@ -2117,7 +2118,7 @@
 
         <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fig</span></div>
+        <span class="k">return</span> <span class="n">fig</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">ARMAResultsWrapper</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">ResultsWrapper</span><span class="p">):</span>
@@ -2288,7 +2289,7 @@
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

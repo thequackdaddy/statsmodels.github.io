@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> Time Series analysis tsa </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -545,8 +545,17 @@ statsmodels.tsa.api and their result classes</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AR.html#statsmodels.tsa.ar_model.AR" title="statsmodels.tsa.ar_model.AR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AR</span></code></a>(endog[, dates, freq, missing])</p></td>
 <td><p>Autoregressive AR(p) model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.ARResults.html#statsmodels.tsa.ar_model.ARResults" title="statsmodels.tsa.ar_model.ARResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.ARResults</span></code></a>(model, params[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AutoReg.html#statsmodels.tsa.ar_model.AutoReg" title="statsmodels.tsa.ar_model.AutoReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AutoReg</span></code></a>(endog, lags[, trend, …])</p></td>
+<td><p>Autoregressive AR-X(p) model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.ARResults.html#statsmodels.tsa.ar_model.ARResults" title="statsmodels.tsa.ar_model.ARResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.ARResults</span></code></a>(model, params[, …])</p></td>
 <td><p>Class to hold results from fitting an AR model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AutoRegResults.html#statsmodels.tsa.ar_model.AutoRegResults" title="statsmodels.tsa.ar_model.AutoRegResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AutoRegResults</span></code></a>(model, params, …)</p></td>
+<td><p>Class to hold results from fitting an AutoReg model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.ar_select_order.html#statsmodels.tsa.ar_model.ar_select_order" title="statsmodels.tsa.ar_model.ar_select_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.ar_select_order</span></code></a>(endog, maxlag[, …])</p></td>
+<td><p>Autoregressive AR-X(p) model order selection.</p></td>
 </tr>
 </tbody>
 </table>
@@ -917,7 +926,7 @@ process for given lag-polynomials.</p>
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

@@ -90,7 +90,34 @@
    "metadata": {
     "collapsed": false
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/ar_model.py:691: FutureWarning: \n",
+      "statsmodels.tsa.AR has been deprecated in favor of statsmodels.tsa.AutoReg and\n",
+      "statsmodels.tsa.SARIMAX.\n",
+      "\n",
+      "AutoReg adds the ability to specify exogenous variables, include time trends,\n",
+      "and add seasonal dummies. The AutoReg API differs from AR since the model is\n",
+      "treated as immutable, and so the entire specification including the lag\n",
+      "length must be specified when creating the model. This change is too\n",
+      "substantial to incorporate into the existing AR api. The function\n",
+      "ar_select_order performs lag length selection for AutoReg models.\n",
+      "\n",
+      "AutoReg only estimates parameters using conditional MLE (OLS). Use SARIMAX to\n",
+      "estimate ARX and related models using full MLE via the Kalman Filter.\n",
+      "\n",
+      "To silence this warning and continue using AR until it is removed, use:\n",
+      "\n",
+      "import warnings\n",
+      "warnings.filterwarnings('ignore', 'statsmodels.tsa.ar_model.AR', FutureWarning)\n",
+      "\n",
+      "  warnings.warn(AR_DEPRECATION_WARN, FutureWarning)\n"
+     ]
+    }
+   ],
    "source": [
     "ar_model = sm.tsa.AR(endog, freq='A')\n",
     "pandas_ar_res = ar_model.fit(maxlag=9, method='mle', disp=-1)"

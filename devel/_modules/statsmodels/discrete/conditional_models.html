@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> statsmodels.discrete.conditional_models </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -488,7 +488,7 @@
         <span class="k">return</span> <span class="n">model</span>
 
 
-<span class="k">class</span> <span class="nc">ConditionalLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<div class="viewcode-block" id="ConditionalLogit"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalLogit.html#statsmodels.discrete.conditional_models.ConditionalLogit">[docs]</a><span class="k">class</span> <span class="nc">ConditionalLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional logistic regression model to grouped data.</span>
 
@@ -623,10 +623,10 @@
             <span class="n">ofs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_grp</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span>
 
         <span class="n">d</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_denom_grad</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">ofs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xy</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="n">d</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xy</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="n">d</span></div></div>
 
 
-<span class="k">class</span> <span class="nc">ConditionalPoisson</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<div class="viewcode-block" id="ConditionalPoisson"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalPoisson.html#statsmodels.discrete.conditional_models.ConditionalPoisson">[docs]</a><span class="k">class</span> <span class="nc">ConditionalPoisson</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional Poisson regression model to grouped data.</span>
 
@@ -686,7 +686,7 @@
             <span class="n">score</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
             <span class="n">score</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sumy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exb</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>
 
-        <span class="k">return</span> <span class="n">score</span></div>
+        <span class="k">return</span> <span class="n">score</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">ConditionalResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
@@ -762,7 +762,7 @@
 
         <span class="k">return</span> <span class="n">smry</span>
 
-<span class="k">class</span> <span class="nc">ConditionalMNLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<div class="viewcode-block" id="ConditionalMNLogit"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalMNLogit.html#statsmodels.discrete.conditional_models.ConditionalMNLogit">[docs]</a><span class="k">class</span> <span class="nc">ConditionalMNLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional multinomial logit model to grouped data.</span>
 
@@ -901,7 +901,7 @@
 
             <span class="n">grad</span> <span class="o">-=</span> <span class="n">denomg</span> <span class="o">/</span> <span class="n">denom</span>
 
-        <span class="k">return</span> <span class="n">grad</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="n">grad</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span></div></div>
 
 
 
@@ -934,7 +934,7 @@
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.

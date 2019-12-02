@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+626)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.diagnostic </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+626)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -596,7 +596,8 @@
 
 
 <span class="k">def</span> <span class="nf">acorr_lm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">'AIC'</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regresults</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">'''Lagrange Multiplier tests for autocorrelation</span>
+    <span class="sd">"""</span>
+<span class="sd">    Lagrange Multiplier tests for autocorrelation</span>
 
 <span class="sd">    This is a generic Lagrange Multiplier test for autocorrelation. I do not</span>
 <span class="sd">    have a reference for it, but it returns Engle's ARCH test if x is the</span>
@@ -634,8 +635,7 @@
 <span class="sd">    het_arch</span>
 <span class="sd">    acorr_breusch_godfrey</span>
 <span class="sd">    acorr_ljung_box</span>
-
-<span class="sd">    '''</span>
+<span class="sd">    """</span>
 
     <span class="k">if</span> <span class="n">regresults</span><span class="p">:</span>
         <span class="n">store</span> <span class="o">=</span> <span class="kc">True</span>
@@ -697,9 +697,11 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">lm</span><span class="p">,</span> <span class="n">lmpval</span><span class="p">,</span> <span class="n">fval</span><span class="p">,</span> <span class="n">fpval</span>
 
+
 <div class="viewcode-block" id="het_arch"><a class="viewcode-back" href="../../../../generated/statsmodels.stats.diagnostic.het_arch.html#statsmodels.stats.diagnostic.het_arch">[docs]</a><span class="k">def</span> <span class="nf">het_arch</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regresults</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
              <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">'''Engle's Test for Autoregressive Conditional Heteroscedasticity (ARCH)</span>
+    <span class="sd">"""</span>
+<span class="sd">    Engle's Test for Autoregressive Conditional Heteroscedasticity (ARCH).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -715,8 +717,9 @@
 <span class="sd">        Not Implemented Yet</span>
 <span class="sd">        If the residuals are from a regression, or ARMA estimation, then there</span>
 <span class="sd">        are recommendations to correct the degrees of freedom by the number</span>
-<span class="sd">        of parameters that have been estimated, for example ddof=p+a for an</span>
-<span class="sd">        ARMA(p,q) (need reference, based on discussion on R finance mailinglist)</span>
+<span class="sd">        of parameters that have been estimated, for example ddof=p+q for an</span>
+<span class="sd">        ARMA(p,q) (need reference, based on discussion on R finance</span>
+<span class="sd">        mailinglist)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -736,9 +739,7 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    verified against R:FinTS::ArchTest</span>
-
-<span class="sd">    '''</span>
-
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">acorr_lm</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="n">maxlag</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="n">autolag</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="n">store</span><span class="p">,</span>
                     <span class="n">regresults</span><span class="o">=</span><span class="n">regresults</span><span class="p">)</span></div>
 
@@ -1888,7 +1889,7 @@
               
           </div>
             Last updated on
-              Dec 01, 2019.
+              Dec 02, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
