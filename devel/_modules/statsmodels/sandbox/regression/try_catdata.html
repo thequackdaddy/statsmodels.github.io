@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+628)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+630)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.regression.try_catdata </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+628)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+630)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -309,7 +309,7 @@
 <span class="c1">#groupcount: i.e. number of observation by group/label</span>
 <span class="c1">#np.array(ndimage.histogram(yrvs[:,0],0,10,1,labels=yrvs[:,0],index=np.unique(yrvs[:,0])))</span>
 
-<div class="viewcode-block" id="labelmeanfilter_nd"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.regression.try_catdata.labelmeanfilter_nd.html#statsmodels.sandbox.regression.try_catdata.labelmeanfilter_nd">[docs]</a><span class="k">def</span> <span class="nf">labelmeanfilter_nd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">labelmeanfilter_nd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="c1"># requires integer labels</span>
     <span class="c1"># from mailing list scipy-user 2009-02-11</span>
     <span class="c1"># adjusted for 2d x with column variables</span>
@@ -328,15 +328,15 @@
 
     <span class="c1"># returns array of lable/group counts and of label/group means</span>
     <span class="c1">#         and label/group means for each original observation</span>
-    <span class="k">return</span> <span class="n">labelcount</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labmeans</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labmeansdata</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
+    <span class="k">return</span> <span class="n">labelcount</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labmeans</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labmeansdata</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
-<div class="viewcode-block" id="labelmeanfilter_str"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.regression.try_catdata.labelmeanfilter_str.html#statsmodels.sandbox.regression.try_catdata.labelmeanfilter_str">[docs]</a><span class="k">def</span> <span class="nf">labelmeanfilter_str</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">labelmeanfilter_str</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="c1"># works also for string labels in ys, but requires 1D</span>
     <span class="c1"># from mailing list scipy-user 2009-02-11</span>
     <span class="n">unil</span><span class="p">,</span> <span class="n">unilinv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">labelmeans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ndimage</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">unilinv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">unil</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
     <span class="n">arr3</span> <span class="o">=</span> <span class="n">labelmeans</span><span class="p">[</span><span class="n">unilinv</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">arr3</span></div>
+    <span class="k">return</span> <span class="n">arr3</span>
 
 <div class="viewcode-block" id="groupstatsbin"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.regression.try_catdata.groupstatsbin.html#statsmodels.sandbox.regression.try_catdata.groupstatsbin">[docs]</a><span class="k">def</span> <span class="nf">groupstatsbin</span><span class="p">(</span><span class="n">factors</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
     <span class="sd">'''uses np.bincount, assumes factors/labels are integers</span>
@@ -425,10 +425,10 @@
               
           </div>
             Last updated on
-              Dec 02, 2019.
+              Dec 03, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

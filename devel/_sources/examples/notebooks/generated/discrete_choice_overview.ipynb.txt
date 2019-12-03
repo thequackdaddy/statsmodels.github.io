@@ -187,8 +187,8 @@
       "Dep. Variable:                      y   No. Observations:                   32\n",
       "Model:                          Logit   Df Residuals:                       28\n",
       "Method:                           MLE   Df Model:                            3\n",
-      "Date:                Mon, 02 Dec 2019   Pseudo R-squ.:                  0.3740\n",
-      "Time:                        00:21:38   Log-Likelihood:                -12.890\n",
+      "Date:                Tue, 03 Dec 2019   Pseudo R-squ.:                  0.3740\n",
+      "Time:                        16:31:33   Log-Likelihood:                -12.890\n",
       "converged:                       True   LL-Null:                       -20.592\n",
       "Covariance Type:            nonrobust   LLR p-value:                  0.001502\n",
       "==============================================================================\n",
@@ -344,14 +344,7 @@
       " [ 5.19655317e-03  4.78739761e-02  5.75751595e-02  8.44983753e-02\n",
       "   8.09584122e-02  1.08894083e-01]\n",
       " [-3.73401677e-01 -2.25091318e+00 -3.66558353e+00 -7.61384309e+00\n",
-      "  -7.06047825e+00 -1.21057509e+01]]"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n"
+      "  -7.06047825e+00 -1.21057509e+01]]\n"
      ]
     }
    ],
@@ -415,8 +408,8 @@
       "Dep. Variable:                      y   No. Observations:                20190\n",
       "Model:                        Poisson   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
-      "Date:                Mon, 02 Dec 2019   Pseudo R-squ.:                 0.06343\n",
-      "Time:                        00:21:38   Log-Likelihood:                -62420.\n",
+      "Date:                Tue, 03 Dec 2019   Pseudo R-squ.:                 0.06343\n",
+      "Time:                        16:31:34   Log-Likelihood:                -62420.\n",
       "converged:                       True   LL-Null:                       -66647.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -475,8 +468,8 @@
       "Dep. Variable:                      y   No. Observations:                20190\n",
       "Model:               NegativeBinomial   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
-      "Date:                Mon, 02 Dec 2019   Pseudo R-squ.:                 0.01845\n",
-      "Time:                        00:21:39   Log-Likelihood:                -43384.\n",
+      "Date:                Tue, 03 Dec 2019   Pseudo R-squ.:                 0.01845\n",
+      "Time:                        16:31:35   Log-Likelihood:                -43384.\n",
       "converged:                      False   LL-Null:                       -44199.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -547,8 +540,8 @@
       "Dep. Variable:                      y   No. Observations:                  944\n",
       "Model:                        MNLogit   Df Residuals:                      908\n",
       "Method:                           MLE   Df Model:                           30\n",
-      "Date:                Mon, 02 Dec 2019   Pseudo R-squ.:                  0.1648\n",
-      "Time:                        00:21:41   Log-Likelihood:                -1461.9\n",
+      "Date:                Tue, 03 Dec 2019   Pseudo R-squ.:                  0.1648\n",
+      "Time:                        16:31:36   Log-Likelihood:                -1461.9\n",
       "converged:                      False   LL-Null:                       -1750.3\n",
       "Covariance Type:            nonrobust   LLR p-value:                1.827e-102\n",
       "==============================================================================\n",

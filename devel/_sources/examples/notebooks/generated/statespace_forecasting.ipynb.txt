@@ -50,7 +50,7 @@
     {
      "data": {
       "text/plain": [
-       "<matplotlib.axes._subplots.AxesSubplot at 0x7f94bb9d8790>"
+       "<matplotlib.axes._subplots.AxesSubplot at 0x7f246cf86790>"
       ]
      },
      "execution_count": 2,
@@ -104,8 +104,8 @@
       "==============================================================================\n",
       "Dep. Variable:                   infl   No. Observations:                  203\n",
       "Model:               SARIMAX(1, 0, 0)   Log Likelihood                -472.714\n",
-      "Date:                Mon, 02 Dec 2019   AIC                            951.427\n",
-      "Time:                        00:22:57   BIC                            961.367\n",
+      "Date:                Tue, 03 Dec 2019   AIC                            951.427\n",
+      "Time:                        16:32:47   BIC                            961.367\n",
       "Sample:                    03-31-1959   HQIC                           955.449\n",
       "                         - 09-30-2009                                         \n",
       "Covariance Type:                  opg                                         \n",

@@ -5319,7 +5319,10 @@ devel/_sources/pitfalls.rst.txt
 devel/_sources/regression.rst.txt
 devel/_sources/release/index.rst.txt
 devel/_sources/release/old_changes.rst.txt
+devel/_sources/release/version0.10.1.rst.txt
+devel/_sources/release/version0.10.2.rst.txt
 devel/_sources/release/version0.10.rst.txt
+devel/_sources/release/version0.11.rst.txt
 devel/_sources/release/version0.5.rst.txt
 devel/_sources/release/version0.6.rst.txt
 devel/_sources/release/version0.7.rst.txt
@@ -10465,7 +10468,10 @@ devel/release/version0-6-1.hires.png
 devel/release/version0-6-1.pdf
 devel/release/version0-6-1.png
 devel/release/version0-6-1.py
+devel/release/version0.10.1.html
+devel/release/version0.10.2.html
 devel/release/version0.10.html
+devel/release/version0.11.html
 devel/release/version0.5.html
 devel/release/version0.6.html
 devel/release/version0.7.html
