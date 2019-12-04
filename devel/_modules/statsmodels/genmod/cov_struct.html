@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+630)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.cov_struct </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+630)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -585,51 +585,40 @@
     <span class="sd">"""</span>
 <span class="sd">    A nested working dependence structure.</span>
 
-<span class="sd">    A working dependence structure that captures a nested hierarchy of</span>
-<span class="sd">    groups.  Each level of grouping contributes to the random error</span>
-<span class="sd">    structure of the model.</span>
+<span class="sd">    A nested working dependence structure captures unique variance</span>
+<span class="sd">    associated with each level in a hierarchy of partitions of the</span>
+<span class="sd">    cases.  For each level of the hierarchy, there is a set of iid</span>
+<span class="sd">    random effects with mean zero, and with variance that is specific</span>
+<span class="sd">    to the level.  These variance parameters are estimated from the</span>
+<span class="sd">    data using the method of moments.</span>
 
-<span class="sd">    When using this working covariance structure, `dep_data` of the</span>
-<span class="sd">    GEE instance should contain a n_obs x k matrix of 0/1 indicators,</span>
-<span class="sd">    corresponding to the k subgroups nested under the top-level</span>
-<span class="sd">    `groups` of the GEE instance.  These subgroups should be nested</span>
-<span class="sd">    from left to right, so that two observations with the same value</span>
-<span class="sd">    for column j of `dep_data` should also have the same value for all</span>
-<span class="sd">    columns j' &lt; j (this only applies to observations in the same</span>
-<span class="sd">    top-level cluster given by the `groups` argument to GEE).</span>
+<span class="sd">    The top level of the hierarchy is always defined by the required</span>
+<span class="sd">    `groups` argument to GEE.</span>
 
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    Suppose our data are student test scores, and the students are in</span>
-<span class="sd">    classrooms, nested in schools, nested in school districts.  The</span>
-<span class="sd">    school district is the highest level of grouping, so the school</span>
-<span class="sd">    district id would be provided to GEE as `groups`, and the school</span>
-<span class="sd">    and classroom id's would be provided to the Nested class as the</span>
-<span class="sd">    `dep_data` argument, e.g.</span>
+<span class="sd">    The `dep_data` argument used to create the GEE defines the</span>
+<span class="sd">    remaining levels of the hierarchy.  it should be either an array,</span>
+<span class="sd">    or if using the formula interface, a string that contains a</span>
+<span class="sd">    formula.  If an array, it should contain a `n_obs x k` matrix of</span>
+<span class="sd">    labels, corresponding to the k levels of partitioning that are</span>
+<span class="sd">    nested under the top-level `groups` of the GEE instance.  These</span>
+<span class="sd">    subgroups should be nested from left to right, so that two</span>
+<span class="sd">    observations with the same label for column j of `dep_data` should</span>
+<span class="sd">    also have the same label for all columns j' &lt; j (this only applies</span>
+<span class="sd">    to observations in the same top-level cluster given by the</span>
+<span class="sd">    `groups` argument to GEE).</span>
 
-<span class="sd">        0 0  # School 0, classroom 0, student 0</span>
-<span class="sd">        0 0  # School 0, classroom 0, student 1</span>
-<span class="sd">        0 1  # School 0, classroom 1, student 0</span>
-<span class="sd">        0 1  # School 0, classroom 1, student 1</span>
-<span class="sd">        1 0  # School 1, classroom 0, student 0</span>
-<span class="sd">        1 0  # School 1, classroom 0, student 1</span>
-<span class="sd">        1 1  # School 1, classroom 1, student 0</span>
-<span class="sd">        1 1  # School 1, classroom 1, student 1</span>
-
-<span class="sd">    Labels lower in the hierarchy are recycled, so that student 0 in</span>
-<span class="sd">    classroom 0 is different fro student 0 in classroom 1, etc.</span>
+<span class="sd">    If `dep_data` is a formula, it should usually be of the form `0 +</span>
+<span class="sd">    a + b + ...`, where `a`, `b`, etc. contain labels defining group</span>
+<span class="sd">    membership.  The `0 + ` should be included to prevent creation of</span>
+<span class="sd">    an intercept.  The variable values are interpreted as labels for</span>
+<span class="sd">    group membership, but the variables should not be explicitly coded</span>
+<span class="sd">    as categorical, i.e. use `0 + a` not `0 + C(a)`.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    The calculations for this dependence structure involve all pairs</span>
-<span class="sd">    of observations within a group (that is, within the top level</span>
-<span class="sd">    `group` structure passed to GEE).  Large group sizes will result</span>
-<span class="sd">    in slow iterations.</span>
-
-<span class="sd">    The variance components are estimated using least squares</span>
-<span class="sd">    regression of the products r*r', for standardized residuals r and</span>
-<span class="sd">    r' in the same group, on a matrix of indicators defining which</span>
-<span class="sd">    variance components are shared by r and r'.</span>
+<span class="sd">    The calculations for the nested structure involve all pairs of</span>
+<span class="sd">    observations within the top level `group` passed to GEE.  Large</span>
+<span class="sd">    group sizes will result in slow iterations.</span>
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
@@ -1345,7 +1334,7 @@
 
         <span class="k">return</span> <span class="n">vmat</span></div>
 
-<div class="viewcode-block" id="GlobalOddsRatio.update"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.update.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.update">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Update the global odds ratio based on the current value of</span>
@@ -1387,10 +1376,10 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="mf">1.</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">"dep_params became inf, resetting to 1"</span><span class="p">,</span>
-                          <span class="n">ConvergenceWarning</span><span class="p">)</span></div>
+                          <span class="n">ConvergenceWarning</span><span class="p">)</span>
 
-<div class="viewcode-block" id="GlobalOddsRatio.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.summary.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div>
 
 
 <span class="k">class</span> <span class="nc">OrdinalIndependence</span><span class="p">(</span><span class="n">CategoricalCovStruct</span><span class="p">):</span>
@@ -1731,7 +1720,7 @@
               
           </div>
             Last updated on
-              Dec 03, 2019.
+              Dec 04, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

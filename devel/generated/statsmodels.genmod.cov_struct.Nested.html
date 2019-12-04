@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+630)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.cov_struct.Nested </span>
         </div>
       </div>
@@ -190,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+630)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -365,45 +365,35 @@
 <dt id="statsmodels.genmod.cov_struct.Nested">
 <em class="property">class </em><code class="sig-prename descclassname">statsmodels.genmod.cov_struct.</code><code class="sig-name descname">Nested</code><span class="sig-paren">(</span><em class="sig-param">cov_nearest_method='clipped'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/statsmodels/genmod/cov_struct.html#Nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.genmod.cov_struct.Nested" title="Permalink to this definition">¶</a></dt>
 <dd><p>A nested working dependence structure.</p>
-<p>A working dependence structure that captures a nested hierarchy of
-groups.  Each level of grouping contributes to the random error
-structure of the model.</p>
-<p>When using this working covariance structure, <cite>dep_data</cite> of the
-GEE instance should contain a n_obs x k matrix of 0/1 indicators,
-corresponding to the k subgroups nested under the top-level
-<cite>groups</cite> of the GEE instance.  These subgroups should be nested
-from left to right, so that two observations with the same value
-for column j of <cite>dep_data</cite> should also have the same value for all
-columns j’ &lt; j (this only applies to observations in the same
-top-level cluster given by the <cite>groups</cite> argument to GEE).</p>
+<p>A nested working dependence structure captures unique variance
+associated with each level in a hierarchy of partitions of the
+cases.  For each level of the hierarchy, there is a set of iid
+random effects with mean zero, and with variance that is specific
+to the level.  These variance parameters are estimated from the
+data using the method of moments.</p>
+<p>The top level of the hierarchy is always defined by the required
+<cite>groups</cite> argument to GEE.</p>
+<p>The <cite>dep_data</cite> argument used to create the GEE defines the
+remaining levels of the hierarchy.  it should be either an array,
+or if using the formula interface, a string that contains a
+formula.  If an array, it should contain a <cite>n_obs x k</cite> matrix of
+labels, corresponding to the k levels of partitioning that are
+nested under the top-level <cite>groups</cite> of the GEE instance.  These
+subgroups should be nested from left to right, so that two
+observations with the same label for column j of <cite>dep_data</cite> should
+also have the same label for all columns j’ &lt; j (this only applies
+to observations in the same top-level cluster given by the
+<cite>groups</cite> argument to GEE).</p>
+<p>If <cite>dep_data</cite> is a formula, it should usually be of the form <cite>0 +
+a + b + …</cite>, where <cite>a</cite>, <cite>b</cite>, etc. contain labels defining group
+membership.  The <cite>0 + ` should be included to prevent creation of
+an intercept.  The variable values are interpreted as labels for
+group membership, but the variables should not be explicitly coded
+as categorical, i.e. use `0 + a</cite> not <cite>0 + C(a)</cite>.</p>
 <p class="rubric">Notes</p>
-<p>The calculations for this dependence structure involve all pairs
-of observations within a group (that is, within the top level
-<cite>group</cite> structure passed to GEE).  Large group sizes will result
-in slow iterations.</p>
-<p>The variance components are estimated using least squares
-regression of the products r*r’, for standardized residuals r and
-r’ in the same group, on a matrix of indicators defining which
-variance components are shared by r and r’.</p>
-<p class="rubric">Examples</p>
-<p>Suppose our data are student test scores, and the students are in
-classrooms, nested in schools, nested in school districts.  The
-school district is the highest level of grouping, so the school
-district id would be provided to GEE as <cite>groups</cite>, and the school
-and classroom id’s would be provided to the Nested class as the
-<cite>dep_data</cite> argument, e.g.</p>
-<blockquote>
-<div><p>0 0  # School 0, classroom 0, student 0
-0 0  # School 0, classroom 0, student 1
-0 1  # School 0, classroom 1, student 0
-0 1  # School 0, classroom 1, student 1
-1 0  # School 1, classroom 0, student 0
-1 0  # School 1, classroom 0, student 1
-1 1  # School 1, classroom 1, student 0
-1 1  # School 1, classroom 1, student 1</p>
-</div></blockquote>
-<p>Labels lower in the hierarchy are recycled, so that student 0 in
-classroom 0 is different fro student 0 in classroom 1, etc.</p>
+<p>The calculations for the nested structure involve all pairs of
+observations within the top level <cite>group</cite> passed to GEE.  Large
+group sizes will result in slow iterations.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -478,7 +468,7 @@ classroom 0 is different fro student 0 in classroom 1, etc.</p>
               
           </div>
             Last updated on
-              Dec 03, 2019.
+              Dec 04, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

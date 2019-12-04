@@ -36,6 +36,7 @@ devel/_images/examples_notebooks_generated_exponential_smoothing_21_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_4_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_6_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_8_0.png
+devel/_images/examples_notebooks_generated_gee_score_test_simulation_19_1.png
 devel/_images/examples_notebooks_generated_glm_23_0.png
 devel/_images/examples_notebooks_generated_glm_25_1.png
 devel/_images/examples_notebooks_generated_glm_27_0.png
@@ -644,6 +645,8 @@ devel/_sources/examples/notebooks/generated/discrete_choice_overview.ipynb.txt
 devel/_sources/examples/notebooks/generated/distributed_estimation.ipynb.txt
 devel/_sources/examples/notebooks/generated/exponential_smoothing.ipynb.txt
 devel/_sources/examples/notebooks/generated/formulas.ipynb.txt
+devel/_sources/examples/notebooks/generated/gee_nested_simulation.ipynb.txt
+devel/_sources/examples/notebooks/generated/gee_score_test_simulation.ipynb.txt
 devel/_sources/examples/notebooks/generated/generic_mle.ipynb.txt
 devel/_sources/examples/notebooks/generated/glm.ipynb.txt
 devel/_sources/examples/notebooks/generated/glm_formula.ipynb.txt
@@ -5642,6 +5645,8 @@ devel/examples/notebooks/generated/discrete_choice_overview.html
 devel/examples/notebooks/generated/distributed_estimation.html
 devel/examples/notebooks/generated/exponential_smoothing.html
 devel/examples/notebooks/generated/formulas.html
+devel/examples/notebooks/generated/gee_nested_simulation.html
+devel/examples/notebooks/generated/gee_score_test_simulation.html
 devel/examples/notebooks/generated/generic_mle.html
 devel/examples/notebooks/generated/glm.html
 devel/examples/notebooks/generated/glm_formula.html
