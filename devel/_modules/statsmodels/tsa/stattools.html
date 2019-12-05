@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+653)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.stattools </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+653)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1405,7 +1405,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        The data for test whether the time series in the second column Granger</span>
-<span class="sd">        causes the time series in the first column.</span>
+<span class="sd">        causes the time series in the first column. Missing values are not</span>
+<span class="sd">        supported.</span>
 <span class="sd">    maxlag : {int, Iterable[int]}</span>
 <span class="sd">        If an integer, computes the test for all lags up to maxlag. If an</span>
 <span class="sd">        iterable, computes the tests only for the lags in maxlag.</span>
@@ -1463,6 +1464,8 @@
 <span class="sd">    &gt;&gt;&gt; gc_res = grangercausalitytests(data, [4])</span>
 <span class="sd">    """</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">array_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'x contains NaN or inf values.'</span><span class="p">)</span>
     <span class="n">addconst</span> <span class="o">=</span> <span class="n">bool_like</span><span class="p">(</span><span class="n">addconst</span><span class="p">,</span> <span class="s1">'addconst'</span><span class="p">)</span>
     <span class="n">verbose</span> <span class="o">=</span> <span class="n">bool_like</span><span class="p">(</span><span class="n">verbose</span><span class="p">,</span> <span class="s1">'verbose'</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>

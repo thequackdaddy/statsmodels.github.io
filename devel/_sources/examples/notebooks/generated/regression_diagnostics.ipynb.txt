@@ -51,7 +51,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.333\n",
       "Method:                 Least Squares   F-statistic:                     22.20\n",
       "Date:                Thu, 05 Dec 2019   Prob (F-statistic):           1.90e-08\n",
-      "Time:                        18:33:14   Log-Likelihood:                -379.82\n",
+      "Time:                        19:06:29   Log-Likelihood:                -379.82\n",
       "No. Observations:                  86   AIC:                             765.6\n",
       "Df Residuals:                      83   BIC:                             773.0\n",
       "Df Model:                           2                                         \n",
@@ -118,10 +118,10 @@
     {
      "data": {
       "text/plain": [
-       "[('Jarque-Bera', 3.3936080248431706),\n",
-       " ('Chi^2 two-tail prob.', 0.18326831231663335),\n",
-       " ('Skew', -0.486580343112234),\n",
-       " ('Kurtosis', 3.0034177578816332)]"
+       "[('Jarque-Bera', 3.3936080248431666),\n",
+       " ('Chi^2 two-tail prob.', 0.1832683123166337),\n",
+       " ('Skew', -0.48658034311223375),\n",
+       " ('Kurtosis', 3.003417757881633)]"
       ]
      },
      "execution_count": 3,
@@ -152,7 +152,7 @@
     {
      "data": {
       "text/plain": [
-       "[('Chi^2', 3.713437811597184), ('Two-tail probability', 0.156184245803048)]"
+       "[('Chi^2', 3.713437811597181), ('Two-tail probability', 0.15618424580304824)]"
       ]
      },
      "execution_count": 4,
@@ -295,10 +295,10 @@
     {
      "data": {
       "text/plain": [
-       "[('Lagrange multiplier statistic', 4.893213374093967),\n",
-       " ('p-value', 0.0865869050235217),\n",
-       " ('f-value', 2.5037159462564396),\n",
-       " ('f p-value', 0.08794028782672986)]"
+       "[('Lagrange multiplier statistic', 4.893213374093957),\n",
+       " ('p-value', 0.08658690502352209),\n",
+       " ('f-value', 2.503715946256434),\n",
+       " ('f p-value', 0.08794028782673029)]"
       ]
      },
      "execution_count": 8,
@@ -330,7 +330,7 @@
     {
      "data": {
       "text/plain": [
-       "[('F statistic', 1.1002422436378143), ('p-value', 0.38202950686925324)]"
+       "[('F statistic', 1.1002422436378152), ('p-value', 0.3820295068692507)]"
       ]
      },
      "execution_count": 9,
@@ -363,7 +363,7 @@
     {
      "data": {
       "text/plain": [
-       "[('t value', -1.0796490077827041), ('p value', 0.28346392475394466)]"
+       "[('t value', -1.0796490077823977), ('p value', 0.28346392475408044)]"
       ]
      },
      "execution_count": 10,
