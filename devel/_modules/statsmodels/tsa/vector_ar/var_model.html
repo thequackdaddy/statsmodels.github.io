@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+647)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.var_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+647)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -292,7 +292,6 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
@@ -437,7 +436,7 @@
     <span class="n">SigU</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="p">:</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig_u</span>
 
     <span class="c1"># vec(ACF) = (I_(kp)^2 - kron(A, A))^-1 vec(Sigma_U)</span>
-    <span class="n">vecACF</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">((</span><span class="n">k</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="n">vec</span><span class="p">(</span><span class="n">SigU</span><span class="p">))</span>
+    <span class="n">vecACF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">((</span><span class="n">k</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="n">vec</span><span class="p">(</span><span class="n">SigU</span><span class="p">))</span>
 
     <span class="n">acf</span> <span class="o">=</span> <span class="n">unvec</span><span class="p">(</span><span class="n">vecACF</span><span class="p">)</span>
     <span class="n">acf</span> <span class="o">=</span> <span class="p">[</span><span class="n">acf</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
@@ -1243,7 +1242,7 @@
 <span class="sd">            \Psi_\infty = \sum_{i=0}^\infty \Phi_i</span>
 
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_char_mat</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_char_mat</span><span class="p">)</span></div>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">_chol_sigma_u</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1634,7 +1633,7 @@
 <span class="sd">        Ref: Lütkepohl p.74-75</span>
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog_lagged</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">z</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VARResults.cov_ybar"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.var_model.VARResults.cov_ybar.html#statsmodels.tsa.vector_ar.var_model.VARResults.cov_ybar">[docs]</a>    <span class="k">def</span> <span class="nf">cov_ybar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""Asymptotically consistent estimate of covariance of the sample mean</span>
@@ -1651,7 +1650,7 @@
 <span class="sd">        Lütkepohl Proposition 3.3</span>
 <span class="sd">        """</span>
 
-        <span class="n">Ainv</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">Ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Ainv</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span> <span class="o">@</span> <span class="n">Ainv</span><span class="o">.</span><span class="n">T</span></div>
 
     <span class="c1"># ------------------------------------------------------------</span>
@@ -1896,7 +1895,7 @@
     <span class="k">def</span> <span class="nf">_omega_forc_cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
         <span class="c1"># Approximate MSE matrix \Omega(h) as defined in Lut p97</span>
         <span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zz</span>
-        <span class="n">Ginv</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">Ginv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 
         <span class="c1"># memoize powers of B for speedup</span>
         <span class="c1"># TODO: see if can memoize better</span>
@@ -2096,7 +2095,7 @@
 
         <span class="c1"># Lütkepohl 3.6.5</span>
         <span class="n">Cb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">vec</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-        <span class="n">middle</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">C</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params</span><span class="p">()</span> <span class="o">@</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">C</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params</span><span class="p">()</span> <span class="o">@</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
         <span class="c1"># wald statistic</span>
         <span class="n">lam_wald</span> <span class="o">=</span> <span class="n">statistic</span> <span class="o">=</span> <span class="n">Cb</span> <span class="o">@</span> <span class="n">middle</span> <span class="o">@</span> <span class="n">Cb</span>
@@ -2217,7 +2216,7 @@
         <span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">vech_sigma_u</span><span class="p">)</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">duplication_matrix</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
         <span class="n">Cd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-        <span class="n">middle</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cd</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sigma_u</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">)</span> <span class="o">@</span> <span class="n">Cd</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cd</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sigma_u</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">)</span> <span class="o">@</span> <span class="n">Cd</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 
         <span class="n">wald_statistic</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cs</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">middle</span> <span class="o">@</span> <span class="n">Cs</span><span class="p">)</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">num_restr</span>
@@ -2256,7 +2255,7 @@
         <span class="n">statistic</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
         <span class="n">acov_list</span> <span class="o">=</span> <span class="n">_compute_acov</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">nlags</span><span class="p">)</span>
-        <span class="n">cov0_inv</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">acov_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">cov0_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">acov_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlags</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">ct</span> <span class="o">=</span> <span class="n">acov_list</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
             <span class="n">to_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">cov0_inv</span> <span class="o">@</span> <span class="n">ct</span> <span class="o">@</span> <span class="n">cov0_inv</span><span class="p">)</span>
@@ -2338,7 +2337,7 @@
 
 <span class="sd">            \hat \Omega = \frac{T}{T - Kp - 1} \hat \Omega_{\mathrm{MLE}}</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">info_criteria</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

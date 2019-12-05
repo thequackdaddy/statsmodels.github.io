@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+647)</span>
           <span class="md-header-nav__topic"> Prediction (out of sample) </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+647)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -728,27 +728,27 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
                             OLS Regression Results
 ==============================================================================
-Dep. Variable:                      y   R-squared:                       0.989
-Model:                            OLS   Adj. R-squared:                  0.988
-Method:                 Least Squares   F-statistic:                     1384.
-Date:                Thu, 05 Dec 2019   Prob (F-statistic):           4.45e-45
-Time:                        10:25:30   Log-Likelihood:                 10.419
-No. Observations:                  50   AIC:                            -12.84
-Df Residuals:                      46   BIC:                            -5.189
+Dep. Variable:                      y   R-squared:                       0.986
+Model:                            OLS   Adj. R-squared:                  0.985
+Method:                 Least Squares   F-statistic:                     1044.
+Date:                Thu, 05 Dec 2019   Prob (F-statistic):           2.70e-42
+Time:                        15:39:17   Log-Likelihood:                 3.3642
+No. Observations:                  50   AIC:                             1.272
+Df Residuals:                      46   BIC:                             8.920
 Df Model:                           3
 Covariance Type:            nonrobust
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.9434      0.070     70.811      0.000       4.803       5.084
-x1             0.5101      0.011     47.375      0.000       0.488       0.532
-x2             0.4932      0.042     11.654      0.000       0.408       0.578
-x3            -0.0207      0.001    -21.915      0.000      -0.023      -0.019
+const          4.9610      0.080     61.712      0.000       4.799       5.123
+x1             0.4999      0.012     40.320      0.000       0.475       0.525
+x2             0.4588      0.049      9.415      0.000       0.361       0.557
+x3            -0.0195      0.001    -17.901      0.000      -0.022      -0.017
 ==============================================================================
-Omnibus:                        0.567   Durbin-Watson:                   2.324
-Prob(Omnibus):                  0.753   Jarque-Bera (JB):                0.392
-Skew:                           0.214   Prob(JB):                        0.822
-Kurtosis:                       2.936   Cond. No.                         221.
+Omnibus:                        3.764   Durbin-Watson:                   1.958
+Prob(Omnibus):                  0.152   Jarque-Bera (JB):                2.911
+Skew:                           0.578   Prob(JB):                        0.233
+Kurtosis:                       3.247   Cond. No.                         221.
 ==============================================================================
 
 Warnings:
@@ -773,15 +773,15 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.42548959  4.91056975  5.35658114  5.73664249  6.03357384  6.24271916
-  6.37271132  6.44405373  6.4857517   6.53054693  6.60953818  6.74707178
-  6.95674163  7.23915576  7.5818364   7.96127011  8.34677089  8.70552187
-  9.00796698  9.23266697  9.36982177  9.42288068  9.40797558  9.35127058
-  9.2846633   9.24054415  9.24647474  9.32065954  9.46895496  9.68390714
-  9.94597662 10.22674858 10.49360138 10.71506612 10.86599697 10.9317025
- 10.91035948 10.8133124  10.66320963 10.49028234 10.32737761 10.20456174
- 10.14418045 10.15718755 10.24134524 10.38159179 10.55251613 10.72253281
- 10.85907144 10.93392786]
+[ 4.47385295  4.93630707  5.36234523  5.72696062  6.01417121  6.21964565
+  6.35141484  6.42855249  6.47804135  6.53034005  6.61437881  6.75280631
+  6.95826852  7.23133109  7.56038632  7.92356037  8.29230698  8.6360976
+  8.92743711  9.14638123  9.28381325  9.34294193  9.33877431  9.29565004
+  9.24324251  9.21168357  9.22661293  9.30496568  9.45218984  9.66135132
+  9.91427314 10.18452187 10.44175056 10.65668466 10.80593175 10.87582485
+ 10.86466785 10.78301419 10.65193298 10.49954734 10.35641393 10.25050252
+ 10.20260067 10.22289837 10.30931386 10.44783567 10.61482465 10.78089781
+ 10.91575589 10.99316142]
 </pre></div></div>
 </div>
 
@@ -805,8 +805,8 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[10.91440995 10.76415359 10.50250188 10.1735353   9.83527925  9.54549745
-  9.3475493   9.25977408  9.27100076  9.34328313]
+[10.98442397 10.85395725 10.61975558 10.32282569 10.01714686  9.75645492
+  9.58108585  9.50810009  9.5271056   9.60280213]
 </pre></div></div>
 </div>
 
@@ -867,10 +867,10 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Intercept           4.943408
-x1                  0.510074
-np.sin(x1)          0.493242
-I((x1 - 5) ** 2)   -0.020717
+Intercept           4.961018
+x1                  0.499886
+np.sin(x1)          0.458848
+I((x1 - 5) ** 2)   -0.019487
 dtype: float64
 </pre></div></div>
 </div>
@@ -890,16 +890,16 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    10.914410
-1    10.764154
-2    10.502502
-3    10.173535
-4     9.835279
-5     9.545497
-6     9.347549
-7     9.259774
-8     9.271001
-9     9.343283
+0    10.984424
+1    10.853957
+2    10.619756
+3    10.322826
+4    10.017147
+5     9.756455
+6     9.581086
+7     9.508100
+8     9.527106
+9     9.602802
 dtype: float64
 </pre></div></div>
 </div>
