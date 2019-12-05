@@ -323,7 +323,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "479 ms ± 24 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n"
+      "591 ms ± 29 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n"
      ]
     },
     {
@@ -360,7 +360,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "40.4 ms ± 3.83 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+      "44.6 ms ± 2.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
      ]
     },
     {

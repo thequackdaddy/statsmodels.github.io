@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+647)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+653)</span>
           <span class="md-header-nav__topic"> Testing </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+647)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+653)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -308,13 +308,15 @@
         </li>
         <li class="md-nav__item"><a href="#introduction-to-pytest" class="md-nav__link">Introduction to pytest</a>
         </li>
-        <li class="md-nav__item"><a href="#running-the-test-suite" class="md-nav__link">Running the Test Suite</a>
-        </li>
-        <li class="md-nav__item"><a href="#running-tests-using-the-command-line" class="md-nav__link">Running Tests using the command line</a>
+        <li class="md-nav__item"><a href="#running-tests" class="md-nav__link">Running Tests</a>
         </li>
         <li class="md-nav__item"><a href="#how-to-write-a-test" class="md-nav__link">How To Write A Test</a>
         </li>
         <li class="md-nav__item"><a href="#test-results" class="md-nav__link">Test Results</a>
+        </li>
+        <li class="md-nav__item"><a href="#speeding-up-full-runs" class="md-nav__link">Speeding up full runs</a>
+        </li>
+        <li class="md-nav__item"><a href="#the-test-method" class="md-nav__link">The <code class="docutils literal notranslate"><span class="pre">test()</span></code> method</a>
         </li></ul>
             </nav>
         </li>
@@ -378,13 +380,15 @@
         </li>
         <li class="md-nav__item"><a href="#introduction-to-pytest" class="md-nav__link">Introduction to pytest</a>
         </li>
-        <li class="md-nav__item"><a href="#running-the-test-suite" class="md-nav__link">Running the Test Suite</a>
-        </li>
-        <li class="md-nav__item"><a href="#running-tests-using-the-command-line" class="md-nav__link">Running Tests using the command line</a>
+        <li class="md-nav__item"><a href="#running-tests" class="md-nav__link">Running Tests</a>
         </li>
         <li class="md-nav__item"><a href="#how-to-write-a-test" class="md-nav__link">How To Write A Test</a>
         </li>
         <li class="md-nav__item"><a href="#test-results" class="md-nav__link">Test Results</a>
+        </li>
+        <li class="md-nav__item"><a href="#speeding-up-full-runs" class="md-nav__link">Speeding up full runs</a>
+        </li>
+        <li class="md-nav__item"><a href="#the-test-method" class="md-nav__link">The <code class="docutils literal notranslate"><span class="pre">test()</span></code> method</a>
         </li></ul>
             </nav>
         </li>
@@ -408,14 +412,17 @@
 <h2 id="setting-up-development-environment-locally">Setting up development environment locally<a class="headerlink" href="#setting-up-development-environment-locally" title="Permalink to this headline">¶</a></h2>
 <p>Follow our <a class="reference internal" href="../install.html#install"><span class="std std-ref">installation instructions</span></a> and set up a suitable
 environment to build statsmodels from source. We recommend that you develop
-using a development install of statsmodels:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span>
+using a development install of statsmodels by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e .
 </pre></div>
 </div>
-<p>This will compile the C code and add statsmodels to your activate python
+<p>from the root directory of the git repository. The flag <code class="docutils literal notranslate"><span class="pre">-e</span></code> is for editable.</p>
+<p>This command compiles the C code and add statsmodels to your activate python
 environment by creating links from your python environment’s libraries
 to the statsmodels source code. Therefore, changes to pure python code will
-be immediately available to the user without a re-install.</p>
+be immediately available to the user without a re-install. Changes to C code or
+Cython code require rerunning <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> before these changes are
+available.</p>
 
 
 <h2 id="test-driven-development">Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">¶</a></h2>
@@ -428,32 +435,11 @@ tests versus an existing statistical package, if possible.</p>
 <p>Like many packages, statsmodels uses the <a class="reference external" href="https://docs.pytest.org/en/latest/contents.html">pytest testing system</a> and the convenient extensions in <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.testing.html">numpy.testing</a>.  Pytest will find any file, directory, function, or class name that starts with <code class="docutils literal notranslate"><span class="pre">test</span></code> or <code class="docutils literal notranslate"><span class="pre">Test</span></code> (classes only). Test function should start with <code class="docutils literal notranslate"><span class="pre">test</span></code>, test classes should start with <code class="docutils literal notranslate"><span class="pre">Test</span></code>. These functions and classes should be placed in files with names beginning with <code class="docutils literal notranslate"><span class="pre">test</span></code> in a directory called <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p>
 
 
-<span id="run-tests"></span><h2 id="running-the-test-suite">Running the Test Suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this headline">¶</a></h2>
-<p>You can run all the tests by:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>You can test submodules by:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">discrete</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
-</pre></div>
-</div>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.__init__.test.html#statsmodels.__init__.test" title="statsmodels.__init__.test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code></a>([extra_args, exit])</p></td>
-<td><p>Run the test suite</p></td>
-</tr>
-</tbody>
-</table>
-
-
-<h2 id="running-tests-using-the-command-line">Running Tests using the command line<a class="headerlink" href="#running-tests-using-the-command-line" title="Permalink to this headline">¶</a></h2>
-<p>Test can also be run from the command line by calling <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.  Tests can be run
-at different levels:</p>
+<span id="run-tests"></span><h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
+<p>Test are run from the command line by calling <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. Directly running tests using
+pytest requires that statsmodels is installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> as described
+above.</p>
+<p>Tests can be run at different levels of granularity:</p>
 <ul class="simple">
 <li><p>Project level, which runs all tests.  Running the entire test suite is slow
 and normally this would only be needed if making deep changes to statsmodels.</p></li>
@@ -565,6 +551,61 @@ for the discrete models:</p>
 that there are result classes based around particular datasets with a method for loading different
 model results for that dataset. You can also include text files that hold results to be loaded by
 results classes if it is easier than putting them in the class itself.</p>
+
+
+<h2 id="speeding-up-full-runs">Speeding up full runs<a class="headerlink" href="#speeding-up-full-runs" title="Permalink to this headline">¶</a></h2>
+<p>Running the full test suite is slow. Fortunately it is only necessary to run the full suite when
+making low-level changes (e.g., to <code class="docutils literal notranslate"><span class="pre">statsmodels.base</span></code>) There are two methods available to
+speed up runs of the full test suite when needed.</p>
+<ul class="simple">
+<li><p>Use the pytest-xdist package</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pytest-xdist
+<span class="nb">export</span> <span class="nv">MKL_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+pytest -n auto statsmodels
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Skip slow tests using <code class="docutils literal notranslate"><span class="pre">--skip-slow</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest --skip-slow statsmodels
+</pre></div>
+</div>
+<p>You can combine these two approaches for faster runs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">MKL_NUM_THREADS</span><span class="o">=</span><span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+pytest -n auto --skip-slow statsmodels
+</pre></div>
+</div>
+
+
+<h2 id="the-test-method">The <code class="docutils literal notranslate"><span class="pre">test()</span></code> method<a class="headerlink" href="#the-test-method" title="Permalink to this headline">¶</a></h2>
+<p>The root of statsmodels and all submodules expose a <code class="docutils literal notranslate"><span class="pre">test()</span></code> method which can
+be used to run all tests either in the package (<code class="docutils literal notranslate"><span class="pre">statsmodels.test()</span></code>) or in
+a module (<code class="docutils literal notranslate"><span class="pre">statsmodels.regression.test()</span></code>).  This method allows tests to be
+run from an install copy of statsmodels even it is was not installed using the
+<em>editable</em> flag as described above. This method is required for testing wheels in
+release builds and is <strong>not</strong> recommended for development.</p>
+<p>Using this method, all tests are run using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Submodules tests are run using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">discrete</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.__init__.test.html#statsmodels.__init__.test" title="statsmodels.__init__.test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code></a>([extra_args, exit])</p></td>
+<td><p>Run the test suite</p></td>
+</tr>
+</tbody>
+</table>
 
 
 

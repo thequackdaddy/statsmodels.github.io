@@ -107,7 +107,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+647)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+653)</span>
           <span class="md-header-nav__topic"> Introduction </span>
         </div>
       </div>
@@ -188,7 +188,7 @@
       
     </a>
     <a href="#"
-       title="statsmodels">statsmodels v0.11.0dev0 (+647)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+653)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -316,7 +316,7 @@ Here is a simple example using ordinary least squares:</p>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.333</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     22.20</span>
 <span class="go">Date:                Thu, 05 Dec 2019   Prob (F-statistic):           1.90e-08</span>
-<span class="go">Time:                        15:43:19   Log-Likelihood:                -379.82</span>
+<span class="go">Time:                        18:37:15   Log-Likelihood:                -379.82</span>
 <span class="go">No. Observations:                  86   AIC:                             765.6</span>
 <span class="go">Df Residuals:                      83   BIC:                             773.0</span>
 <span class="go">Df Model:                           2                                         </span>
@@ -363,26 +363,26 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                      y   R-squared:                       0.446</span>
-<span class="go">Model:                            OLS   Adj. R-squared:                  0.435</span>
-<span class="go">Method:                 Least Squares   F-statistic:                     39.11</span>
-<span class="go">Date:                Thu, 05 Dec 2019   Prob (F-statistic):           3.51e-13</span>
-<span class="go">Time:                        15:43:19   Log-Likelihood:                -7.7417</span>
-<span class="go">No. Observations:                 100   AIC:                             21.48</span>
-<span class="go">Df Residuals:                      97   BIC:                             29.30</span>
+<span class="go">Dep. Variable:                      y   R-squared:                       0.267</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.252</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     17.64</span>
+<span class="go">Date:                Thu, 05 Dec 2019   Prob (F-statistic):           2.93e-07</span>
+<span class="go">Time:                        18:37:15   Log-Likelihood:                -15.061</span>
+<span class="go">No. Observations:                 100   AIC:                             36.12</span>
+<span class="go">Df Residuals:                      97   BIC:                             43.94</span>
 <span class="go">Df Model:                           2                                         </span>
 <span class="go">Covariance Type:            nonrobust                                         </span>
 <span class="go">==============================================================================</span>
 <span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>          <span class="mf">1.4208</span>      <span class="mf">0.062</span>     <span class="mf">22.939</span>      <span class="mf">0.000</span>       <span class="mf">1.298</span>       <span class="mf">1.544</span>
-<span class="n">x1</span>             <span class="mf">0.1008</span>      <span class="mf">0.089</span>      <span class="mf">1.127</span>      <span class="mf">0.262</span>      <span class="o">-</span><span class="mf">0.077</span>       <span class="mf">0.278</span>
-<span class="n">x2</span>             <span class="mf">0.7258</span>      <span class="mf">0.086</span>      <span class="mf">8.427</span>      <span class="mf">0.000</span>       <span class="mf">0.555</span>       <span class="mf">0.897</span>
+<span class="n">const</span>          <span class="mf">1.5110</span>      <span class="mf">0.072</span>     <span class="mf">20.863</span>      <span class="mf">0.000</span>       <span class="mf">1.367</span>       <span class="mf">1.655</span>
+<span class="n">x1</span>             <span class="mf">0.0004</span>      <span class="mf">0.096</span>      <span class="mf">0.004</span>      <span class="mf">0.997</span>      <span class="o">-</span><span class="mf">0.190</span>       <span class="mf">0.191</span>
+<span class="n">x2</span>             <span class="mf">0.5694</span>      <span class="mf">0.096</span>      <span class="mf">5.939</span>      <span class="mf">0.000</span>       <span class="mf">0.379</span>       <span class="mf">0.760</span>
 <span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                       12.199   Durbin-Watson:                   2.001
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.002</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">3.926</span>
-<span class="ne">Skew</span>:                          -0.035   Prob(JB):                        0.140
-<span class="ne">Kurtosis</span>:                       2.032   Cond. No.                         4.63
+<span class="ne">Omnibus</span>:                       37.663   Durbin-Watson:                   2.034
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.264</span>
+<span class="ne">Skew</span>:                          -0.034   Prob(JB):                       0.0436
+<span class="ne">Kurtosis</span>:                       1.776   Cond. No.                         5.07
 <span class="o">==============================================================================</span>
 
 <span class="ne">Warnings</span>:

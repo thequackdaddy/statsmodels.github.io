@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+647)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+653)</span>
           <span class="md-header-nav__topic"> Dynamic factors and coincident indices </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+647)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+653)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -884,6 +884,8 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
 <div class="highlight"><pre>
 /home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency MS will be used.
   % freq, ValueWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  "Check mle_retvals", ConvergenceWarning)
 </pre></div></div>
 </div>
 
@@ -916,44 +918,44 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
                                              Statespace Model Results
 =================================================================================================================
 Dep. Variable:     ['std_indprod', 'std_income', 'std_sales', 'std_emp']   No. Observations:                  431
-Model:                                 DynamicFactor(factors=1, order=2)   Log Likelihood               -2063.620
-                                                          + AR(2) errors   AIC                           4163.240
-Date:                                                   Thu, 05 Dec 2019   BIC                           4236.430
-Time:                                                           15:42:32   HQIC                          4192.137
+Model:                                 DynamicFactor(factors=1, order=2)   Log Likelihood               -2066.915
+                                                          + AR(2) errors   AIC                           4169.831
+Date:                                                   Thu, 05 Dec 2019   BIC                           4243.021
+Time:                                                           18:36:23   HQIC                          4198.729
 Sample:                                                       02-01-1979
                                                             - 12-01-2014
 Covariance Type:                                                     opg
 ====================================================================================================
                                        coef    std err          z      P&gt;|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------------------------
-loading.f1.std_indprod              -0.8521      0.016    -52.091      0.000      -0.884      -0.820
-loading.f1.std_income               -0.2519      0.035     -7.286      0.000      -0.320      -0.184
-loading.f1.std_sales                -0.4762      0.023    -20.367      0.000      -0.522      -0.430
-loading.f1.std_emp                  -0.2715      0.028     -9.708      0.000      -0.326      -0.217
-sigma2.std_indprod                8.756e-15   1.37e-09    6.4e-06      1.000   -2.68e-09    2.68e-09
-sigma2.std_income                    0.9014      0.017     53.632      0.000       0.868       0.934
-sigma2.std_sales                     0.5966      0.035     16.962      0.000       0.528       0.665
-sigma2.std_emp                       0.3705      0.014     26.002      0.000       0.343       0.398
-L1.f1.f1                             0.2128      0.019     11.108      0.000       0.175       0.250
-L2.f1.f1                             0.2859      0.023     12.548      0.000       0.241       0.331
-L1.e(std_indprod).e(std_indprod)     0.8998    4.5e-05      2e+04      0.000       0.900       0.900
-L2.e(std_indprod).e(std_indprod)    -1.0000    3.1e-05  -3.22e+04      0.000      -1.000      -1.000
-L1.e(std_income).e(std_income)      -0.1595      0.018     -8.726      0.000      -0.195      -0.124
-L2.e(std_income).e(std_income)      -0.0840      0.020     -4.289      0.000      -0.122      -0.046
-L1.e(std_sales).e(std_sales)        -0.4518      0.029    -15.699      0.000      -0.508      -0.395
-L2.e(std_sales).e(std_sales)        -0.2079      0.020    -10.233      0.000      -0.248      -0.168
-L1.e(std_emp).e(std_emp)             0.2951      0.032      9.098      0.000       0.232       0.359
-L2.e(std_emp).e(std_emp)             0.4904      0.028     17.387      0.000       0.435       0.546
+loading.f1.std_indprod              -0.8524      0.016    -52.173      0.000      -0.884      -0.820
+loading.f1.std_income               -0.2430      0.033     -7.351      0.000      -0.308      -0.178
+loading.f1.std_sales                -0.4731      0.024    -20.066      0.000      -0.519      -0.427
+loading.f1.std_emp                  -0.2692      0.028     -9.669      0.000      -0.324      -0.215
+sigma2.std_indprod                 2.27e-15   1.37e-09   1.66e-06      1.000   -2.68e-09    2.68e-09
+sigma2.std_income                    0.9089      0.017     53.352      0.000       0.876       0.942
+sigma2.std_sales                     0.6032      0.035     17.330      0.000       0.535       0.671
+sigma2.std_emp                       0.3725      0.014     26.623      0.000       0.345       0.400
+L1.f1.f1                             0.2190      0.019     11.537      0.000       0.182       0.256
+L2.f1.f1                             0.2814      0.023     11.999      0.000       0.235       0.327
+L1.e(std_indprod).e(std_indprod)    -1.5174      0.000  -5455.419      0.000      -1.518      -1.517
+L2.e(std_indprod).e(std_indprod)    -1.0000      0.000  -5725.669      0.000      -1.000      -1.000
+L1.e(std_income).e(std_income)      -0.1585      0.018     -8.580      0.000      -0.195      -0.122
+L2.e(std_income).e(std_income)      -0.0833      0.020     -4.204      0.000      -0.122      -0.044
+L1.e(std_sales).e(std_sales)        -0.4430      0.029    -15.054      0.000      -0.501      -0.385
+L2.e(std_sales).e(std_sales)        -0.2058      0.020    -10.476      0.000      -0.244      -0.167
+L1.e(std_emp).e(std_emp)             0.2989      0.033      9.100      0.000       0.235       0.363
+L2.e(std_emp).e(std_emp)             0.4858      0.029     16.938      0.000       0.430       0.542
 ========================================================================================================
-Ljung-Box (Q):          86.98, 33.55, 65.92, 69.81   Jarque-Bera (JB):   178.22, 9234.49, 15.83, 4089.58
-Prob(Q):                    0.00, 0.75, 0.01, 0.00   Prob(JB):                    0.00, 0.00, 0.00, 0.00
-Heteroskedasticity (H):     0.82, 4.92, 0.49, 0.41   Skew:                       0.05, -0.93, 0.18, 0.84
-Prob(H) (two-sided):        0.22, 0.00, 0.00, 0.00   Kurtosis:                  6.15, 25.60, 3.87, 18.00
+Ljung-Box (Q):          85.11, 34.51, 68.73, 68.85   Jarque-Bera (JB):   193.87, 9396.60, 19.80, 4209.89
+Prob(Q):                    0.00, 0.72, 0.00, 0.00   Prob(JB):                    0.00, 0.00, 0.00, 0.00
+Heteroskedasticity (H):     0.80, 4.85, 0.47, 0.41   Skew:                       0.09, -0.98, 0.18, 0.86
+Prob(H) (two-sided):        0.18, 0.00, 0.00, 0.00   Kurtosis:                  6.28, 25.79, 3.98, 18.21
 ========================================================================================================
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 8.15e+16. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 3.38e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 
@@ -1444,15 +1446,15 @@ is important because starting parameters are usually specified in terms of value
 <div class="highlight"><pre>
 Optimization terminated successfully.
          Current function value: 4.698591
-         Iterations: 314
-         Function evaluations: 529
+         Iterations: 295
+         Function evaluations: 504
                                              Statespace Model Results
 =================================================================================================================
 Dep. Variable:     ['std_indprod', 'std_income', 'std_sales', 'std_emp']   No. Observations:                  431
 Model:                                 DynamicFactor(factors=1, order=4)   Log Likelihood               -2025.093
                                                           + AR(2) errors   AIC                           4096.186
 Date:                                                   Thu, 05 Dec 2019   BIC                           4189.706
-Time:                                                           15:42:46   HQIC                          4133.111
+Time:                                                           18:36:36   HQIC                          4133.111
 Sample:                                                       02-01-1979
                                                             - 12-01-2014
 Covariance Type:                                                     opg
@@ -1464,26 +1466,26 @@ loading.f1.std_income               -0.2583      0.038     -6.722      0.000    
 loading.f1.std_sales                -0.4390      0.024    -18.550      0.000      -0.485      -0.393
 loading.f1.std_emp                  -0.4168      0.039    -10.758      0.000      -0.493      -0.341
 sigma2.std_indprod                   0.2455      0.046      5.318      0.000       0.155       0.336
-sigma2.std_income                    0.8737      0.030     29.561      0.000       0.816       0.932
+sigma2.std_income                    0.8737      0.030     29.560      0.000       0.816       0.932
 sigma2.std_sales                     0.5346      0.034     15.532      0.000       0.467       0.602
-sigma2.std_emp                       0.2530      0.024     10.496      0.000       0.206       0.300
-L1.f1.f1                             0.3047      0.059      5.172      0.000       0.189       0.420
-L2.f1.f1                             0.3767      0.062      6.078      0.000       0.255       0.498
-L3.f1.f1                                  0   6.98e-11          0      1.000   -1.37e-10    1.37e-10
-L4.f1.f1                                  0   6.98e-11          0      1.000   -1.37e-10    1.37e-10
+sigma2.std_emp                       0.2530      0.024     10.497      0.000       0.206       0.300
+L1.f1.f1                             0.3048      0.059      5.172      0.000       0.189       0.420
+L2.f1.f1                             0.3767      0.062      6.077      0.000       0.255       0.498
+L3.f1.f1                                  0   6.86e-10          0      1.000   -1.34e-09    1.34e-09
+L4.f1.f1                                  0   6.86e-10          0      1.000   -1.34e-09    1.34e-09
 L1.e(std_indprod).e(std_indprod)    -0.3203      0.113     -2.828      0.005      -0.542      -0.098
 L2.e(std_indprod).e(std_indprod)    -0.2253      0.090     -2.495      0.013      -0.402      -0.048
-L1.e(std_income).e(std_income)      -0.1730      0.022     -7.837      0.000      -0.216      -0.130
+L1.e(std_income).e(std_income)      -0.1730      0.022     -7.836      0.000      -0.216      -0.130
 L2.e(std_income).e(std_income)      -0.0936      0.044     -2.118      0.034      -0.180      -0.007
 L1.e(std_sales).e(std_sales)        -0.4895      0.046    -10.601      0.000      -0.580      -0.399
 L2.e(std_sales).e(std_sales)        -0.2268      0.050     -4.540      0.000      -0.325      -0.129
 L1.e(std_emp).e(std_emp)             0.2341      0.042      5.530      0.000       0.151       0.317
-L2.e(std_emp).e(std_emp)             0.4957      0.051      9.766      0.000       0.396       0.595
+L2.e(std_emp).e(std_emp)             0.4956      0.051      9.766      0.000       0.396       0.595
 loading.L1.f1.std_emp               -0.0724      0.038     -1.895      0.058      -0.147       0.002
 loading.L2.f1.std_emp                0.0004      0.036      0.010      0.992      -0.071       0.071
-loading.L3.f1.std_emp               -0.1739      0.028     -6.168      0.000      -0.229      -0.119
+loading.L3.f1.std_emp               -0.1738      0.028     -6.168      0.000      -0.229      -0.119
 ========================================================================================================
-Ljung-Box (Q):          59.19, 34.27, 68.30, 61.67   Jarque-Bera (JB):   231.73, 9688.42, 25.32, 3387.15
+Ljung-Box (Q):          59.19, 34.27, 68.30, 61.67   Jarque-Bera (JB):   231.73, 9688.65, 25.32, 3387.21
 Prob(Q):                    0.03, 0.73, 0.00, 0.02   Prob(JB):                    0.00, 0.00, 0.00, 0.00
 Heteroskedasticity (H):     0.76, 5.03, 0.44, 0.45   Skew:                       0.22, -0.97, 0.24, 0.75
 Prob(H) (two-sided):        0.11, 0.00, 0.00, 0.00   Kurtosis:                  6.56, 26.15, 4.08, 16.65
@@ -1491,7 +1493,7 @@ Prob(H) (two-sided):        0.11, 0.00, 0.00, 0.00   Kurtosis:                  
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 3.83e+17. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 2.99e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 <p>Although this model increases the likelihood, it is not preferred by the AIC and BIC measures which penalize the additional three parameters.</p>
