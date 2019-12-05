@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.regression.linear_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -318,7 +318,7 @@
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">chain_dot</span><span class="p">,</span> <span class="n">pinv_extended</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">pinv_extended</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="p">(</span><span class="n">cache_readonly</span><span class="p">,</span>
                                           <span class="n">cache_writable</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.model</span> <span class="k">as</span> <span class="nn">base</span>
@@ -2133,9 +2133,8 @@
 <span class="sd">        Heteroscedasticity robust covariance matrix. See HC2_se.</span>
 <span class="sd">        """</span>
         <span class="c1"># probably could be optimized</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span><span class="p">,</span>
-                              <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span><span class="p">,</span>
-                              <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="n">wexog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">wexog</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span> <span class="o">@</span> <span class="n">wexog</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">het_scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wresid</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">h</span><span class="p">)</span>
         <span class="n">cov_HC2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_HCCM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">het_scale</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">cov_HC2</span>
@@ -2145,8 +2144,8 @@
         <span class="sd">"""</span>
 <span class="sd">        Heteroscedasticity robust covariance matrix. See HC3_se.</span>
 <span class="sd">        """</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="n">wexog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">wexog</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">wexog</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span> <span class="o">@</span> <span class="n">wexog</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">het_scale</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wresid</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
         <span class="n">cov_HC3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_HCCM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">het_scale</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">cov_HC3</span>
@@ -2362,7 +2361,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Only nonrobust, HC, HAC and cluster are '</span> <span class="o">+</span>
                              <span class="s1">'currently connected'</span><span class="p">)</span>
 
-        <span class="n">lm_value</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s_inv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">lm_value</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">@</span> <span class="n">s_inv</span> <span class="o">@</span> <span class="n">s</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">lm_value</span><span class="p">,</span> <span class="n">df_diff</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">lm_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">df_diff</span>
 
@@ -3349,7 +3348,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

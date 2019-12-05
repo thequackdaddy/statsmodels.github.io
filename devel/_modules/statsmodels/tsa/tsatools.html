@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.tsatools </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -357,6 +357,11 @@
     <span class="n">is_pandas</span> <span class="o">=</span> <span class="n">_is_using_pandas</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_recarray</span>
     <span class="k">if</span> <span class="n">is_pandas</span> <span class="ow">or</span> <span class="n">is_recarray</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">is_recarray</span><span class="p">:</span>
+            <span class="c1"># deprecated: remove recarray support after 0.12</span>
+            <span class="kn">import</span> <span class="nn">warnings</span>
+            <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">recarray_warning</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">recarray_warning</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+
             <span class="n">descr</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">descr</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
@@ -1120,7 +1125,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

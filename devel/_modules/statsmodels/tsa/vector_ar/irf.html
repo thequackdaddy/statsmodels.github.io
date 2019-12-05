@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.irf </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -287,8 +287,6 @@
 
 
 <span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">chain_dot</span>
-<span class="c1">#from statsmodels.tsa.api import VAR</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">as</span> <span class="nn">tsa</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.vector_ar.plotting</span> <span class="k">as</span> <span class="nn">plotting</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.vector_ar.util</span> <span class="k">as</span> <span class="nn">util</span>
@@ -558,7 +556,7 @@
         <span class="n">covs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">periods</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="n">Gi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Gi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">Gi</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gi</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Gi</span><span class="o">.</span><span class="n">T</span>
 
         <span class="k">return</span> <span class="n">covs</span></div>
 
@@ -850,10 +848,10 @@
                 <span class="n">apiece</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">Ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">PIk</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-                <span class="n">apiece</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Ci</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">Ci</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">apiece</span> <span class="o">=</span> <span class="n">Ci</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Ci</span><span class="o">.</span><span class="n">T</span>
 
             <span class="n">Cibar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">irfs</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">H</span><span class="p">)</span>
-            <span class="n">bpiece</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Cibar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span><span class="p">,</span> <span class="n">Cibar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">bpiece</span> <span class="o">=</span> <span class="p">(</span><span class="n">Cibar</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span> <span class="o">@</span> <span class="n">Cibar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
 
             <span class="c1"># Lutkepohl typo, cov_sig correct</span>
             <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">apiece</span> <span class="o">+</span> <span class="n">bpiece</span>
@@ -891,10 +889,10 @@
                     <span class="n">apiece</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">Bn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">PIk</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
-                    <span class="n">apiece</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Bn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">Bn</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                    <span class="n">apiece</span> <span class="o">=</span> <span class="n">Bn</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Bn</span><span class="o">.</span><span class="n">T</span>
 
                 <span class="n">Bnbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cum_effects</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">)</span>
-                <span class="n">bpiece</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Bnbar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span><span class="p">,</span> <span class="n">Bnbar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
+                <span class="n">bpiece</span> <span class="o">=</span> <span class="p">(</span><span class="n">Bnbar</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span> <span class="o">@</span> <span class="n">Bnbar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
 
                 <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">apiece</span> <span class="o">+</span> <span class="n">bpiece</span>
             <span class="k">else</span><span class="p">:</span>
@@ -902,7 +900,7 @@
                     <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
                     <span class="k">continue</span>
 
-                <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span>
 
         <span class="k">return</span> <span class="n">covs</span></div>
 
@@ -930,10 +928,10 @@
             <span class="n">Binf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="p">)),</span> <span class="n">Finfty</span><span class="p">)</span>
             <span class="n">Binfbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="n">lre</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">)</span>
 
-            <span class="k">return</span> <span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span><span class="n">Binf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">Binf</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span>
-                    <span class="n">chain_dot</span><span class="p">(</span><span class="n">Binfbar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span><span class="p">,</span> <span class="n">Binfbar</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">Binf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Binf</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span>
+                    <span class="n">Binfbar</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span> <span class="o">@</span> <span class="n">Binfbar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Finfty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span><span class="p">,</span> <span class="n">Finfty</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></div>
+            <span class="k">return</span> <span class="n">Finfty</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Finfty</span><span class="o">.</span><span class="n">T</span></div>
 
 <div class="viewcode-block" id="IRAnalysis.stderr"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.stderr.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.stderr">[docs]</a>    <span class="k">def</span> <span class="nf">stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tsa</span><span class="o">.</span><span class="n">unvec</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
@@ -958,14 +956,11 @@
         <span class="n">Kkk</span> <span class="o">=</span> <span class="n">tsa</span><span class="o">.</span><span class="n">commutation_matrix</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">Ik</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
-        <span class="c1"># B = chain_dot(Lk, np.eye(k**2) + commutation_matrix(k, k),</span>
-        <span class="c1">#               np.kron(self.P, np.eye(k)), Lk.T)</span>
+        <span class="c1"># B = Lk @ (np.eye(k**2) + commutation_matrix(k, k)) @ \</span>
+        <span class="c1">#     np.kron(self.P, np.eye(k)) @ Lk.T</span>
+        <span class="c1"># return Lk.T @ L.inv(B)</span>
 
-        <span class="c1"># return np.dot(Lk.T, L.inv(B))</span>
-
-        <span class="n">B</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Lk</span><span class="p">,</span>
-                      <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">),</span> <span class="n">Kkk</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">,</span> <span class="n">Ik</span><span class="p">),</span>
-                      <span class="n">Lk</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">Lk</span> <span class="o">@</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">)</span> <span class="o">@</span> <span class="n">Kkk</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">,</span> <span class="n">Ik</span><span class="p">))</span> <span class="o">@</span> <span class="n">Lk</span><span class="o">.</span><span class="n">T</span>
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Lk</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 
@@ -995,7 +990,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

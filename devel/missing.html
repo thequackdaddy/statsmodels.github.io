@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> Missing Data </span>
         </div>
       </div>
@@ -180,7 +180,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -343,23 +343,23 @@
 <span class="g g-Whitespace">    </span><span class="mi">102</span><span class="s2">         for key in kwargs:</span>
 
 <span class="nn">~/build/statsmodels/statsmodels/statsmodels/base/data.py</span> in <span class="ni">handle_data</span><span class="nt">(endog, exog, missing, hasconst, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2">     klass = handle_data_class_factory(endog, exog)</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">     return klass(endog, exog=exog, missing=missing, hasconst=hasconst,</span>
-<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">                  **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">     klass = handle_data_class_factory(endog, exog)</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span><span class="s2">     return klass(endog, exog=exog, missing=missing, hasconst=hasconst,</span>
+<span class="ne">--&gt; </span><span class="mi">671</span><span class="s2">                  **kwargs)</span>
 
 <span class="nn">~/build/statsmodels/statsmodels/statsmodels/base/data.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span><span class="s2">         if missing != 'none':</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span><span class="s2">             arrays, nan_idx = self.handle_missing(endog, exog, missing,</span>
-<span class="ne">---&gt; </span><span class="mi">68</span><span class="s2">                                                   **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span><span class="s2">             self.missing_row_idx = nan_idx</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="s2">             self.__dict__.update(arrays)  # attach all the data arrays</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="s2">         if missing != 'none':</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="s2">             arrays, nan_idx = self.handle_missing(endog, exog, missing,</span>
+<span class="ne">---&gt; </span><span class="mi">72</span><span class="s2">                                                   **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="s2">             self.missing_row_idx = nan_idx</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2">             self.__dict__.update(arrays)  # attach all the data arrays</span>
 
 <span class="nn">~/build/statsmodels/statsmodels/statsmodels/base/data.py</span> in <span class="ni">handle_missing</span><span class="nt">(cls, endog, exog, missing, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="s2">         elif missing == 'raise':</span>
-<span class="ne">--&gt; </span><span class="mi">280</span><span class="s2">             raise MissingDataError("NaNs were encountered in the data")</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span><span class="s2">         elif missing == 'drop':</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span><span class="s2">         elif missing == 'raise':</span>
+<span class="ne">--&gt; </span><span class="mi">284</span><span class="s2">             raise MissingDataError("NaNs were encountered in the data")</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span><span class="s2">         elif missing == 'drop':</span>
 
 <span class="ne">MissingDataError</span>: NaNs were encountered in the data
 </pre></div>
@@ -394,7 +394,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.regression.quantile_regression </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -300,7 +300,6 @@
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">pinv</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">chain_dot</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
 <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="p">(</span><span class="n">RegressionModel</span><span class="p">,</span>
                                                  <span class="n">RegressionResults</span><span class="p">,</span>
@@ -484,7 +483,7 @@
             <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">e</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">q</span><span class="o">/</span><span class="n">fhat0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">q</span><span class="p">)</span><span class="o">/</span><span class="n">fhat0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">xtxi</span> <span class="o">=</span> <span class="n">pinv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exog</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">exog</span><span class="p">))</span>
             <span class="n">xtdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exog</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:],</span> <span class="n">exog</span><span class="p">)</span>
-            <span class="n">vcov</span> <span class="o">=</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">xtxi</span><span class="p">,</span> <span class="n">xtdx</span><span class="p">,</span> <span class="n">xtxi</span><span class="p">)</span>
+            <span class="n">vcov</span> <span class="o">=</span> <span class="n">xtxi</span> <span class="o">@</span> <span class="n">xtdx</span> <span class="o">@</span> <span class="n">xtxi</span>
         <span class="k">elif</span> <span class="n">vcov</span> <span class="o">==</span> <span class="s1">'iid'</span><span class="p">:</span>
             <span class="n">vcov</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">fhat0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">q</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">q</span><span class="p">)</span> <span class="o">*</span> <span class="n">pinv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exog</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">exog</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
@@ -716,7 +715,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

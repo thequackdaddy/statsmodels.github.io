@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.vecm </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -290,7 +290,6 @@
 <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">HypothesisTestWarning</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">chain_dot</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">duplication_matrix</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">lagmat</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.base.tsa_model</span> <span class="k">as</span> <span class="nn">tsbase</span>
@@ -679,7 +678,7 @@
     <span class="n">s11_</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">_mat_sqrt</span><span class="p">(</span><span class="n">s11</span><span class="p">))</span>
     <span class="c1"># p. 295:</span>
     <span class="n">s01_s11_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">s01</span><span class="p">,</span> <span class="n">s11_</span><span class="p">)</span>
-    <span class="n">eig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span><span class="n">s01_s11_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">inv</span><span class="p">(</span><span class="n">s00</span><span class="p">),</span> <span class="n">s01_s11_</span><span class="p">))</span>
+    <span class="n">eig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">s01_s11_</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv</span><span class="p">(</span><span class="n">s00</span><span class="p">)</span> <span class="o">@</span> <span class="n">s01_s11_</span><span class="p">)</span>
     <span class="n">lambd</span> <span class="o">=</span> <span class="n">eig</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">eig</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="c1"># reorder eig_vals to make them decreasing (and order eig_vecs accordingly)</span>
@@ -1601,7 +1600,7 @@
         <span class="n">d</span> <span class="o">=</span> <span class="n">duplication_matrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="p">)</span>
         <span class="n">d_K_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="c1"># compare p. 93, 297 Lutkepohl (2005)</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">d_K_plus</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sigma_u</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">),</span> <span class="n">d_K_plus</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">d_K_plus</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sigma_u</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">)</span> <span class="o">@</span> <span class="n">d_K_plus</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">cov_params_default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># p.296 (7.2.21)</span>
@@ -1687,8 +1686,7 @@
         <span class="n">mat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">mat1</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
         <span class="n">det</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">det_coef_coint</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">mat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">-</span><span class="n">r</span><span class="o">+</span><span class="n">det</span><span class="p">),</span>
-                       <span class="n">inv</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span>
-                               <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)))</span>
+                       <span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">))</span>
         <span class="n">first_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
         <span class="n">last_rows_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mat1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat2</span><span class="p">)))</span>
         <span class="n">last_rows</span> <span class="o">=</span> <span class="n">last_rows_1d</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">-</span><span class="n">r</span><span class="o">+</span><span class="n">det</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span>
@@ -1853,7 +1851,7 @@
         <span class="c1">#</span>
         <span class="c1"># w_eye = np.kron(w, np.identity(K))</span>
         <span class="c1">#</span>
-        <span class="c1"># return chain_dot(w_eye.T, self.cov_params_default, w_eye)</span>
+        <span class="c1"># return w_eye.T @ self.cov_params_default @ w_eye</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ar</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params_wo_det</span>
@@ -1872,8 +1870,8 @@
                                     <span class="n">start_col</span><span class="p">:</span><span class="n">start_col</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">((</span><span class="o">-</span><span class="n">eye</span><span class="p">,</span> <span class="n">eye</span><span class="p">))</span>
         <span class="c1"># for A_p:</span>
         <span class="n">vecm_var_transformation</span><span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">**</span><span class="mi">2</span><span class="p">:,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="o">**</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">eye</span>
-        <span class="k">return</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">vecm_var_transformation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params_wo_det</span><span class="p">,</span>
-                         <span class="n">vecm_var_transformation</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">vvt</span> <span class="o">=</span> <span class="n">vecm_var_transformation</span>
+        <span class="k">return</span> <span class="n">vvt</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params_wo_det</span> <span class="o">@</span> <span class="n">vvt</span><span class="o">.</span><span class="n">T</span>
 
 <div class="viewcode-block" id="VECMResults.ma_rep"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.ma_rep.html#statsmodels.tsa.vector_ar.vecm.VECMResults.ma_rep">[docs]</a>    <span class="k">def</span> <span class="nf">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_rep</span><span class="p">,</span> <span class="n">maxn</span><span class="p">)</span></div>
@@ -2163,9 +2161,9 @@
         <span class="c1"># same results as the reference software JMulTi.</span>
         <span class="n">sigma_u</span> <span class="o">=</span> <span class="n">var_results</span><span class="o">.</span><span class="n">sigma_u</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">p</span><span class="o">-</span><span class="n">num_det_terms</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span>
         <span class="n">sig_alpha_min_p</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">x_x_11</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">)</span>  <span class="c1"># k**2*(p-1)xk**2*(p-1)</span>
-        <span class="n">middle</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">sig_alpha_min_p</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">C</span> <span class="o">@</span> <span class="n">sig_alpha_min_p</span> <span class="o">@</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-        <span class="n">wald_statistic</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">chain_dot</span><span class="p">(</span><span class="n">Ca</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">Ca</span><span class="p">)</span>
+        <span class="n">wald_statistic</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ca</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">middle</span> <span class="o">@</span> <span class="n">Ca</span><span class="p">)</span>
         <span class="n">f_statistic</span> <span class="o">=</span> <span class="n">wald_statistic</span> <span class="o">/</span> <span class="n">num_restr</span>
         <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_restr</span><span class="p">,</span> <span class="n">k</span> <span class="o">*</span> <span class="n">var_results</span><span class="o">.</span><span class="n">df_resid</span><span class="p">)</span>
         <span class="n">f_distribution</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">df</span><span class="p">)</span>
@@ -2328,7 +2326,7 @@
             <span class="n">c0_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">c0_inv</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlags</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">ct</span> <span class="o">=</span> <span class="n">acov_list</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-            <span class="n">to_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">chain_dot</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">c0_inv</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">c0_inv</span><span class="p">))</span>
+            <span class="n">to_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">c0_inv</span> <span class="o">@</span> <span class="n">ct</span> <span class="o">@</span> <span class="n">c0_inv</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">adjusted</span><span class="p">:</span>
                 <span class="n">to_add</span> <span class="o">/=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
             <span class="n">statistic</span> <span class="o">+=</span> <span class="n">to_add</span>
@@ -2588,7 +2586,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

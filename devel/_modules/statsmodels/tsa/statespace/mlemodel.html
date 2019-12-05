@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+635)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+641)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.mlemodel </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+635)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+641)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -2612,7 +2612,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cov_params_robust_approx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cov_approx_complex_step</span><span class="p">,</span>
                                               <span class="bp">self</span><span class="o">.</span><span class="n">_cov_approx_centered</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">info_criteria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'standard'</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.info_criteria"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.info_criteria.html#statsmodels.tsa.statespace.mlemodel.MLEResults.info_criteria">[docs]</a>    <span class="k">def</span> <span class="nf">info_criteria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'standard'</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Information criteria</span>
 
@@ -2689,7 +2689,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Invalid information criteria computation method'</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">out</span>
+        <span class="k">return</span> <span class="n">out</span></div>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">fittedvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2806,7 +2806,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bse</span>
 
-    <span class="k">def</span> <span class="nf">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.test_normality"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality">[docs]</a>    <span class="k">def</span> <span class="nf">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Test for normality of standardized residuals.</span>
 
@@ -2851,9 +2851,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Invalid normality test method.'</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">test_heteroskedasticity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'two-sided'</span><span class="p">,</span>
+<div class="viewcode-block" id="MLEResults.test_heteroskedasticity"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity">[docs]</a>    <span class="k">def</span> <span class="nf">test_heteroskedasticity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'two-sided'</span><span class="p">,</span>
                                 <span class="n">use_f</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Test for heteroskedasticity of standardized residuals</span>
@@ -3013,9 +3013,9 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Invalid heteroskedasticity test'</span>
                                       <span class="s1">' method.'</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">output</span>
+        <span class="k">return</span> <span class="n">output</span></div>
 
-    <span class="k">def</span> <span class="nf">test_serial_correlation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.test_serial_correlation"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation">[docs]</a>    <span class="k">def</span> <span class="nf">test_serial_correlation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Ljung-Box test for no serial correlation of standardized residuals</span>
 
@@ -3091,9 +3091,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Invalid serial correlation test'</span>
                                       <span class="s1">' method.'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">output</span>
+        <span class="k">return</span> <span class="n">output</span></div>
 
-    <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="MLEResults.get_prediction"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.get_prediction.html#statsmodels.tsa.statespace.mlemodel.MLEResults.get_prediction">[docs]</a>    <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                        <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        In-sample prediction and out-of-sample forecasting</span>
@@ -3148,9 +3148,9 @@
 
         <span class="c1"># Return a new mlemodel.PredictionResults object</span>
         <span class="k">return</span> <span class="n">PredictionResultsWrapper</span><span class="p">(</span><span class="n">PredictionResults</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">prediction_results</span><span class="p">,</span> <span class="n">row_labels</span><span class="o">=</span><span class="n">prediction_index</span><span class="p">))</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">prediction_results</span><span class="p">,</span> <span class="n">row_labels</span><span class="o">=</span><span class="n">prediction_index</span><span class="p">))</span></div>
 
-    <span class="k">def</span> <span class="nf">get_forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.get_forecast"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.get_forecast.html#statsmodels.tsa.statespace.mlemodel.MLEResults.get_forecast">[docs]</a>    <span class="k">def</span> <span class="nf">get_forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Out-of-sample forecasts</span>
 
@@ -3174,9 +3174,9 @@
             <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">+</span> <span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">steps</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.predict"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.predict.html#statsmodels.tsa.statespace.mlemodel.MLEResults.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        In-sample prediction and out-of-sample forecasting</span>
 
@@ -3213,9 +3213,9 @@
 <span class="sd">        """</span>
         <span class="c1"># Perform the prediction</span>
         <span class="n">prediction_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">dynamic</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">prediction_results</span><span class="o">.</span><span class="n">predicted_mean</span>
+        <span class="k">return</span> <span class="n">prediction_results</span><span class="o">.</span><span class="n">predicted_mean</span></div>
 
-    <span class="k">def</span> <span class="nf">forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.forecast"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.forecast.html#statsmodels.tsa.statespace.mlemodel.MLEResults.forecast">[docs]</a>    <span class="k">def</span> <span class="nf">forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Out-of-sample forecasts</span>
 
@@ -3239,9 +3239,9 @@
             <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">+</span> <span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">steps</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="MLEResults.simulate"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.simulate.html#statsmodels.tsa.statespace.mlemodel.MLEResults.simulate">[docs]</a>    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">state_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Simulate a new time series following the state space model</span>
@@ -3284,9 +3284,9 @@
             <span class="n">sim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span>
                                       <span class="n">measurement_shocks</span><span class="p">,</span> <span class="n">state_shocks</span><span class="p">,</span>
                                       <span class="n">initial_state</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">sim</span>
+        <span class="k">return</span> <span class="n">sim</span></div>
 
-    <span class="k">def</span> <span class="nf">impulse_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">impulse</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orthogonalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="MLEResults.impulse_responses"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.impulse_responses.html#statsmodels.tsa.statespace.mlemodel.MLEResults.impulse_responses">[docs]</a>    <span class="k">def</span> <span class="nf">impulse_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">impulse</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orthogonalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                           <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Impulse response function</span>
@@ -3334,7 +3334,7 @@
             <span class="n">irfs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">impulse</span><span class="p">,</span>
                                                 <span class="n">orthogonalized</span><span class="p">,</span> <span class="n">cumulative</span><span class="p">,</span>
                                                 <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">irfs</span>
+        <span class="k">return</span> <span class="n">irfs</span></div>
 
     <span class="k">def</span> <span class="nf">_apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">fit_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -3483,7 +3483,7 @@
 
         <span class="k">return</span> <span class="n">res</span></div>
 
-    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.extend"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.extend.html#statsmodels.tsa.statespace.mlemodel.MLEResults.extend">[docs]</a>    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Recreate the results object for new data that extends the original data</span>
 
@@ -3565,7 +3565,7 @@
             <span class="n">stationary_cov</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">predicted_state_cov</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="n">fit_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="MLEResults.apply"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.apply.html#statsmodels.tsa.statespace.mlemodel.MLEResults.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -3651,7 +3651,7 @@
 
         <span class="k">return</span> <span class="n">res</span></div>
 
-    <span class="k">def</span> <span class="nf">plot_diagnostics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MLEResults.plot_diagnostics"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics.html#statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics">[docs]</a>    <span class="k">def</span> <span class="nf">plot_diagnostics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Diagnostic plots for standardized residuals of one endogenous variable</span>
 
@@ -3740,9 +3740,9 @@
 
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fig</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="MLEResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.summary.html#statsmodels.tsa.statespace.mlemodel.MLEResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">display_params</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Summarize the Model</span>
@@ -3877,7 +3877,7 @@
             <span class="n">etext</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"Warnings:"</span><span class="p">)</span>
             <span class="n">summary</span><span class="o">.</span><span class="n">add_extra_txt</span><span class="p">(</span><span class="n">etext</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">summary</span></div>
+        <span class="k">return</span> <span class="n">summary</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">MLEResultsWrapper</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">ResultsWrapper</span><span class="p">):</span>
@@ -4050,7 +4050,7 @@
               
           </div>
             Last updated on
-              Dec 04, 2019.
+              Dec 05, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
