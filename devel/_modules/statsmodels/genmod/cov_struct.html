@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.cov_struct </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -475,12 +475,12 @@
         <span class="c1"># Nothing to update</span>
         <span class="k">return</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Independence.covariance_matrix"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.covariance_matrix.html#statsmodels.genmod.cov_struct.Independence.covariance_matrix">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">covariance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expval</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expval</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="kc">True</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix_solve</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Independence.covariance_matrix_solve"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.covariance_matrix_solve.html#statsmodels.genmod.cov_struct.Independence.covariance_matrix_solve">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix_solve</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">covariance_matrix_solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expval</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">stdev</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">stdev</span> <span class="o">**</span> <span class="mi">2</span>
         <span class="n">rslt</span> <span class="o">=</span> <span class="p">[]</span>
@@ -489,11 +489,11 @@
                 <span class="n">rslt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">v</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">rslt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">v</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">rslt</span>
+        <span class="k">return</span> <span class="n">rslt</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Independence.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.summary.html#statsmodels.genmod.cov_struct.Independence.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="s2">"Observations within a cluster are modeled "</span>
-                <span class="s2">"as being independent."</span><span class="p">)</span></div>
+                <span class="s2">"as being independent."</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Exchangeable"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.cov_struct.Exchangeable.html#statsmodels.genmod.cov_struct.Exchangeable">[docs]</a><span class="k">class</span> <span class="nc">Exchangeable</span><span class="p">(</span><span class="n">CovStruct</span><span class="p">):</span>
@@ -1334,7 +1334,7 @@
 
         <span class="k">return</span> <span class="n">vmat</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="GlobalOddsRatio.update"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.update.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.update">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Update the global odds ratio based on the current value of</span>
@@ -1376,10 +1376,10 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="mf">1.</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">"dep_params became inf, resetting to 1"</span><span class="p">,</span>
-                          <span class="n">ConvergenceWarning</span><span class="p">)</span>
+                          <span class="n">ConvergenceWarning</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div>
+<div class="viewcode-block" id="GlobalOddsRatio.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.GlobalOddsRatio.summary.html#statsmodels.genmod.cov_struct.GlobalOddsRatio.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Global odds ratio: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">OrdinalIndependence</span><span class="p">(</span><span class="n">CategoricalCovStruct</span><span class="p">):</span>
@@ -1720,7 +1720,7 @@
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

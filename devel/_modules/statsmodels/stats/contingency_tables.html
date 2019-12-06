@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.contingency_tables </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -992,7 +992,7 @@
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Table2x2.oddsratio_pvalue"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.oddsratio_pvalue.html#statsmodels.stats.contingency_tables.Table2x2.oddsratio_pvalue">[docs]</a>    <span class="k">def</span> <span class="nf">oddsratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">oddsratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        P-value for a hypothesis test about the odds ratio.</span>
 
@@ -1002,9 +1002,9 @@
 <span class="sd">            The null value of the odds ratio.</span>
 <span class="sd">        """</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio_pvalue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">null</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio_pvalue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">null</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Table2x2.log_oddsratio_pvalue"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.log_oddsratio_pvalue.html#statsmodels.stats.contingency_tables.Table2x2.log_oddsratio_pvalue">[docs]</a>    <span class="k">def</span> <span class="nf">log_oddsratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log_oddsratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        P-value for a hypothesis test about the log odds ratio.</span>
 
@@ -1016,9 +1016,9 @@
 
         <span class="n">zscore</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio</span> <span class="o">-</span> <span class="n">null</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio_se</span>
         <span class="n">pvalue</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">zscore</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">pvalue</span></div>
+        <span class="k">return</span> <span class="n">pvalue</span>
 
-<div class="viewcode-block" id="Table2x2.log_oddsratio_confint"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.log_oddsratio_confint.html#statsmodels.stats.contingency_tables.Table2x2.log_oddsratio_confint">[docs]</a>    <span class="k">def</span> <span class="nf">log_oddsratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log_oddsratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        A confidence level for the log odds ratio.</span>
 
@@ -1037,9 +1037,9 @@
         <span class="n">se</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio_se</span>
         <span class="n">lcb</span> <span class="o">=</span> <span class="n">lor</span> <span class="o">-</span> <span class="n">f</span> <span class="o">*</span> <span class="n">se</span>
         <span class="n">ucb</span> <span class="o">=</span> <span class="n">lor</span> <span class="o">+</span> <span class="n">f</span> <span class="o">*</span> <span class="n">se</span>
-        <span class="k">return</span> <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span></div>
+        <span class="k">return</span> <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span>
 
-<div class="viewcode-block" id="Table2x2.oddsratio_confint"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.oddsratio_confint.html#statsmodels.stats.contingency_tables.Table2x2.oddsratio_confint">[docs]</a>    <span class="k">def</span> <span class="nf">oddsratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">oddsratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        A confidence interval for the odds ratio.</span>
 
@@ -1053,7 +1053,7 @@
 <span class="sd">            must be 'normal' which uses the normal approximation.</span>
 <span class="sd">        """</span>
         <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_oddsratio_confint</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lcb</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ucb</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lcb</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ucb</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">riskratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1085,7 +1085,7 @@
         <span class="n">va</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">va</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Table2x2.riskratio_pvalue"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.riskratio_pvalue.html#statsmodels.stats.contingency_tables.Table2x2.riskratio_pvalue">[docs]</a>    <span class="k">def</span> <span class="nf">riskratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">riskratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        p-value for a hypothesis test about the risk ratio.</span>
 
@@ -1095,9 +1095,9 @@
 <span class="sd">            The null value of the risk ratio.</span>
 <span class="sd">        """</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio_pvalue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">null</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio_pvalue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">null</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Table2x2.log_riskratio_pvalue"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.log_riskratio_pvalue.html#statsmodels.stats.contingency_tables.Table2x2.log_riskratio_pvalue">[docs]</a>    <span class="k">def</span> <span class="nf">log_riskratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log_riskratio_pvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        p-value for a hypothesis test about the log risk ratio.</span>
 
@@ -1109,9 +1109,9 @@
 
         <span class="n">zscore</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio</span> <span class="o">-</span> <span class="n">null</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio_se</span>
         <span class="n">pvalue</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">zscore</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">pvalue</span></div>
+        <span class="k">return</span> <span class="n">pvalue</span>
 
-<div class="viewcode-block" id="Table2x2.log_riskratio_confint"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.log_riskratio_confint.html#statsmodels.stats.contingency_tables.Table2x2.log_riskratio_confint">[docs]</a>    <span class="k">def</span> <span class="nf">log_riskratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log_riskratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        A confidence interval for the log risk ratio.</span>
 
@@ -1129,9 +1129,9 @@
         <span class="n">se</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio_se</span>
         <span class="n">lcb</span> <span class="o">=</span> <span class="n">lrr</span> <span class="o">-</span> <span class="n">f</span> <span class="o">*</span> <span class="n">se</span>
         <span class="n">ucb</span> <span class="o">=</span> <span class="n">lrr</span> <span class="o">+</span> <span class="n">f</span> <span class="o">*</span> <span class="n">se</span>
-        <span class="k">return</span> <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span></div>
+        <span class="k">return</span> <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span>
 
-<div class="viewcode-block" id="Table2x2.riskratio_confint"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.riskratio_confint.html#statsmodels.stats.contingency_tables.Table2x2.riskratio_confint">[docs]</a>    <span class="k">def</span> <span class="nf">riskratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">riskratio_confint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        A confidence interval for the risk ratio.</span>
 
@@ -1145,7 +1145,7 @@
 <span class="sd">            must be 'normal' which uses the normal approximation.</span>
 <span class="sd">        """</span>
         <span class="n">lcb</span><span class="p">,</span> <span class="n">ucb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_riskratio_confint</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lcb</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ucb</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lcb</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ucb</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Table2x2.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.contingency_tables.Table2x2.summary.html#statsmodels.stats.contingency_tables.Table2x2.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">"</span><span class="si">%.3f</span><span class="s2">"</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1723,7 +1723,7 @@
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

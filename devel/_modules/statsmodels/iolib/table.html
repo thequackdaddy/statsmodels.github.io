@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> statsmodels.iolib.table </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -514,7 +514,7 @@
         <span class="k">if</span> <span class="n">stubs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">insert_stubs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">stubs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SimpleTable.insert"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.insert.html#statsmodels.iolib.table.SimpleTable.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">datatype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">datatype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Return None.  Insert a row into a table.</span>
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="n">datatype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -523,9 +523,9 @@
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="k">pass</span>
         <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Row</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">datatype</span><span class="o">=</span><span class="n">datatype</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
-        <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span></div>
+        <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SimpleTable.insert_header_row"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.insert_header_row.html#statsmodels.iolib.table.SimpleTable.insert_header_row">[docs]</a>    <span class="k">def</span> <span class="nf">insert_header_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rownum</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">dec_below</span><span class="o">=</span><span class="s1">'header_dec_below'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">insert_header_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rownum</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">dec_below</span><span class="o">=</span><span class="s1">'header_dec_below'</span><span class="p">):</span>
         <span class="sd">"""Return None.  Insert a row of headers,</span>
 <span class="sd">        where ``headers`` is a sequence of strings.</span>
 <span class="sd">        (The strings may contain newlines, to indicated multiline headers.)</span>
@@ -539,9 +539,9 @@
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="bp">self</span><span class="p">[</span><span class="n">rownum</span><span class="p">]</span><span class="o">.</span><span class="n">dec_below</span> <span class="o">=</span> <span class="n">dec_below</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="p">[</span><span class="n">rownum</span><span class="p">]</span><span class="o">.</span><span class="n">dec_below</span> <span class="o">=</span> <span class="kc">None</span></div>
+                <span class="bp">self</span><span class="p">[</span><span class="n">rownum</span><span class="p">]</span><span class="o">.</span><span class="n">dec_below</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="SimpleTable.insert_stubs"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.insert_stubs.html#statsmodels.iolib.table.SimpleTable.insert_stubs">[docs]</a>    <span class="k">def</span> <span class="nf">insert_stubs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">stubs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">insert_stubs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">stubs</span><span class="p">):</span>
         <span class="sd">"""Return None.  Insert column of stubs at column `loc`.</span>
 <span class="sd">        If there is a header row, it gets an empty cell.</span>
 <span class="sd">        So ``len(stubs)`` should equal the number of non-header rows.</span>
@@ -556,7 +556,7 @@
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">row</span><span class="o">.</span><span class="n">insert_stub</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">stubs</span><span class="p">))</span>
                 <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'length of stubs must match table length'</span><span class="p">)</span></div>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'length of stubs must match table length'</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_data2rows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">):</span>
         <span class="sd">"""Return list of Row,</span>
@@ -576,9 +576,9 @@
 
         <span class="k">return</span> <span class="n">rows</span>
 
-<div class="viewcode-block" id="SimpleTable.pad"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.pad.html#statsmodels.iolib.table.SimpleTable.pad">[docs]</a>    <span class="k">def</span> <span class="nf">pad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">align</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">pad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">align</span><span class="p">):</span>
         <span class="sd">"""DEPRECATED: just use the pad function"""</span>
-        <span class="k">return</span> <span class="n">pad</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">align</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">pad</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">align</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_colwidths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return list, the calculated widths of each column."""</span>
@@ -602,7 +602,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">lmap</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="n">min_widths</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
-<div class="viewcode-block" id="SimpleTable.get_colwidths"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.get_colwidths.html#statsmodels.iolib.table.SimpleTable.get_colwidths">[docs]</a>    <span class="k">def</span> <span class="nf">get_colwidths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_colwidths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return list, the widths of each column."""</span>
         <span class="n">call_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">output_format</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">iteritems</span><span class="p">(</span><span class="n">fmt_dict</span><span class="p">)):</span>
@@ -618,7 +618,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_colwidths</span><span class="p">(</span><span class="n">output_format</span><span class="p">,</span>
                                                        <span class="o">**</span><span class="n">fmt_dict</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colwidths</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_get_fmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">,</span> <span class="o">**</span><span class="n">fmt_dict</span><span class="p">):</span>
         <span class="sd">"""Return dict, the formatting options.</span>
@@ -742,7 +742,7 @@
         <span class="k">for</span> <span class="n">row1</span><span class="p">,</span> <span class="n">row2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
             <span class="n">row1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SimpleTable.label_cells"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.table.SimpleTable.label_cells.html#statsmodels.iolib.table.SimpleTable.label_cells">[docs]</a>    <span class="k">def</span> <span class="nf">label_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">label_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
         <span class="sd">"""Return None.  Labels cells based on `func`.</span>
 <span class="sd">        If ``func(cell) is None`` then its datatype is</span>
 <span class="sd">        not changed; otherwise it is set to ``func(cell)``.</span>
@@ -751,7 +751,7 @@
             <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
                 <span class="n">label</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">cell</span><span class="o">.</span><span class="n">datatype</span> <span class="o">=</span> <span class="n">label</span></div>
+                    <span class="n">cell</span><span class="o">.</span><span class="n">datatype</span> <span class="o">=</span> <span class="n">label</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1217,7 +1217,7 @@
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

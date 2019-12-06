@@ -31,7 +31,7 @@ devel/_images/examples_notebooks_generated_discrete_choice_example_64_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_12_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_12_1.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_14_0.png
-devel/_images/examples_notebooks_generated_exponential_smoothing_16_0.png
+devel/_images/examples_notebooks_generated_exponential_smoothing_16_1.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_21_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_4_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_6_0.png
@@ -191,6 +191,7 @@ devel/_images/examples_notebooks_generated_statespace_seasonal_5_0.png
 devel/_images/examples_notebooks_generated_statespace_seasonal_7_1.png
 devel/_images/examples_notebooks_generated_statespace_structural_harvey_jaeger_14_1.png
 devel/_images/examples_notebooks_generated_statespace_structural_harvey_jaeger_6_0.png
+devel/_images/examples_notebooks_generated_statespace_varmax_8_0.png
 devel/_images/examples_notebooks_generated_stl_decomposition_10_0.png
 devel/_images/examples_notebooks_generated_stl_decomposition_11_0.png
 devel/_images/examples_notebooks_generated_stl_decomposition_13_0.png
@@ -680,6 +681,7 @@ devel/_sources/examples/notebooks/generated/statespace_sarimax_internet.ipynb.tx
 devel/_sources/examples/notebooks/generated/statespace_sarimax_stata.ipynb.txt
 devel/_sources/examples/notebooks/generated/statespace_seasonal.ipynb.txt
 devel/_sources/examples/notebooks/generated/statespace_structural_harvey_jaeger.ipynb.txt
+devel/_sources/examples/notebooks/generated/statespace_varmax.ipynb.txt
 devel/_sources/examples/notebooks/generated/stl_decomposition.ipynb.txt
 devel/_sources/examples/notebooks/generated/tsa_arma_0.ipynb.txt
 devel/_sources/examples/notebooks/generated/tsa_arma_1.ipynb.txt
@@ -4987,11 +4989,16 @@ devel/_sources/generated/statsmodels.sandbox.stats.multicomp.catstack.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.ccols.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.compare_ordered.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.distance_st_range.rst.txt
+devel/_sources/generated/statsmodels.sandbox.stats.multicomp.ecdf.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.get_tukeyQcrit.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.homogeneous_subsets.rst.txt
+devel/_sources/generated/statsmodels.sandbox.stats.multicomp.maxzero.rst.txt
+devel/_sources/generated/statsmodels.sandbox.stats.multicomp.maxzerodown.rst.txt
+devel/_sources/generated/statsmodels.sandbox.stats.multicomp.mcfdr.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.qcrit.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.randmvn.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.rankdata.rst.txt
+devel/_sources/generated/statsmodels.sandbox.stats.multicomp.rejectionline.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.set_partition.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.set_remove_subs.rst.txt
 devel/_sources/generated/statsmodels.sandbox.stats.multicomp.tiecorrect.rst.txt
@@ -5680,6 +5687,7 @@ devel/examples/notebooks/generated/statespace_sarimax_internet.html
 devel/examples/notebooks/generated/statespace_sarimax_stata.html
 devel/examples/notebooks/generated/statespace_seasonal.html
 devel/examples/notebooks/generated/statespace_structural_harvey_jaeger.html
+devel/examples/notebooks/generated/statespace_varmax.html
 devel/examples/notebooks/generated/stl_decomposition.html
 devel/examples/notebooks/generated/tsa_arma_0.html
 devel/examples/notebooks/generated/tsa_arma_1.html
@@ -9991,11 +9999,16 @@ devel/generated/statsmodels.sandbox.stats.multicomp.catstack.html
 devel/generated/statsmodels.sandbox.stats.multicomp.ccols.html
 devel/generated/statsmodels.sandbox.stats.multicomp.compare_ordered.html
 devel/generated/statsmodels.sandbox.stats.multicomp.distance_st_range.html
+devel/generated/statsmodels.sandbox.stats.multicomp.ecdf.html
 devel/generated/statsmodels.sandbox.stats.multicomp.get_tukeyQcrit.html
 devel/generated/statsmodels.sandbox.stats.multicomp.homogeneous_subsets.html
+devel/generated/statsmodels.sandbox.stats.multicomp.maxzero.html
+devel/generated/statsmodels.sandbox.stats.multicomp.maxzerodown.html
+devel/generated/statsmodels.sandbox.stats.multicomp.mcfdr.html
 devel/generated/statsmodels.sandbox.stats.multicomp.qcrit.html
 devel/generated/statsmodels.sandbox.stats.multicomp.randmvn.html
 devel/generated/statsmodels.sandbox.stats.multicomp.rankdata.html
+devel/generated/statsmodels.sandbox.stats.multicomp.rejectionline.html
 devel/generated/statsmodels.sandbox.stats.multicomp.set_partition.html
 devel/generated/statsmodels.sandbox.stats.multicomp.set_remove_subs.html
 devel/generated/statsmodels.sandbox.stats.multicomp.tiecorrect.html

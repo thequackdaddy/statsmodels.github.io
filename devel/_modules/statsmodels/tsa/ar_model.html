@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1612,17 +1612,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">df_model</span> <span class="o">=</span> <span class="n">k_ar</span> <span class="o">+</span> <span class="n">k_trend</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df_resid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">df_resid</span> <span class="o">=</span> <span class="n">n_totobs</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_model</span>
 
-    <span class="nd">@cache_writable</span><span class="p">()</span>
+<div class="viewcode-block" id="ARResults.sigma2"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.ARResults.sigma2.html#statsmodels.tsa.ar_model.ARResults.sigma2">[docs]</a>    <span class="nd">@cache_writable</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">sigma2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
         <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">"cmle"</span><span class="p">:</span>  <span class="c1"># do DOF correction</span>
             <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">*</span> <span class="n">sumofsq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sigma2</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sigma2</span></div>
 
-    <span class="nd">@cache_writable</span><span class="p">()</span>  <span class="c1"># for compatability with RegressionResults</span>
+<div class="viewcode-block" id="ARResults.scale"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.ARResults.scale.html#statsmodels.tsa.ar_model.ARResults.scale">[docs]</a>    <span class="nd">@cache_writable</span><span class="p">()</span>  <span class="c1"># for compatability with RegressionResults</span>
     <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma2</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma2</span></div>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">bse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># allow user to specify?</span>
@@ -1755,11 +1755,11 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">remove_parameters</span><span class="p">(</span><span class="n">AR</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s1">'params'</span><span class="p">))</span>
+<div class="viewcode-block" id="ARResults.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.ARResults.predict.html#statsmodels.tsa.ar_model.ARResults.predict">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">remove_parameters</span><span class="p">(</span><span class="n">AR</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s1">'params'</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
         <span class="n">predictedvalues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">dynamic</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">predictedvalues</span>
+        <span class="k">return</span> <span class="n">predictedvalues</span></div>
         <span class="c1"># TODO: consider returning forecast errors and confidence intervals?</span>
 
     <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
@@ -2736,7 +2736,7 @@
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

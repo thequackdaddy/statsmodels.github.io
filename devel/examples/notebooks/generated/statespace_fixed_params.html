@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> Estimating or specifying parameters in state space models </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -282,6 +282,11 @@
     <li class="md-nav__item">
     
       <a href="statespace_sarimax_internet.html" class="md-nav__link">SARIMAX: Model selection, missing data</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="statespace_varmax.html" class="md-nav__link">VARMAX models</a>
       
     </li>
     <li class="md-nav__item">
@@ -761,8 +766,8 @@ y_t &amp; = \mu_t + \varepsilon_t &amp; \varepsilon_t \sim N(0, \sigma_\varepsil
 ==============================================================================
 Dep. Variable:               CPIAPPNS   No. Observations:                  478
 Model:             local linear trend   Log Likelihood               -2372.465
-Date:                Thu, 05 Dec 2019   AIC                           4750.929
-Time:                        19:06:11   BIC                           4763.425
+Date:                Fri, 06 Dec 2019   AIC                           4750.929
+Time:                        00:32:12   BIC                           4763.425
 Sample:                    01-01-1980   HQIC                          4755.843
                          - 10-01-2019
 Covariance Type:                  opg
@@ -883,8 +888,8 @@ implied above so that the trend corresponds to the HP filter concept.</p>
 Dep. Variable:                      CPIAPPNS   No. Observations:                  478
 Model:                    local linear trend   Log Likelihood               -1200.389
                    + stochastic seasonal(12)   AIC                           2402.778
-Date:                       Thu, 05 Dec 2019   BIC                           2406.920
-Time:                               19:06:12   HQIC                          2404.409
+Date:                       Fri, 06 Dec 2019   BIC                           2406.920
+Time:                               00:32:13   HQIC                          2404.409
 Sample:                           01-01-1980
                                 - 10-01-2019
 Covariance Type:                         opg
@@ -896,7 +901,7 @@ sigma2.level (fixed)              0        nan        nan        nan         nan
 sigma2.trend (fixed)      7.716e-06        nan        nan        nan         nan         nan
 sigma2.seasonal              0.0615      0.009      6.494      0.000       0.043       0.080
 ===================================================================================
-Ljung-Box (Q):                     3510.36   Jarque-Bera (JB):                 0.51
+Ljung-Box (Q):                     3510.34   Jarque-Bera (JB):                 0.51
 Prob(Q):                              0.00   Prob(JB):                         0.78
 Heteroskedasticity (H):               1.43   Skew:                            -0.01
 Prob(H) (two-sided):                  0.03   Kurtosis:                         2.84
@@ -1026,7 +1031,7 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

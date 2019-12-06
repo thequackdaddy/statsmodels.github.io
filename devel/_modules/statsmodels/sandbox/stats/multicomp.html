@@ -21,7 +21,7 @@
   
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
 
     <style>
       body,
@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+655)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.multicomp </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+655)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -339,6 +339,7 @@
 
 
 <span class="sd">'''</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lzip</span><span class="p">,</span> <span class="n">lrange</span>
 
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -346,10 +347,10 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_almost_equal</span><span class="p">,</span> <span class="n">assert_equal</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">interpolate</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lzip</span><span class="p">,</span> <span class="n">lrange</span>
+
 <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
 <span class="c1">#temporary circular import</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span><span class="p">,</span> <span class="n">fdrcorrection</span> <span class="k">as</span> <span class="n">fdrcorrection0</span><span class="p">,</span> <span class="n">fdrcorrection_twostage</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span><span class="p">,</span> <span class="n">_ecdf</span> <span class="k">as</span> <span class="n">ecdf</span><span class="p">,</span> <span class="n">fdrcorrection</span> <span class="k">as</span> <span class="n">fdrcorrection0</span><span class="p">,</span> <span class="n">fdrcorrection_twostage</span>
 <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ValueWarning</span>
 
@@ -388,7 +389,7 @@
 <span class="n">cv001</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="get_tukeyQcrit"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.get_tukeyQcrit.html#statsmodels.sandbox.stats.multicomp.get_tukeyQcrit">[docs]</a><span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
 <span class="sd">    return critical values for Tukey's HSD (Q)</span>
 
@@ -411,7 +412,7 @@
         <span class="n">intp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">crows</span><span class="p">,</span> <span class="n">cv001</span><span class="p">[:,</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'only implemented for alpha equal to 0.01 and 0.05'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">get_tukeyQcrit2</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
@@ -560,15 +561,167 @@
     <span class="n">mserror</span> <span class="o">=</span> <span class="n">mserrornum</span><span class="o">/</span><span class="n">mserrorden</span> <span class="c1">#mean square error</span>
 
 
-<div class="viewcode-block" id="catstack"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.catstack.html#statsmodels.sandbox.stats.multicomp.catstack">[docs]</a><span class="k">def</span> <span class="nf">catstack</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">catstack</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">arr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">)])</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">labels</span></div>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">labels</span>
 
 
 
 
-<div class="viewcode-block" id="randmvn"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.randmvn.html#statsmodels.sandbox.stats.multicomp.randmvn">[docs]</a><span class="k">def</span> <span class="nf">randmvn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">maxzero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">'''find all up zero crossings and return the index of the highest</span>
+
+<span class="sd">    Not used anymore</span>
+
+
+<span class="sd">    &gt;&gt;&gt; np.random.seed(12345)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.random.randn(8)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    array([-0.20470766,  0.47894334, -0.51943872, -0.5557303 ,  1.96578057,</span>
+<span class="sd">            1.39340583,  0.09290788,  0.28174615])</span>
+<span class="sd">    &gt;&gt;&gt; maxzero(x)</span>
+<span class="sd">    (4, array([1, 4]))</span>
+
+
+<span class="sd">    no up-zero-crossing at end</span>
+
+<span class="sd">    &gt;&gt;&gt; np.random.seed(0)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.random.randn(8)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    array([ 1.76405235,  0.40015721,  0.97873798,  2.2408932 ,  1.86755799,</span>
+<span class="sd">           -0.97727788,  0.95008842, -0.15135721])</span>
+<span class="sd">    &gt;&gt;&gt; maxzero(x)</span>
+<span class="sd">    (None, array([6]))</span>
+<span class="sd">    '''</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">cond1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="n">cond2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="c1">#allzeros = np.nonzero(np.sign(x[:-1])*np.sign(x[1:]) &lt;= 0)[0] + 1</span>
+    <span class="n">allzeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="n">cond1</span> <span class="o">&amp;</span> <span class="n">cond2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">==</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">maxz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allzeros</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">maxz</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span>
+
+<span class="k">def</span> <span class="nf">maxzerodown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">'''find all up zero crossings and return the index of the highest</span>
+
+<span class="sd">    Not used anymore</span>
+
+<span class="sd">    &gt;&gt;&gt; np.random.seed(12345)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.random.randn(8)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    array([-0.20470766,  0.47894334, -0.51943872, -0.5557303 ,  1.96578057,</span>
+<span class="sd">            1.39340583,  0.09290788,  0.28174615])</span>
+<span class="sd">    &gt;&gt;&gt; maxzero(x)</span>
+<span class="sd">    (4, array([1, 4]))</span>
+
+
+<span class="sd">    no up-zero-crossing at end</span>
+
+<span class="sd">    &gt;&gt;&gt; np.random.seed(0)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.random.randn(8)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    array([ 1.76405235,  0.40015721,  0.97873798,  2.2408932 ,  1.86755799,</span>
+<span class="sd">           -0.97727788,  0.95008842, -0.15135721])</span>
+<span class="sd">    &gt;&gt;&gt; maxzero(x)</span>
+<span class="sd">    (None, array([6]))</span>
+<span class="sd">'''</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">cond1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">cond2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="c1">#allzeros = np.nonzero(np.sign(x[:-1])*np.sign(x[1:]) &lt;= 0)[0] + 1</span>
+    <span class="n">allzeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="n">cond1</span> <span class="o">&amp;</span> <span class="n">cond2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">==</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">maxz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allzeros</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">maxz</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span>
+
+
+
+<span class="k">def</span> <span class="nf">rejectionline</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="sd">'''reference line for rejection in multiple tests</span>
+
+<span class="sd">    Not used anymore</span>
+
+<span class="sd">    from: section 3.2, page 60</span>
+<span class="sd">    '''</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">frej</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="p">(</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frej</span>
+
+
+
+
+
+
+<span class="c1">#I do not remember what I changed or why 2 versions,</span>
+<span class="c1">#this follows german diss ???  with rline</span>
+<span class="c1">#this might be useful if the null hypothesis is not "all effects are zero"</span>
+<span class="c1">#rename to _bak and working again on fdrcorrection0</span>
+<span class="k">def</span> <span class="nf">fdrcorrection_bak</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'indep'</span><span class="p">):</span>
+    <span class="sd">'''Reject False discovery rate correction for pvalues</span>
+
+<span class="sd">    Old version, to be deleted</span>
+
+
+<span class="sd">    missing: methods that estimate fraction of true hypotheses</span>
+
+<span class="sd">    '''</span>
+    <span class="n">pvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span>
+
+
+    <span class="n">pvals_sortind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span>
+    <span class="n">pvals_sorted</span> <span class="o">=</span> <span class="n">pvals</span><span class="p">[</span><span class="n">pvals_sortind</span><span class="p">]</span>
+    <span class="n">pecdf</span> <span class="o">=</span> <span class="n">ecdf</span><span class="p">(</span><span class="n">pvals_sorted</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'i'</span><span class="p">,</span> <span class="s1">'indep'</span><span class="p">,</span> <span class="s1">'p'</span><span class="p">,</span> <span class="s1">'poscorr'</span><span class="p">]:</span>
+        <span class="n">rline</span> <span class="o">=</span> <span class="n">pvals_sorted</span> <span class="o">/</span> <span class="n">alpha</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'negcorr'</span><span class="p">]:</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)))</span>
+        <span class="n">rline</span> <span class="o">=</span> <span class="n">pvals_sorted</span> <span class="o">/</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">cm</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'g'</span><span class="p">,</span> <span class="s1">'onegcorr'</span><span class="p">]:</span>  <span class="c1">#what's this ? german diss</span>
+        <span class="n">rline</span> <span class="o">=</span> <span class="n">pvals_sorted</span> <span class="o">/</span> <span class="p">(</span><span class="n">pvals_sorted</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'oth'</span><span class="p">,</span> <span class="s1">'o2negcorr'</span><span class="p">]:</span> <span class="c1"># other invalid, cut-paste</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)))</span>
+        <span class="n">rline</span> <span class="o">=</span> <span class="n">pvals_sorted</span> <span class="o">/</span> <span class="n">alpha</span> <span class="o">/</span><span class="n">cm</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'method not available'</span><span class="p">)</span>
+
+    <span class="n">reject</span> <span class="o">=</span> <span class="n">pecdf</span> <span class="o">&gt;=</span> <span class="n">rline</span>
+    <span class="k">if</span> <span class="n">reject</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">rejectmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">reject</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rejectmax</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">reject</span><span class="p">[:</span><span class="n">rejectmax</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">reject</span><span class="p">[</span><span class="n">pvals_sortind</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
+
+<span class="k">def</span> <span class="nf">mcfdr</span><span class="p">(</span><span class="n">nrepl</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntests</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ntrue</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+    <span class="sd">'''MonteCarlo to test fdrcorrection</span>
+<span class="sd">    '''</span>
+    <span class="n">nfalse</span> <span class="o">=</span> <span class="n">ntests</span> <span class="o">-</span> <span class="n">ntrue</span>
+    <span class="n">locs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">ntrue</span> <span class="o">+</span> <span class="p">[</span><span class="n">mu</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">ntests</span> <span class="o">-</span> <span class="n">ntrue</span><span class="p">))</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrepl</span><span class="p">):</span>
+        <span class="c1">#rvs = locs + stats.norm.rvs(size=(nobs, ntests))</span>
+        <span class="n">rvs</span> <span class="o">=</span> <span class="n">locs</span> <span class="o">+</span> <span class="n">randmvn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">ntests</span><span class="p">))</span>
+        <span class="n">tt</span><span class="p">,</span> <span class="n">tpval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">fdrcorrection_bak</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tpval</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'i'</span><span class="p">)</span>
+        <span class="n">res0</span> <span class="o">=</span> <span class="n">fdrcorrection0</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tpval</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="c1">#res and res0 give the same results</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="p">[:</span><span class="n">ntrue</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:])]</span> <span class="o">+</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res0</span><span class="p">[:</span><span class="n">ntrue</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res0</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:])]</span> <span class="o">+</span>
+                       <span class="n">res</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span>
+                       <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">tpval</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[:</span><span class="n">ntrue</span><span class="p">]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="p">),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="p">)]</span> <span class="o">+</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[:</span><span class="n">ntrue</span><span class="p">]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="o">/</span><span class="n">ntests</span><span class="p">),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="o">/</span><span class="n">ntests</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">randmvn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''create random draws from equi-correlated multivariate normal distribution</span>
 
 <span class="sd">    Parameters</span>
@@ -601,7 +754,7 @@
         <span class="n">rvs2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">nvars</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">standardize</span><span class="p">:</span>
         <span class="n">rvs2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">rvs2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">rvs2</span></div>
+    <span class="k">return</span> <span class="n">rvs2</span>
 
 <span class="c1">#============================</span>
 <span class="c1">#</span>
@@ -623,7 +776,7 @@
     <span class="k">return</span> <span class="n">tiecorrection</span></div>
 
 
-<div class="viewcode-block" id="GroupsStats"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.GroupsStats.html#statsmodels.sandbox.stats.multicomp.GroupsStats">[docs]</a><span class="k">class</span> <span class="nc">GroupsStats</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">GroupsStats</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">'''</span>
 <span class="sd">    statistics by groups (another version)</span>
 
@@ -721,9 +874,9 @@
 
     <span class="k">def</span> <span class="nf">groupvarwithin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""groupvarwithin"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupsswithin</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#.sum()</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupsswithin</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#.sum()</span>
 
-<div class="viewcode-block" id="TukeyHSDResults"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.TukeyHSDResults.html#statsmodels.sandbox.stats.multicomp.TukeyHSDResults">[docs]</a><span class="k">class</span> <span class="nc">TukeyHSDResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TukeyHSDResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""Results from Tukey HSD test, with additional plot methods</span>
 
 <span class="sd">    Can also compute and plot additional post-hoc evaluations using this</span>
@@ -903,10 +1056,10 @@
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span> <span class="k">if</span> <span class="n">xlabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span> <span class="k">if</span> <span class="n">ylabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fig</span></div>
+        <span class="k">return</span> <span class="n">fig</span>
 
 
-<div class="viewcode-block" id="MultiComparison"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.MultiComparison.html#statsmodels.sandbox.stats.multicomp.MultiComparison">[docs]</a><span class="k">class</span> <span class="nc">MultiComparison</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MultiComparison</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">'''Tests for multiple comparisons</span>
 
 <span class="sd">    Parameters</span>
@@ -1132,10 +1285,10 @@
                               <span class="s1">'FWER=</span><span class="si">%4.2f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">alpha</span>
 
         <span class="k">return</span> <span class="n">TukeyHSDResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_table</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-                               <span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">var_</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span></div>
+                               <span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">var_</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="rankdata"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.rankdata.html#statsmodels.sandbox.stats.multicomp.rankdata">[docs]</a><span class="k">def</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''rankdata, equivalent to scipy.stats.rankdata</span>
 
 <span class="sd">    just a different implementation, I have not yet compared speed</span>
@@ -1150,12 +1303,12 @@
     <span class="n">groupranksum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">intlab</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">rankraw</span><span class="p">)</span>
     <span class="c1"># start at 1 for stats.rankdata :</span>
     <span class="n">grouprankmean</span> <span class="o">=</span> <span class="n">groupranksum</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">groupnobs</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="n">intlab</span><span class="p">]</span></div>
+    <span class="k">return</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="n">intlab</span><span class="p">]</span>
 
 
 <span class="c1">#new</span>
 
-<div class="viewcode-block" id="compare_ordered"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.compare_ordered.html#statsmodels.sandbox.stats.multicomp.compare_ordered">[docs]</a><span class="k">def</span> <span class="nf">compare_ordered</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">compare_ordered</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
     <span class="sd">'''simple ordered sequential comparison of means</span>
 
 <span class="sd">    vals : array_like</span>
@@ -1175,7 +1328,7 @@
     <span class="c1">#v1,v2 have wrong sequence</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
 
 
 
@@ -1496,7 +1649,7 @@
 
     <span class="k">return</span> <span class="p">(</span><span class="n">q_crit</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">w</span>
 
-<div class="viewcode-block" id="distance_st_range"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.distance_st_range.html#statsmodels.sandbox.stats.multicomp.distance_st_range">[docs]</a><span class="k">def</span> <span class="nf">distance_st_range</span><span class="p">(</span><span class="n">mean_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">triu</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">distance_st_range</span><span class="p">(</span><span class="n">mean_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">triu</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''pairwise distance matrix, outsourced from tukeyhsd</span>
 
 
@@ -1549,7 +1702,7 @@
 
     <span class="n">st_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">meandiffs</span><span class="p">)</span> <span class="o">/</span> <span class="n">std_pairs</span> <span class="c1">#studentized range statistic</span>
 
-    <span class="k">return</span> <span class="n">st_range</span><span class="p">,</span> <span class="n">meandiffs</span><span class="p">,</span> <span class="n">std_pairs</span><span class="p">,</span> <span class="p">(</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">)</span>  <span class="c1">#return square arrays</span></div>
+    <span class="k">return</span> <span class="n">st_range</span><span class="p">,</span> <span class="n">meandiffs</span><span class="p">,</span> <span class="n">std_pairs</span><span class="p">,</span> <span class="p">(</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">)</span>  <span class="c1">#return square arrays</span>
 
 
 <span class="k">def</span> <span class="nf">contrast_allpairs</span><span class="p">(</span><span class="n">nm</span><span class="p">):</span>
@@ -1636,7 +1789,7 @@
 
 
 
-<div class="viewcode-block" id="StepDown"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.StepDown.html#statsmodels.sandbox.stats.multicomp.StepDown">[docs]</a><span class="k">class</span> <span class="nc">StepDown</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">StepDown</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">'''a class for step down methods</span>
 
 <span class="sd">    This is currently for simple tree subset descend, similar to homogeneous_subsets,</span>
@@ -1751,14 +1904,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">get_distance_matrix</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stepdown</span><span class="p">(</span><span class="n">lrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accepted</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">rejected</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accepted</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">rejected</span><span class="p">))</span>
 
 
 
 
 
 
-<div class="viewcode-block" id="homogeneous_subsets"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.homogeneous_subsets.html#statsmodels.sandbox.stats.multicomp.homogeneous_subsets">[docs]</a><span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
     <span class="sd">'''recursively check all pairs of vals for minimum distance</span>
 
 <span class="sd">    step down method as in Newman-Keuls and Ryan procedures. This is not a</span>
@@ -1828,9 +1981,9 @@
     <span class="n">rejs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rejected</span><span class="p">)</span>
     <span class="n">not_rejected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_pairs</span><span class="p">)</span> <span class="o">-</span> <span class="n">rejs</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span></div>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="set_partition"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_partition.html#statsmodels.sandbox.stats.multicomp.set_partition">[docs]</a><span class="k">def</span> <span class="nf">set_partition</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">set_partition</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
     <span class="sd">'''extract a partition from a list of tuples</span>
 
 <span class="sd">    this should be correctly called select largest disjoint sets.</span>
@@ -1864,7 +2017,7 @@
 
     <span class="n">missing</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="n">ssli</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">)</span>
                    <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="n">part</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">part</span><span class="p">,</span> <span class="n">missing</span></div>
+    <span class="k">return</span> <span class="n">part</span><span class="p">,</span> <span class="n">missing</span>
 
 
 <div class="viewcode-block" id="set_remove_subs"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_remove_subs.html#statsmodels.sandbox.stats.multicomp.set_remove_subs">[docs]</a><span class="k">def</span> <span class="nf">set_remove_subs</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
@@ -1919,6 +2072,14 @@
     <span class="k">if</span> <span class="p">(</span><span class="s1">'fdr'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">'bonf'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">.ex_multicomp</span> <span class="kn">import</span> <span class="n">example_fdr_bonferroni</span>
         <span class="n">example_fdr_bonferroni</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="s1">'fdrmc'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
+        <span class="n">mcres</span> <span class="o">=</span> <span class="n">mcfdr</span><span class="p">(</span><span class="n">nobs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nrepl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">ntests</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ntrue</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">mcmeans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mcres</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mcmeans</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mcmeans</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">6.</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">mcmeans</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mcmeans</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">mcmeans</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
+
 
     <span class="k">if</span> <span class="s1">'randmvn'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
         <span class="n">rvsmvn</span> <span class="o">=</span> <span class="n">randmvn</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="p">(</span><span class="mi">5000</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -2095,7 +2256,7 @@
               
           </div>
             Last updated on
-              Dec 05, 2019.
+              Dec 06, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
