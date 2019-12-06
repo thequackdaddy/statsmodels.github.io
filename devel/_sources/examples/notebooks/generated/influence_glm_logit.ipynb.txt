@@ -66,7 +66,7 @@
       "Link Function:                  logit   Scale:                          1.0000\n",
       "Method:                          IRLS   Log-Likelihood:                -14.614\n",
       "Date:                Fri, 06 Dec 2019   Deviance:                       29.227\n",
-      "Time:                        00:32:00   Pearson chi2:                     34.2\n",
+      "Time:                        08:16:38   Pearson chi2:                     34.2\n",
       "No. Iterations:                     7                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "===============================================================================\n",

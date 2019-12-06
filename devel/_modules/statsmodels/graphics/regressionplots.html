@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+659)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+661)</span>
           <span class="md-header-nav__topic"> statsmodels.graphics.regressionplots </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+659)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+661)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -351,7 +351,7 @@
     <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
 
 
-<span class="k">def</span> <span class="nf">plot_fit</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vlines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_fit"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_fit.html#statsmodels.graphics.regressionplots.plot_fit">[docs]</a><span class="k">def</span> <span class="nf">plot_fit</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vlines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">"""Plot fit against one regressor.</span>
 
 <span class="sd">    This creates one graph with the scatterplot of observed values compared to</span>
@@ -442,10 +442,10 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">endog_names</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">,</span> <span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fig</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
 
 
-<span class="k">def</span> <span class="nf">plot_regress_exog</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_regress_exog"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_regress_exog.html#statsmodels.graphics.regressionplots.plot_regress_exog">[docs]</a><span class="k">def</span> <span class="nf">plot_regress_exog</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""Plot regression results against one regressor.</span>
 
 <span class="sd">    This plots four graphs in a 2 by 2 figure: 'endog versus exog',</span>
@@ -543,7 +543,7 @@
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=.</span><span class="mi">90</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fig</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
 
 
 <span class="k">def</span> <span class="nf">_partial_regression</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog_i</span><span class="p">,</span> <span class="n">exog_others</span><span class="p">):</span>
@@ -576,7 +576,7 @@
     <span class="k">return</span> <span class="n">res1c</span><span class="p">,</span> <span class="p">(</span><span class="n">res1a</span><span class="p">,</span> <span class="n">res1b</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">plot_partregress</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog_i</span><span class="p">,</span> <span class="n">exog_others</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="plot_partregress"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_partregress.html#statsmodels.graphics.regressionplots.plot_partregress">[docs]</a><span class="k">def</span> <span class="nf">plot_partregress</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog_i</span><span class="p">,</span> <span class="n">exog_others</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">title_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">obs_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label_kwargs</span><span class="o">=</span><span class="p">{},</span>
                      <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ret_coords</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">"""Plot partial regression for a single regressor.</span>
@@ -736,10 +736,10 @@
     <span class="k">if</span> <span class="n">ret_coords</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">res_xaxis</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">res_yaxis</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fig</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
 
 
-<span class="k">def</span> <span class="nf">plot_partregress_grid</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_partregress_grid"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_partregress_grid.html#statsmodels.graphics.regressionplots.plot_partregress_grid">[docs]</a><span class="k">def</span> <span class="nf">plot_partregress_grid</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""Plot partial regression for a set of regressors.</span>
 
 <span class="sd">    Parameters</span>
@@ -837,10 +837,10 @@
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=.</span><span class="mi">95</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fig</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
 
 
-<div class="viewcode-block" id="plot_ccpr"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_ccpr.html#statsmodels.graphics.regressionplots.plot_ccpr">[docs]</a><span class="k">def</span> <span class="nf">plot_ccpr</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_ccpr</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""Plot CCPR against one regressor.</span>
 
 <span class="sd">    Generates a CCPR (component and component-plus-residual) plot.</span>
@@ -921,10 +921,10 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Residual + </span><span class="si">%s</span><span class="s2">*beta_</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">exog_name</span><span class="p">,</span> <span class="n">exog_idx</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">exog_name</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fig</span></div>
+    <span class="k">return</span> <span class="n">fig</span>
 
 
-<div class="viewcode-block" id="plot_ccpr_grid"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_ccpr_grid.html#statsmodels.graphics.regressionplots.plot_ccpr_grid">[docs]</a><span class="k">def</span> <span class="nf">plot_ccpr_grid</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_ccpr_grid</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">exog_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""Generate CCPR plots against a set of regressors, plot in a grid.</span>
 
 <span class="sd">    Generates a grid of CCPR (component and component-plus-residual) plots.</span>
@@ -1015,10 +1015,10 @@
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=.</span><span class="mi">95</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fig</span></div>
+    <span class="k">return</span> <span class="n">fig</span>
 
 
-<div class="viewcode-block" id="abline_plot"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.abline_plot.html#statsmodels.graphics.regressionplots.abline_plot">[docs]</a><span class="k">def</span> <span class="nf">abline_plot</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">horiz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="k">def</span> <span class="nf">abline_plot</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">horiz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">model_results</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Plot a line given an intercept and slope.</span>
@@ -1122,7 +1122,7 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="n">horiz</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">vert</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="n">vert</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fig</span></div>
+    <span class="k">return</span> <span class="n">fig</span>
 
 
 <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_influence_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
@@ -1184,7 +1184,7 @@
     <span class="k">return</span> <span class="n">fig</span>
 
 
-<div class="viewcode-block" id="influence_plot"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.influence_plot.html#statsmodels.graphics.regressionplots.influence_plot">[docs]</a><span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_influence_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
+<span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_influence_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
     <span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s2">"results: object</span><span class="se">\n</span><span class="s2">"</span>
                         <span class="s2">"    Results for a fitted regression model"</span><span class="p">}))</span>
 <span class="k">def</span> <span class="nf">influence_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">external</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">"cooks"</span><span class="p">,</span>
@@ -1194,7 +1194,7 @@
     <span class="n">res</span> <span class="o">=</span> <span class="n">_influence_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">infl</span><span class="p">,</span> <span class="n">external</span><span class="o">=</span><span class="n">external</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
                           <span class="n">criterion</span><span class="o">=</span><span class="n">criterion</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
                           <span class="n">plot_alpha</span><span class="o">=</span><span class="n">plot_alpha</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span></div>
+    <span class="k">return</span> <span class="n">res</span>
 
 
 <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_leverage_resid2_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
@@ -1231,13 +1231,13 @@
     <span class="k">return</span> <span class="n">fig</span>
 
 
-<span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_leverage_resid2_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
+<div class="viewcode-block" id="plot_leverage_resid2"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_leverage_resid2.html#statsmodels.graphics.regressionplots.plot_leverage_resid2">[docs]</a><span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_leverage_resid2_doc</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
     <span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s2">"results : object</span><span class="se">\n</span><span class="s2">"</span>
                         <span class="s2">"    Results for a fitted regression model"</span><span class="p">}))</span>
 <span class="k">def</span> <span class="nf">plot_leverage_resid2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
     <span class="n">infl</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">_plot_leverage_resid2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">infl</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_plot_leverage_resid2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">infl</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 
@@ -1299,7 +1299,7 @@
     <span class="k">return</span> <span class="n">fig</span>
 
 
-<div class="viewcode-block" id="plot_ceres_residuals"><a class="viewcode-back" href="../../../generated/statsmodels.graphics.regressionplots.plot_ceres_residuals.html#statsmodels.graphics.regressionplots.plot_ceres_residuals">[docs]</a><span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_ceres_residuals_doc</span> <span class="o">%</span> <span class="p">{</span>
+<span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_ceres_residuals_doc</span> <span class="o">%</span> <span class="p">{</span>
     <span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s2">"results : object</span><span class="se">\n</span><span class="s2">"</span>
                         <span class="s2">"    Results for a fitted regression model"</span><span class="p">})</span>
 <span class="k">def</span> <span class="nf">plot_ceres_residuals</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.66</span><span class="p">,</span> <span class="n">cond_means</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1322,7 +1322,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">focus_exog</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component plus residual"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fig</span></div>
+    <span class="k">return</span> <span class="n">fig</span>
 
 
 <span class="k">def</span> <span class="nf">ceres_resids</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.66</span><span class="p">,</span> <span class="n">cond_means</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
