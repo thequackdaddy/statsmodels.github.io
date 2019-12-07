@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+661)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
           <span class="md-header-nav__topic"> statsmodels.tools.tools </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+661)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -570,8 +570,8 @@
 <span class="sd">    has_constant : str {'raise', 'add', 'skip'}</span>
 <span class="sd">        Behavior if ``data`` already has a constant. The default will return</span>
 <span class="sd">        data without adding another constant. If 'raise', will raise an</span>
-<span class="sd">        error if a constant is present. Using 'add' will duplicate the</span>
-<span class="sd">        constant, if one is present.</span>
+<span class="sd">        error if any column has a constant value. Using 'add' will add a</span>
+<span class="sd">        column of 1s if a constant column is present.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -596,9 +596,9 @@
     <span class="c1"># Special case for NumPy</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
     <span class="k">elif</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Only implementd 2-dimensional arrays'</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Only implemented for 2-dimensional arrays'</span><span class="p">)</span>
 
     <span class="n">is_nonzero_const</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
     <span class="n">is_nonzero_const</span> <span class="o">&amp;=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -929,7 +929,7 @@
               
           </div>
             Last updated on
-              Dec 06, 2019.
+              Dec 07, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

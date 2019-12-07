@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+661)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.diagnostic </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+661)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -308,12 +308,15 @@
 <span class="sd">"""</span>
 <span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">iteritems</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
 <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">acf</span><span class="p">,</span> <span class="n">adfuller</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">lagmat</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="n">array_like</span><span class="p">,</span> <span class="n">int_like</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="n">array_like</span><span class="p">,</span> <span class="n">int_like</span><span class="p">,</span> <span class="n">bool_like</span>
 
 
 <span class="c1"># get the old signature back so the examples work</span>
@@ -501,14 +504,15 @@
 <span class="n">compare_j</span> <span class="o">=</span> <span class="n">CompareJ</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="acorr_ljungbox"><a class="viewcode-back" href="../../../../generated/statsmodels.stats.diagnostic.acorr_ljungbox.html#statsmodels.stats.diagnostic.acorr_ljungbox">[docs]</a><span class="k">def</span> <span class="nf">acorr_ljungbox</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boxpierce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">model_df</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="acorr_ljungbox"><a class="viewcode-back" href="../../../../generated/statsmodels.stats.diagnostic.acorr_ljungbox.html#statsmodels.stats.diagnostic.acorr_ljungbox">[docs]</a><span class="k">def</span> <span class="nf">acorr_ljungbox</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boxpierce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">model_df</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">return_df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    Ljung-Box test for no autocorrelation</span>
+<span class="sd">    Ljung-Box test of autocorrelation in residuals.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    x : array_like</span>
-<span class="sd">        The data series, assumed to have mean zero, .e.g, regression residuals</span>
+<span class="sd">        The data series. Assumed to have mean zero, e.g., regression residuals</span>
 <span class="sd">        when used as diagnostic test.</span>
 <span class="sd">    lags : {None, int, array_like}</span>
 <span class="sd">        If lags is an integer then this is taken to be the largest lag</span>
@@ -516,7 +520,9 @@
 <span class="sd">        length. If lags is a list or array, then all lags are included up to</span>
 <span class="sd">        the largest lag in the list, however only the tests for the lags in</span>
 <span class="sd">        the list are reported. If lags is None, then the default maxlag is</span>
-<span class="sd">        min((nobs // 2 - 2), 40).</span>
+<span class="sd">        currently min((nobs // 2 - 2), 40). After 0.12 this will change to</span>
+<span class="sd">        min(10, nobs // 5). The default number of lags changes if period</span>
+<span class="sd">        is set.</span>
 <span class="sd">    boxpierce : {False, True}</span>
 <span class="sd">        If true, then additional to the results of the Ljung-Box test also the</span>
 <span class="sd">        Box-Pierce test results are returned</span>
@@ -526,6 +532,17 @@
 <span class="sd">        order. This value is subtracted from the degrees-of-freedom used in</span>
 <span class="sd">        the test so that the adjusted dof for the statistics are</span>
 <span class="sd">        lags - model_df. If lags - model_df &lt;= 0, then NaN is returned.</span>
+<span class="sd">    period : {int, None}</span>
+<span class="sd">        The period of a Seasonal time series.  Used to compute the max lag</span>
+<span class="sd">        for seasonal data which uses min(2*period, nobs // 5) if set. If None,</span>
+<span class="sd">        then the default rule is used to set the number of lags. When set, must</span>
+<span class="sd">        be &gt;= 2.</span>
+<span class="sd">    return_df : bool</span>
+<span class="sd">        Flag indicating whether to return the result as a single DataFrame</span>
+<span class="sd">        with columns lb_stat, lb_pvalue, and optionally bp_stat and bp_pvalue.</span>
+<span class="sd">        After 0.12, this will become the only return method.  Set to True</span>
+<span class="sd">        to return the DataFrame or False to continue returning the 2 - 4</span>
+<span class="sd">        output. If not set, a warning is raised.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -534,13 +551,13 @@
 <span class="sd">    pvalue : float or array</span>
 <span class="sd">        The p-value based on chi-square distribution. The p-value is computed</span>
 <span class="sd">        as 1.0 - chi2.cdf(lbvalue, dof) where dof is lag - model_df. If</span>
-<span class="sd">        lag - model_df &lt; 0, then NaN is returned for the pvalue.</span>
+<span class="sd">        lag - model_df &lt;= 0, then NaN is returned for the pvalue.</span>
 <span class="sd">    bpvalue : (optional), float or array</span>
 <span class="sd">        The test statistic for Box-Pierce test.</span>
 <span class="sd">    bppvalue : (optional), float or array</span>
 <span class="sd">        The p-value based for Box-Pierce test on chi-square distribution.</span>
 <span class="sd">        The p-value is computed as 1.0 - chi2.cdf(bpvalue, dof) where dof is</span>
-<span class="sd">        lag - model_df. If lag - model_df &lt; 0, then NaN is returned for the</span>
+<span class="sd">        lag - model_df. If lag - model_df &lt;= 0, then NaN is returned for the</span>
 <span class="sd">        pvalue.</span>
 
 <span class="sd">    Notes</span>
@@ -549,28 +566,37 @@
 <span class="sd">    autocorrelation function. Ljung-Box test is has better finite-sample</span>
 <span class="sd">    properties.</span>
 
-<span class="sd">    *Verification*</span>
-
-<span class="sd">    needs more testing</span>
-<span class="sd">    Looks correctly sized in Monte Carlo studies.</span>
-<span class="sd">    not yet compared to verified values</span>
-
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; data = sm.datasets.sunspots.load_pandas().data</span>
 <span class="sd">    &gt;&gt;&gt; res = sm.tsa.ARMA(data['SUNACTIVITY'], (1,1)).fit(disp=-1)</span>
-<span class="sd">    &gt;&gt;&gt; sm.stats.acorr_ljungbox(res.resid, lags=[10])</span>
-<span class="sd">    (array([214.10699875]), array([1.82736777e-40]))</span>
+<span class="sd">    &gt;&gt;&gt; sm.stats.acorr_ljungbox(res.resid, lags=[10], return_df=True)</span>
+<span class="sd">           lb_stat     lb_pvalue</span>
+<span class="sd">    10  214.106992  1.827374e-40</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    Greene</span>
-<span class="sd">    Wikipedia</span>
+<span class="sd">    .. [*] Green, W. "Econometric Analysis," 5th ed., Pearson, 2003.</span>
 <span class="sd">    """</span>
-    <span class="c1"># TODO: Need a reasonable results class</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">array_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">)</span>
+    <span class="n">period</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="s1">'period'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">return_df</span> <span class="o">=</span> <span class="n">bool_like</span><span class="p">(</span><span class="n">return_df</span><span class="p">,</span> <span class="s1">'return_df'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">model_df</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">model_df</span><span class="p">,</span> <span class="s1">'model_df'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">period</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">period</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'period must be &gt;= 2'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">model_df</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'model_df must be &gt;= 0'</span><span class="p">)</span>
     <span class="n">nobs</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">lags</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">period</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">lags</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">nobs</span> <span class="o">//</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">period</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">lags</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># TODO: Switch to min(10, nobs//5) after 0.12</span>
+        <span class="kn">import</span> <span class="nn">warnings</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">"The default value of lags is changing.  After 0.12, "</span>
+                      <span class="s2">"this value will become min(10, nobs//5). Directly set"</span>
+                      <span class="s2">"lags to silence this warning."</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+        <span class="c1"># Future</span>
+        <span class="c1"># lags = np.arange(1, min(nobs // 5, 10) + 1, dtype=np.int)</span>
         <span class="n">lags</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">((</span><span class="n">nobs</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lags</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
         <span class="n">lags</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">lags</span><span class="p">,</span> <span class="s1">'lags'</span><span class="p">)</span>
@@ -586,12 +612,29 @@
     <span class="n">pval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">qljungbox</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
     <span class="n">loc</span> <span class="o">=</span> <span class="n">adj_lags</span> <span class="o">&gt;</span> <span class="mi">0</span>
     <span class="n">pval</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">qljungbox</span><span class="p">[</span><span class="n">loc</span><span class="p">],</span> <span class="n">adj_lags</span><span class="p">[</span><span class="n">loc</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">return_df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"The value returned will change to a single DataFrame after "</span>
+               <span class="s2">"0.12 is released.  Set return_df to True to use to return a "</span>
+               <span class="s2">"DataFrame now.  Set return_df to False to silence this "</span>
+               <span class="s2">"warning."</span><span class="p">)</span>
+        <span class="kn">import</span> <span class="nn">warnings</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">boxpierce</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">return_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"lb_stat"</span><span class="p">:</span> <span class="n">qljungbox</span><span class="p">,</span> <span class="s2">"lb_pvalue"</span><span class="p">:</span> <span class="n">pval</span><span class="p">},</span>
+                                <span class="n">index</span><span class="o">=</span><span class="n">lags</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">qljungbox</span><span class="p">,</span> <span class="n">pval</span>
 
     <span class="n">qboxpierce</span> <span class="o">=</span> <span class="n">nobs</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sacf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">maxlag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)[</span><span class="n">lags</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">pvalbp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">qljungbox</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
     <span class="n">pvalbp</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">qboxpierce</span><span class="p">[</span><span class="n">loc</span><span class="p">],</span> <span class="n">adj_lags</span><span class="p">[</span><span class="n">loc</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">return_df</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"lb_stat"</span><span class="p">:</span> <span class="n">qljungbox</span><span class="p">,</span> <span class="s2">"lb_pvalue"</span><span class="p">:</span> <span class="n">pval</span><span class="p">,</span>
+                             <span class="s2">"bp_stat"</span><span class="p">:</span> <span class="n">qboxpierce</span><span class="p">,</span> <span class="s2">"bp_pvalue"</span><span class="p">:</span> <span class="n">pvalbp</span><span class="p">},</span>
+                            <span class="n">index</span><span class="o">=</span><span class="n">lags</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">qljungbox</span><span class="p">,</span> <span class="n">pval</span><span class="p">,</span> <span class="n">qboxpierce</span><span class="p">,</span> <span class="n">pvalbp</span></div>
 
 
@@ -1787,7 +1830,7 @@
     <span class="k">if</span> <span class="s1">'adf'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">unitroot_adf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
         <span class="n">nrepl</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1889,7 +1932,7 @@
               
           </div>
             Last updated on
-              Dec 06, 2019.
+              Dec 07, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

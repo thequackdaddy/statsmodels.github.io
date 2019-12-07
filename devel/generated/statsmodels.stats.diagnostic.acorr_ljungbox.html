@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+661)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.diagnostic.acorr_ljungbox </span>
         </div>
       </div>
@@ -190,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+661)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -368,12 +368,12 @@
 <h1 id="generated-statsmodels-stats-diagnostic-acorr-ljungbox--page-root">statsmodels.stats.diagnostic.acorr_ljungbox<a class="headerlink" href="#generated-statsmodels-stats-diagnostic-acorr-ljungbox--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="statsmodels.stats.diagnostic.acorr_ljungbox">
-<code class="sig-prename descclassname">statsmodels.stats.diagnostic.</code><code class="sig-name descname">acorr_ljungbox</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">lags=None</em>, <em class="sig-param">boxpierce=False</em>, <em class="sig-param">model_df=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/statsmodels/sandbox/stats/diagnostic.html#acorr_ljungbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.stats.diagnostic.acorr_ljungbox" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ljung-Box test for no autocorrelation</p>
+<code class="sig-prename descclassname">statsmodels.stats.diagnostic.</code><code class="sig-name descname">acorr_ljungbox</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">lags=None</em>, <em class="sig-param">boxpierce=False</em>, <em class="sig-param">model_df=0</em>, <em class="sig-param">period=None</em>, <em class="sig-param">return_df=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/statsmodels/sandbox/stats/diagnostic.html#acorr_ljungbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.stats.diagnostic.acorr_ljungbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ljung-Box test of autocorrelation in residuals.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a></span></dt><dd><p>The data series, assumed to have mean zero, .e.g, regression residuals
+<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a></span></dt><dd><p>The data series. Assumed to have mean zero, e.g., regression residuals
 when used as diagnostic test.</p>
 </dd>
 <dt><strong>lags</strong><span class="classifier">{<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a>}</span></dt><dd><p>If lags is an integer then this is taken to be the largest lag
@@ -381,7 +381,9 @@ that is included, the test result is reported for all smaller lag
 length. If lags is a list or array, then all lags are included up to
 the largest lag in the list, however only the tests for the lags in
 the list are reported. If lags is None, then the default maxlag is
-min((nobs // 2 - 2), 40).</p>
+currently min((nobs // 2 - 2), 40). After 0.12 this will change to
+min(10, nobs // 5). The default number of lags changes if period
+is set.</p>
 </dd>
 <dt><strong>boxpierce</strong><span class="classifier">{<a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a>}</span></dt><dd><p>If true, then additional to the results of the Ljung-Box test also the
 Box-Pierce test results are returned</p>
@@ -392,6 +394,17 @@ order. This value is subtracted from the degrees-of-freedom used in
 the test so that the adjusted dof for the statistics are
 lags - model_df. If lags - model_df &lt;= 0, then NaN is returned.</p>
 </dd>
+<dt><strong>period</strong><span class="classifier">{<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>}</span></dt><dd><p>The period of a Seasonal time series.  Used to compute the max lag
+for seasonal data which uses min(2*period, nobs // 5) if set. If None,
+then the default rule is used to set the number of lags. When set, must
+be &gt;= 2.</p>
+</dd>
+<dt><strong>return_df</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>Flag indicating whether to return the result as a single DataFrame
+with columns lb_stat, lb_pvalue, and optionally bp_stat and bp_pvalue.
+After 0.12, this will become the only return method.  Set to True
+to return the DataFrame or False to continue returning the 2 - 4
+output. If not set, a warning is raised.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -400,13 +413,13 @@ lags - model_df. If lags - model_df &lt;= 0, then NaN is returned.</p>
 </dd>
 <dt><strong>pvalue</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The p-value based on chi-square distribution. The p-value is computed
 as 1.0 - chi2.cdf(lbvalue, dof) where dof is lag - model_df. If
-lag - model_df &lt; 0, then NaN is returned for the pvalue.</p>
+lag - model_df &lt;= 0, then NaN is returned for the pvalue.</p>
 </dd>
 <dt><strong>bpvalue</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code>), <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The test statistic for Box-Pierce test.</p>
 </dd>
 <dt><strong>bppvalue</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code>), <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>The p-value based for Box-Pierce test on chi-square distribution.
 The p-value is computed as 1.0 - chi2.cdf(bpvalue, dof) where dof is
-lag - model_df. If lag - model_df &lt; 0, then NaN is returned for the
+lag - model_df. If lag - model_df &lt;= 0, then NaN is returned for the
 pvalue.</p>
 </dd>
 </dl>
@@ -416,18 +429,18 @@ pvalue.</p>
 <p>Ljung-Box and Box-Pierce statistic differ in their scaling of the
 autocorrelation function. Ljung-Box test is has better finite-sample
 properties.</p>
-<p><em>Verification</em></p>
-<p>needs more testing
-Looks correctly sized in Monte Carlo studies.
-not yet compared to verified values</p>
 <p class="rubric">References</p>
-<p>Greene
-Wikipedia</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">*</span></dt>
+<dd><p>Green, W. “Econometric Analysis,” 5th ed., Pearson, 2003.</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">sunspots</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'SUNACTIVITY'</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
-<span class="go">(array([214.10699875]), array([1.82736777e-40]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">       lb_stat     lb_pvalue</span>
+<span class="go">10  214.106992  1.827374e-40</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -480,7 +493,7 @@ Wikipedia</p>
               
           </div>
             Last updated on
-              Dec 06, 2019.
+              Dec 07, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
