@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
           <span class="md-header-nav__topic"> API Reference </span>
         </div>
       </div>
@@ -182,7 +182,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -287,22 +287,6 @@
         <li class="md-nav__item"><a href="#statsmodels-formula-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#models" class="md-nav__link">Models</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#import-paths-and-structure" class="md-nav__link">Import Paths and Structure</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#api-import-for-interactive-use" class="md-nav__link">API Import for interactive use</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#notes" class="md-nav__link">Notes</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#direct-import-for-programs" class="md-nav__link">Direct import for programs</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#import-examples" class="md-nav__link">Import examples</a>
-        </li></ul>
-            </nav>
         </li></ul>
             </nav>
         </li></ul>
@@ -417,21 +401,6 @@
       <a href="#models" class="md-nav__link">Models</a>
       
     </li></ul>
-    </li>
-    <li class="md-nav__item">
-    
-      <a href="#import-paths-and-structure" class="md-nav__link">Import Paths and Structure</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-      <a href="#api-import-for-interactive-use" class="md-nav__link">API Import for interactive use</a>
-      
-    </li>
-    <li class="md-nav__item">
-    
-      <a href="#direct-import-for-programs" class="md-nav__link">Direct import for programs</a>
-      
-    </li></ul>
     </li></ul>
     </li>
     <li class="md-nav__item">
@@ -507,22 +476,6 @@
         <li class="md-nav__item"><a href="#models" class="md-nav__link">Models</a>
         </li></ul>
             </nav>
-        </li>
-        <li class="md-nav__item"><a href="#import-paths-and-structure" class="md-nav__link">Import Paths and Structure</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#api-import-for-interactive-use" class="md-nav__link">API Import for interactive use</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#notes" class="md-nav__link">Notes</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#direct-import-for-programs" class="md-nav__link">Direct import for programs</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#import-examples" class="md-nav__link">Import examples</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
         </li></ul>
             </nav>
         </li>
@@ -554,7 +507,7 @@ class method of models that support the formula API. Canonically imported using
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statsmodels.formula.api</span> <span class="pre">as</span> <span class="pre">smf</span></code></p></li>
 </ul>
 <p>The API focuses on models and the most frequently used statistical test, and tools.
-<a class="reference internal" href="#import-paths-and-structure">Import Paths and Structure</a> explains the design of the two API modules and how
+<a href="#id2"><span class="problematic" id="id3">`Import Paths and Structure`_</span></a> explains the design of the two API modules and how
 importing from the API differs from directly importing from the module where the
 model is defined. See the detailed topic pages in the <a class="reference internal" href="user-guide.html#user-guide"><span class="std std-ref">User Guide</span></a> for a complete
 list of available models, statistics, and tools.</p>
@@ -1089,132 +1042,6 @@ See the documentation for the parent model for details.</p>
 
 
 
-<span id="importpaths"></span><h2 id="import-paths-and-structure">Import Paths and Structure<a class="headerlink" href="#import-paths-and-structure" title="Permalink to this headline">¶</a></h2>
-<p>We offer two ways of importing functions and classes from statsmodels:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="#api-import-for-interactive-use">API import for interactive use</a></p>
-<ul class="simple">
-<li><p>Allows tab completion</p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#direct-import-for-programs">Direct import for programs</a></p>
-<ul class="simple">
-<li><p>Avoids importing unnecessary modules and commands</p></li>
-</ul>
-</li>
-</ol>
-
-<h3 id="api-import-for-interactive-use">API Import for interactive use<a class="headerlink" href="#api-import-for-interactive-use" title="Permalink to this headline">¶</a></h3>
-<p>For interactive use the recommended import is:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-</pre></div>
-</div>
-<p>Importing <cite>statsmodels.api</cite> will load most of the public parts of statsmodels.
-This makes most functions and classes conveniently available within one or two
-levels, without making the “sm” namespace too crowded.</p>
-<p>To see what functions and classes available, you can type the following (or use
-the namespace exploration features of IPython, Spyder, IDLE, etc.):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span>
-<span class="go">['GLM', 'GLS', 'GLSAR', 'Logit', 'MNLogit', 'OLS', 'Poisson', 'Probit', 'RLM',</span>
-<span class="go">'WLS', '__builtins__', '__doc__', '__file__', '__name__', '__package__',</span>
-<span class="go">'add_constant', 'categorical', 'datasets', 'distributions', 'families',</span>
-<span class="go">'graphics', 'iolib', 'nonparametric', 'qqplot', 'regression', 'robust',</span>
-<span class="go">'stats', 'test', 'tools', 'tsa', 'version']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="p">)</span>
-<span class="go">['__builtins__', '__doc__', '__file__', '__name__', '__package__',</span>
-<span class="go">'abline_plot', 'beanplot', 'fboxplot', 'interaction_plot', 'qqplot',</span>
-<span class="go">'rainbow', 'rainbowplot', 'violinplot']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="p">)</span>
-<span class="go">['AR', 'ARMA', 'SVAR', 'VAR', '__builtins__', '__doc__',</span>
-<span class="go">'__file__', '__name__', '__package__', 'acf', 'acovf', 'add_lag',</span>
-<span class="go">'add_trend', 'adfuller', 'ccf', 'ccovf', 'datetools', 'detrend',</span>
-<span class="go">'filters', 'grangercausalitytests', 'interp', 'lagmat', 'lagmat2ds',</span>
-<span class="go">'pacf', 'pacf_ols', 'pacf_yw', 'periodogram', 'q_stat', 'stattools',</span>
-<span class="go">'tsatools', 'var']</span>
-</pre></div>
-</div>
-
-<h4 id="notes">Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
-<p>The <cite>api</cite> modules may not include all the public functionality of statsmodels. If
-you find something that should be added to the api, please file an issue on
-github or report it to the mailing list.</p>
-<p>The subpackages of statsmodels include <cite>api.py</cite> modules that are mainly
-intended to collect the imports needed for those subpackages. The <cite>subpackage/api.py</cite>
-files are imported into statsmodels api, for example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.nonparametric</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">nonparametric</span>
-</pre></div>
-</div>
-<p>Users do not need to load the <cite>subpackage/api.py</cite> modules directly.</p>
-
-
-
-<h3 id="direct-import-for-programs">Direct import for programs<a class="headerlink" href="#direct-import-for-programs" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> submodules are arranged by topic (e.g. <cite>discrete</cite> for discrete
-choice models, or <cite>tsa</cite> for time series analysis). Our directory tree (stripped
-down) looks something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">statsmodels</span><span class="o">/</span>
-    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">api</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">discrete</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">discrete_model</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">tests</span><span class="o">/</span>
-            <span class="n">results</span><span class="o">/</span>
-    <span class="n">tsa</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">api</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">tsatools</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">stattools</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">arima_model</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">arima_process</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">vector_ar</span><span class="o">/</span>
-            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-            <span class="n">var_model</span><span class="o">.</span><span class="n">py</span>
-            <span class="n">tests</span><span class="o">/</span>
-                <span class="n">results</span><span class="o">/</span>
-        <span class="n">tests</span><span class="o">/</span>
-            <span class="n">results</span><span class="o">/</span>
-    <span class="n">stats</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">api</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">stattools</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">tests</span><span class="o">/</span>
-    <span class="n">tools</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">tools</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">decorators</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">tests</span><span class="o">/</span>
-</pre></div>
-</div>
-<p>The submodules that can be import heavy contain an empty <cite>__init__.py</cite>, except
-for some testing code for running tests for the submodules. The intention is to
-change all directories to have an <cite>api.py</cite> and empty <cite>__init__.py</cite> in the next
-release.</p>
-
-<h4 id="import-examples">Import examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h4>
-<p>Functions and classes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">WLS</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">rank</span><span class="p">,</span> <span class="n">add_constant</span>
-</pre></div>
-</div>
-<p>Modules</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.datasets</span> <span class="kn">import</span> <span class="n">macrodata</span>
-<span class="kn">import</span> <span class="nn">statsmodels.stats</span> <span class="kn">import</span> <span class="nn">diagnostic</span>
-</pre></div>
-</div>
-<p>Modules with aliases</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">as</span> <span class="nn">lm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="k">as</span> <span class="nn">smsdia</span>
-<span class="kn">import</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="k">as</span> <span class="nn">oi</span>
-</pre></div>
-</div>
-<p>We do not have currently a convention for aliases of submodules.</p>
-
-
-
-
 
 
           </article>
@@ -1263,7 +1090,7 @@ release.</p>
               
           </div>
             Last updated on
-              Dec 07, 2019.
+              Dec 10, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

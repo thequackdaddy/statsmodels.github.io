@@ -217,6 +217,7 @@ devel/_images/examples_notebooks_generated_wls_15_0.png
 devel/_images/exponential_smoothing.png
 devel/_images/fairs_data.png
 devel/_images/formulas_intro.png
+devel/_images/gee-score-tests.png
 devel/_images/generic_mle.png
 devel/_images/gettingstarted_0.png
 devel/_images/git_merge.png
@@ -478,6 +479,7 @@ devel/_modules/statsmodels/tsa/vector_ar/vecm.html
 devel/_modules/statsmodels/tsa/x13.html
 devel/_sources/about.rst.txt
 devel/_sources/anova.rst.txt
+devel/_sources/api-structure.rst.txt
 devel/_sources/api.rst.txt
 devel/_sources/contingency_tables.rst.txt
 devel/_sources/contrasts.rst.txt
@@ -5390,6 +5392,7 @@ devel/_static/images/exponential_smoothing.png
 devel/_static/images/fairs_data.png
 devel/_static/images/favicon.png
 devel/_static/images/formulas_intro.png
+devel/_static/images/gee-score-tests.png
 devel/_static/images/generic_mle.png
 devel/_static/images/glm_formulas.png
 devel/_static/images/glm_overview.png
@@ -5484,6 +5487,7 @@ devel/_static/underscore-1.3.1.js
 devel/_static/underscore.js
 devel/about.html
 devel/anova.html
+devel/api-structure.html
 devel/api.html
 devel/contingency_tables.html
 devel/contrasts.html

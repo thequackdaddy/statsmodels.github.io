@@ -70,7 +70,7 @@
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Interactions and ANOVA" href="interactions_anova.html" />
+    <link rel="next" title="GEE nested covariance structure simulation study" href="gee_nested_simulation.html" />
     <link rel="prev" title="M-Estimators for Robust Linear Modeling" href="robust_models_1.html" />
   
    
@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
           <span class="md-header-nav__topic"> Robust Linear Models </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -305,6 +305,11 @@
       <a href="../../index.html#id20" class="md-nav__link">Comparing OLS and RLM</a>
       
     </li></ul>
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="../../index.html#generalized-estimating-equations" class="md-nav__link">Generalized Estimating Equations</a>
+      
     </li>
     <li class="md-nav__item">
     
@@ -660,8 +665,8 @@ Method:                          IRLS   Df Model:                            3
 Norm:                          HuberT
 Scale Est.:                       mad
 Cov Type:                          H1
-Date:                Sat, 07 Dec 2019
-Time:                        08:56:47
+Date:                Tue, 10 Dec 2019
+Time:                        20:04:05
 No. Iterations:                    19
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -758,17 +763,17 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.09311624  0.5240238  -0.01313475]
-[0.4553001  0.07029219 0.00621977]
-[ 4.7647476   5.03005786  5.29099169  5.5475491   5.79973008  6.04753464
-  6.29096277  6.53001448  6.76468976  6.99498862  7.22091106  7.44245707
-  7.65962665  7.87241981  8.08083654  8.28487685  8.48454073  8.67982819
-  8.87073922  9.05727383  9.23943202  9.41721378  9.59061911  9.75964802
-  9.9243005  10.08457656 10.24047619 10.3919994  10.53914618 10.68191654
- 10.82031048 10.95432799 11.08396907 11.20923373 11.33012196 11.44663377
- 11.55876915 11.66652811 11.76991065 11.86891675 11.96354644 12.0537997
- 12.13967653 12.22117694 12.29830092 12.37104848 12.43941961 12.50341432
- 12.56303261 12.61827447]
+[ 4.90851191  0.55837431 -0.01608885]
+[0.45123467 0.06966454 0.00616424]
+[ 4.50629058  4.79718689  5.08272248  5.36289736  5.63771152  5.90716496
+  6.17125768  6.42998968  6.68336097  6.93137154  7.1740214   7.41131053
+  7.64323895  7.86980665  8.09101364  8.3068599   8.51734545  8.72247028
+  8.92223439  9.11663779  9.30568047  9.48936243  9.66768368  9.8406442
+ 10.00824401 10.1704831  10.32736148 10.47887914 10.62503607 10.7658323
+ 10.9012678  11.03134259 11.15605666 11.27541001 11.38940265 11.49803456
+ 11.60130576 11.69921625 11.79176601 11.87895506 11.96078339 12.037251
+ 12.1083579  12.17410408 12.23448954 12.28951428 12.33917831 12.38348162
+ 12.42242421 12.45600608]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -788,8 +793,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.03254654e+00  5.10029840e-01 -3.39171026e-03]
-[0.1437619  0.0221949  0.00196391]
+[ 4.83497201  0.54441423 -0.00583508]
+[0.13863905 0.021404   0.00189392]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>
@@ -817,7 +822,7 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7f633e796a90&gt;
+&lt;matplotlib.legend.Legend at 0x7fc368c412d0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -848,8 +853,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.6225269  0.39267634]
-[0.39352434 0.03390765]
+[5.5569912  0.39748578]
+[0.39882634 0.03436449]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -869,8 +874,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.12858631 0.48278221]
-[0.11638016 0.01002779]
+[5.04079804 0.49220824]
+[0.12153758 0.01047217]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>
@@ -927,12 +932,12 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
             </a>
           
           
-            <a href="interactions_anova.html" title="Admonition"
+            <a href="gee_nested_simulation.html" title="Admonition"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Interactions and ANOVA </span>
+                class="md-footer-nav__direction"> Next </span> GEE nested covariance structure simulation study </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -950,7 +955,7 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
               
           </div>
             Last updated on
-              Dec 07, 2019.
+              Dec 10, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

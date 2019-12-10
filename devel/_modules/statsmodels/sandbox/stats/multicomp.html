@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.multicomp </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -762,7 +762,7 @@
 <span class="c1">#</span>
 <span class="c1">#============================</span>
 
-<span class="k">def</span> <span class="nf">tiecorrect</span><span class="p">(</span><span class="n">xranks</span><span class="p">):</span>
+<div class="viewcode-block" id="tiecorrect"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.tiecorrect.html#statsmodels.sandbox.stats.multicomp.tiecorrect">[docs]</a><span class="k">def</span> <span class="nf">tiecorrect</span><span class="p">(</span><span class="n">xranks</span><span class="p">):</span>
     <span class="sd">'''</span>
 
 <span class="sd">    should be equivalent of scipy.stats.tiecorrect</span>
@@ -773,7 +773,7 @@
     <span class="n">nties</span> <span class="o">=</span> <span class="n">rankbincount</span><span class="p">[</span><span class="n">rankbincount</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">ntot</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xranks</span><span class="p">))</span>
     <span class="n">tiecorrection</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">nties</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">nties</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">ntot</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">ntot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tiecorrection</span>
+    <span class="k">return</span> <span class="n">tiecorrection</span></div>
 
 
 <div class="viewcode-block" id="GroupsStats"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.GroupsStats.html#statsmodels.sandbox.stats.multicomp.GroupsStats">[docs]</a><span class="k">class</span> <span class="nc">GroupsStats</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1332,7 +1332,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">varcorrection_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_unbalanced"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_unbalanced.html#statsmodels.sandbox.stats.multicomp.varcorrection_unbalanced">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''correction factor for variance with unequal sample sizes</span>
 
 <span class="sd">    this is just a harmonic mean</span>
@@ -1370,9 +1370,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">srange</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">)</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_pairs_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_pairs_unbalanced"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unbalanced.html#statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unbalanced">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_pairs_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''correction factor for variance with unequal sample sizes for all pairs</span>
 
 <span class="sd">    this is just a harmonic mean</span>
@@ -1414,9 +1414,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">srange</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_unequal"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_unequal.html#statsmodels.sandbox.stats.multicomp.varcorrection_unequal">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
     <span class="sd">'''return joint variance from samples with unequal variances and unequal</span>
 <span class="sd">    sample sizes</span>
 
@@ -1462,9 +1462,9 @@
 
     <span class="n">dfjoint</span> <span class="o">=</span> <span class="n">varjoint</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">var_over_n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">df_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span>
+    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_pairs_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_pairs_unequal"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unequal.html#statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unequal">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_pairs_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
     <span class="sd">'''return joint variance from samples with unequal variances and unequal</span>
 <span class="sd">    sample sizes for all pairs</span>
 
@@ -1513,7 +1513,7 @@
 
     <span class="n">dfjoint</span> <span class="o">=</span> <span class="n">varjoint</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">df1</span> <span class="o">*</span> <span class="p">(</span><span class="n">v1</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">df2</span> <span class="o">*</span> <span class="p">(</span><span class="n">v2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span>
+    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span></div>
 
 <span class="k">def</span> <span class="nf">tukeyhsd</span><span class="p">(</span><span class="n">mean_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">q_crit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">'''simultaneous Tukey HSD</span>
@@ -2020,7 +2020,7 @@
     <span class="k">return</span> <span class="n">part</span><span class="p">,</span> <span class="n">missing</span></div>
 
 
-<span class="k">def</span> <span class="nf">set_remove_subs</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
+<div class="viewcode-block" id="set_remove_subs"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_remove_subs.html#statsmodels.sandbox.stats.multicomp.set_remove_subs">[docs]</a><span class="k">def</span> <span class="nf">set_remove_subs</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
     <span class="sd">'''remove sets that are subsets of another set from a list of tuples</span>
 
 <span class="sd">    Parameters</span>
@@ -2054,7 +2054,7 @@
 
 <span class="c1">##    missing = list(set(i for ll in ssli for i in ll)</span>
 <span class="c1">##                   - set(i for ll in part for i in ll))</span>
-    <span class="k">return</span> <span class="n">part</span>
+    <span class="k">return</span> <span class="n">part</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
@@ -2256,7 +2256,7 @@
               
           </div>
             Last updated on
-              Dec 07, 2019.
+              Dec 10, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

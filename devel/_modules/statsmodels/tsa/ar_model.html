@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+663)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+663)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1612,13 +1612,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">df_model</span> <span class="o">=</span> <span class="n">k_ar</span> <span class="o">+</span> <span class="n">k_trend</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df_resid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">df_resid</span> <span class="o">=</span> <span class="n">n_totobs</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_model</span>
 
-<div class="viewcode-block" id="ARResults.sigma2"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.ARResults.sigma2.html#statsmodels.tsa.ar_model.ARResults.sigma2">[docs]</a>    <span class="nd">@cache_writable</span><span class="p">()</span>
+    <span class="nd">@cache_writable</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">sigma2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
         <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">"cmle"</span><span class="p">:</span>  <span class="c1"># do DOF correction</span>
             <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">*</span> <span class="n">sumofsq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sigma2</span></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sigma2</span>
 
 <div class="viewcode-block" id="ARResults.scale"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.ar_model.ARResults.scale.html#statsmodels.tsa.ar_model.ARResults.scale">[docs]</a>    <span class="nd">@cache_writable</span><span class="p">()</span>  <span class="c1"># for compatability with RegressionResults</span>
     <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2736,7 +2736,7 @@
               
           </div>
             Last updated on
-              Dec 07, 2019.
+              Dec 10, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
