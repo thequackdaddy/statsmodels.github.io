@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+668)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.kalman_filter </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+668)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -288,10 +288,8 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">.representation</span> <span class="kn">import</span> <span class="n">OptionWrapper</span><span class="p">,</span> <span class="n">Representation</span><span class="p">,</span> <span class="n">FrozenRepresentation</span>
-<span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="p">(</span><span class="n">validate_vector_shape</span><span class="p">,</span> <span class="n">validate_matrix_shape</span><span class="p">,</span>
-                    <span class="n">reorder_missing_matrix</span><span class="p">,</span> <span class="n">reorder_missing_vector</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">reorder_missing_matrix</span><span class="p">,</span> <span class="n">reorder_missing_vector</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">tools</span>
-<span class="kn">from</span> <span class="nn">.initialization</span> <span class="kn">import</span> <span class="n">Initialization</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ValueWarning</span>
 
 <span class="c1"># Define constants</span>
@@ -685,6 +683,21 @@
         <span class="c1"># This value should always be None, except within the fixed_scale</span>
         <span class="c1"># context, and should not be modified by users or anywhere else.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_clone_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># See Representation._clone_kwargs for docstring</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">KalmanFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_clone_kwargs</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Get defaults for options</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'filter_method'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_method</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'inversion_method'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inversion_method</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'stability_method'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stability_method</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'conserve_memory'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conserve_memory</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'filter_timing'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_timing</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'tolerance'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'loglikelihood_burn'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglikelihood_burn</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">kwargs</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_kalman_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1405,14 +1418,24 @@
                 <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">measurement_shocks</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
             <span class="k">elif</span> <span class="n">measurement_shocks</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">measurement_shocks</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">measurement_shocks</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Invalid shape of provided measurement'</span>
-                                 <span class="s1">' shocks. Required (</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">)'</span>
-                                 <span class="o">%</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">))</span>
+            <span class="n">required_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">measurement_shocks</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">required_shape</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Provided measurement shocks are not of the'</span>
+                                 <span class="s1">' appropriate shape. Required </span><span class="si">%s</span><span class="s1">, got </span><span class="si">%s</span><span class="s1">.'</span>
+                                 <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">required_shape</span><span class="p">),</span>
+                                    <span class="nb">str</span><span class="p">(</span><span class="n">measurement_shocks</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">[</span><span class="s1">'obs_cov'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
                 <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span> <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'obs_cov'</span><span class="p">],</span>
                 <span class="n">size</span><span class="o">=</span><span class="n">nsimulations</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">state_shocks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsimulations</span><span class="p">):</span>
+                <span class="n">measurement_shocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
+                    <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span>
+                    <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'obs_cov'</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">nsimulations</span><span class="p">)</span>
 
         <span class="c1"># Check / generate state shocks</span>
         <span class="k">if</span> <span class="n">state_shocks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1421,14 +1444,24 @@
                 <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">state_shocks</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
             <span class="k">elif</span> <span class="n">state_shocks</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">state_shocks</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">state_shocks</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Invalid shape of provided state shocks.'</span>
-                                 <span class="s1">' Required (</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">).'</span>
-                                 <span class="o">%</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">))</span>
+            <span class="n">required_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">state_shocks</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">required_shape</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Provided state shocks are not of the'</span>
+                                 <span class="s1">' appropriate shape. Required </span><span class="si">%s</span><span class="s1">, got </span><span class="si">%s</span><span class="s1">.'</span>
+                                 <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">required_shape</span><span class="p">),</span>
+                                    <span class="nb">str</span><span class="p">(</span><span class="n">state_shocks</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
                 <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">),</span> <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">],</span>
                 <span class="n">size</span><span class="o">=</span><span class="n">nsimulations</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">measurement_shocks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsimulations</span><span class="p">):</span>
+                <span class="n">state_shocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
+                    <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">),</span>
+                    <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">nsimulations</span><span class="p">)</span>
 
         <span class="c1"># Get the initial states</span>
         <span class="k">if</span> <span class="n">initial_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1439,29 +1472,13 @@
                   <span class="ow">not</span> <span class="n">initial_state</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Invalid shape of provided initial state'</span>
                                  <span class="s1">' vector. Required (</span><span class="si">%d</span><span class="s1">, 1)'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">==</span> <span class="s1">'known'</span><span class="p">:</span>
-            <span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_initial_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initial_state_cov</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">==</span> <span class="s1">'stationary'</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve_discrete_lyapunov</span>
-            <span class="c1"># (I - T)^{-1} c = x =&gt; (I - T) x = c</span>
-            <span class="n">initial_state_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'transition'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span>
-                <span class="bp">self</span><span class="p">[</span><span class="s1">'state_intercept'</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
-            <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'selection'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="n">selected_state_cov</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-            <span class="n">initial_state_cov</span> <span class="o">=</span> <span class="n">solve_discrete_lyapunov</span><span class="p">(</span>
-                <span class="bp">self</span><span class="p">[</span><span class="s1">'transition'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">selected_state_cov</span><span class="p">)</span>
-            <span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
-                <span class="n">initial_state_mean</span><span class="p">,</span> <span class="n">initial_state_cov</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">==</span> <span class="s1">'approximate_diffuse'</span><span class="p">:</span>
-            <span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
             <span class="n">initial_state</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># TODO: deprecate this, since we really should not be simulating</span>
+            <span class="c1"># unless we have an initialization.</span>
             <span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_simulate</span><span class="p">(</span><span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="p">,</span> <span class="n">state_shocks</span><span class="p">,</span>
@@ -1469,65 +1486,11 @@
 
     <span class="k">def</span> <span class="nf">_simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="p">,</span> <span class="n">state_shocks</span><span class="p">,</span>
                   <span class="n">initial_state</span><span class="p">):</span>
-        <span class="n">time_invariant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_invariant</span>
-
-        <span class="c1"># Holding variables for the simulations</span>
-        <span class="n">simulated_obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsimulations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span>
-                                 <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-        <span class="n">simulated_states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsimulations</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">),</span>
-                                    <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-        <span class="n">simulated_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_state</span>
-
-        <span class="c1"># Perform iterations to create the new time series</span>
-        <span class="n">obs_intercept_t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">design_t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">state_intercept_t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">transition_t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">selection_t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsimulations</span><span class="p">):</span>
-            <span class="c1"># Get the current shocks (this accomodates time-varying matrices)</span>
-            <span class="k">if</span> <span class="n">measurement_shocks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">measurement_shock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
-                    <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span> <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'obs_cov'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">])</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">measurement_shock</span> <span class="o">=</span> <span class="n">measurement_shocks</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="n">state_shocks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">state_shock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
-                    <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">),</span>
-                    <span class="n">cov</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">])</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">state_shock</span> <span class="o">=</span> <span class="n">state_shocks</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-
-            <span class="c1"># Get current-iteration matrices</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">time_invariant</span><span class="p">:</span>
-                <span class="n">obs_intercept_t</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_intercept</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">t</span>
-                <span class="n">design_t</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">design</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">t</span>
-                <span class="n">state_intercept_t</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_intercept</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">t</span><span class="p">)</span>
-                <span class="n">transition_t</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transition</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">t</span>
-                <span class="n">selection_t</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">t</span>
-
-            <span class="n">obs_intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'obs_intercept'</span><span class="p">,</span> <span class="p">:,</span> <span class="n">obs_intercept_t</span><span class="p">]</span>
-            <span class="n">design</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'design'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">design_t</span><span class="p">]</span>
-            <span class="n">state_intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'state_intercept'</span><span class="p">,</span> <span class="p">:,</span> <span class="n">state_intercept_t</span><span class="p">]</span>
-            <span class="n">transition</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'transition'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">transition_t</span><span class="p">]</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">'selection'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">selection_t</span><span class="p">]</span>
-
-            <span class="c1"># Iterate the measurement equation</span>
-            <span class="n">simulated_obs</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">obs_intercept</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">design</span><span class="p">,</span> <span class="n">simulated_states</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span>
-                <span class="n">measurement_shock</span><span class="p">)</span>
-
-            <span class="c1"># Iterate the state equation</span>
-            <span class="n">simulated_states</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">state_intercept</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">transition</span><span class="p">,</span> <span class="n">simulated_states</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">state_shock</span><span class="p">))</span>
-
-        <span class="k">return</span> <span class="n">simulated_obs</span><span class="p">,</span> <span class="n">simulated_states</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Simulation only available through'</span>
+                                  <span class="s1">' the simulation smoother.'</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">impulse_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">impulse</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orthogonalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                          <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                          <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">direct</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Impulse response function</span>
 
@@ -1549,14 +1512,6 @@
 <span class="sd">        cumulative : bool, optional</span>
 <span class="sd">            Whether or not to return cumulative impulse responses. Default is</span>
 <span class="sd">            False.</span>
-<span class="sd">        **kwargs</span>
-<span class="sd">            If the model is time-varying and `steps` is greater than the number</span>
-<span class="sd">            of observations, any of the state space representation matrices</span>
-<span class="sd">            that are time-varying must have updated values provided for the</span>
-<span class="sd">            out-of-sample steps.</span>
-<span class="sd">            For example, if `design` is a time-varying component, `nobs` is 10,</span>
-<span class="sd">            and `steps` is 15, a (`k_endog` x `k_states` x 5) matrix must be</span>
-<span class="sd">            provided with the new design matrix values.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1569,9 +1524,25 @@
 <span class="sd">        Intercepts in the measurement and state equation are ignored when</span>
 <span class="sd">        calculating impulse responses.</span>
 
+<span class="sd">        TODO: add note about how for time-varying systems this is - perhaps</span>
+<span class="sd">        counter-intuitively - returning the impulse response within the given</span>
+<span class="sd">        model (i.e. starting at period 0 defined by the model) and it is *not*</span>
+<span class="sd">        doing impulse responses after the end of the model. To compute impulse</span>
+<span class="sd">        responses from arbitrary time points, it is necessary to clone a new</span>
+<span class="sd">        model with the appropriate system matrices.</span>
+
 <span class="sd">        """</span>
-        <span class="c1"># Since the first step is the impulse itself, we actually want steps+1</span>
+        <span class="c1"># We need to add an additional step, since the first simulated value</span>
+        <span class="c1"># will always be zeros (note that we take this value out at the end).</span>
         <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># For time-invariant models, add an additional `step`. This is the</span>
+        <span class="c1"># default for time-invariant models based on the expected behavior for</span>
+        <span class="c1"># ARIMA and VAR models: we want to record the initial impulse and also</span>
+        <span class="c1"># `steps` values of the responses afterwards.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_design</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transition</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="c1"># Check for what kind of impulse we want</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">impulse</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
@@ -1597,98 +1568,53 @@
             <span class="n">state_chol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_cov</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
             <span class="n">impulse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">state_chol</span><span class="p">,</span> <span class="n">impulse</span><span class="p">)</span>
 
-        <span class="c1"># If we have a time-invariant system, we can solve for the IRF directly</span>
-        <span class="c1"># Note that it does not matter if we have time-invariant intercepts,</span>
-        <span class="c1"># since those do not affect the IRF anyway</span>
-        <span class="n">time_invariant</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_design</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obs_cov</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_transition</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_state_cov</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">time_invariant</span><span class="p">:</span>
-            <span class="c1"># Get the state space matrices</span>
-            <span class="n">design</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">design</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="n">transition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transition</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># If we have time-varying design, transition, or selection matrices,</span>
+        <span class="c1"># then we can't produce more IRFs than we have time points</span>
+        <span class="n">time_invariant_irf</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_design</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transition</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 
-            <span class="c1"># Holding arrays</span>
-            <span class="n">irf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="c1"># Note: to generate impulse responses following the end of a</span>
+        <span class="c1"># time-varying model, one should `clone` the state space model with the</span>
+        <span class="c1"># new time-varying model, and then compute the IRFs using the cloned</span>
+        <span class="c1"># model</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">time_invariant_irf</span> <span class="ow">and</span> <span class="n">steps</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'In a time-varying model, cannot create more'</span>
+                             <span class="s1">' impulse responses than there are'</span>
+                             <span class="s1">' observations'</span><span class="p">)</span>
 
-            <span class="c1"># First iteration</span>
-            <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">impulse</span><span class="p">)</span>
-            <span class="n">irf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">design</span><span class="p">,</span> <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># Impulse responses only depend on the design, transition, and</span>
+        <span class="c1"># selection matrices. We set the others to zeros because they must be</span>
+        <span class="c1"># set in the call to `clone`.</span>
+        <span class="c1"># Note: we don't even need selection after the first point, because</span>
+        <span class="c1"># the state shocks will be zeros in every period except the first.</span>
+        <span class="n">sim_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span>
+            <span class="n">endog</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+            <span class="n">obs_intercept</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">),</span>
+            <span class="n">design</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'design'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="n">steps</span><span class="p">],</span>
+            <span class="n">obs_cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">)),</span>
+            <span class="n">state_intercept</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">),</span>
+            <span class="n">transition</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'transition'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="n">steps</span><span class="p">],</span>
+            <span class="n">selection</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s1">'selection'</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="n">steps</span><span class="p">],</span>
+            <span class="n">state_cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">)))</span>
 
-            <span class="c1"># Iterations</span>
-            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
-                <span class="n">states</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">transition</span><span class="p">,</span> <span class="n">states</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-                <span class="n">irf</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">design</span><span class="p">,</span> <span class="n">states</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
-
-        <span class="c1"># Otherwise, create a new model</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Get the basic model components</span>
-            <span class="n">representation</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'obs'</span><span class="p">,</span> <span class="s1">'obs_intercept'</span><span class="p">,</span> <span class="s1">'state_intercept'</span><span class="p">]:</span>
-                    <span class="k">continue</span>
-                <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-
-            <span class="c1"># Allow additional specification</span>
-            <span class="n">warning</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Model has time-invariant </span><span class="si">%s</span><span class="s1"> matrix, so the </span><span class="si">%s</span><span class="s1">'</span>
-                       <span class="s1">' argument to `irf` has been ignored.'</span><span class="p">)</span>
-            <span class="n">exception</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Impulse response functions for models with'</span>
-                         <span class="s1">' time-varying </span><span class="si">%s</span><span class="s1"> matrix requires an updated'</span>
-                         <span class="s1">' time-varying matrix for any periods beyond those in'</span>
-                         <span class="s1">' the original model.'</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'obs'</span><span class="p">,</span> <span class="s1">'obs_intercept'</span><span class="p">,</span> <span class="s1">'state_intercept'</span><span class="p">]:</span>
-                    <span class="k">continue</span>
-                <span class="k">if</span> <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                        <span class="n">warn</span><span class="p">(</span><span class="n">warning</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">ValueWarning</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">exception</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
-                    <span class="n">validate_matrix_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                          <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">steps</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">steps</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">exception</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-                    <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">mat</span><span class="p">]</span>
-
-            <span class="c1"># Setup the new statespace representation</span>
-            <span class="n">model_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">'filter_method'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_method</span><span class="p">,</span>
-                <span class="s1">'inversion_method'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">inversion_method</span><span class="p">,</span>
-                <span class="s1">'stability_method'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stability_method</span><span class="p">,</span>
-                <span class="s1">'conserve_memory'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">conserve_memory</span><span class="p">,</span>
-                <span class="s1">'tolerance'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">,</span>
-                <span class="s1">'loglikelihood_burn'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglikelihood_burn</span>
-            <span class="p">}</span>
-            <span class="n">model_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
-            <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">,</span>
-                                   <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">,</span> <span class="o">**</span><span class="n">model_kwargs</span><span class="p">)</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">initialize_approximate_diffuse</span><span class="p">()</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">_initialize_filter</span><span class="p">()</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">_initialize_state</span><span class="p">()</span>
-
-            <span class="c1"># Get the impulse response function via simulation of the state</span>
-            <span class="c1"># space model, but with other shocks set to zero</span>
-            <span class="c1"># Since simulate returns the zero-th period, we need to simulate</span>
-            <span class="c1"># steps + 1 periods and exclude the zero-th observation.</span>
-            <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">))</span>
-            <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">))</span>
-            <span class="n">state_shocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">impulse</span>
-            <span class="n">irf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
-                <span class="n">steps</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="n">measurement_shocks</span><span class="p">,</span>
-                <span class="n">state_shocks</span><span class="o">=</span><span class="n">state_shocks</span><span class="p">)</span>
-            <span class="n">irf</span> <span class="o">=</span> <span class="n">irf</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="c1"># Get the impulse response function via simulation of the state</span>
+        <span class="c1"># space model, but with other shocks set to zero</span>
+        <span class="n">measurement_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">))</span>
+        <span class="n">state_shocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">))</span>
+        <span class="n">state_shocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">impulse</span>
+        <span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">,))</span>
+        <span class="n">irf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sim_model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
+            <span class="n">steps</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="n">measurement_shocks</span><span class="p">,</span>
+            <span class="n">state_shocks</span><span class="o">=</span><span class="n">state_shocks</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="n">initial_state</span><span class="p">)</span>
 
         <span class="c1"># Get the cumulative response if requested</span>
         <span class="k">if</span> <span class="n">cumulative</span><span class="p">:</span>
             <span class="n">irf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">irf</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">irf</span></div>
+        <span class="c1"># Here we ignore the first value, because it is always zeros (we added</span>
+        <span class="c1"># an additional `step` at the top to account for this).</span>
+        <span class="k">return</span> <span class="n">irf</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
 
 
 <div class="viewcode-block" id="FilterResults"><a class="viewcode-back" href="../../../../generated/statsmodels.tsa.statespace.kalman_filter.FilterResults.html#statsmodels.tsa.statespace.kalman_filter.FilterResults">[docs]</a><span class="k">class</span> <span class="nc">FilterResults</span><span class="p">(</span><span class="n">FrozenRepresentation</span><span class="p">):</span>
@@ -2396,47 +2322,6 @@
                              <span class="s1">' storing forecasted or predicted state means'</span>
                              <span class="s1">' or covariances.'</span><span class="p">)</span>
 
-        <span class="c1"># Construct the design and observation intercept and covariance</span>
-        <span class="c1"># matrices for start-npadded:end. If not time-varying in the original</span>
-        <span class="c1"># model, then they will be copied over if none are provided in</span>
-        <span class="c1"># `kwargs`. Otherwise additional matrices must be provided in `kwargs`.</span>
-        <span class="n">representation</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'obs'</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-
-        <span class="c1"># Update the matrices from kwargs for forecasts</span>
-        <span class="n">warning</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Model has time-invariant </span><span class="si">%s</span><span class="s1"> matrix, so the </span><span class="si">%s</span><span class="s1">'</span>
-                   <span class="s1">' argument to `predict` has been ignored.'</span><span class="p">)</span>
-        <span class="n">exception</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Forecasting for models with time-varying </span><span class="si">%s</span><span class="s1"> matrix'</span>
-                     <span class="s1">' requires an updated time-varying matrix for the'</span>
-                     <span class="s1">' period to be forecasted.'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">nforecast</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'obs'</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="k">if</span> <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                        <span class="n">warn</span><span class="p">(</span><span class="n">warning</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">ValueWarning</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">exception</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                        <span class="n">validate_vector_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-                                              <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nforecast</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nforecast</span><span class="p">:</span>
-                            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">exception</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-                        <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">mat</span><span class="p">]</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">validate_matrix_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                              <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nforecast</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">nforecast</span><span class="p">:</span>
-                            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">exception</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-                        <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">mat</span><span class="p">]</span>
-
         <span class="c1"># Construct the predicted state and covariance matrix for each time</span>
         <span class="c1"># period depending on whether that time period corresponds to</span>
         <span class="c1"># one-step-ahead prediction, dynamic prediction, or out-of-sample</span>
@@ -2460,45 +2345,10 @@
             <span class="n">start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">start</span> <span class="o">-</span> <span class="n">kf_start</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">kf_end</span> <span class="o">-</span> <span class="n">kf_start</span>
 
-            <span class="c1"># Subset time-varying system matrices to the appropriate time range</span>
-            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'obs'</span> <span class="ow">and</span> <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                        <span class="n">representation</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="n">kf_start</span><span class="p">:</span><span class="n">kf_end</span><span class="p">])</span>
-
-            <span class="c1"># Construct the new endogenous array.</span>
-            <span class="n">endog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">,</span> <span class="n">ndynamic</span> <span class="o">+</span> <span class="n">nforecast</span><span class="p">))</span>
-            <span class="n">endog</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">nstatic</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">endog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">[:,</span> <span class="n">kf_start</span><span class="p">:</span><span class="n">kf_start</span> <span class="o">+</span> <span class="n">nstatic</span><span class="p">],</span>
-                              <span class="n">endog</span><span class="p">]</span>
-            <span class="n">endog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asfortranarray</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
-
-            <span class="c1"># Do not propagate through FILTER_CONCENTRATED, because we want</span>
-            <span class="c1"># to perform prediction based on the estimated values, and one of</span>
-            <span class="c1"># the estimated values is the scale (and in any case, the</span>
-            <span class="c1"># obs_cov and state_cov have been updated to reflect the scale</span>
-            <span class="c1"># estimate already)</span>
-            <span class="n">filter_method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_method</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">FILTER_CONCENTRATED</span>
-
             <span class="c1"># We must at least store forecasts and predictions</span>
-            <span class="n">conserve_memory</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conserve_memory</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">MEMORY_NO_FORECAST</span>
-                               <span class="o">&amp;</span> <span class="o">~</span><span class="n">MEMORY_NO_PREDICTED</span><span class="p">)</span>
-
-            <span class="c1"># Setup the new statespace representation</span>
-            <span class="n">model_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">'filter_method'</span><span class="p">:</span> <span class="n">filter_method</span><span class="p">,</span>
-                <span class="s1">'inversion_method'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">inversion_method</span><span class="p">,</span>
-                <span class="s1">'stability_method'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stability_method</span><span class="p">,</span>
-                <span class="s1">'conserve_memory'</span><span class="p">:</span> <span class="n">conserve_memory</span><span class="p">,</span>
-                <span class="s1">'filter_timing'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_timing</span><span class="p">,</span>
-                <span class="s1">'tolerance'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">,</span>
-                <span class="s1">'loglikelihood_burn'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglikelihood_burn</span>
-            <span class="p">}</span>
-            <span class="n">model_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
-            <span class="n">model</span> <span class="o">=</span> <span class="n">KalmanFilter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">,</span>
-                                 <span class="n">nobs</span><span class="o">=</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">model_kwargs</span><span class="p">)</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">'conserve_memory'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">conserve_memory</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">MEMORY_NO_FORECAST</span> <span class="o">&amp;</span>
+                <span class="o">~</span><span class="n">MEMORY_NO_PREDICTED</span><span class="p">)</span>
 
             <span class="c1"># Even if we have not stored all predicted values (means and covs),</span>
             <span class="c1"># we can still do pure out-of-sample forecasting because we will</span>
@@ -2516,11 +2366,21 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">constant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicted_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">kf_start</span><span class="p">]</span>
                 <span class="n">stationary_cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicted_state_cov</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">kf_start</span><span class="p">]</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">Initialization</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">k_states</span><span class="p">,</span> <span class="s1">'known'</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="n">constant</span><span class="p">,</span>
-                <span class="n">stationary_cov</span><span class="o">=</span><span class="n">stationary_cov</span><span class="p">)</span>
 
-            <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'initialization'</span><span class="p">:</span> <span class="s1">'known'</span><span class="p">,</span>
+                           <span class="s1">'constant'</span><span class="p">:</span> <span class="n">constant</span><span class="p">,</span>
+                           <span class="s1">'stationary_cov'</span><span class="p">:</span> <span class="n">stationary_cov</span><span class="p">})</span>
+
+            <span class="c1"># Construct the new endogenous array.</span>
+            <span class="n">endog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nforecast</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="n">endog</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">kf_start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">kf_end</span> <span class="o">-</span> <span class="n">nforecast</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="c1"># Have to retroactively modify the model's endog</span>
+            <span class="k">if</span> <span class="n">ndynamic</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">endog</span><span class="p">[:,</span> <span class="o">-</span><span class="p">(</span><span class="n">ndynamic</span> <span class="o">+</span> <span class="n">nforecast</span><span class="p">):]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+            <span class="k">with</span> <span class="n">model</span><span class="o">.</span><span class="n">fixed_scale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">):</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">PredictionResults</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">nstatic</span><span class="p">,</span> <span class="n">ndynamic</span><span class="p">,</span>
                                  <span class="n">nforecast</span><span class="p">)</span></div>
@@ -2700,7 +2560,7 @@
               
           </div>
             Last updated on
-              Dec 10, 2019.
+              Dec 12, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

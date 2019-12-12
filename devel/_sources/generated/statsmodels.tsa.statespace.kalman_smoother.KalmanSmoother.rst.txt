@@ -14,6 +14,8 @@ statsmodels.tsa.statespace.kalman\_smoother.KalmanSmoother
       :toctree: generated/
 
       ~KalmanSmoother.bind
+      ~KalmanSmoother.clone
+      ~KalmanSmoother.extend
       ~KalmanSmoother.filter
       ~KalmanSmoother.fixed_scale
       ~KalmanSmoother.impulse_responses

@@ -14,6 +14,8 @@ statsmodels.tsa.statespace.kalman\_filter.KalmanFilter
       :toctree: generated/
 
       ~KalmanFilter.bind
+      ~KalmanFilter.clone
+      ~KalmanFilter.extend
       ~KalmanFilter.filter
       ~KalmanFilter.fixed_scale
       ~KalmanFilter.impulse_responses

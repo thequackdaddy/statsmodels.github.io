@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+668)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.representation </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+668)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -729,6 +729,196 @@
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">'First index must the name of a valid state space'</span>
                              <span class="s1">' matrix.'</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">_clone_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Construct keyword arguments for cloning a state space model</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        endog : array_like</span>
+<span class="sd">            An observed time-series process :math:`y`.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Keyword arguments to pass to the new state space representation</span>
+<span class="sd">            model constructor. Those that are not specified are copied from</span>
+<span class="sd">            the specification of the current state space model.</span>
+<span class="sd">        """</span>
+
+        <span class="c1"># We always need the base dimensions, but they cannot change from</span>
+        <span class="c1"># the base model when cloning (the idea is: if these need to change,</span>
+        <span class="c1"># need to make a new instance manually, since it's not really cloning).</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">'nobs'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">'k_endog'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'k_states'</span><span class="p">,</span> <span class="s1">'k_posdef'</span><span class="p">]:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">!=</span> <span class="n">val</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Cannot change the dimension of </span><span class="si">%s</span><span class="s1"> when'</span>
+                                 <span class="s1">' cloning.'</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># Get defaults for time-invariant system matrices, if not otherwise</span>
+        <span class="c1"># provided</span>
+        <span class="c1"># Time-varying matrices must be replaced.</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'obs'</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'The `</span><span class="si">%s</span><span class="s1">` matrix is time-varying. Cloning'</span>
+                                     <span class="s1">' this model requires specifying an'</span>
+                                     <span class="s1">' updated matrix.'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span>
+
+        <span class="c1"># Default is to use the same initialization</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'initialization'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">kwargs</span>
+
+    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Clone a state space representation while overriding some elements</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        endog : array_like</span>
+<span class="sd">            An observed time-series process :math:`y`.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Keyword arguments to pass to the new state space representation</span>
+<span class="sd">            model constructor. Those that are not specified are copied from</span>
+<span class="sd">            the specification of the current state space model.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Representation</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        If some system matrices are time-varying, then new time-varying</span>
+<span class="sd">        matrices *must* be provided.</span>
+<span class="sd">        """</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone_kwargs</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mod</span>
+
+    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Extend the current state space model, or a specific (time) subset</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        endog : array_like</span>
+<span class="sd">            An observed time-series process :math:`y`.</span>
+<span class="sd">        start : int, optional</span>
+<span class="sd">            The first period of a time-varying state space model to include in</span>
+<span class="sd">            the new model. Has no effect if the state space model is</span>
+<span class="sd">            time-invariant. Default is the initial period.</span>
+<span class="sd">        end : int, optional</span>
+<span class="sd">            The last period of a time-varying state space model to include in</span>
+<span class="sd">            the new model. Has no effect if the state space model is</span>
+<span class="sd">            time-invariant. Default is the final period.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Keyword arguments to pass to the new state space representation</span>
+<span class="sd">            model constructor. Those that are not specified are copied from</span>
+<span class="sd">            the specification of the current state space model.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Representation</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method does not allow replacing a time-varying system matrix with</span>
+<span class="sd">        a time-invariant one (or vice-versa). If that is required, use `clone`.</span>
+<span class="sd">        """</span>
+        <span class="n">endog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">endog</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endog</span> <span class="o">=</span> <span class="n">endog</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="n">nobs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span>
+
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">+</span> <span class="n">start</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">+</span> <span class="n">end</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'The `start` argument of the extension within the'</span>
+                             <span class="s1">' base model cannot be after the end of the'</span>
+                             <span class="s1">' base model.'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'The `end` argument of the extension within the'</span>
+                             <span class="s1">' base model cannot be after the end of the'</span>
+                             <span class="s1">' base model.'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'The `start` argument of the extension within the'</span>
+                             <span class="s1">' base model cannot be after the `end` argument.'</span><span class="p">)</span>
+
+        <span class="c1"># Note: if start == end or if end &lt; self.nobs, then we're just cloning</span>
+        <span class="c1"># (no extension)</span>
+        <span class="n">endog</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">[:,</span> <span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">endog</span><span class="p">])</span>
+
+        <span class="c1"># Extend any time-varying arrays</span>
+        <span class="n">error_ti</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Model has time-invariant </span><span class="si">%s</span><span class="s1"> matrix, so cannot provide'</span>
+                    <span class="s1">' an extended matrix.'</span><span class="p">)</span>
+        <span class="n">error_tv</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Model has time-varying </span><span class="si">%s</span><span class="s1"> matrix, so an updated'</span>
+                    <span class="s1">' time-varying matrix for the extension period'</span>
+                    <span class="s1">' is required.'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'obs'</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># If we were *not* given an extended value for this matrix...</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="c1"># If this is a time-varying matrix in the existing model</span>
+                <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="c1"># If we have an extension period, then raise an error</span>
+                    <span class="c1"># because we should have been given an extended value</span>
+                    <span class="k">if</span> <span class="n">end</span> <span class="o">+</span> <span class="n">nobs</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_tv</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+                    <span class="c1"># If we do not have an extension period, then set the new</span>
+                    <span class="c1"># time-varying matrix to be the portion of the existing</span>
+                    <span class="c1"># time-varying matrix that corresponds to the period of</span>
+                    <span class="c1"># interest</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="n">end</span> <span class="o">+</span> <span class="n">nobs</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">nobs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Extension is being performed within-sample'</span>
+                                 <span class="s1">' so cannot provide an extended matrix'</span><span class="p">)</span>
+            <span class="c1"># If we were given an extended value for this matrix</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># TODO: Need to add a check for ndim, and if the matrix has</span>
+                <span class="c1"># one fewer dimensions than the existing matrix, add a new axis</span>
+
+                <span class="c1"># If this is a time-invariant matrix in the existing model,</span>
+                <span class="c1"># raise an error</span>
+                <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_ti</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+                <span class="c1"># Otherwise, validate the shape of the given extended value</span>
+                <span class="n">updated_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">validate_vector_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">updated_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+                                          <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nobs</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">validate_matrix_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">updated_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+                                          <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nobs</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">updated_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nobs</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_tv</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+                <span class="c1"># Concatenate to get the new time-varying matrix</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">mat</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span> <span class="n">updated_mat</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1196,7 +1386,7 @@
               
           </div>
             Last updated on
-              Dec 10, 2019.
+              Dec 12, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

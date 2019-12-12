@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+668)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.sarimax.SARIMAXResults.simulate </span>
         </div>
       </div>
@@ -191,7 +191,7 @@
       
     </a>
     <a href="../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+668)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -334,7 +334,7 @@
 <h1 id="generated-generated-statsmodels-tsa-statespace-sarimax-sarimaxresults-simulate--page-root">statsmodels.tsa.statespace.sarimax.SARIMAXResults.simulate<a class="headerlink" href="#generated-generated-statsmodels-tsa-statespace-sarimax-sarimaxresults-simulate--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="statsmodels.tsa.statespace.sarimax.SARIMAXResults.simulate">
-<code class="sig-prename descclassname">SARIMAXResults.</code><code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">nsimulations</em>, <em class="sig-param">measurement_shocks=None</em>, <em class="sig-param">state_shocks=None</em>, <em class="sig-param">initial_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#statsmodels.tsa.statespace.sarimax.SARIMAXResults.simulate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SARIMAXResults.</code><code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">nsimulations</em>, <em class="sig-param">measurement_shocks=None</em>, <em class="sig-param">state_shocks=None</em>, <em class="sig-param">initial_state=None</em>, <em class="sig-param">anchor=None</em>, <em class="sig-param">repetitions=None</em>, <em class="sig-param">exog=None</em>, <em class="sig-param">extend_model=None</em>, <em class="sig-param">extend_kwargs=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#statsmodels.tsa.statespace.sarimax.SARIMAXResults.simulate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate a new time series following the state space model</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -356,19 +356,38 @@ generated using a pseudo-random number generator. If specified,
 must be shaped <cite>nsimulations</cite> x <cite>k_posdef</cite> where <cite>k_posdef</cite> is the
 same as in the state space model.</p>
 </dd>
-<dt><strong>initial_state</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If specified, this is the state vector at time zero, which should
-be shaped (<cite>k_states</cite> x 1), where <cite>k_states</cite> is the same as in the
-state space model. If unspecified, but the model has been
-initialized, then that initialization is used. If unspecified and
-the model has not been initialized, then a vector of zeros is used.
-Note that this is not included in the returned <cite>simulated_states</cite>
-array.</p>
+<dt><strong>initial_state</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If specified, this is the initial state vector to use in
+simulation, which should be shaped (<cite>k_states</cite> x 1), where
+<cite>k_states</cite> is the same as in the state space model. If unspecified,
+but the model has been initialized, then that initialization is
+used. This must be specified if <cite>anchor</cite> is anything other than
+“start” or 0.</p>
+</dd>
+<dt><strong>anchor</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Starting point from which to begin the simulations; type depends on
+the index of the given <cite>endog</cite> model. Two special cases are the
+strings ‘start’ and ‘end’, which refer to starting at the beginning
+and end of the sample, respectively. If a date/time index was
+provided to the model, then this argument can be a date string to
+parse or a datetime type. Otherwise, an integer index should be
+given. Default is ‘start’.</p>
+</dd>
+<dt><strong>repetitions</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Number of simulated paths to generate. Default is 1 simulated path.</p>
+</dd>
+<dt><strong>exog</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>New observations of exogenous regressors, if applicable.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl>
-<dt><strong>simulated_obs</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>An (nsimulations x k_endog) array of simulated observations.</p>
+<dt><strong>simulated_obs</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>An array of simulated observations. If <cite>repetitions=None</cite>, then it
+will be shaped (nsimulations x k_endog) or (nsimulations,) if
+<cite>k_endog=1</cite>. Otherwise it will be shaped
+(nsimulations x k_endog x repetitions). If the model was given
+Pandas input then the output will be a Pandas object. If
+<cite>k_endog &gt; 1</cite> and <cite>repetitions</cite> is not None, then the output will
+be a Pandas DataFrame that hasa MultiIndex for the columns, with
+the first level containing the names of the <cite>endog</cite> variables and
+the second level containing the repetition number.</p>
 </dd>
 </dl>
 </dd>
@@ -423,7 +442,7 @@ array.</p>
               
           </div>
             Last updated on
-              Dec 10, 2019.
+              Dec 12, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

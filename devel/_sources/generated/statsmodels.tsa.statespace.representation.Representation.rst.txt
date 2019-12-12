@@ -14,6 +14,8 @@ statsmodels.tsa.statespace.representation.Representation
       :toctree: generated/
 
       ~Representation.bind
+      ~Representation.clone
+      ~Representation.extend
       ~Representation.initialize
       ~Representation.initialize_approximate_diffuse
       ~Representation.initialize_diffuse

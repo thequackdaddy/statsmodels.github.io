@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+666)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+668)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.structural.UnobservedComponentsResults.get_prediction </span>
         </div>
       </div>
@@ -191,7 +191,7 @@
       
     </a>
     <a href="../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+666)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+668)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -334,25 +334,21 @@
 <h1 id="generated-generated-statsmodels-tsa-statespace-structural-unobservedcomponentsresults-get-prediction--page-root">statsmodels.tsa.statespace.structural.UnobservedComponentsResults.get_prediction<a class="headerlink" href="#generated-generated-statsmodels-tsa-statespace-structural-unobservedcomponentsresults-get-prediction--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="statsmodels.tsa.statespace.structural.UnobservedComponentsResults.get_prediction">
-<code class="sig-prename descclassname">UnobservedComponentsResults.</code><code class="sig-name descname">get_prediction</code><span class="sig-paren">(</span><em class="sig-param">start=None</em>, <em class="sig-param">end=None</em>, <em class="sig-param">dynamic=False</em>, <em class="sig-param">index=None</em>, <em class="sig-param">exog=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/statsmodels/tsa/statespace/structural.html#UnobservedComponentsResults.get_prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.tsa.statespace.structural.UnobservedComponentsResults.get_prediction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">UnobservedComponentsResults.</code><code class="sig-name descname">get_prediction</code><span class="sig-paren">(</span><em class="sig-param">start=None</em>, <em class="sig-param">end=None</em>, <em class="sig-param">dynamic=False</em>, <em class="sig-param">index=None</em>, <em class="sig-param">exog=None</em>, <em class="sig-param">extend_model=None</em>, <em class="sig-param">extend_kwargs=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#statsmodels.tsa.statespace.structural.UnobservedComponentsResults.get_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>In-sample prediction and out-of-sample forecasting</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>start</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Zero-indexed observation number at which to start forecasting, ie.,
-the first forecast is start. Can also be a date string to
+<dt><strong>start</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Zero-indexed observation number at which to start forecasting,
+i.e., the first forecast is start. Can also be a date string to
 parse or a datetime type. Default is the the zeroth observation.</p>
 </dd>
-<dt><strong>end</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Zero-indexed observation number at which to end forecasting, ie.,
-the first forecast is start. Can also be a date string to
+<dt><strong>end</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Zero-indexed observation number at which to end forecasting, i.e.,
+the last forecast is end. Can also be a date string to
 parse or a datetime type. However, if the dates index does not
 have a fixed frequency, end must be an integer index if you
 want out of sample prediction. Default is the last observation in
 the sample.</p>
-</dd>
-<dt><strong>exog</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If the model includes exogenous regressors, you must provide
-exactly enough out-of-sample values for the exogenous variables if
-end is beyond the last observation in the sample.</p>
 </dd>
 <dt><strong>dynamic</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">bool</span></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Integer offset relative to <cite>start</cite> at which to begin dynamic
 prediction. Can also be an absolute date string to parse or a
@@ -362,10 +358,6 @@ prediction; starting with this observation and continuing through
 the end of prediction, forecasted endogenous values will be used
 instead.</p>
 </dd>
-<dt><strong>full_results</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If True, returns a FilterResults instance; if False returns a
-tuple with forecasts, the forecast errors, and the forecast error
-covariance matrices. Default is False.</p>
-</dd>
 <dt><strong>**kwargs</strong></dt><dd><p>Additional arguments may required for forecasting beyond the end
 of the sample. See <cite>FilterResults.predict</cite> for more details.</p>
 </dd>
@@ -373,7 +365,8 @@ of the sample. See <cite>FilterResults.predict</cite> for more details.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl>
-<dt><strong>forecast</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array of out of sample forecasts.</p>
+<dt><strong>forecast</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array of out of in-sample predictions and / or out-of-sample
+forecasts. An (npredict x k_endog) array.</p>
 </dd>
 </dl>
 </dd>
@@ -428,7 +421,7 @@ of the sample. See <cite>FilterResults.predict</cite> for more details.</p>
               
           </div>
             Last updated on
-              Dec 10, 2019.
+              Dec 12, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

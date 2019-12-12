@@ -390,8 +390,8 @@
       "Dep. Variable:                        US GNP   No. Observations:                  241\n",
       "Model:                    local linear trend   Log Likelihood                 769.632\n",
       "                   + damped stochastic cycle   AIC                          -1527.263\n",
-      "Date:                       Tue, 10 Dec 2019   BIC                          -1506.455\n",
-      "Time:                               20:02:13   HQIC                         -1518.876\n",
+      "Date:                       Thu, 12 Dec 2019   BIC                          -1506.455\n",
+      "Time:                               04:44:19   HQIC                         -1518.876\n",
       "Sample:                           01-01-1948                                         \n",
       "                                - 01-01-2008                                         \n",
       "Covariance Type:                         opg                                         \n",
@@ -440,7 +440,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/statespace/structural.py:1726: RuntimeWarning: invalid value encountered in sqrt\n",
+      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/statespace/structural.py:1723: RuntimeWarning: invalid value encountered in sqrt\n",
       "  std_errors = np.sqrt(component_bunch['%s_cov' % which])\n"
      ]
     },
