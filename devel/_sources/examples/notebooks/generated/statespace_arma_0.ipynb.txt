@@ -170,6 +170,16 @@
    },
    "outputs": [
     {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.\n",
+      "  % freq, ValueWarning)\n",
+      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.\n",
+      "  % freq, ValueWarning)\n"
+     ]
+    },
+    {
      "name": "stdout",
      "output_type": "stream",
      "text": [
@@ -178,16 +188,6 @@
       "ar.L2         -0.688568\n",
       "sigma2       274.761104\n",
       "dtype: float64\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.\n",
-      "  % freq, ValueWarning)\n",
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.\n",
-      "  % freq, ValueWarning)\n"
      ]
     }
    ],

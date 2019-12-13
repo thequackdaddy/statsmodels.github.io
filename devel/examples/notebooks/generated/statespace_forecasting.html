@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+668)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+671)</span>
           <span class="md-header-nav__topic"> Forecasting in statsmodels </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+668)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+671)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -751,7 +751,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fe3c5cbba50&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f003681e150&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -788,8 +788,8 @@ div.rendered_html tbody tr:hover {
 ==============================================================================
 Dep. Variable:                   infl   No. Observations:                  203
 Model:               SARIMAX(1, 0, 0)   Log Likelihood                -472.714
-Date:                Thu, 12 Dec 2019   AIC                            951.427
-Time:                        04:44:05   BIC                            961.367
+Date:                Fri, 13 Dec 2019   AIC                            951.427
+Time:                        19:26:12   BIC                            961.367
 Sample:                    03-31-1959   HQIC                           955.449
                          - 09-30-2009
 Covariance Type:                  opg
@@ -1163,9 +1163,9 @@ dtype: float64
           1999Q2    1999Q3    1999Q4    2000Q1    2000Q2
 1999Q3  2.552620       NaN       NaN       NaN       NaN
 1999Q4  3.010790  3.588286       NaN       NaN       NaN
-2000Q1  3.342616  3.760863  3.226165       NaN       NaN
-2000Q2       NaN  3.885850  3.498599  3.885225       NaN
-2000Q3       NaN       NaN  3.695908  3.975918  4.196649
+2000Q1  3.342616  3.760863  3.760863       NaN       NaN
+2000Q2       NaN  3.885850  3.885850  3.885850       NaN
+2000Q3       NaN       NaN  3.976371  3.976371  3.976371
 </pre></div></div>
 </div>
 <p>We now have a set of three forecasts made at each point in time from 1999Q2 through 2009Q3. We can construct the forecast errors by subtracting each forecast from the actual value of <code class="docutils literal notranslate"><span class="pre">endog</span></code> at that point.</p>
@@ -1189,9 +1189,9 @@ dtype: float64
           1999Q2    1999Q3    1999Q4    2000Q1    2000Q2
 1999Q3  0.797380       NaN       NaN       NaN       NaN
 1999Q4 -0.160790 -0.738286       NaN       NaN       NaN
-2000Q1  0.417384 -0.000863  0.533835       NaN       NaN
-2000Q2       NaN  0.304150  0.691401  0.304775       NaN
-2000Q3       NaN       NaN -0.925908 -1.205918 -1.426649
+2000Q1  0.417384 -0.000863 -0.000863       NaN       NaN
+2000Q2       NaN  0.304150  0.304150  0.304150       NaN
+2000Q3       NaN       NaN -1.206371 -1.206371 -1.206371
 </pre></div></div>
 </div>
 <p>To evaluate our forecasts, we often want to look at a summary value like the root mean square error. Here we can compute that for each horizon by first flattening the forecast errors so that they are indexed by horizon and then computing the root mean square error fore each horizon.</p>
@@ -1218,9 +1218,9 @@ dtype: float64
 <div class="highlight"><pre>
            1999Q2    1999Q3    1999Q4    2000Q1    2000Q2
 horizon
-1        0.797380 -0.738286  0.533835  0.304775 -1.426649
-2       -0.160790 -0.000863  0.691401 -1.205918 -0.311464
-3        0.417384  0.304150 -0.925908 -0.151602 -2.384952
+1        0.797380 -0.738286 -0.000863  0.304150 -1.206371
+2       -0.160790 -0.000863  0.304150 -1.206371 -0.151930
+3        0.417384  0.304150 -1.206371 -0.151930 -2.269410
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1241,9 +1241,9 @@ horizon
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 horizon
-1    3.292700
-2    3.421808
-3    3.280012
+1    3.227973
+2    3.263653
+3    3.305805
 dtype: float64
 </pre></div></div>
 </div>
@@ -1622,7 +1622,7 @@ dtype: float64
               
           </div>
             Last updated on
-              Dec 12, 2019.
+              Dec 13, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
