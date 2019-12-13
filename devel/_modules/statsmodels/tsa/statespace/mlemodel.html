@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+671)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+676)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.mlemodel </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+671)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+676)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1911,6 +1911,10 @@
 <div class="viewcode-block" id="MLEModel.handle_params"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.handle_params.html#statsmodels.tsa.statespace.mlemodel.MLEModel.handle_params">[docs]</a>    <span class="k">def</span> <span class="nf">handle_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">includes_fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                       <span class="n">return_jacobian</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Never want integer dtype, so convert to floats</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">includes_fixed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_fixed_params</span><span class="p">:</span>
             <span class="n">k_params</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
