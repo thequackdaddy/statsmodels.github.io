@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.varma_process </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -753,7 +753,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">arm1</span> <span class="o">=</span> <span class="o">-</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
     <span class="c1">#@property</span>
-<div class="viewcode-block" id="VarmaPoly.vstack"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.vstack.html#statsmodels.tsa.varma_process.VarmaPoly.vstack">[docs]</a>    <span class="k">def</span> <span class="nf">vstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">vstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">):</span>
         <span class="sd">'''stack lagpolynomial vertically in 2d array</span>
 
 <span class="sd">        '''</span>
@@ -765,10 +765,10 @@
             <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ma</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'no array or name given'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span>
 
     <span class="c1">#@property</span>
-<div class="viewcode-block" id="VarmaPoly.hstack"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.hstack.html#statsmodels.tsa.varma_process.VarmaPoly.hstack">[docs]</a>    <span class="k">def</span> <span class="nf">hstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">):</span>
         <span class="sd">'''stack lagpolynomial horizontally in 2d array</span>
 
 <span class="sd">        '''</span>
@@ -780,10 +780,10 @@
             <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ma</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'no array or name given'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
+        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
     <span class="c1">#@property</span>
-<div class="viewcode-block" id="VarmaPoly.stacksquare"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.stacksquare.html#statsmodels.tsa.varma_process.VarmaPoly.stacksquare">[docs]</a>    <span class="k">def</span> <span class="nf">stacksquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">'vertical'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stacksquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'ar'</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">'vertical'</span><span class="p">):</span>
         <span class="sd">'''stack lagpolynomial vertically in 2d square array with eye</span>
 
 <span class="sd">        '''</span>
@@ -799,26 +799,26 @@
         <span class="n">lenpk</span><span class="p">,</span> <span class="n">nvars</span> <span class="o">=</span> <span class="n">astacked</span><span class="o">.</span><span class="n">shape</span> <span class="c1">#[0]</span>
         <span class="n">amat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">lenpk</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvars</span><span class="p">)</span>
         <span class="n">amat</span><span class="p">[:,:</span><span class="n">nvars</span><span class="p">]</span> <span class="o">=</span> <span class="n">astacked</span>
-        <span class="k">return</span> <span class="n">amat</span></div>
+        <span class="k">return</span> <span class="n">amat</span>
 
     <span class="c1">#@property</span>
-<div class="viewcode-block" id="VarmaPoly.vstackarma_minus1"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.vstackarma_minus1.html#statsmodels.tsa.varma_process.VarmaPoly.vstackarma_minus1">[docs]</a>    <span class="k">def</span> <span class="nf">vstackarma_minus1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">vstackarma_minus1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''stack ar and lagpolynomial vertically in 2d array</span>
 
 <span class="sd">        '''</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ma</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span>
 
     <span class="c1">#@property</span>
-<div class="viewcode-block" id="VarmaPoly.hstackarma_minus1"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.hstackarma_minus1.html#statsmodels.tsa.varma_process.VarmaPoly.hstackarma_minus1">[docs]</a>    <span class="k">def</span> <span class="nf">hstackarma_minus1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hstackarma_minus1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''stack ar and lagpolynomial vertically in 2d array</span>
 
 <span class="sd">        this is the Kalman Filter representation, I think</span>
 <span class="sd">        '''</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ma</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvarall</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VarmaPoly.getisstationary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.getisstationary.html#statsmodels.tsa.varma_process.VarmaPoly.getisstationary">[docs]</a>    <span class="k">def</span> <span class="nf">getisstationary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getisstationary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">'''check whether the auto-regressive lag-polynomial is stationary</span>
 
 <span class="sd">        Returns</span>
@@ -845,9 +845,9 @@
         <span class="n">amat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stacksquare</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="n">ev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">amat</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">areigenvalues</span> <span class="o">=</span> <span class="n">ev</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<div class="viewcode-block" id="VarmaPoly.getisinvertible"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.getisinvertible.html#statsmodels.tsa.varma_process.VarmaPoly.getisinvertible">[docs]</a>    <span class="k">def</span> <span class="nf">getisinvertible</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getisinvertible</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">'''check whether the auto-regressive lag-polynomial is stationary</span>
 
 <span class="sd">        Returns</span>
@@ -879,9 +879,9 @@
         <span class="n">amat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stacksquare</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="n">ev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">amat</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">maeigenvalues</span> <span class="o">=</span> <span class="n">ev</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<div class="viewcode-block" id="VarmaPoly.reduceform"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.varma_process.VarmaPoly.reduceform.html#statsmodels.tsa.varma_process.VarmaPoly.reduceform">[docs]</a>    <span class="k">def</span> <span class="nf">reduceform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">apoly</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reduceform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">apoly</span><span class="p">):</span>
         <span class="sd">'''</span>
 
 <span class="sd">        this assumes no exog, todo</span>
@@ -901,7 +901,7 @@
         <span class="k">for</span> <span class="n">lag</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlags</span><span class="p">):</span>
             <span class="n">a</span><span class="p">[</span><span class="n">lag</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a0inv</span><span class="p">,</span> <span class="n">apoly</span><span class="p">[</span><span class="n">lag</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="n">a</span></div></div>
+        <span class="k">return</span> <span class="n">a</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>

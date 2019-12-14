@@ -117,7 +117,7 @@
        "  <th>Date:</th>              <td>Sat, 14 Dec 2019</td>   <th>  AIC                </th>  <td>380.527</td>\n",
        "</tr>\n",
        "<tr>\n",
-       "  <th>Time:</th>                  <td>18:16:30</td>       <th>  BIC                </th>  <td>406.404</td>\n",
+       "  <th>Time:</th>                  <td>18:58:05</td>       <th>  BIC                </th>  <td>406.404</td>\n",
        "</tr>\n",
        "<tr>\n",
        "  <th>Sample:</th>               <td>04-01-1951</td>      <th>  HQIC               </th>  <td>391.042</td>\n",
@@ -189,7 +189,7 @@
        "Dep. Variable:                     rgnp   No. Observations:                  131\n",
        "Model:             MarkovAutoregression   Log Likelihood                -181.263\n",
        "Date:                  Sat, 14 Dec 2019   AIC                            380.527\n",
-       "Time:                          18:16:30   BIC                            406.404\n",
+       "Time:                          18:58:05   BIC                            406.404\n",
        "Sample:                      04-01-1951   HQIC                           391.042\n",
        "                           - 10-01-1984                                         \n",
        "Covariance Type:                 approx                                         \n",
@@ -294,7 +294,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[ 4.07604747 10.42589381]\n"
+      "[ 4.07604746 10.42589384]\n"
      ]
     }
    ],
@@ -397,7 +397,7 @@
        "  <th>Date:</th>            <td>Sat, 14 Dec 2019</td> <th>  AIC                </th> <td>-1985.790</td>\n",
        "</tr>\n",
        "<tr>\n",
-       "  <th>Time:</th>                <td>18:16:34</td>     <th>  BIC                </th> <td>-1944.428</td>\n",
+       "  <th>Time:</th>                <td>18:58:10</td>     <th>  BIC                </th> <td>-1944.428</td>\n",
        "</tr>\n",
        "<tr>\n",
        "  <th>Sample:</th>             <td>01-01-1926</td>    <th>  HQIC               </th> <td>-1969.834</td>\n",
@@ -469,7 +469,7 @@
        "Dep. Variable:                      0   No. Observations:                  732\n",
        "Model:               MarkovRegression   Log Likelihood                1001.895\n",
        "Date:                Sat, 14 Dec 2019   AIC                          -1985.790\n",
-       "Time:                        18:16:34   BIC                          -1944.428\n",
+       "Time:                        18:58:10   BIC                          -1944.428\n",
        "Sample:                    01-01-1926   HQIC                         -1969.834\n",
        "                         - 12-01-1986                                         \n",
        "Covariance Type:               approx                                         \n",
@@ -691,7 +691,7 @@
        "  <th>Date:</th>              <td>Sat, 14 Dec 2019</td>   <th>  AIC                </th> <td>1195.144</td>\n",
        "</tr>\n",
        "<tr>\n",
-       "  <th>Time:</th>                  <td>18:16:48</td>       <th>  BIC                </th> <td>1241.808</td>\n",
+       "  <th>Time:</th>                  <td>18:58:24</td>       <th>  BIC                </th> <td>1241.808</td>\n",
        "</tr>\n",
        "<tr>\n",
        "  <th>Sample:</th>               <td>03-01-1948</td>      <th>  HQIC               </th> <td>1213.433</td>\n",
@@ -769,7 +769,7 @@
        "Dep. Variable:                     dlip   No. Observations:                  514\n",
        "Model:             MarkovAutoregression   Log Likelihood                -586.572\n",
        "Date:                  Sat, 14 Dec 2019   AIC                           1195.144\n",
-       "Time:                          18:16:48   BIC                           1241.808\n",
+       "Time:                          18:58:24   BIC                           1241.808\n",
        "Sample:                      03-01-1948   HQIC                          1213.433\n",
        "                           - 04-01-1991                                         \n",
        "Covariance Type:                 approx                                         \n",

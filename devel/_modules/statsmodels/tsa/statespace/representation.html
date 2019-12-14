@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.representation </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -776,7 +776,7 @@
 
         <span class="k">return</span> <span class="n">kwargs</span>
 
-<div class="viewcode-block" id="Representation.clone"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.clone.html#statsmodels.tsa.statespace.representation.Representation.clone">[docs]</a>    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Clone a state space representation while overriding some elements</span>
 
@@ -801,9 +801,9 @@
         <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone_kwargs</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">mod</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">mod</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mod</span></div>
+        <span class="k">return</span> <span class="n">mod</span>
 
-<div class="viewcode-block" id="Representation.extend"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.extend.html#statsmodels.tsa.statespace.representation.Representation.extend">[docs]</a>    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Extend the current state space model, or a specific (time) subset</span>
 
@@ -917,7 +917,7 @@
                 <span class="c1"># Concatenate to get the new time-varying matrix</span>
                 <span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">mat</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span> <span class="n">updated_mat</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -970,7 +970,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span>
 
-<div class="viewcode-block" id="Representation.bind"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.bind.html#statsmodels.tsa.statespace.representation.Representation.bind">[docs]</a>    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Bind data to the statespace representation</span>
 
@@ -1051,9 +1051,9 @@
 
         <span class="c1"># Reset shapes</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'shapes'</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">[</span><span class="s1">'obs'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">[</span><span class="s1">'obs'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span>
 
-<div class="viewcode-block" id="Representation.initialize"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.initialize.html#statsmodels.tsa.statespace.representation.Representation.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initialization</span><span class="p">,</span> <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initialization</span><span class="p">,</span> <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">constant</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stationary_cov</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Create an Initialization object if necessary"""</span>
         <span class="k">if</span> <span class="n">initialization</span> <span class="o">==</span> <span class="s1">'known'</span><span class="p">:</span>
@@ -1075,9 +1075,9 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">initialization</span><span class="p">,</span> <span class="n">Initialization</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Invalid state space initialization method."</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">initialization</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">initialization</span>
 
-<div class="viewcode-block" id="Representation.initialize_known"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.initialize_known.html#statsmodels.tsa.statespace.representation.Representation.initialize_known">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_known</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">stationary_cov</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize_known</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">stationary_cov</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Initialize the statespace model with known distribution for initial</span>
 <span class="sd">        state.</span>
@@ -1107,9 +1107,9 @@
                               <span class="nb">str</span><span class="p">(</span><span class="n">stationary_cov</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'known'</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="n">constant</span><span class="p">,</span>
-                        <span class="n">stationary_cov</span><span class="o">=</span><span class="n">stationary_cov</span><span class="p">)</span></div>
+                        <span class="n">stationary_cov</span><span class="o">=</span><span class="n">stationary_cov</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Representation.initialize_approximate_diffuse"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.initialize_approximate_diffuse.html#statsmodels.tsa.statespace.representation.Representation.initialize_approximate_diffuse">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_approximate_diffuse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize_approximate_diffuse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Initialize the statespace model with approximate diffuse values.</span>
 
@@ -1127,19 +1127,19 @@
             <span class="n">variance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_variance</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'approximate_diffuse'</span><span class="p">,</span>
-                        <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="n">variance</span><span class="p">)</span></div>
+                        <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="n">variance</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Representation.initialize_stationary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.initialize_stationary.html#statsmodels.tsa.statespace.representation.Representation.initialize_stationary">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_stationary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize_stationary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Initialize the statespace model as stationary.</span>
 <span class="sd">        """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'stationary'</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'stationary'</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Representation.initialize_diffuse"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.Representation.initialize_diffuse.html#statsmodels.tsa.statespace.representation.Representation.initialize_diffuse">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_diffuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize_diffuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Initialize the statespace model as stationary.</span>
 <span class="sd">        """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'diffuse'</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s1">'diffuse'</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_initialize_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1311,7 +1311,7 @@
         <span class="c1"># Update the representation attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_representation</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-<div class="viewcode-block" id="FrozenRepresentation.update_representation"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.representation.FrozenRepresentation.update_representation.html#statsmodels.tsa.statespace.representation.FrozenRepresentation.update_representation">[docs]</a>    <span class="k">def</span> <span class="nf">update_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
         <span class="sd">"""Update model Representation"""</span>
         <span class="c1"># Model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
@@ -1361,7 +1361,7 @@
                 <span class="n">model</span><span class="o">.</span><span class="n">_statespaces</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">]</span><span class="o">.</span><span class="n">initial_state_cov</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">initial_diffuse_state_cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
                 <span class="n">model</span><span class="o">.</span><span class="n">_statespaces</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">]</span><span class="o">.</span><span class="n">initial_diffuse_state_cov</span><span class="p">,</span>
-                <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
+                <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 </pre></div>
 
           </article>
