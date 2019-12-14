@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.regression.recursive_ls </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -410,12 +410,12 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">k_endog</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="RecursiveLS.from_formula"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.recursive_ls.RecursiveLS.from_formula.html#statsmodels.regression.recursive_ls.RecursiveLS.from_formula">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_formula</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MLEModel</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span>
-                                                 <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span>
+                                                 <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="RecursiveLS.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.recursive_ls.RecursiveLS.fit.html#statsmodels.regression.recursive_ls.RecursiveLS.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Fits the model by application of the Kalman filter</span>
 
@@ -428,9 +428,9 @@
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">fixed_scale</span><span class="p">(</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">scale</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">smooth</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
-    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_ssm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="RecursiveLS.filter"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.recursive_ls.RecursiveLS.filter.html#statsmodels.regression.recursive_ls.RecursiveLS.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_ssm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Get the state space output</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">RecursiveLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">([],</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                                  <span class="n">cov_type</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span>
@@ -451,7 +451,7 @@
                                    <span class="n">cov_kwds</span><span class="o">=</span><span class="n">cov_kwds</span><span class="p">)</span>
             <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span></div>
 
     <span class="k">def</span> <span class="nf">smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_ssm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Get the state space output</span>
@@ -1155,7 +1155,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

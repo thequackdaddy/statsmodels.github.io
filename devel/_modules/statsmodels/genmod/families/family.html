@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.families.family </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -365,7 +365,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="n">link</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">variance</span> <span class="o">=</span> <span class="n">variance</span>
 
-    <span class="k">def</span> <span class="nf">starting_mu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.starting_mu"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.starting_mu.html#statsmodels.genmod.families.family.Family.starting_mu">[docs]</a>    <span class="k">def</span> <span class="nf">starting_mu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Starting value for mu in the IRLS algorithm.</span>
 
@@ -387,9 +387,9 @@
 
 <span class="sd">        Only the Binomial family takes a different initial value.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="mf">2.</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="mf">2.</span></div>
 
-    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.weights"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.weights.html#statsmodels.genmod.families.family.Family.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Weights for IRLS steps</span>
 
@@ -409,9 +409,9 @@
 
 <span class="sd">           w = 1 / (g'(\mu)^2  * Var(\mu))</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span></div>
 
-    <span class="k">def</span> <span class="nf">deviance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">freq_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.deviance"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.deviance.html#statsmodels.genmod.families.family.Family.deviance">[docs]</a>    <span class="k">def</span> <span class="nf">deviance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">freq_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The deviance function evaluated at (endog, mu, var_weights,</span>
 <span class="sd">        freq_weights, scale) for the distribution.</span>
@@ -454,9 +454,9 @@
 <span class="sd">           D = \sum_i freq\_weights_i * var\_weights * resid\_dev_i  / scale</span>
 <span class="sd">        """</span>
         <span class="n">resid_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resid_dev</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid_dev</span> <span class="o">*</span> <span class="n">freq_weights</span> <span class="o">*</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid_dev</span> <span class="o">*</span> <span class="n">freq_weights</span> <span class="o">*</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">resid_dev</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.resid_dev"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.resid_dev.html#statsmodels.genmod.families.family.Family.resid_dev">[docs]</a>    <span class="k">def</span> <span class="nf">resid_dev</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The deviance residuals</span>
 
@@ -490,9 +490,9 @@
 <span class="sd">        """</span>
         <span class="n">resid_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resid_dev</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
         <span class="n">resid_dev</span> <span class="o">*=</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">resid_dev</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">resid_dev</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span></div>
 
-    <span class="k">def</span> <span class="nf">fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.fitted"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.fitted.html#statsmodels.genmod.families.family.Family.fitted">[docs]</a>    <span class="k">def</span> <span class="nf">fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Fitted values based on linear predictors lin_pred.</span>
 
@@ -509,9 +509,9 @@
 <span class="sd">            function.</span>
 <span class="sd">        """</span>
         <span class="n">fits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">lin_pred</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fits</span>
+        <span class="k">return</span> <span class="n">fits</span></div>
 
-    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.predict"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.predict.html#statsmodels.genmod.families.family.Family.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Linear predictors based on given mu values.</span>
 
@@ -526,9 +526,9 @@
 <span class="sd">            Linear predictors based on the mean response variables.  The value</span>
 <span class="sd">            of the link function at the given mu.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.loglike_obs.html#statsmodels.genmod.families.family.Family.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the distribution.</span>
@@ -557,9 +557,9 @@
 <span class="sd">        both ``loglike(endog, endog)`` and ``loglike(endog, mu)`` to get the</span>
 <span class="sd">        log-likelihood ratio.</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">freq_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.loglike"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.loglike.html#statsmodels.genmod.families.family.Family.loglike">[docs]</a>    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">freq_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function in terms of the fitted mean response.</span>
 
@@ -595,9 +595,9 @@
 <span class="sd">        log-likelihood ratio.</span>
 <span class="sd">        """</span>
         <span class="n">ll_obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglike_obs</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ll_obs</span> <span class="o">*</span> <span class="n">freq_weights</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ll_obs</span> <span class="o">*</span> <span class="n">freq_weights</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Family.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Family.resid_anscombe.html#statsmodels.genmod.families.family.Family.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -631,7 +631,7 @@
 <span class="sd">        The transformation :math:`A(y)` makes the residuals more normal</span>
 <span class="sd">        distributed.</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
     <span class="k">def</span> <span class="nf">_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1104,14 +1104,14 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">Binomial</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">link</span><span class="p">,</span>
                                        <span class="n">variance</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">starting_mu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="Binomial.starting_mu"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Binomial.starting_mu.html#statsmodels.genmod.families.family.Binomial.starting_mu">[docs]</a>    <span class="k">def</span> <span class="nf">starting_mu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The starting values for the IRLS algorithm for the Binomial family.</span>
 <span class="sd">        A good choice for the binomial family is :math:`\mu_0 = (Y_i + 0.5)/2`</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></div>
 
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">freq_weights</span><span class="p">):</span>
+<div class="viewcode-block" id="Binomial.initialize"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Binomial.initialize.html#statsmodels.genmod.families.family.Binomial.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">freq_weights</span><span class="p">):</span>
         <span class="sd">'''</span>
 <span class="sd">        Initialize the response variable.</span>
 
@@ -1143,7 +1143,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">endog</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="mf">1.</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">endog</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">endog</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
 
     <span class="k">def</span> <span class="nf">_resid_dev</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
@@ -1173,7 +1173,7 @@
         <span class="n">resid_dev</span> <span class="o">=</span> <span class="n">endog</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog_mu</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">endog</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_endog_mu</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">*</span> <span class="n">resid_dev</span>
 
-    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Binomial.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Binomial.loglike_obs.html#statsmodels.genmod.families.family.Binomial.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Binomial distribution.</span>
@@ -1222,9 +1222,9 @@
         <span class="c1"># note that mu is still in (0,1), i.e. not converted back</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span>
                 <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span><span class="p">))</span> <span class="o">+</span>
-                <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span><span class="p">))</span> <span class="o">*</span> <span class="n">var_weights</span>
+                <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span><span class="p">))</span> <span class="o">*</span> <span class="n">var_weights</span></div>
 
-    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<div class="viewcode-block" id="Binomial.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Binomial.resid_anscombe.html#statsmodels.genmod.families.family.Binomial.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -1285,7 +1285,7 @@
                                      <span class="n">cox_snell</span><span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span>
                  <span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">6.</span><span class="p">))</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div>
+        <span class="k">return</span> <span class="n">resid</span></div></div>
 
 
 <div class="viewcode-block" id="InverseGaussian"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.InverseGaussian.html#statsmodels.genmod.families.family.InverseGaussian">[docs]</a><span class="k">class</span> <span class="nc">InverseGaussian</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -1858,7 +1858,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

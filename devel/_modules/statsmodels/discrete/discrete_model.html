@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.discrete.discrete_model </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1211,7 +1211,7 @@
         <span class="kn">from</span> <span class="nn">statsmodels.genmod</span> <span class="kn">import</span> <span class="n">families</span>
         <span class="k">return</span> <span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="Poisson.cdf"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Poisson.cdf.html#statsmodels.discrete.count_model.Poisson.cdf">[docs]</a>    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Poisson model cumulative distribution function</span>
 
@@ -1237,7 +1237,7 @@
 <span class="sd">        The parameter `X` is :math:`X\\beta` in the above formula.</span>
 <span class="sd">        """</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span>
-        <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="p">))</span></div>
 
     <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1331,7 +1331,7 @@
         <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">const</span><span class="p">)]</span>
         <span class="k">return</span> <span class="n">params</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteModel</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Poisson.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Poisson.fit.html#statsmodels.discrete.count_model.Poisson.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteModel</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'newton'</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
             <span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
@@ -1350,7 +1350,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">kwds</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">discretefit</span> <span class="o">=</span> <span class="n">PoissonResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cntfit</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">PoissonResultsWrapper</span><span class="p">(</span><span class="n">discretefit</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PoissonResultsWrapper</span><span class="p">(</span><span class="n">discretefit</span><span class="p">)</span></div>
 
     <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteModel</span><span class="o">.</span><span class="n">fit_regularized</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit_regularized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'l1'</span><span class="p">,</span>
@@ -1369,7 +1369,7 @@
         <span class="n">discretefit</span> <span class="o">=</span> <span class="n">L1PoissonResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cntfit</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">L1PoissonResultsWrapper</span><span class="p">(</span><span class="n">discretefit</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">fit_constrained</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwds</span><span class="p">):</span>
+<div class="viewcode-block" id="Poisson.fit_constrained"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Poisson.fit_constrained.html#statsmodels.discrete.count_model.Poisson.fit_constrained">[docs]</a>    <span class="k">def</span> <span class="nf">fit_constrained</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwds</span><span class="p">):</span>
         <span class="sd">"""fit the model subject to linear equality constraints</span>
 
 <span class="sd">        The constraints are of the form   `R params = q`</span>
@@ -1436,7 +1436,7 @@
         <span class="n">res</span><span class="o">.</span><span class="n">_results</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">lc</span>
         <span class="n">res</span><span class="o">.</span><span class="n">_results</span><span class="o">.</span><span class="n">k_constr</span> <span class="o">=</span> <span class="n">k_constr</span>
         <span class="n">res</span><span class="o">.</span><span class="n">_results</span><span class="o">.</span><span class="n">results_constrained</span> <span class="o">=</span> <span class="n">res_constr</span>
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
 
     <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -2033,7 +2033,7 @@
         <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Logit.pdf"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.pdf.html#statsmodels.discrete.count_model.Logit.pdf">[docs]</a>    <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The logistic probability density function</span>
 
@@ -2055,9 +2055,9 @@
 <span class="sd">        .. math:: \\lambda\\left(x^{\\prime}\\beta\\right)=\\frac{e^{-x^{\\prime}\\beta}}{\\left(1+e^{-x^{\\prime}\\beta}\\right)^{2}}</span>
 <span class="sd">        """</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
 
-<div class="viewcode-block" id="Logit.loglike"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.loglike.html#statsmodels.discrete.count_model.Logit.loglike">[docs]</a>    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Log-likelihood of logit model.</span>
 
@@ -2084,9 +2084,9 @@
 <span class="sd">        """</span>
         <span class="n">q</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">))))</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">))))</span>
 
-<div class="viewcode-block" id="Logit.loglikeobs"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.loglikeobs.html#statsmodels.discrete.count_model.Logit.loglikeobs">[docs]</a>    <span class="k">def</span> <span class="nf">loglikeobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglikeobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Log-likelihood of logit model for each observation.</span>
 
@@ -2115,9 +2115,9 @@
 <span class="sd">        """</span>
         <span class="n">q</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">)))</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">)))</span>
 
-<div class="viewcode-block" id="Logit.score"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.score.html#statsmodels.discrete.count_model.Logit.score">[docs]</a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Logit model score (gradient) vector of the log-likelihood</span>
 
@@ -2140,9 +2140,9 @@
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span>
         <span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">L</span><span class="p">,</span><span class="n">X</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">L</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Logit.score_obs"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.score_obs.html#statsmodels.discrete.count_model.Logit.score_obs">[docs]</a>    <span class="k">def</span> <span class="nf">score_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">score_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Logit model Jacobian of the log-likelihood for each observation</span>
 
@@ -2168,9 +2168,9 @@
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span>
         <span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">params</span><span class="p">))</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">L</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">L</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span>
 
-<div class="viewcode-block" id="Logit.hessian"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.Logit.hessian.html#statsmodels.discrete.count_model.Logit.hessian">[docs]</a>    <span class="k">def</span> <span class="nf">hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Logit model Hessian matrix of the log-likelihood</span>
 
@@ -2191,7 +2191,7 @@
 <span class="sd">        """</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span>
         <span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">params</span><span class="p">))</span>
-        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">X</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
 
     <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteModel</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'newton'</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
@@ -4199,7 +4199,7 @@
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteResults</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="BinaryResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.discrete.discrete_model.BinaryResults.summary.html#statsmodels.discrete.count_model.BinaryResults.summary">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">DiscreteResults</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span>
                 <span class="n">yname_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BinaryResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">yname</span><span class="p">,</span> <span class="n">xname</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span>
@@ -4227,7 +4227,7 @@
             <span class="n">etext</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wstr</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">etext</span><span class="p">:</span>
             <span class="n">smry</span><span class="o">.</span><span class="n">add_extra_txt</span><span class="p">(</span><span class="n">etext</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">smry</span>
+        <span class="k">return</span> <span class="n">smry</span></div>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">resid_dev</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -4662,7 +4662,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

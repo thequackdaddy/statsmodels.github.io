@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> Time Series analysis tsa </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -536,20 +536,16 @@ frequency domain.</p>
 statsmodels.tsa.api and their result classes</p>
 
 <h3 id="univariate-autoregressive-processes-ar">Univariate Autoregressive Processes (AR)<a class="headerlink" href="#univariate-autoregressive-processes-ar" title="Permalink to this headline">¶</a></h3>
+<p>Beginning in version 0.11, Statsmodels has introduced a new class dedicated to
+autoregressive models.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>
 <col style="width: 90%"/>
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AR.html#statsmodels.tsa.ar_model.AR" title="statsmodels.tsa.ar_model.AR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AR</span></code></a>(endog[, dates, freq, missing])</p></td>
-<td><p>Autoregressive AR(p) model.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AutoReg.html#statsmodels.tsa.ar_model.AutoReg" title="statsmodels.tsa.ar_model.AutoReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AutoReg</span></code></a>(endog, lags[, trend, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AutoReg.html#statsmodels.tsa.ar_model.AutoReg" title="statsmodels.tsa.ar_model.AutoReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AutoReg</span></code></a>(endog, lags[, trend, …])</p></td>
 <td><p>Autoregressive AR-X(p) model.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.ARResults.html#statsmodels.tsa.ar_model.ARResults" title="statsmodels.tsa.ar_model.ARResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.ARResults</span></code></a>(model, params[, …])</p></td>
-<td><p>Class to hold results from fitting an AR model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AutoRegResults.html#statsmodels.tsa.ar_model.AutoRegResults" title="statsmodels.tsa.ar_model.AutoRegResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AutoRegResults</span></code></a>(model, params, …)</p></td>
 <td><p>Class to hold results from fitting an AutoReg model.</p></td>
@@ -559,11 +555,30 @@ statsmodels.tsa.api and their result classes</p>
 </tr>
 </tbody>
 </table>
+<p>The <cite>ar_model.AutoReg</cite> model estimates parameters using conditional MLE (OLS),
+and supports exogenous regressors (an AR-X model) and seasonal effects.</p>
+<p>AR-X and related models can also be fitted with the <cite>arima.ARIMA</cite> class and the
+<cite>SARIMAX</cite> class (using full MLE via the Kalman Filter).</p>
+<p>Finally, the old class, <cite>ar_model.AR</cite>, is still available but it has been
+deprecated.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.AR.html#statsmodels.tsa.ar_model.AR" title="statsmodels.tsa.ar_model.AR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.AR</span></code></a>(endog[, dates, freq, missing])</p></td>
+<td><p>Autoregressive AR(p) model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.ar_model.ARResults.html#statsmodels.tsa.ar_model.ARResults" title="statsmodels.tsa.ar_model.ARResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ar_model.ARResults</span></code></a>(model, params[, …])</p></td>
+<td><p>Class to hold results from fitting an AR model.</p></td>
+</tr>
+</tbody>
+</table>
 
 
 <h3 id="autoregressive-moving-average-processes-arma-and-kalman-filter">Autoregressive Moving-Average Processes (ARMA) and Kalman Filter<a class="headerlink" href="#autoregressive-moving-average-processes-arma-and-kalman-filter" title="Permalink to this headline">¶</a></h3>
-<p>The basic ARIMA model and results classes that should be the starting point for
-for most users are:</p>
+<p>Basic ARIMA model and results classes are as follows:</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>
@@ -588,38 +603,37 @@ for most users are:</p>
 </tr>
 </tbody>
 </table>
-<p>Some advanced underlying low-level classes and functions that can be used to
-compute the log-likelihood function for ARMA-type models include (note that
-these are rarely needed by end-users):</p>
+<p>However, beginning in version 0.11, Statsmodels has introduced a new class
+dedicated to ARIMA models. While this class is still in a testing phase, it
+should be the starting point for for most users going forwards:</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>
 <col style="width: 90%"/>
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.kalmanf.kalmanfilter.KalmanFilter.html#statsmodels.tsa.kalmanf.kalmanfilter.KalmanFilter" title="statsmodels.tsa.kalmanf.kalmanfilter.KalmanFilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kalmanf.kalmanfilter.KalmanFilter</span></code></a></p></td>
-<td><p>Kalman Filter code intended for use with the ARMA model.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.arima.model.ARIMA.html#statsmodels.tsa.arima.model.ARIMA" title="statsmodels.tsa.arima.model.ARIMA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arima.model.ARIMA</span></code></a>(endog[, exog, order, …])</p></td>
+<td><p>Autoregressive Integrated Moving Average (ARIMA) model, and extensions</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.innovations.arma_innovations.arma_innovations.html#statsmodels.tsa.innovations.arma_innovations.arma_innovations" title="statsmodels.tsa.innovations.arma_innovations.arma_innovations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">innovations.arma_innovations.arma_innovations</span></code></a>(endog)</p></td>
-<td><p>Compute innovations using a given ARMA process.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.innovations.arma_innovations.arma_loglike.html#statsmodels.tsa.innovations.arma_innovations.arma_loglike" title="statsmodels.tsa.innovations.arma_innovations.arma_loglike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">innovations.arma_innovations.arma_loglike</span></code></a>(endog)</p></td>
-<td><p>Compute the log-likelihood of the given data assuming an ARMA process.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.innovations.arma_innovations.arma_loglikeobs.html#statsmodels.tsa.innovations.arma_innovations.arma_loglikeobs" title="statsmodels.tsa.innovations.arma_innovations.arma_loglikeobs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">innovations.arma_innovations.arma_loglikeobs</span></code></a>(endog)</p></td>
-<td><p>Compute the log-likelihood for each observation assuming an ARMA process.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.innovations.arma_innovations.arma_score.html#statsmodels.tsa.innovations.arma_innovations.arma_score" title="statsmodels.tsa.innovations.arma_innovations.arma_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">innovations.arma_innovations.arma_score</span></code></a>(endog)</p></td>
-<td><p>Compute the score (gradient of the log-likelihood function).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.innovations.arma_innovations.arma_scoreobs.html#statsmodels.tsa.innovations.arma_innovations.arma_scoreobs" title="statsmodels.tsa.innovations.arma_innovations.arma_scoreobs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">innovations.arma_innovations.arma_scoreobs</span></code></a>(endog)</p></td>
-<td><p>Compute the score (gradient) per observation.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.arima.model.ARIMAResults.html#statsmodels.tsa.arima.model.ARIMAResults" title="statsmodels.tsa.arima.model.ARIMAResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arima.model.ARIMAResults</span></code></a>(model, params, …)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
 </tr>
 </tbody>
 </table>
+<p>The <cite>arima.model.ARIMA</cite> model allows estimating parameters by various methods
+(including conditional MLE via the Hannan-Rissanen method and full MLE via the
+Kalman filter). Since it is a special case of the <cite>SARIMAX</cite> model, it includes
+all features of <a class="reference internal" href="statespace.html#statespace"><span class="std std-ref">state space</span></a> models (including
+preciction / forecasting, residual diagnostics, simulation and impulse
+responses, etc.).</p>
 
 
 <h3 id="exponential-smoothing">Exponential Smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this headline">¶</a></h3>
+<p>Linear and non-linear exponential smoothing models are available:</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>
@@ -637,6 +651,30 @@ these are rarely needed by end-users):</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.holtwinters.HoltWintersResults.html#statsmodels.tsa.holtwinters.HoltWintersResults" title="statsmodels.tsa.holtwinters.HoltWintersResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">holtwinters.HoltWintersResults</span></code></a>(model, …)</p></td>
 <td><p>Holt Winter’s Exponential Smoothing Results</p></td>
+</tr>
+</tbody>
+</table>
+<p>Linear exponential smoothing models have also been separately implemented as a
+special case of the state space framework. Although this approach does not
+allow for the non-linear (multiplicative) exponential smoothing models, it
+includes all features of <a class="reference internal" href="statespace.html#statespace"><span class="std std-ref">state space</span></a> models (including
+preciction / forecasting, residual diagnostics, simulation and impulse
+responses, etc.).</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing.html#statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing" title="statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statespace.exponential_smoothing.ExponentialSmoothing</span></code></a>(endog)</p></td>
+<td><p>Linear exponential smoothing models</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults.html#statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults" title="statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statespace.exponential_smoothing.ExponentialSmoothingResults</span></code></a>(…)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
 </tr>
 </tbody>
 </table>
@@ -926,7 +964,7 @@ process for given lag-polynomials.</p>
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

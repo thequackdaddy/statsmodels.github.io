@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> Release 0.11.0 </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -284,7 +284,31 @@
         </li>
         <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a>
+        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
+        </li>
+        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear exponential smoothing models</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset" class="md-nav__link">Methods to apply parameters fitted on one dataset to another dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#method-to-hold-some-parameters-fixed-at-known-values" class="md-nav__link">Method to hold some parameters fixed at known values</a>
+        </li>
+        <li class="md-nav__item"><a href="#option-for-low-memory-operations" class="md-nav__link">Option for low memory operations</a>
+        </li>
+        <li class="md-nav__item"><a href="#improved-access-to-state-estimates" class="md-nav__link">Improved access to state estimates</a>
+        </li>
+        <li class="md-nav__item"><a href="#improved-simulation-and-impulse-responses-for-time-varying-models" class="md-nav__link">Improved simulation and impulse responses for time-varying models</a>
+        </li></ul>
+            </nav>
         </li>
         <li class="md-nav__item"><a href="#maintenance" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code></a>
         </li></ul>
@@ -448,7 +472,31 @@
         </li>
         <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a>
+        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
+        </li>
+        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear exponential smoothing models</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset" class="md-nav__link">Methods to apply parameters fitted on one dataset to another dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#method-to-hold-some-parameters-fixed-at-known-values" class="md-nav__link">Method to hold some parameters fixed at known values</a>
+        </li>
+        <li class="md-nav__item"><a href="#option-for-low-memory-operations" class="md-nav__link">Option for low memory operations</a>
+        </li>
+        <li class="md-nav__item"><a href="#improved-access-to-state-estimates" class="md-nav__link">Improved access to state estimates</a>
+        </li>
+        <li class="md-nav__item"><a href="#improved-simulation-and-impulse-responses-for-time-varying-models" class="md-nav__link">Improved simulation and impulse responses for time-varying models</a>
+        </li></ul>
+            </nav>
         </li>
         <li class="md-nav__item"><a href="#maintenance" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code></a>
         </li></ul>
@@ -551,6 +599,101 @@ release 0.10 includes bug fixes, refactorings and improvements in many areas.</p
 
 
 <h4 id="tsa"><code class="docutils literal notranslate"><span class="pre">tsa</span></code><a class="headerlink" href="#tsa" title="Permalink to this headline">¶</a></h4>
+
+<h5 id="new-ar-model">New AR model<a class="headerlink" href="#new-ar-model" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Model class: <cite>sm.tsa.AutoReg</cite></p></li>
+<li><p>Estimates parameters using conditional MLE (OLS)</p></li>
+<li><p>Adds the ability to specify exogenous variables, include time trends,
+and add seasonal dummies.</p></li>
+<li><p>The function <cite>sm.tsa.ar_model.ar_select_order</cite> performs lag length selection
+for AutoReg models.</p></li>
+</ul>
+
+
+<h5 id="new-arima-model">New ARIMA model<a class="headerlink" href="#new-arima-model" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Model class: <cite>sm.tsa.arima.ARIMA</cite></p></li>
+<li><dl class="simple">
+<dt>Incorporates a variety of SARIMA estimators</dt><dd><ul>
+<li><p>MLE via state space methods (SARIMA models)</p></li>
+<li><p>MLE via innovations algorithm (SARIMA models)</p></li>
+<li><p>Hannan-Rissanen (ARIMA models)</p></li>
+<li><p>Burg’s method (AR models)</p></li>
+<li><p>Innovations algorithm (MA models)</p></li>
+<li><p>Yule-Walker (AR models)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Handles exogenous regressors via GLS or by MLE with state space methods.</p></li>
+<li><p>Is part of the class of state space models and so inherits some additional
+functionality.</p></li>
+</ul>
+
+
+<h5 id="more-robust-regime-switching-models">More robust regime switching models<a class="headerlink" href="#more-robust-regime-switching-models" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Implementation of the Hamilton filter and Kim smoother in log space avoids
+underflow errors.</p></li>
+</ul>
+
+
+
+<h4 id="tsa-statespace"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code><a class="headerlink" href="#tsa-statespace" title="Permalink to this headline">¶</a></h4>
+
+<h5 id="linear-exponential-smoothing-models">Linear exponential smoothing models<a class="headerlink" href="#linear-exponential-smoothing-models" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Model class: <cite>sm.tsa.statespace.ExponentialSmoothing</cite></p></li>
+<li><p>Alternative to <cite>sm.tsa.ExponentialSmoothing</cite></p></li>
+<li><p>Only supports linear models</p></li>
+<li><p>Is part of the class of state space models and so inherits some additional
+functionality.</p></li>
+</ul>
+
+
+<h5 id="methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset">Methods to apply parameters fitted on one dataset to another dataset<a class="headerlink" href="#methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Methods: <cite>extend</cite>, <cite>append</cite>, and <cite>apply</cite>, for state space results classes</p></li>
+<li><p>These methods allow applying fitted parameters from a training dataset to a
+test dataset in various ways</p></li>
+<li><p>Useful for conveniently performing cross-validation exercises</p></li>
+</ul>
+
+
+<h5 id="method-to-hold-some-parameters-fixed-at-known-values">Method to hold some parameters fixed at known values<a class="headerlink" href="#method-to-hold-some-parameters-fixed-at-known-values" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Methods: <cite>fix_params</cite> and <cite>fit_constrained</cite>, for state space model classes</p></li>
+<li><p>These methods allow setting some parameters to known values and then
+estimating the remaining parameters</p></li>
+</ul>
+
+
+<h5 id="option-for-low-memory-operations">Option for low memory operations<a class="headerlink" href="#option-for-low-memory-operations" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Argument: <cite>low_memory=True</cite>, for <cite>fit</cite>, <cite>filter</cite>, and <cite>smooth</cite></p></li>
+<li><p>Only a subset of results are available when using this option, but it does
+allow for prediction, diagnostics, and forecasting</p></li>
+<li><p>Useful to speed up cross-validation exercises</p></li>
+</ul>
+
+
+<h5 id="improved-access-to-state-estimates">Improved access to state estimates<a class="headerlink" href="#improved-access-to-state-estimates" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Attribute: <cite>states</cite>, for state space results classes</p></li>
+<li><p>Wraps estimated states (predicted, filtered, smoothed) as Pandas objects with
+the appropriate index.</p></li>
+<li><p>Adds human-readable names for states, where possible.</p></li>
+</ul>
+
+
+<h5 id="improved-simulation-and-impulse-responses-for-time-varying-models">Improved simulation and impulse responses for time-varying models<a class="headerlink" href="#improved-simulation-and-impulse-responses-for-time-varying-models" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Argument: <a href="#id2"><span class="problematic" id="id3">`</span></a>anchor’ allows specifying the period after which to begin the
+simulation.</p></li>
+<li><p>Example: to simulate data following the sample period, use <cite>anchor=’end’</cite></p></li>
+</ul>
+
 
 
 <h4 id="maintenance"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code><a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h4>
@@ -915,7 +1058,7 @@ be complete.</p>
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

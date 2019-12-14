@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod._prediction </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -359,7 +359,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'invalid alternative'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">stat</span><span class="p">,</span> <span class="n">pvalue</span>
 
-    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'endpoint'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<div class="viewcode-block" id="PredictionResults.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_linear_model.PredictionResults.conf_int.html#statsmodels.genmod.generalized_linear_model.PredictionResults.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'endpoint'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the confidence interval of the value, `effect` of the</span>
 <span class="sd">        constraint.</span>
@@ -396,7 +396,7 @@
             <span class="c1"># if we want to stack at a new last axis, for lower.ndim &gt; 1</span>
             <span class="c1"># np.concatenate((lower[..., None], upper[..., None]), axis=-1)</span>
 
-        <span class="k">return</span> <span class="n">ci</span>
+        <span class="k">return</span> <span class="n">ci</span></div>
 
     <span class="k">def</span> <span class="nf">summary_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">'all'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sd">"""Summary frame"""</span>
@@ -574,7 +574,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

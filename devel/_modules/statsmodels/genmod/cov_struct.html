@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.cov_struct </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -470,10 +470,10 @@
 <span class="sd">    An independence working dependence structure.</span>
 <span class="sd">    """</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Independence.update"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.update.html#statsmodels.genmod.cov_struct.Independence.update">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="c1"># Nothing to update</span>
-        <span class="k">return</span>
+        <span class="k">return</span></div>
 
 <div class="viewcode-block" id="Independence.covariance_matrix"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.covariance_matrix.html#statsmodels.genmod.cov_struct.Independence.covariance_matrix">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">covariance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expval</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
@@ -491,9 +491,9 @@
                 <span class="n">rslt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">v</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">rslt</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Independence.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Independence.summary.html#statsmodels.genmod.cov_struct.Independence.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="s2">"Observations within a cluster are modeled "</span>
-                <span class="s2">"as being independent."</span><span class="p">)</span></div>
+                <span class="s2">"as being independent."</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Exchangeable"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.cov_struct.Exchangeable.html#statsmodels.genmod.cov_struct.Exchangeable">[docs]</a><span class="k">class</span> <span class="nc">Exchangeable</span><span class="p">(</span><span class="n">CovStruct</span><span class="p">):</span>
@@ -621,7 +621,7 @@
 <span class="sd">    group sizes will result in slow iterations.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="viewcode-block" id="Nested.initialize"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Nested.initialize.html#statsmodels.genmod.cov_struct.Nested.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Called on the first call to update</span>
 
@@ -686,9 +686,9 @@
         <span class="n">svd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">designx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">designx_u</span> <span class="o">=</span> <span class="n">svd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">designx_s</span> <span class="o">=</span> <span class="n">svd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">designx_v</span> <span class="o">=</span> <span class="n">svd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">designx_v</span> <span class="o">=</span> <span class="n">svd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Nested.update"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Nested.update.html#statsmodels.genmod.cov_struct.Nested.update">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 
         <span class="n">endog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">endog_li</span>
@@ -728,9 +728,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vcomp_coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">vcomp_coeff</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vcomp_coeff</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dep_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vcomp_coeff</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="Nested.covariance_matrix"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Nested.covariance_matrix.html#statsmodels.genmod.cov_struct.Nested.covariance_matrix">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">CovStruct</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">covariance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expval</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
 
         <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expval</span><span class="p">)</span>
@@ -744,9 +744,9 @@
         <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vcomp_coeff</span><span class="p">)]</span>
         <span class="n">vmat</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">ilabel</span><span class="p">]</span>
         <span class="n">vmat</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
-        <span class="k">return</span> <span class="n">vmat</span><span class="p">,</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">vmat</span><span class="p">,</span> <span class="kc">True</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Nested.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.cov_struct.Nested.summary.html#statsmodels.genmod.cov_struct.Nested.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a summary string describing the state of the</span>
 <span class="sd">        dependence structure.</span>
@@ -766,7 +766,7 @@
 
         <span class="n">smry</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"Variance"</span><span class="p">:</span> <span class="n">vc</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">dep_names</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">smry</span></div>
+        <span class="k">return</span> <span class="n">smry</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">Stationary</span><span class="p">(</span><span class="n">CovStruct</span><span class="p">):</span>
@@ -1720,7 +1720,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

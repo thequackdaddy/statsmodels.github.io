@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.multicomp </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -389,7 +389,7 @@
 <span class="n">cv001</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="viewcode-block" id="get_tukeyQcrit"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.get_tukeyQcrit.html#statsmodels.sandbox.stats.multicomp.get_tukeyQcrit">[docs]</a><span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
 <span class="sd">    return critical values for Tukey's HSD (Q)</span>
 
@@ -412,7 +412,7 @@
         <span class="n">intp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">crows</span><span class="p">,</span> <span class="n">cv001</span><span class="p">[:,</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'only implemented for alpha equal to 0.01 and 0.05'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
 
 <span class="k">def</span> <span class="nf">get_tukeyQcrit2</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
@@ -569,7 +569,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">maxzero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="maxzero"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.maxzero.html#statsmodels.sandbox.stats.multicomp.maxzero">[docs]</a><span class="k">def</span> <span class="nf">maxzero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''find all up zero crossings and return the index of the highest</span>
 
 <span class="sd">    Not used anymore</span>
@@ -603,7 +603,7 @@
         <span class="n">maxz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allzeros</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">maxz</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span>
+    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span></div>
 
 <div class="viewcode-block" id="maxzerodown"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.maxzerodown.html#statsmodels.sandbox.stats.multicomp.maxzerodown">[docs]</a><span class="k">def</span> <span class="nf">maxzerodown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''find all up zero crossings and return the index of the highest</span>
@@ -824,7 +824,7 @@
 
 
 
-    <span class="k">def</span> <span class="nf">runbasic_old</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="GroupsStats.runbasic_old"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.GroupsStats.runbasic_old.html#statsmodels.sandbox.stats.multicomp.GroupsStats.runbasic_old">[docs]</a>    <span class="k">def</span> <span class="nf">runbasic_old</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""runbasic_old"""</span>
         <span class="c1">#check: refactoring screwed up case useranks=True</span>
 
@@ -839,10 +839,10 @@
         <span class="c1">#print('groupranksum', groupranksum, groupranksum.shape, self.groupnobs.shape</span>
         <span class="c1"># start at 1 for stats.rankdata :</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">groupmean</span> <span class="o">=</span> <span class="n">grouprankmean</span> <span class="o">=</span> <span class="n">groupranksum</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span> <span class="c1"># + 1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span> <span class="o">=</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span> <span class="o">=</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">]</span></div>
         <span class="c1">#return grouprankmean[intlab]</span>
 
-    <span class="k">def</span> <span class="nf">runbasic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="GroupsStats.runbasic"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.GroupsStats.runbasic.html#statsmodels.sandbox.stats.multicomp.GroupsStats.runbasic">[docs]</a>    <span class="k">def</span> <span class="nf">runbasic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""runbasic"""</span>
         <span class="c1">#check: refactoring screwed up case useranks=True</span>
 
@@ -860,21 +860,21 @@
         <span class="c1">#print('groupranksum', groupranksum, groupranksum.shape, self.groupnobs.shape</span>
         <span class="c1"># start at 1 for stats.rankdata :</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">groupmean</span> <span class="o">=</span> <span class="n">grouprankmean</span> <span class="o">=</span> <span class="n">groupranksum</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span> <span class="c1"># + 1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span> <span class="o">=</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span> <span class="o">=</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">]</span></div>
         <span class="c1">#return grouprankmean[intlab]</span>
 
-    <span class="k">def</span> <span class="nf">groupdemean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GroupsStats.groupdemean"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.GroupsStats.groupdemean.html#statsmodels.sandbox.stats.multicomp.GroupsStats.groupdemean">[docs]</a>    <span class="k">def</span> <span class="nf">groupdemean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""groupdemean"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xx</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xx</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupmeanfilter</span></div>
 
-    <span class="k">def</span> <span class="nf">groupsswithin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GroupsStats.groupsswithin"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.GroupsStats.groupsswithin.html#statsmodels.sandbox.stats.multicomp.GroupsStats.groupsswithin">[docs]</a>    <span class="k">def</span> <span class="nf">groupsswithin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""groupsswithin"""</span>
         <span class="n">xtmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupdemean</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">xtmp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intlab</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">xtmp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">groupvarwithin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GroupsStats.groupvarwithin"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.GroupsStats.groupvarwithin.html#statsmodels.sandbox.stats.multicomp.GroupsStats.groupvarwithin">[docs]</a>    <span class="k">def</span> <span class="nf">groupvarwithin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""groupvarwithin"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupsswithin</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#.sum()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupsswithin</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groupnobs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#.sum()</span></div>
 
 <span class="k">class</span> <span class="nc">TukeyHSDResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""Results from Tukey HSD test, with additional plot methods</span>
@@ -923,10 +923,10 @@
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_results_table</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TukeyHSDResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.TukeyHSDResults.summary.html#statsmodels.sandbox.stats.multicomp.TukeyHSDResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''Summary table that can be printed</span>
 <span class="sd">        '''</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_results_table</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_results_table</span></div>
 
 
     <span class="k">def</span> <span class="nf">_simultaneous_ci</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -936,7 +936,7 @@
                             <span class="bp">self</span><span class="o">.</span><span class="n">_multicomp</span><span class="o">.</span><span class="n">groupstats</span><span class="o">.</span><span class="n">groupnobs</span><span class="p">,</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_multicomp</span><span class="o">.</span><span class="n">pairindices</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">plot_simultaneous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comparison_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>
+<div class="viewcode-block" id="TukeyHSDResults.plot_simultaneous"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.TukeyHSDResults.plot_simultaneous.html#statsmodels.sandbox.stats.multicomp.TukeyHSDResults.plot_simultaneous">[docs]</a>    <span class="k">def</span> <span class="nf">plot_simultaneous</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comparison_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>
                           <span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Plot a universal confidence interval of each group mean</span>
 
@@ -1056,7 +1056,7 @@
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span> <span class="k">if</span> <span class="n">xlabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
         <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span> <span class="k">if</span> <span class="n">ylabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fig</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
 
 
 <span class="k">class</span> <span class="nc">MultiComparison</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1122,7 +1122,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groupsunique</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">getranks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiComparison.getranks"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.MultiComparison.getranks.html#statsmodels.sandbox.stats.multicomp.MultiComparison.getranks">[docs]</a>    <span class="k">def</span> <span class="nf">getranks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''convert data to rankdata and attach</span>
 
 
@@ -1136,9 +1136,9 @@
         <span class="c1">#self.ranks = GroupsStats(np.column_stack([self.data, self.groups]),</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span> <span class="o">=</span> <span class="n">GroupsStats</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupintlab</span><span class="p">]),</span>
                                  <span class="n">useranks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rankdata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span><span class="o">.</span><span class="n">groupmeanfilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rankdata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span><span class="o">.</span><span class="n">groupmeanfilter</span></div>
 
-    <span class="k">def</span> <span class="nf">kruskal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pairs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimethod</span><span class="o">=</span><span class="s1">'T'</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiComparison.kruskal"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.MultiComparison.kruskal.html#statsmodels.sandbox.stats.multicomp.MultiComparison.kruskal">[docs]</a>    <span class="k">def</span> <span class="nf">kruskal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pairs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimethod</span><span class="o">=</span><span class="s1">'T'</span><span class="p">):</span>
         <span class="sd">'''</span>
 <span class="sd">        pairwise comparison for kruskal-wallis test</span>
 
@@ -1164,10 +1164,10 @@
             <span class="c1"># TODO : print(statments, fix</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span> <span class="n">pdiff</span><span class="p">,</span> <span class="n">se</span><span class="p">,</span> <span class="n">pdiff</span> <span class="o">/</span> <span class="n">se</span><span class="p">,</span> <span class="n">pdiff</span> <span class="o">/</span> <span class="n">se</span> <span class="o">&gt;</span> <span class="mf">2.6310</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span></div>
 
 
-    <span class="k">def</span> <span class="nf">allpairtest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testfunc</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'bonf'</span><span class="p">,</span> <span class="n">pvalidx</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiComparison.allpairtest"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.MultiComparison.allpairtest.html#statsmodels.sandbox.stats.multicomp.MultiComparison.allpairtest">[docs]</a>    <span class="k">def</span> <span class="nf">allpairtest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testfunc</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'bonf'</span><span class="p">,</span> <span class="n">pvalidx</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">'''run a pairwise test on all pairs with multiple test correction</span>
 
 <span class="sd">        The statistical test given in testfunc is calculated for all pairs</span>
@@ -1236,9 +1236,9 @@
             <span class="o">%</span> <span class="p">(</span><span class="n">alphacSidak</span><span class="p">,</span> <span class="n">alphacBonf</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">results_table</span><span class="p">,</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">reject</span><span class="p">,</span> <span class="n">pvals_corrected</span><span class="p">,</span>
-                               <span class="n">alphacSidak</span><span class="p">,</span> <span class="n">alphacBonf</span><span class="p">),</span> <span class="n">resarr</span>
+                               <span class="n">alphacSidak</span><span class="p">,</span> <span class="n">alphacBonf</span><span class="p">),</span> <span class="n">resarr</span></div>
 
-    <span class="k">def</span> <span class="nf">tukeyhsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiComparison.tukeyhsd"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.MultiComparison.tukeyhsd.html#statsmodels.sandbox.stats.multicomp.MultiComparison.tukeyhsd">[docs]</a>    <span class="k">def</span> <span class="nf">tukeyhsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Tukey's range test to compare means of all pairs of groups</span>
 
@@ -1285,7 +1285,7 @@
                               <span class="s1">'FWER=</span><span class="si">%4.2f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">alpha</span>
 
         <span class="k">return</span> <span class="n">TukeyHSDResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_table</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-                               <span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">var_</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+                               <span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">var_</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="rankdata"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.rankdata.html#statsmodels.sandbox.stats.multicomp.rankdata">[docs]</a><span class="k">def</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1835,32 +1835,32 @@
         <span class="c1">#self.crit = self.getcrit(0.5)   #decide where to set alpha, moved to run</span>
         <span class="c1">#self.accepted = []  #store accepted sets, not unique</span>
 
-    <span class="k">def</span> <span class="nf">get_crit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.get_crit"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.get_crit.html#statsmodels.sandbox.stats.multicomp.StepDown.get_crit">[docs]</a>    <span class="k">def</span> <span class="nf">get_crit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        get_tukeyQcrit</span>
 
 <span class="sd">        currently tukey Q, add others</span>
 <span class="sd">        """</span>
         <span class="n">q_crit</span> <span class="o">=</span> <span class="n">get_tukeyQcrit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">q_crit</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">q_crit</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span><span class="p">)</span></div>
 
 
 
-    <span class="k">def</span> <span class="nf">get_distance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.get_distance_matrix"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.get_distance_matrix.html#statsmodels.sandbox.stats.multicomp.StepDown.get_distance_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_distance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''studentized range statistic'''</span>
         <span class="c1">#make into property, decorate</span>
         <span class="n">dres</span> <span class="o">=</span> <span class="n">distance_st_range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nobs_all</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">dres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">dres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-    <span class="k">def</span> <span class="nf">iter_subsets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.iter_subsets"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.iter_subsets.html#statsmodels.sandbox.stats.multicomp.StepDown.iter_subsets">[docs]</a>    <span class="k">def</span> <span class="nf">iter_subsets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
         <span class="sd">"""Iterate substeps"""</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)):</span>
             <span class="n">idxsub</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
             <span class="n">idxsub</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">idxsub</span>
+            <span class="k">yield</span> <span class="n">idxsub</span></div>
 
 
-    <span class="k">def</span> <span class="nf">check_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.check_set"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.check_set.html#statsmodels.sandbox.stats.multicomp.StepDown.check_set">[docs]</a>    <span class="k">def</span> <span class="nf">check_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
         <span class="sd">'''check whether pairwise distances of indices satisfy condition</span>
 
 <span class="sd">        '''</span>
@@ -1875,9 +1875,9 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">res</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cache_result</span><span class="p">[</span><span class="n">indtup</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
-            <span class="k">return</span> <span class="n">res</span>
+            <span class="k">return</span> <span class="n">res</span></div>
 
-    <span class="k">def</span> <span class="nf">stepdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.stepdown"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.stepdown.html#statsmodels.sandbox.stats.multicomp.StepDown.stepdown">[docs]</a>    <span class="k">def</span> <span class="nf">stepdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
         <span class="sd">"""stepdown"""</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_set</span><span class="p">(</span><span class="n">indices</span><span class="p">):</span> <span class="c1"># larger than critical distance</span>
@@ -1888,9 +1888,9 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">rejected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">indices</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">accepted</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">indices</span><span class="p">))</span>
-            <span class="k">return</span> <span class="n">indices</span>
+            <span class="k">return</span> <span class="n">indices</span></div>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<div class="viewcode-block" id="StepDown.run"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.StepDown.run.html#statsmodels.sandbox.stats.multicomp.StepDown.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
         <span class="sd">'''main function to run the test,</span>
 
 <span class="sd">        could be done in __call__ instead</span>
@@ -1904,14 +1904,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">get_distance_matrix</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stepdown</span><span class="p">(</span><span class="n">lrange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accepted</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">rejected</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accepted</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">rejected</span><span class="p">))</span></div>
 
 
 
 
 
 
-<span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
+<div class="viewcode-block" id="homogeneous_subsets"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.homogeneous_subsets.html#statsmodels.sandbox.stats.multicomp.homogeneous_subsets">[docs]</a><span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
     <span class="sd">'''recursively check all pairs of vals for minimum distance</span>
 
 <span class="sd">    step down method as in Newman-Keuls and Ryan procedures. This is not a</span>
@@ -1981,7 +1981,7 @@
     <span class="n">rejs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rejected</span><span class="p">)</span>
     <span class="n">not_rejected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_pairs</span><span class="p">)</span> <span class="o">-</span> <span class="n">rejs</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="set_partition"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_partition.html#statsmodels.sandbox.stats.multicomp.set_partition">[docs]</a><span class="k">def</span> <span class="nf">set_partition</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
     <span class="sd">'''extract a partition from a list of tuples</span>
@@ -2256,7 +2256,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> Time Series Analysis by State Space Methods statespace </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -267,13 +267,35 @@
         </li>
         <li class="md-nav__item"><a href="#dynamic-factor-models" class="md-nav__link">Dynamic Factor Models</a>
         </li>
-        <li class="md-nav__item"><a href="#custom-state-space-models" class="md-nav__link">Custom state space models</a>
+        <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear Exponential Smoothing Models</a>
         </li>
-        <li class="md-nav__item"><a href="#state-space-representation-and-kalman-filtering" class="md-nav__link">State space representation and Kalman filtering</a>
+        <li class="md-nav__item"><a href="#custom-state-space-models" class="md-nav__link">Custom state space models</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#statespace-diagnostics" class="md-nav__link">Statespace diagnostics</a>
+        <li class="md-nav__item"><a href="#overview-of-usage" class="md-nav__link">Overview of usage</a>
+        </li>
+        <li class="md-nav__item"><a href="#basic-methods-and-attributes-for-estimation-filtering-smoothing" class="md-nav__link">Basic methods and attributes for estimation / filtering / smoothing</a>
+        </li>
+        <li class="md-nav__item"><a href="#output-and-postestimation-methods-and-attributes" class="md-nav__link">Output and postestimation methods and attributes</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#estimates-and-covariances-of-the-unobserved-state" class="md-nav__link">Estimates and covariances of the unobserved state</a>
+        </li>
+        <li class="md-nav__item"><a href="#residual-diagnostics" class="md-nav__link">Residual diagnostics</a>
+        </li>
+        <li class="md-nav__item"><a href="#applying-estimated-parameters-to-an-updated-or-different-dataset" class="md-nav__link">Applying estimated parameters to an updated or different dataset</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#additional-options-and-tools" class="md-nav__link">Additional options and tools</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#holding-some-parameters-fixed-and-estimating-the-rest" class="md-nav__link">Holding some parameters fixed and estimating the rest</a>
+        </li>
+        <li class="md-nav__item"><a href="#low-memory-options" class="md-nav__link">Low memory options</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#low-level-state-space-representation-and-kalman-filtering" class="md-nav__link">Low-level state space representation and Kalman filtering</a>
         </li>
         <li class="md-nav__item"><a href="#statespace-tools" class="md-nav__link">Statespace Tools</a>
         </li></ul>
@@ -363,13 +385,35 @@
         </li>
         <li class="md-nav__item"><a href="#dynamic-factor-models" class="md-nav__link">Dynamic Factor Models</a>
         </li>
-        <li class="md-nav__item"><a href="#custom-state-space-models" class="md-nav__link">Custom state space models</a>
+        <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear Exponential Smoothing Models</a>
         </li>
-        <li class="md-nav__item"><a href="#state-space-representation-and-kalman-filtering" class="md-nav__link">State space representation and Kalman filtering</a>
+        <li class="md-nav__item"><a href="#custom-state-space-models" class="md-nav__link">Custom state space models</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#statespace-diagnostics" class="md-nav__link">Statespace diagnostics</a>
+        <li class="md-nav__item"><a href="#overview-of-usage" class="md-nav__link">Overview of usage</a>
+        </li>
+        <li class="md-nav__item"><a href="#basic-methods-and-attributes-for-estimation-filtering-smoothing" class="md-nav__link">Basic methods and attributes for estimation / filtering / smoothing</a>
+        </li>
+        <li class="md-nav__item"><a href="#output-and-postestimation-methods-and-attributes" class="md-nav__link">Output and postestimation methods and attributes</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#estimates-and-covariances-of-the-unobserved-state" class="md-nav__link">Estimates and covariances of the unobserved state</a>
+        </li>
+        <li class="md-nav__item"><a href="#residual-diagnostics" class="md-nav__link">Residual diagnostics</a>
+        </li>
+        <li class="md-nav__item"><a href="#applying-estimated-parameters-to-an-updated-or-different-dataset" class="md-nav__link">Applying estimated parameters to an updated or different dataset</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#additional-options-and-tools" class="md-nav__link">Additional options and tools</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#holding-some-parameters-fixed-and-estimating-the-rest" class="md-nav__link">Holding some parameters fixed and estimating the rest</a>
+        </li>
+        <li class="md-nav__item"><a href="#low-memory-options" class="md-nav__link">Low memory options</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#low-level-state-space-representation-and-kalman-filtering" class="md-nav__link">Low-level state space representation and Kalman filtering</a>
         </li>
         <li class="md-nav__item"><a href="#statespace-tools" class="md-nav__link">Statespace Tools</a>
         </li></ul>
@@ -396,7 +440,7 @@ useful for time series analysis using state space methods.</p>
 <p>A general state space model is of the form</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}y_t &amp; = Z_t \alpha_t + d_t + \varepsilon_t \\
-\alpha_t &amp; = T_t \alpha_{t-1} + c_t + R_t \eta_t \\\end{split}\]</div>
+\alpha_{t+1} &amp; = T_t \alpha_t + c_t + R_t \eta_t \\\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_t\)</span> refers to the observation vector at time <span class="math notranslate nohighlight">\(t\)</span>,
 <span class="math notranslate nohighlight">\(\alpha_t\)</span> refers to the (unobserved) state vector at time
 <span class="math notranslate nohighlight">\(t\)</span>, and where the irregular components are defined as</p>
@@ -423,14 +467,15 @@ observations, forecasting, impulse response functions, and much more.</p>
 <p>An autoregressive model is a good introductory example to putting models in
 state space form. Recall that an AR(2) model is often written as:</p>
 <div class="math notranslate nohighlight">
-\[y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \epsilon_t\]</div>
+\[y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \epsilon_t,
+\quad \epsilon_t \sim N(0, \sigma^2)\]</div>
 <p>This can be put into state space form in the following way:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}y_t &amp; = \begin{bmatrix} 1 &amp; 0 \end{bmatrix} \alpha_t \\
-\alpha_t &amp; = \begin{bmatrix}
+\alpha_{t+1} &amp; = \begin{bmatrix}
    \phi_1 &amp; \phi_2 \\
         1 &amp;      0
-\end{bmatrix} \alpha_{t-1} + \begin{bmatrix} 1 \\ 0 \end{bmatrix} \eta_t\end{split}\]</div>
+\end{bmatrix} \alpha_t + \begin{bmatrix} 1 \\ 0 \end{bmatrix} \eta_t\end{split}\]</div>
 <p>Where</p>
 <div class="math notranslate nohighlight">
 \[Z_t \equiv Z = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\]</div>
@@ -441,7 +486,7 @@ state space form. Recall that an AR(2) model is often written as:</p>
         1 &amp;      0
 \end{bmatrix} \\
 R_t \equiv R &amp; = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
-\eta_t &amp; \sim N(0, \sigma^2)\end{split}\]</div>
+\eta_t \equiv \epsilon_{t+1} &amp; \sim N(0, \sigma^2)\end{split}\]</div>
 <p>There are three unknown parameters in this model:
 <span class="math notranslate nohighlight">\(\phi_1, \phi_2, \sigma^2\)</span>.</p>
 
@@ -641,6 +686,83 @@ model.</p>
 </div>
 
 
+<h3 id="linear-exponential-smoothing-models">Linear Exponential Smoothing Models<a class="headerlink" href="#linear-exponential-smoothing-models" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>ExponentialSmoothing</cite> class is an implementation of linear exponential
+smoothing models using a state space approach.</p>
+<p><strong>Note</strong>: this model is available at <cite>sm.tsa.statespace.ExponentialSmoothing</cite>;
+it is not the same as the model available at <cite>sm.tsa.ExponentialSmoothing</cite>.
+See below for details of the differences between these classes.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing.html#statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing" title="statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential_smoothing.ExponentialSmoothing</span></code></a>(endog)</p></td>
+<td><p>Linear exponential smoothing models</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults.html#statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults" title="statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothingResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential_smoothing.ExponentialSmoothingResults</span></code></a>(…)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+<p>A very brief code snippet follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Load your dataset</span>
+<span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
+
+<span class="c1"># Simple exponential smoothing, denoted (A,N,N)</span>
+<span class="n">mod_ses</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
+<span class="n">res_ses</span> <span class="o">=</span> <span class="n">mod_ses</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Holt's linear method, denoted (A,A,N)</span>
+<span class="n">mod_h</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">res_h</span> <span class="o">=</span> <span class="n">mod_h</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Damped trend model, denoted (A,Ad,N)</span>
+<span class="n">mod_dt</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                <span class="n">damped_trend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">res_dt</span> <span class="o">=</span> <span class="n">mod_dt</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Holt-Winters' trend and seasonality method, denoted (A,A,A)</span>
+<span class="c1"># (assuming that `endog` has a seasonal periodicity of 4, for example if it</span>
+<span class="c1"># is quarterly data).</span>
+<span class="n">mod_hw</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                <span class="n">seasonal</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">res_hw</span> <span class="o">=</span> <span class="n">mod_hw</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Differences between Statsmodels’ exponential smoothing model classes</strong></p>
+<p>There are several differences between this model class, available at
+<cite>sm.tsa.statespace.ExponentialSmoothing</cite>, and the model class available at
+<cite>sm.tsa.ExponentialSmoothing</cite>.</p>
+<ul class="simple">
+<li><p>This model class only supports <em>linear</em> exponential smoothing models, while
+<cite>sm.tsa.ExponentialSmoothing</cite> also supports multiplicative models.</p></li>
+<li><p>This model class puts the exponential smoothing models into state space form
+and then applies the Kalman filter to estimate the states, while
+<cite>sm.tsa.ExponentialSmoothing</cite> is based on exponential smoothing recurisions.
+In some cases, this can mean that estimating parameters with this model class
+will be somewhat slower than with <cite>sm.tsa.ExponentialSmoothing</cite>.</p></li>
+<li><p>This model class can produce confidence intervals for forecasts, based on an
+assumption of Gaussian errors, while <cite>sm.tsa.ExponentialSmoothing</cite> does not
+support confidence intervals.</p></li>
+<li><p>This model class supports concentrating initial values out of the objective
+function, which can improve performance when there are many initial states to
+estimate (for example when the seasonal periodicity is large).</p></li>
+<li><p>This model class supports many advanced features available to state space
+models, such as diagnostics and fixed parameters.</p></li>
+</ul>
+<p><strong>Note</strong>: this class is based on a “multiple sources of error” (MSOE) state
+space formulation and not a “single source of error” (SSOE) formulation.</p>
+
+
 <h3 id="custom-state-space-models">Custom state space models<a class="headerlink" href="#custom-state-space-models" title="Permalink to this headline">¶</a></h3>
 <p>The true power of the state space model is to allow the creation and estimation
 of custom models. Usually that is done by extending the following two classes,
@@ -748,7 +870,291 @@ transformations, and specifying names for parameters for a more informative
 output summary.</p>
 
 
-<h3 id="state-space-representation-and-kalman-filtering">State space representation and Kalman filtering<a class="headerlink" href="#state-space-representation-and-kalman-filtering" title="Permalink to this headline">¶</a></h3>
+
+<h2 id="overview-of-usage">Overview of usage<a class="headerlink" href="#overview-of-usage" title="Permalink to this headline">¶</a></h2>
+<p>All state space models follow the typical Statsmodels pattern:</p>
+<ol class="arabic simple">
+<li><p>Construct a <strong>model instance</strong> with an input dataset</p></li>
+<li><p>Apply parameters to the model (for example by <a href="#id1"><span class="problematic" id="id2">`</span></a>fit`ting) to construct a <strong>results instance</strong></p></li>
+<li><p>Interact with the results instance to examine the estimated parameters, explore residual diagnostics, and produce forecasts, simulations, or impulse responses.</p></li>
+</ol>
+<p>An example of this pattern is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in the example macroeconomic dataset</span>
+<span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">macrodata</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
+<span class="c1"># Make sure we have an index with an associated frequency, so that</span>
+<span class="c1"># we can refer to time periods with date strings or timestamps</span>
+<span class="n">dta</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'1959Q1'</span><span class="p">,</span> <span class="s1">'2009Q3'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'QS'</span><span class="p">)</span>
+
+<span class="c1"># Step 1: construct an SARIMAX model for US inflation data</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">infl</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">)</span>
+
+<span class="c1"># Step 2: fit the model's parameters by maximum likelihood</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Step 3: explore / use results</span>
+
+<span class="c1"># - Print a table summarizing estimation results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># - Print only the estimated parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+
+<span class="c1"># - Create diagnostic figures based on standardized residuals:</span>
+<span class="c1">#   (1) time series graph</span>
+<span class="c1">#   (2) histogram</span>
+<span class="c1">#   (3) Q-Q plot</span>
+<span class="c1">#   (4) correlogram</span>
+<span class="n">results</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">()</span>
+
+<span class="c1"># - Examine diagnostic hypothesis tests</span>
+<span class="c1"># Jarque-Bera: [test_statistic, pvalue, skewness, kurtosis]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_normality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'jarquebera'</span><span class="p">))</span>
+<span class="c1"># Goldfeld-Quandt type test: [test_statistic, pvalue]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_heteroskedasticity</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'breakvar'</span><span class="p">))</span>
+<span class="c1"># Ljung-Box test: [test_statistic, pvalue] for each lag</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_serial_correlation</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'ljungbox'</span><span class="p">))</span>
+
+<span class="c1"># - Forecast the next 4 values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># - Forecast until 2020Q4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="s1">'2020Q4'</span><span class="p">))</span>
+
+<span class="c1"># - Plot in-sample dynamic prediction starting in 2005Q1</span>
+<span class="c1">#   and out-of-sample forecasts until 2010Q4 along with</span>
+<span class="c1">#   90% confidence intervals</span>
+<span class="n">predict_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">'2005Q1'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'2010Q4'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">predict_df</span> <span class="o">=</span> <span class="n">predict_results</span><span class="o">.</span><span class="n">summary_frame</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">predict_df</span><span class="p">[</span><span class="s1">'mean'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">predict_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">predict_df</span><span class="p">[</span><span class="s1">'mean_ci_lower'</span><span class="p">],</span>
+                <span class="n">predict_df</span><span class="p">[</span><span class="s1">'mean_ci_upper'</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># - Simulate two years of new data after the end of the sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">'end'</span><span class="p">))</span>
+
+<span class="c1"># - Impulse responses for two years</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+
+
+<h2 id="basic-methods-and-attributes-for-estimation-filtering-smoothing">Basic methods and attributes for estimation / filtering / smoothing<a class="headerlink" href="#basic-methods-and-attributes-for-estimation-filtering-smoothing" title="Permalink to this headline">¶</a></h2>
+<p>The most-used methods for a state space model are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.fit.html#statsmodels.tsa.statespace.mlemodel.MLEModel.fit" title="statsmodels.tsa.statespace.mlemodel.MLEModel.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> - estimate parameters via maximum
+likelihood and return a results object (this object will have also performed
+Kalman filtering and smoothing at the estimted parameters). This is the most
+commonly used method.</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.smooth.html#statsmodels.tsa.statespace.mlemodel.MLEModel.smooth" title="statsmodels.tsa.statespace.mlemodel.MLEModel.smooth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">smooth</span></code></a> - return a results object
+associated with a given vector of parameters after performing Kalman
+filtering and smoothing</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.loglike.html#statsmodels.tsa.statespace.mlemodel.MLEModel.loglike" title="statsmodels.tsa.statespace.mlemodel.MLEModel.loglike"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loglike</span></code></a> - compute the log-likelihood
+of the data using a given vector of parameters</p></li>
+</ul>
+<p>Some useful attributes of a state space model are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.param_names.html#statsmodels.tsa.statespace.mlemodel.MLEModel.param_names" title="statsmodels.tsa.statespace.mlemodel.MLEModel.param_names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">param_names</span></code></a> - names of the
+parameters used by the model</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.state_names.html#statsmodels.tsa.statespace.mlemodel.MLEModel.state_names" title="statsmodels.tsa.statespace.mlemodel.MLEModel.state_names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state_names</span></code></a> - names of the
+elements of the (unobserved) state vector</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.start_params.html#statsmodels.tsa.statespace.mlemodel.MLEModel.start_params" title="statsmodels.tsa.statespace.mlemodel.MLEModel.start_params"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start_params</span></code></a> - initial parameter
+estimates used a starting values for numerical maximum likelihood
+optimization</p></li>
+</ul>
+<p>Other methods that are used less often are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.filter.html#statsmodels.tsa.statespace.mlemodel.MLEModel.filter" title="statsmodels.tsa.statespace.mlemodel.MLEModel.filter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filter</span></code></a> - return a results object
+associated with a given vector of parameters after only performing Kalman
+filtering (but not smoothing)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.simulation_smoother.html#statsmodels.tsa.statespace.mlemodel.MLEModel.simulation_smoother" title="statsmodels.tsa.statespace.mlemodel.MLEModel.simulation_smoother"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simulation_smoother</span></code></a> -
+return an object that can perform simulation smoothing</p></li>
+</ul>
+
+
+<h2 id="output-and-postestimation-methods-and-attributes">Output and postestimation methods and attributes<a class="headerlink" href="#output-and-postestimation-methods-and-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Commonly used methods include:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.summary.html#statsmodels.tsa.statespace.mlemodel.MLEResults.summary" title="statsmodels.tsa.statespace.mlemodel.MLEResults.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary</span></code></a> - construct a table that
+presents model fit statistics, estimated parameters, and other summary output</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.predict.html#statsmodels.tsa.statespace.mlemodel.MLEResults.predict" title="statsmodels.tsa.statespace.mlemodel.MLEResults.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">predict</span></code></a> - compute in-sample
+predictions and out-of-sample forecasts (point estimates only)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.get_prediction.html#statsmodels.tsa.statespace.mlemodel.MLEResults.get_prediction" title="statsmodels.tsa.statespace.mlemodel.MLEResults.get_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_prediction</span></code></a> - compute
+in-sample predictions and out-of-sample forecasts, including confidence
+intervals</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.forecast.html#statsmodels.tsa.statespace.mlemodel.MLEResults.forecast" title="statsmodels.tsa.statespace.mlemodel.MLEResults.forecast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">forecast</span></code></a> - compute out-of-sample
+forecasts (point estimates only) (this is a convenience wrapper around
+<cite>predict</cite>)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.get_forecast.html#statsmodels.tsa.statespace.mlemodel.MLEResults.get_forecast" title="statsmodels.tsa.statespace.mlemodel.MLEResults.get_forecast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_forecast</span></code></a> - compute
+out-of-sample forecasts, including confidence intervals (this is a
+convenience wrapper around <cite>get_prediction</cite>)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.simulate.html#statsmodels.tsa.statespace.mlemodel.MLEResults.simulate" title="statsmodels.tsa.statespace.mlemodel.MLEResults.simulate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simulate</span></code></a> - simulate new data
+according to the state space model</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.impulse_responses.html#statsmodels.tsa.statespace.mlemodel.MLEResults.impulse_responses" title="statsmodels.tsa.statespace.mlemodel.MLEResults.impulse_responses"><code class="xref py py-meth docutils literal notranslate"><span class="pre">impulse_responses</span></code></a> -
+compute impulse responses from the state space model</p></li>
+</ul>
+<p>Commonly used attributes include:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">params</span></code> - estimated parameters</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.bse.html#statsmodels.tsa.statespace.mlemodel.MLEResults.bse" title="statsmodels.tsa.statespace.mlemodel.MLEResults.bse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bse</span></code></a> - standard errors of estimated
+parameters</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.pvalues.html#statsmodels.tsa.statespace.mlemodel.MLEResults.pvalues" title="statsmodels.tsa.statespace.mlemodel.MLEResults.pvalues"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pvalues</span></code></a> - p-values associated with
+estimated parameters</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.llf.html#statsmodels.tsa.statespace.mlemodel.MLEResults.llf" title="statsmodels.tsa.statespace.mlemodel.MLEResults.llf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">llf</span></code></a> - log-likelihood of the data at
+the estimated parameters</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.sse.html#statsmodels.tsa.statespace.mlemodel.MLEResults.sse" title="statsmodels.tsa.statespace.mlemodel.MLEResults.sse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sse</span></code></a>,
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.mse.html#statsmodels.tsa.statespace.mlemodel.MLEResults.mse" title="statsmodels.tsa.statespace.mlemodel.MLEResults.mse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mse</span></code></a>, and
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.mae.html#statsmodels.tsa.statespace.mlemodel.MLEResults.mae" title="statsmodels.tsa.statespace.mlemodel.MLEResults.mae"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mae</span></code></a> - sum of squared errors,
+mean square error, and mean absolute error</p></li>
+<li><p>Information criteria, including: <a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.aic.html#statsmodels.tsa.statespace.mlemodel.MLEResults.aic" title="statsmodels.tsa.statespace.mlemodel.MLEResults.aic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aic</span></code></a>,
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.aicc.html#statsmodels.tsa.statespace.mlemodel.MLEResults.aicc" title="statsmodels.tsa.statespace.mlemodel.MLEResults.aicc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aicc</span></code></a>,
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.bic.html#statsmodels.tsa.statespace.mlemodel.MLEResults.bic" title="statsmodels.tsa.statespace.mlemodel.MLEResults.bic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bic</span></code></a>, and
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.hqic.html#statsmodels.tsa.statespace.mlemodel.MLEResults.hqic" title="statsmodels.tsa.statespace.mlemodel.MLEResults.hqic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hquc</span></code></a></p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.fittedvalues.html#statsmodels.tsa.statespace.mlemodel.MLEResults.fittedvalues" title="statsmodels.tsa.statespace.mlemodel.MLEResults.fittedvalues"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fittedvalues</span></code></a> - fitted values
+from the model (note that these are one-step-ahead predictions)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.resid.html#statsmodels.tsa.statespace.mlemodel.MLEResults.resid" title="statsmodels.tsa.statespace.mlemodel.MLEResults.resid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">resid</span></code></a> - residuals from the model (note
+that these are one-step-ahead prediction errors)</p></li>
+</ul>
+
+<h3 id="estimates-and-covariances-of-the-unobserved-state">Estimates and covariances of the unobserved state<a class="headerlink" href="#estimates-and-covariances-of-the-unobserved-state" title="Permalink to this headline">¶</a></h3>
+<p>It can be useful to compute estimates of the unobserved state vector
+conditional on the observed data. These are available in the results object
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.states.html#statsmodels.tsa.statespace.mlemodel.MLEResults.states" title="statsmodels.tsa.statespace.mlemodel.MLEResults.states"><code class="xref py py-meth docutils literal notranslate"><span class="pre">states</span></code></a>, which contains the following
+elements:</p>
+<ul class="simple">
+<li><p><cite>states.filtered</cite> - filtered (one-sided) estimates of the state vector. The
+estimate of the state vector at time <cite>t</cite> is based on the observed data up
+to and including time <cite>t</cite>.</p></li>
+<li><p><cite>states.smoothed</cite> - smoothed (two-sided) estimates of the state vector. The
+estimate of the state vector at time <cite>t</cite> is based on all observed data in
+the sample.</p></li>
+<li><p><cite>states.filtered_cov</cite> - filtered (one-sided) covariance of the state vector</p></li>
+<li><p><cite>states.smoothed_cov</cite> - smoothed (two-sided) covariance of the state vector</p></li>
+</ul>
+<p>Each of these elements are Pandas <cite>DataFrame</cite> objects.</p>
+<p>As an example, in a “local level + seasonal” model estimated via the
+<cite>UnobservedComponents</cite> components class we can get an estimates of the
+underlying level and seasonal movements of a series over time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Retrieve monthly retail sales for clothing</span>
+<span class="kn">from</span> <span class="nn">pandas_datareader.data</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="n">clothing</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="s1">'MRTSSM4481USN'</span><span class="p">,</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">'1992'</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">'MS'</span><span class="p">)[</span><span class="s1">'MRTSSM4481USN'</span><span class="p">]</span>
+
+<span class="c1"># Construct a local level + seasonal model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">clothing</span><span class="p">,</span> <span class="s1">'llevel'</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Plot the data, the level, and seasonal</span>
+<span class="n">clothing</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">results</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">smoothed</span><span class="p">[</span><span class="s1">'level'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">results</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">smoothed</span><span class="p">[</span><span class="s1">'seasonal'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+
+
+<h3 id="residual-diagnostics">Residual diagnostics<a class="headerlink" href="#residual-diagnostics" title="Permalink to this headline">¶</a></h3>
+<p>Three diagnostic tests are available after estimation of any statespace model,
+whether built in or custom, to help assess whether the model conforms to the
+underlying statistical assumptions. These tests are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_normality</span></code></a></p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_heteroskedasticity</span></code></a></p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_serial_correlation</span></code></a></p></li>
+</ul>
+<p>A number of standard plots of regression residuals are available for the same
+purpose. These can be produced using the command
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics.html#statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics" title="statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_diagnostics</span></code></a>.</p>
+
+
+<h3 id="applying-estimated-parameters-to-an-updated-or-different-dataset">Applying estimated parameters to an updated or different dataset<a class="headerlink" href="#applying-estimated-parameters-to-an-updated-or-different-dataset" title="Permalink to this headline">¶</a></h3>
+<p>There are three methods that can be used to apply estimated parameters from a
+results object to an updated or different dataset:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.append.html#statsmodels.tsa.statespace.mlemodel.MLEResults.append" title="statsmodels.tsa.statespace.mlemodel.MLEResults.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append</span></code></a> - retrieve a new results
+object with additional observations that follow after the end of the current
+sample appended to it (so the new results object contains both the current
+sample and the additional observations)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.extend.html#statsmodels.tsa.statespace.mlemodel.MLEResults.extend" title="statsmodels.tsa.statespace.mlemodel.MLEResults.extend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extend</span></code></a> - retrieve a new results
+object for additional observations that follow after end of the current
+sample (so the new results object contains only the new observations but NOT
+the current sample)</p></li>
+<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.apply.html#statsmodels.tsa.statespace.mlemodel.MLEResults.apply" title="statsmodels.tsa.statespace.mlemodel.MLEResults.apply"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply</span></code></a> - retrieve a new results object
+for a completely different dataset</p></li>
+</ul>
+<p>One cross-validation exercise on time-series data involves fitting a model’s
+parameters based on a training sample (observations through time <cite>t</cite>) and
+then evaluating the fit of the model using a test sample (observations <cite>t+1</cite>,
+<cite>t+2</cite>, …). This can be conveniently done using either <cite>apply</cite> or <cite>extend</cite>. In
+the example below, we use the <cite>extend</cite> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in the example macroeconomic dataset</span>
+<span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">macrodata</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
+<span class="c1"># Make sure we have an index with an associated frequency, so that</span>
+<span class="c1"># we can refer to time periods with date strings or timestamps</span>
+<span class="n">dta</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'1959Q1'</span><span class="p">,</span> <span class="s1">'2009Q3'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'QS'</span><span class="p">)</span>
+
+<span class="c1"># Separate inflation data into a training and test dataset</span>
+<span class="n">training_endog</span> <span class="o">=</span> <span class="n">dta</span><span class="p">[</span><span class="s1">'infl'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">test_endog</span> <span class="o">=</span> <span class="n">dta</span><span class="p">[</span><span class="s1">'infl'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="c1"># Fit an SARIMAX model for inflation</span>
+<span class="n">training_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">training_endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">training_results</span> <span class="o">=</span> <span class="n">training_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Extend the results to the test observations</span>
+<span class="n">test_results</span> <span class="o">=</span> <span class="n">training_results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">test_endog</span><span class="p">)</span>
+
+<span class="c1"># Print the sum of squared errors in the test sample,</span>
+<span class="c1"># based on parameters computed using only the training sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_results</span><span class="o">.</span><span class="n">sse</span><span class="p">)</span>
+</pre></div>
+</div>
+
+
+
+<h2 id="additional-options-and-tools">Additional options and tools<a class="headerlink" href="#additional-options-and-tools" title="Permalink to this headline">¶</a></h2>
+<p>All state space models have the following options and tools:</p>
+
+<h3 id="holding-some-parameters-fixed-and-estimating-the-rest">Holding some parameters fixed and estimating the rest<a class="headerlink" href="#holding-some-parameters-fixed-and-estimating-the-rest" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained.html#statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained" title="statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit_constrained</span></code></a> method
+allows fixing some parameters to known values and then estimating the rest via
+maximum likelihood. An example of this is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct a model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># To find out the parameter names, use:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+
+<span class="c1"># Fit the model with a fixed value for the AR(1) coefficient:</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_constrained</span><span class="p">({</span><span class="s1">'ar.L1'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use the
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params.html#statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params" title="statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fix_params</span></code></a> context manager:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct a model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># Fit the model with a fixed value for the AR(1) coefficient using the</span>
+<span class="c1"># context manager</span>
+<span class="k">with</span> <span class="n">model</span><span class="o">.</span><span class="n">fix_params</span><span class="p">({</span><span class="s1">'ar.L1'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+
+
+<h3 id="low-memory-options">Low memory options<a class="headerlink" href="#low-memory-options" title="Permalink to this headline">¶</a></h3>
+<p>When the observed dataset is very large and / or the state vector of the model
+is high-dimensional (for example when considering long seasonal effects), the
+default memory requirements can be too large. For this reason, the <cite>fit</cite>,
+<cite>filter</cite>, and <cite>smooth</cite> methods accept an optional <cite>low_memory=True</cite> argument,
+which can considerably reduce memory requirements and speed up model fitting.</p>
+<p>Note that when using <cite>low_memory=True</cite>, not all results objects will be
+available. However, residual diagnostics, in-sample (non-dynamic) prediction,
+and out-of-sample forecasting are all still available.</p>
+
+
+
+<h2 id="low-level-state-space-representation-and-kalman-filtering">Low-level state space representation and Kalman filtering<a class="headerlink" href="#low-level-state-space-representation-and-kalman-filtering" title="Permalink to this headline">¶</a></h2>
 <p>While creation of custom models will almost always be done by extending
 <cite>MLEModel</cite> and <cite>MLEResults</cite>, it can be useful to understand the superstructure
 behind those classes.</p>
@@ -812,7 +1218,7 @@ additional prediction or forecasting results, including confidence intervals.</p
 </table>
 <p>The <cite>KalmanSmoother</cite> class is a subclass of <cite>KalmanFilter</cite> that provides
 smoothing capabilities. Once the state space representation matrices have been
-constructed, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">filter</span></code>
+constructed, the <a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.kalman_smoother.KalmanSmoother.smooth.html#statsmodels.tsa.statespace.kalman_smoother.KalmanSmoother.smooth" title="statsmodels.tsa.statespace.kalman_smoother.KalmanSmoother.smooth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filter</span></code></a>
 method can be called, producing a <cite>SmootherResults</cite> instance; <cite>SmootherResults</cite>
 is a subclass of <cite>FilterResults</cite>.</p>
 <p>The <cite>SmootherResults</cite> class holds all the output from <cite>FilterResults</cite>, but
@@ -836,21 +1242,28 @@ conditional on the entire set of observations in the dataset.</p>
 </tr>
 </tbody>
 </table>
-
-
-
-<h2 id="statespace-diagnostics">Statespace diagnostics<a class="headerlink" href="#statespace-diagnostics" title="Permalink to this headline">¶</a></h2>
-<p>Three diagnostic tests are available after estimation of any statespace model,
-whether built in or custom, to help assess whether the model conforms to the
-underlying statistical assumptions. These tests are:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_normality"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_normality</span></code></a></p></li>
-<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_heteroskedasticity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_heteroskedasticity</span></code></a></p></li>
-<li><p><a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation.html#statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation" title="statsmodels.tsa.statespace.mlemodel.MLEResults.test_serial_correlation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_serial_correlation</span></code></a></p></li>
-</ul>
-<p>A number of standard plots of regression residuals are available for the same
-purpose. These can be produced using the command
-<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics.html#statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics" title="statsmodels.tsa.statespace.mlemodel.MLEResults.plot_diagnostics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_diagnostics</span></code></a>.</p>
+<p>The <cite>SimulationSmoother</cite> class is a subclass of <cite>KalmanSmoother</cite> that further
+provides simulation and simulation smoothing capabilities. The
+<a class="reference internal" href="generated/generated/statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.simulation_smoother.html#statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.simulation_smoother" title="statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.simulation_smoother"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simulation_smoother</span></code></a>
+method can be called, producing a <cite>SimulationSmoothResults</cite> instance.</p>
+<p>The <cite>SimulationSmoothResults</cite> class has a <cite>simulate</cite> method, that allows
+performing simulation smoothing to draw from the joint posterior of the state
+vector. This is useful for Bayesian estimation of state space models via Gibbs
+sampling.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.html#statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother" title="statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulation_smoother.SimulationSmoother</span></code></a>(…)</p></td>
+<td><p>State space representation of a time series process, with Kalman filter and smoother, and with simulation smoother.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.tsa.statespace.simulation_smoother.SimulationSmoothResults.html#statsmodels.tsa.statespace.simulation_smoother.SimulationSmoothResults" title="statsmodels.tsa.statespace.simulation_smoother.SimulationSmoothResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulation_smoother.SimulationSmoothResults</span></code></a>(…)</p></td>
+<td><p>Results from applying the Kalman smoother and/or filter to a state space model.</p></td>
+</tr>
+</tbody>
+</table>
 
 
 <h2 id="statespace-tools">Statespace Tools<a class="headerlink" href="#statespace-tools" title="Permalink to this headline">¶</a></h2>
@@ -941,7 +1354,7 @@ class:</p>
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

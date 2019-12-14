@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.sysreg </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -421,14 +421,14 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SUR.initialize"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.SUR.initialize.html#statsmodels.sandbox.sysreg.SUR.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wendog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wexog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sp_exog</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pinv_wexog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wexog</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pinv_wexog</span><span class="p">,</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pinv_wexog</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'params'</span> <span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">0</span></div>
 
     <span class="k">def</span> <span class="nf">_update_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'params'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
@@ -460,7 +460,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cholsigmainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">sig</span><span class="o">/</span><span class="n">div</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
         <span class="k">return</span> <span class="n">sig</span><span class="o">/</span><span class="n">div</span>
 
-    <span class="k">def</span> <span class="nf">whiten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="SUR.whiten"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.SUR.whiten.html#statsmodels.sandbox.sysreg.SUR.whiten">[docs]</a>    <span class="k">def</span> <span class="nf">whiten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        SUR whiten method.</span>
 
@@ -483,9 +483,9 @@
                 <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">X</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">sp_exog</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cholsigmainv</span><span class="p">,</span>
-                <span class="n">sparse</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span><span class="n">nobs</span><span class="p">))</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="c1">#*=dot until cast to array</span>
+                <span class="n">sparse</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span><span class="n">nobs</span><span class="p">))</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="c1">#*=dot until cast to array</span></div>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">igls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="viewcode-block" id="SUR.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.SUR.fit.html#statsmodels.sandbox.sysreg.SUR.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">igls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        igls : bool</span>
 <span class="sd">            Iterate until estimates converge if sigma is None instead of</span>
@@ -527,10 +527,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_update_history</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">sur_fit</span> <span class="o">=</span> <span class="n">SysResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalized_cov_params</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">sur_fit</span>
+        <span class="k">return</span> <span class="n">sur_fit</span></div>
 
-    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">design</span><span class="p">):</span>
-        <span class="k">pass</span></div>
+<div class="viewcode-block" id="SUR.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.SUR.predict.html#statsmodels.sandbox.sysreg.SUR.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">design</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
 
 <span class="c1">#TODO: Should just have a general 2SLS estimator to subclass</span>
 <span class="c1"># for IV, FGLS, etc.</span>
@@ -611,7 +611,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">wexog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">(</span><span class="n">instr_endog</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">whiten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<div class="viewcode-block" id="Sem2SLS.whiten"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.Sem2SLS.whiten.html#statsmodels.sandbox.sysreg.Sem2SLS.whiten">[docs]</a>    <span class="k">def</span> <span class="nf">whiten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Runs the first stage of the 2SLS.</span>
 
@@ -631,9 +631,9 @@
                 <span class="c1"># this might fail if there is a one variable column (nobs,)</span>
                 <span class="c1"># in exog</span>
             <span class="n">wexog</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newRHS</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">wexog</span>
+        <span class="k">return</span> <span class="n">wexog</span></div>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Sem2SLS.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.sandbox.sysreg.Sem2SLS.fit.html#statsmodels.sandbox.sysreg.Sem2SLS.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        """</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="p">[]</span>
@@ -641,7 +641,7 @@
         <span class="n">endog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_M</span><span class="p">):</span>
             <span class="n">delta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GLS</span><span class="p">(</span><span class="n">endog</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">wexog</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">delta</span></div>
+        <span class="k">return</span> <span class="n">delta</span></div></div>
 
 <span class="k">class</span> <span class="nc">SysResults</span><span class="p">(</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
     <span class="sd">"""</span>
@@ -678,7 +678,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.oaxaca </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -441,7 +441,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">exog_s_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">exog_s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">t_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_t_model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">bifurcate</span><span class="p">)</span>
 
-<div class="viewcode-block" id="OaxacaBlinder.three_fold"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.oaxaca.OaxacaBlinder.three_fold.html#statsmodels.stats.oaxaca.OaxacaBlinder.three_fold">[docs]</a>    <span class="k">def</span> <span class="nf">three_fold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">three_fold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Calculates the three-fold Oaxaca Blinder Decompositions</span>
 
@@ -453,7 +453,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">char_eff</span> <span class="o">=</span> <span class="p">(</span>
                         <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exog_f_mean</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog_s_mean</span><span class="p">)</span>
-<div class="viewcode-block" id="OaxacaBlinder.two_fold"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.oaxaca.OaxacaBlinder.two_fold.html#statsmodels.stats.oaxaca.OaxacaBlinder.two_fold">[docs]</a>                        <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_model</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+                        <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_model</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">coef_eff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog_s_mean</span> <span class="o">@</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f_model</span><span class="o">.</span><span class="n">params</span>
                                             <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_model</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">int_eff</span> <span class="o">=</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">exog_f_mean</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog_s_mean</span><span class="p">)</span>
@@ -461,7 +461,7 @@
 
         <span class="k">return</span> <span class="n">OaxacaResults</span><span class="p">(</span>
                             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">char_eff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_eff</span><span class="p">,</span>
-                                <span class="bp">self</span><span class="o">.</span><span class="n">int_eff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gap</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span></div>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">int_eff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gap</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">two_fold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -478,7 +478,7 @@
                             <span class="o">@</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_params</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_model</span><span class="o">.</span><span class="n">params</span><span class="p">)))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">explained</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exog_f_mean</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog_s_mean</span><span class="p">)</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_params</span>
 
-        <span class="k">return</span> <span class="n">OaxacaResults</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">unexplained</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">explained</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gap</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">OaxacaResults</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">unexplained</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">explained</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gap</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div>
 
 
 <span class="k">class</span> <span class="nc">OaxacaResults</span><span class="p">:</span>
@@ -527,7 +527,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">results</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model_type</span> <span class="o">=</span> <span class="n">model_type</span>
 
-<div class="viewcode-block" id="OaxacaResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.oaxaca.OaxacaResults.summary.html#statsmodels.stats.oaxaca.OaxacaResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Print a summary table with the Oaxaca-Blinder effects</span>
 <span class="sd">        """</span>
@@ -550,7 +550,7 @@
 <span class="s2">            Interaction Effect: </span><span class="si">{:.5f}</span><span class="s2"></span>
 <span class="s2">            Gap: </span><span class="si">{:.5f}</span><span class="s2">"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">3</span><span class="p">])))</span></div></div>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">3</span><span class="p">])))</span></div>
 </pre></div>
 
           </article>
@@ -575,7 +575,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

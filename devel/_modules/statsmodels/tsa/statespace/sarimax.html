@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.sarimax </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -864,7 +864,7 @@
 
         <span class="k">return</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span>
 
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SARIMAX.initialize"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize.html#statsmodels.tsa.statespace.sarimax.SARIMAX.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Initialize the SARIMAX model.</span>
 
@@ -918,9 +918,9 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_regression</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_varying_regression</span><span class="p">:</span>
             <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag_indices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_posdef</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_exog_variance_idx</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'state_cov'</span><span class="p">,</span> <span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_k_exog</span><span class="p">:],</span>
-                                       <span class="n">idx</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_k_exog</span><span class="p">:])</span>
+                                       <span class="n">idx</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_k_exog</span><span class="p">:])</span></div>
 
-    <span class="k">def</span> <span class="nf">initialize_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SARIMAX.initialize_default"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_default.html#statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_default">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">approximate_diffuse_variance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Initialize default"""</span>
         <span class="k">if</span> <span class="n">approximate_diffuse_variance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">approximate_diffuse_variance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">initial_variance</span>
@@ -956,7 +956,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">init</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">diffuse_type</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">init</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">initial_design</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1087,8 +1087,8 @@
                 <span class="n">selection</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">selection</span>
 
-    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone_from_init_kwds</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="viewcode-block" id="SARIMAX.clone"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.clone.html#statsmodels.tsa.statespace.sarimax.SARIMAX.clone">[docs]</a>    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone_from_init_kwds</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_res_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2321,7 +2321,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.

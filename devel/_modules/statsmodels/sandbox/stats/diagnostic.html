@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+680)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+688)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.stats.diagnostic </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+680)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+688)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -352,7 +352,7 @@
 <span class="sd">    '''</span>
 
 
-<div class="viewcode-block" id="CompareCox.run"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.stats.diagnostic.CompareCox.run.html#statsmodels.stats.diagnostic.CompareCox.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">'''run Cox test for non-nested models</span>
 
 <span class="sd">        Parameters</span>
@@ -413,7 +413,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">=</span> <span class="n">pval</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span>
 
-        <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">pval</span></div>
+        <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">pval</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
@@ -444,7 +444,7 @@
 <span class="sd">    '''</span>
 
 
-<div class="viewcode-block" id="CompareJ.run"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.stats.diagnostic.CompareJ.run.html#statsmodels.stats.diagnostic.CompareJ.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">'''run J-test for non-nested models</span>
 
 <span class="sd">        Parameters</span>
@@ -495,7 +495,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">teststat</span> <span class="o">=</span> <span class="n">tstat</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">=</span> <span class="n">pval</span>
 
-        <span class="k">return</span> <span class="n">tstat</span><span class="p">,</span> <span class="n">pval</span></div>
+        <span class="k">return</span> <span class="n">tstat</span><span class="p">,</span> <span class="n">pval</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">results_x</span><span class="p">,</span> <span class="n">results_z</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
@@ -1143,7 +1143,7 @@
 <span class="sd">    (sorting by idx not tested yet)</span>
 <span class="sd">    '''</span>
     <span class="c1">#TODO: can do Chow test for structural break in same way</span>
-<div class="viewcode-block" id="HetGoldfeldQuandt.run"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.stats.diagnostic.HetGoldfeldQuandt.run.html#statsmodels.stats.diagnostic.HetGoldfeldQuandt.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">alternative</span><span class="o">=</span><span class="s1">'increasing'</span><span class="p">,</span> <span class="n">attach</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">'''see class docstring'''</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1201,7 +1201,7 @@
 <span class="s1">    variance in the second subsample is </span><span class="si">%s</span><span class="s1"> than in the first subsample:</span>
 <span class="s1">        F-statistic =</span><span class="si">%8.4f</span><span class="s1"> and p-value =</span><span class="si">%8.4f</span><span class="s1">'''</span> <span class="o">%</span> <span class="p">(</span><span class="n">ordering</span><span class="p">,</span> <span class="n">fval</span><span class="p">,</span> <span class="n">fpval</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fval</span><span class="p">,</span> <span class="n">fpval</span><span class="p">,</span> <span class="n">ordering</span></div>
+        <span class="k">return</span> <span class="n">fval</span><span class="p">,</span> <span class="n">fpval</span><span class="p">,</span> <span class="n">ordering</span>
         <span class="c1">#return self</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1932,7 +1932,7 @@
               
           </div>
             Last updated on
-              Dec 13, 2019.
+              Dec 14, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
