@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono:400,500,700&display=fallback">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>API Reference &#8212; statsmodels</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="_static/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="_static/icons/favicon-16x16.png">
+  <link rel="manifest" href="_static/icons/site.webmanifest">
+  <link rel="mask-icon" href="_static/icons/safari-pinned-tab.svg" color="#919191">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="_static/icons/browserconfig.xml">
+    <link rel="stylesheet" href="_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Release 0.5.0" href="release/version0.5.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=blue>
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448"
+           id="__github">
+        <path fill="currentColor"
+              d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"></path>
+      </svg>
+    </defs>
+  </svg>
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#api" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="statsmodels"
+           class="md-header-nav__button md-logo">
+          
+              <img src="_static/statsmodels-logo-v2-bw.svg" height="26"
+                   alt="statsmodels logo">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic"> API Reference </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    statsmodels
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="statsmodels" class="md-nav__button md-logo">
+      
+        <img src="_static/statsmodels-logo-v2-bw.svg" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="index.html"
+       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    statsmodels
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <a href="install.html" class="md-nav__link">Installing statsmodels</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="gettingstarted.html" class="md-nav__link">Getting started</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="user-guide.html" class="md-nav__link">User Guide</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="examples/index.html" class="md-nav__link">Examples</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="release/index.html" class="md-nav__link">What’s new in statsmodels</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> API Reference </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">API Reference</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api--page-root" class="md-nav__link">API Reference</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#statsmodels-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#regression" class="md-nav__link">Regression</a>
+        </li>
+        <li class="md-nav__item"><a href="#imputation" class="md-nav__link">Imputation</a>
+        </li>
+        <li class="md-nav__item"><a href="#generalized-estimating-equations" class="md-nav__link">Generalized Estimating Equations</a>
+        </li>
+        <li class="md-nav__item"><a href="#generalized-linear-models" class="md-nav__link">Generalized Linear Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#discrete-and-count-models" class="md-nav__link">Discrete and Count Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#multivariate-models" class="md-nav__link">Multivariate Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#misc-models" class="md-nav__link">Misc Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#graphics" class="md-nav__link">Graphics</a>
+        </li>
+        <li class="md-nav__item"><a href="#tools" class="md-nav__link">Tools</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#statsmodels-tsa-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#statistics-and-tests" class="md-nav__link">Statistics and Tests</a>
+        </li>
+        <li class="md-nav__item"><a href="#univariate-time-series-analysis" class="md-nav__link">Univariate Time-Series Analysis</a>
+        </li>
+        <li class="md-nav__item"><a href="#exponential-smoothing" class="md-nav__link">Exponential Smoothing</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Multivariate Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#filters-and-decompositions" class="md-nav__link">Filters and Decompositions</a>
+        </li>
+        <li class="md-nav__item"><a href="#markov-regime-switching-models" class="md-nav__link">Markov Regime Switching Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#time-series-tools" class="md-nav__link">Time-Series Tools</a>
+        </li>
+        <li class="md-nav__item"><a href="#x12-x13-interface" class="md-nav__link">X12/X13 Interface</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#statsmodels-formula-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#models" class="md-nav__link">Models</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/api.rst.txt">Show Source</a> </li>
+
+  </ul>
+</nav><ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+      <a href="#statsmodels-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+      <a href="#regression" class="md-nav__link">Regression</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#imputation" class="md-nav__link">Imputation</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#generalized-estimating-equations" class="md-nav__link">Generalized Estimating Equations</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#generalized-linear-models" class="md-nav__link">Generalized Linear Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#discrete-and-count-models" class="md-nav__link">Discrete and Count Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#multivariate-models" class="md-nav__link">Multivariate Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#misc-models" class="md-nav__link">Misc Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#graphics" class="md-nav__link">Graphics</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#tools" class="md-nav__link">Tools</a>
+      
+    </li></ul>
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#statsmodels-tsa-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.api</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+      <a href="#statistics-and-tests" class="md-nav__link">Statistics and Tests</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#univariate-time-series-analysis" class="md-nav__link">Univariate Time-Series Analysis</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#exponential-smoothing" class="md-nav__link">Exponential Smoothing</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#id1" class="md-nav__link">Multivariate Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#filters-and-decompositions" class="md-nav__link">Filters and Decompositions</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#markov-regime-switching-models" class="md-nav__link">Markov Regime Switching Models</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#time-series-tools" class="md-nav__link">Time-Series Tools</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#x12-x13-interface" class="md-nav__link">X12/X13 Interface</a>
+      
+    </li></ul>
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="#statsmodels-formula-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+      <a href="#models" class="md-nav__link">Models</a>
+      
+    </li></ul>
+    </li></ul>
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="about.html" class="md-nav__link">About statsmodels</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="dev/index.html" class="md-nav__link">Developer Page</a>
+      
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api--page-root" class="md-nav__link">API Reference</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#statsmodels-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#regression" class="md-nav__link">Regression</a>
+        </li>
+        <li class="md-nav__item"><a href="#imputation" class="md-nav__link">Imputation</a>
+        </li>
+        <li class="md-nav__item"><a href="#generalized-estimating-equations" class="md-nav__link">Generalized Estimating Equations</a>
+        </li>
+        <li class="md-nav__item"><a href="#generalized-linear-models" class="md-nav__link">Generalized Linear Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#discrete-and-count-models" class="md-nav__link">Discrete and Count Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#multivariate-models" class="md-nav__link">Multivariate Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#misc-models" class="md-nav__link">Misc Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#graphics" class="md-nav__link">Graphics</a>
+        </li>
+        <li class="md-nav__item"><a href="#tools" class="md-nav__link">Tools</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#statsmodels-tsa-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#statistics-and-tests" class="md-nav__link">Statistics and Tests</a>
+        </li>
+        <li class="md-nav__item"><a href="#univariate-time-series-analysis" class="md-nav__link">Univariate Time-Series Analysis</a>
+        </li>
+        <li class="md-nav__item"><a href="#exponential-smoothing" class="md-nav__link">Exponential Smoothing</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Multivariate Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#filters-and-decompositions" class="md-nav__link">Filters and Decompositions</a>
+        </li>
+        <li class="md-nav__item"><a href="#markov-regime-switching-models" class="md-nav__link">Markov Regime Switching Models</a>
+        </li>
+        <li class="md-nav__item"><a href="#time-series-tools" class="md-nav__link">Time-Series Tools</a>
+        </li>
+        <li class="md-nav__item"><a href="#x12-x13-interface" class="md-nav__link">X12/X13 Interface</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#statsmodels-formula-api" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#models" class="md-nav__link">Models</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/api.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<h1 id="api--page-root">API Reference<a class="headerlink" href="#api--page-root" title="Permalink to this headline">¶</a></h1>
+<p>The main statsmodels API is split into models:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code>: Cross-sectional models and methods. Canonically imported
+using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statsmodels.api</span> <span class="pre">as</span> <span class="pre">sm</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.api</span></code>: Time-series models and methods. Canonically imported
+using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statsmodels.tsa.api</span> <span class="pre">as</span> <span class="pre">tsa</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code>: A convenience interface for specifying models
+using formula strings and DataFrames. This API directly exposes the <code class="docutils literal notranslate"><span class="pre">from_formula</span></code>
+class method of models that support the formula API. Canonically imported using
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statsmodels.formula.api</span> <span class="pre">as</span> <span class="pre">smf</span></code></p></li>
+</ul>
+<p>The API focuses on models and the most frequently used statistical test, and tools.
+<a href="#id2"><span class="problematic" id="id3">`Import Paths and Structure`_</span></a> explains the design of the two API modules and how
+importing from the API differs from directly importing from the module where the
+model is defined. See the detailed topic pages in the <a class="reference internal" href="user-guide.html#user-guide"><span class="std std-ref">User Guide</span></a> for a complete
+list of available models, statistics, and tools.</p>
+
+<h2 id="statsmodels-api"><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code><a class="headerlink" href="#statsmodels-api" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="regression">Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OLS</span></code>(endog[, exog, missing, hasconst])</p></td>
+<td><p>Ordinary Least Squares</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLS</span></code>(endog, exog[, sigma, missing, hasconst])</p></td>
+<td><p>Generalized Least Squares</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLSAR</span></code>(endog[, exog, rho, missing, hasconst])</p></td>
+<td><p>Generalized Least Squares with AR covariance structure</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">WLS</span></code>(endog, exog[, weights, missing, hasconst])</p></td>
+<td><p>Weighted Least Squares</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecursiveLS</span></code>(endog, exog[, constraints])</p></td>
+<td><p>Recursive least squares</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RollingOLS</span></code>(endog, exog[, window, min_nobs, …])</p></td>
+<td><p>Rolling Ordinary Least Squares</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RollingWLS</span></code>(endog, exog[, window, weights, …])</p></td>
+<td><p>Rolling Weighted Least Squares</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="imputation">Imputation<a class="headerlink" href="#imputation" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">BayesGaussMI</span></code>(data[, mean_prior, cov_prior, …])</p></td>
+<td><p>Bayesian Imputation using a Gaussian model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinomialBayesMixedGLM</span></code>(endog, exog, exog_vc, …)</p></td>
+<td><p>Generalized Linear Mixed Model with Bayesian estimation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Factor</span></code>([endog, n_factor, corr, method, smc, …])</p></td>
+<td><p>Factor analysis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MI</span></code>(imp, model[, model_args_fn, …])</p></td>
+<td><p>MI performs multiple imputation using a provided imputer object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MICE</span></code>(model_formula, model_class, data[, …])</p></td>
+<td><p>Multiple Imputation with Chained Equations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MICEData</span></code>(data[, perturbation_method, k_pmm, …])</p></td>
+<td><p>Wrap a data set to allow missing data handling with MICE.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="generalized-estimating-equations">Generalized Estimating Equations<a class="headerlink" href="#generalized-estimating-equations" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GEE</span></code>(endog, exog, groups[, time, family, …])</p></td>
+<td><p>Marginal Regression Model using Generalized Estimating Equations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NominalGEE</span></code>(endog, exog, groups[, time, …])</p></td>
+<td><p>Nominal Response Marginal Regression Model using GEE.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrdinalGEE</span></code>(endog, exog, groups[, time, …])</p></td>
+<td><p>Ordinal Response Marginal Regression Model using GEE</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="generalized-linear-models">Generalized Linear Models<a class="headerlink" href="#generalized-linear-models" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLM</span></code>(endog, exog[, family, offset, exposure, …])</p></td>
+<td><p>Generalized Linear Models</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLMGam</span></code>(endog[, exog, smoother, alpha, …])</p></td>
+<td><p>Generalized Additive Models (GAM)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PoissonBayesMixedGLM</span></code>(endog, exog, exog_vc, ident)</p></td>
+<td><p>Generalized Linear Mixed Model with Bayesian estimation</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="discrete-and-count-models">Discrete and Count Models<a class="headerlink" href="#discrete-and-count-models" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeneralizedPoisson</span></code>(endog, exog[, p, offset, …])</p></td>
+<td><p>Generalized Poisson Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Logit</span></code>(endog, exog, **kwargs)</p></td>
+<td><p>Logit Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MNLogit</span></code>(endog, exog, **kwargs)</p></td>
+<td><p>Multinomial Logit Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Poisson</span></code>(endog, exog[, offset, exposure, missing])</p></td>
+<td><p>Poisson Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Probit</span></code>(endog, exog, **kwargs)</p></td>
+<td><p>Probit Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NegativeBinomial</span></code>(endog, exog[, …])</p></td>
+<td><p>Negative Binomial Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NegativeBinomialP</span></code>(endog, exog[, p, offset, …])</p></td>
+<td><p>Generalized Negative Binomial (NB-P) Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeroInflatedGeneralizedPoisson</span></code>(endog, exog)</p></td>
+<td><p>Zero Inflated Generalized Poisson Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeroInflatedNegativeBinomialP</span></code>(endog, exog[, …])</p></td>
+<td><p>Zero Inflated Generalized Negative Binomial Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeroInflatedPoisson</span></code>(endog, exog[, …])</p></td>
+<td><p>Poisson Zero Inflated Model</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="multivariate-models">Multivariate Models<a class="headerlink" href="#multivariate-models" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MANOVA</span></code>(endog, exog[, missing, hasconst])</p></td>
+<td><p>Multivariate Analysis of Variance</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCA</span></code>(data[, ncomp, standardize, demean, …])</p></td>
+<td><p>Principal Component Analysis</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="misc-models">Misc Models<a class="headerlink" href="#misc-models" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MixedLM</span></code>(endog, exog, groups[, exog_re, …])</p></td>
+<td><p>Linear Mixed Effects Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PHReg</span></code>(endog, exog[, status, entry, strata, …])</p></td>
+<td><p>Cox Proportional Hazards Regression Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">QuantReg</span></code>(endog, exog, **kwargs)</p></td>
+<td><p>Quantile Regression</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RLM</span></code>(endog, exog[, M, missing])</p></td>
+<td><p>Robust Linear Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SurvfuncRight</span></code>(time, status[, entry, title, …])</p></td>
+<td><p>Estimation and inference for a survival function.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="graphics">Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProbPlot</span></code>(data[, dist, fit, distargs, a, …])</p></td>
+<td><p>Q-Q and P-P Probability Plots</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">qqline</span></code>(ax, line[, x, y, dist, fmt])</p></td>
+<td><p>Plot a reference line for a qqplot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">qqplot</span></code>(data[, dist, distargs, a, loc, …])</p></td>
+<td><p>Q-Q plot of the quantiles of x versus the quantiles/ppf of a distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">qqplot_2samples</span></code>(data1, data2[, xlabel, …])</p></td>
+<td><p>Q-Q Plot of two samples’ quantiles.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code>([extra_args, exit])</p></td>
+<td><p>Run the test suite</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constant</span></code>(data[, prepend, has_constant])</p></td>
+<td><p>Add a column of ones to an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">categorical</span></code>(data[, col, dictnames, drop])</p></td>
+<td><p>Construct a dummy matrix from categorical variables</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_pickle</span></code>(fname)</p></td>
+<td><p>Load a previously saved object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_versions</span></code>([show_dirs])</p></td>
+<td><p>List the versions of statsmodels and any installed dependencies</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">webdoc</span></code>([func, stable])</p></td>
+<td><p>Opens a browser and displays online documentation</p></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h2 id="statsmodels-tsa-api"><code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.api</span></code><a class="headerlink" href="#statsmodels-tsa-api" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="statistics-and-tests">Statistics and Tests<a class="headerlink" href="#statistics-and-tests" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acf</span></code>(x[, unbiased, nlags, qstat, fft, alpha, …])</p></td>
+<td><p>Calculate the autocorrelation function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acovf</span></code>(x[, unbiased, demean, fft, missing, nlag])</p></td>
+<td><p>Estimate autocovariances.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">adfuller</span></code>(x[, maxlag, regression, autolag, …])</p></td>
+<td><p>Augmented Dickey-Fuller unit root test.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bds</span></code>(x[, max_dim, epsilon, distance])</p></td>
+<td><p>BDS Test Statistic for Independence of a Time Series</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ccf</span></code>(x, y[, unbiased])</p></td>
+<td><p>The cross-correlation function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ccovf</span></code>(x, y[, unbiased, demean])</p></td>
+<td><p>Calculate the crosscovariance between two series.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">coint</span></code>(y0, y1[, trend, method, maxlag, …])</p></td>
+<td><p>Test for no-cointegration of a univariate equation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">kpss</span></code>(x[, regression, nlags, store])</p></td>
+<td><p>Kwiatkowski-Phillips-Schmidt-Shin test for stationarity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf</span></code>(x[, nlags, method, alpha])</p></td>
+<td><p>Partial autocorrelation estimate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf_ols</span></code>(x[, nlags, efficient, unbiased])</p></td>
+<td><p>Calculate partial autocorrelations via OLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf_yw</span></code>(x[, nlags, method])</p></td>
+<td><p>Partial autocorrelation estimated with non-recursive yule_walker.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">periodogram</span></code>(x)</p></td>
+<td><p>Compute the periodogram for the natural frequency of x.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_stat</span></code>(x, nobs[, type])</p></td>
+<td><p>Compute Ljung-Box Q Statistic.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="univariate-time-series-analysis">Univariate Time-Series Analysis<a class="headerlink" href="#univariate-time-series-analysis" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">AR</span></code>(endog[, dates, freq, missing])</p></td>
+<td><p>Autoregressive AR(p) model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARIMA</span></code>(endog, order[, exog, dates, freq, missing])</p></td>
+<td><p>Autoregressive Integrated Moving Average ARIMA(p,d,q) Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARMA</span></code>(endog, order[, exog, dates, freq, missing])</p></td>
+<td><p>Autoregressive Moving Average ARMA(p,q) Model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SARIMAX</span></code>(endog[, exog, order, …])</p></td>
+<td><p>Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">arma_order_select_ic</span></code>(y[, max_ar, max_ma, …])</p></td>
+<td><p>Compute information criteria for many ARMA models.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">arma_generate_sample</span></code>(ar, ma, nsample[, …])</p></td>
+<td><p>Simulate data from an ARMA.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ArmaProcess</span></code>([ar, ma, nobs])</p></td>
+<td><p>Theoretical properties of an ARMA process for specified lag-polynomials.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="exponential-smoothing">Exponential Smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExponentialSmoothing</span></code>(endog[, trend, damped, …])</p></td>
+<td><p>Holt Winter’s Exponential Smoothing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Holt</span></code>(endog[, exponential, damped])</p></td>
+<td><p>Holt’s Exponential Smoothing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleExpSmoothing</span></code>(endog)</p></td>
+<td><p>Simple Exponential Smoothing</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="id1">Multivariate Models<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicFactor</span></code>(endog, k_factors, factor_order)</p></td>
+<td><p>Dynamic factor model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">VAR</span></code>(endog[, exog, dates, freq, missing])</p></td>
+<td><p>Fit VAR(p) process and do lag order selection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">VARMAX</span></code>(endog[, exog, order, trend, …])</p></td>
+<td><p>Vector Autoregressive Moving Average with eXogenous regressors model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SVAR</span></code>(endog, svar_type[, dates, freq, A, B, …])</p></td>
+<td><p>Fit VAR and then estimate structural components of A and B, defined:</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">VECM</span></code>(endog[, exog, exog_coint, dates, freq, …])</p></td>
+<td><p>Class representing a Vector Error Correction Model (VECM).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnobservedComponents</span></code>(endog[, level, trend, …])</p></td>
+<td><p>Univariate unobserved components time series model</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="filters-and-decompositions">Filters and Decompositions<a class="headerlink" href="#filters-and-decompositions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">seasonal_decompose</span></code>(x[, model, filt, period, …])</p></td>
+<td><p>Seasonal decomposition using moving averages.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">STL</span></code>(endog[, period, seasonal, trend, …])</p></td>
+<td><p>Season-Trend decomposition using LOESS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bkfilter</span></code>(x[, low, high, K])</p></td>
+<td><p>Filter a time series using the Baxter-King bandpass filter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cffilter</span></code>(x[, low, high, drift])</p></td>
+<td><p>Christiano Fitzgerald asymmetric, random walk filter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpfilter</span></code>(x[, lamb])</p></td>
+<td><p>Hodrick-Prescott filter.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="markov-regime-switching-models">Markov Regime Switching Models<a class="headerlink" href="#markov-regime-switching-models" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkovAutoregression</span></code>(endog, k_regimes, order)</p></td>
+<td><p>Markov switching regression model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarkovRegression</span></code>(endog, k_regimes[, trend, …])</p></td>
+<td><p>First-order k-regime Markov switching regression model</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="time-series-tools">Time-Series Tools<a class="headerlink" href="#time-series-tools" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_lag</span></code>(x[, col, lags, drop, insert])</p></td>
+<td><p>Returns an array with lags included given an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_trend</span></code>(x[, trend, prepend, has_constant])</p></td>
+<td><p>Add a trend and/or constant to an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">detrend</span></code>(x[, order, axis])</p></td>
+<td><p>Detrend an array with a trend of given order along axis 0 or 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lagmat</span></code>(x, maxlag[, trim, original, use_pandas])</p></td>
+<td><p>Create 2d array of lags.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lagmat2ds</span></code>(x, maxlag0[, maxlagex, dropex, …])</p></td>
+<td><p>Generate lagmatrix for 2d array, columns arranged by variables.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="x12-x13-interface">X12/X13 Interface<a class="headerlink" href="#x12-x13-interface" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">x13_arima_analysis</span></code>(endog[, maxorder, …])</p></td>
+<td><p>Perform x13-arima analysis for monthly or quarterly data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">x13_arima_select_order</span></code>(endog[, maxorder, …])</p></td>
+<td><p>Perform automatic seasonal ARIMA order identification using x12/x13 ARIMA.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h2 id="statsmodels-formula-api"><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code><a class="headerlink" href="#statsmodels-formula-api" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="models">Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<p>The function descriptions of the methods exposed in the formula API are generic.
+See the documentation for the parent model for details.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gls</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wls</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ols</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">glsar</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mixedlm</span></code>(formula, data[, re_formula, …])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">glm</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rlm</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mnlogit</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">logit</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">probit</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">negativebinomial</span></code>(formula, data[, subset, …])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantreg</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">phreg</span></code>(formula, data[, status, entry, …])</p></td>
+<td><p>Create a proportional hazards regression model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ordinal_gee</span></code>(formula, groups, data[, subset, …])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">nominal_gee</span></code>(formula, groups, data[, subset, …])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gee</span></code>(formula, groups, data[, subset, time, …])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">glmgam</span></code>(formula, data[, subset, drop_cols])</p></td>
+<td><p>Create a Model from a formula and dataframe.</p></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="release/version0.5.html" title="Material"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Release 0.5.0 </span>
+              </div>
+            </a>
+          
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2009-2019, Josef Perktold, Skipper Seabold, Jonathan Taylor, statsmodels-developers.
+              
+          </div>
+            Last updated on
+              Dec 15, 2019.
+            <br/>
+            Created using
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
