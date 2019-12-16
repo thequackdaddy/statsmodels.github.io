@@ -63,6 +63,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#gettingstarted" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Getting started </span>
         </div>
       </div>
@@ -181,7 +182,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -379,7 +380,7 @@ dependencies.</p>
 <h2 id="loading-modules-and-functions">Loading modules and functions<a class="headerlink" href="#loading-modules-and-functions" title="Permalink to this headline">¶</a></h2>
 <p>After <a class="reference external" href="install.html">installing statsmodels and its dependencies</a>, we load a
 few modules and functions:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span>
 
@@ -472,21 +473,23 @@ using <code class="docutils literal notranslate"><span class="pre">R</span></cod
 </pre></div>
 </div>
 <p>The resulting matrices/data frames look like this:</p>
-<pre class="literal-block">In [11]: y[:3]
-Out[11]: 
-   Lottery
-0     41.0
-1     38.0
-2     66.0
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="go">   Lottery</span>
+<span class="go">0     41.0</span>
+<span class="go">1     38.0</span>
+<span class="go">2     66.0</span>
 
-In [12]: X[:3]
-Out[12]: 
-   Intercept  Region[T.E]  Region[T.N]  ...  Region[T.W]  Literacy  Wealth
-0        1.0          1.0          0.0  ...          0.0      37.0    73.0
-1        1.0          0.0          1.0  ...          0.0      51.0    22.0
-2        1.0          0.0          0.0  ...          0.0      13.0    61.0
+<span class="gp">In [12]: </span><span class="n">X</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="go">   Intercept  Region[T.E]  Region[T.N]  ...  Region[T.W]  Literacy  Wealth</span>
+<span class="go">0        1.0          1.0          0.0  ...          0.0      37.0    73.0</span>
+<span class="go">1        1.0          0.0          1.0  ...          0.0      51.0    22.0</span>
+<span class="go">2        1.0          0.0          0.0  ...          0.0      13.0    61.0</span>
 
-[3 rows x 7 columns]</pre>
+<span class="go">[3 rows x 7 columns]</span>
+</pre></div>
+</div>
 <p>Notice that <code class="docutils literal notranslate"><span class="pre">dmatrices</span></code> has</p>
 <ul class="simple">
 <li><p>split the categorical <em>Region</em> variable into a set of indicator variables.</p></li>
@@ -508,14 +511,14 @@ Out[12]:
 
 <span class="gp">In [14]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>       <span class="c1"># Fit model</span>
 
-<span class="gp">In [15]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>   <span class="c1"># Summarize model</span>
+<span class="gp">In [15]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>   <span class="c1"># Summarize model</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                Lottery   R-squared:                       0.338</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.287</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     6.636</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.07e-05</span>
-<span class="go">Time:                        19:05:17   Log-Likelihood:                -375.30</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           1.07e-05</span>
+<span class="go">Time:                        16:18:05   Log-Likelihood:                -375.30</span>
 <span class="go">No. Observations:                  85   AIC:                             764.6</span>
 <span class="go">Df Residuals:                      78   BIC:                             781.7</span>
 <span class="go">Df Model:                           6                                         </span>
@@ -543,19 +546,21 @@ Out[12]:
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">res</span></code> object has many useful attributes. For example, we can extract
 parameter estimates and r-squared by typing:</p>
-<pre class="literal-block">In [16]: res.params
-Out[16]: 
-Intercept      38.651655
-Region[T.E]   -15.427785
-Region[T.N]   -10.016961
-Region[T.S]    -4.548257
-Region[T.W]   -10.091276
-Literacy       -0.185819
-Wealth          0.451475
-dtype: float64
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">res</span><span class="o">.</span><span class="n">params</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">Intercept      38.651655</span>
+<span class="go">Region[T.E]   -15.427785</span>
+<span class="go">Region[T.N]   -10.016961</span>
+<span class="go">Region[T.S]    -4.548257</span>
+<span class="go">Region[T.W]   -10.091276</span>
+<span class="go">Literacy       -0.185819</span>
+<span class="go">Wealth          0.451475</span>
+<span class="go">dtype: float64</span>
 
-In [17]: res.rsquared
-Out[17]: 0.337950869192882</pre>
+<span class="gp">In [17]: </span><span class="n">res</span><span class="o">.</span><span class="n">rsquared</span>
+<span class="gh">Out[17]: </span><span class="go">0.337950869192882</span>
+</pre></div>
+</div>
 <p>Type <code class="docutils literal notranslate"><span class="pre">dir(res)</span></code> for a full list of attributes.</p>
 <p>For more information and examples, see the <a class="reference external" href="regression.html">Regression doc page</a></p>
 
@@ -566,7 +571,7 @@ and specification tests</a>.  For instance,
 apply the Rainbow test for linearity (the null hypothesis is that the
 relationship is properly modelled as linear):</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linear_rainbow</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="gh">Out[18]: </span><span class="go">(0.8472339976156916, 0.6997965543621643)</span>
+<span class="gh">Out[18]: </span><span class="go">(0.8472339976156913, 0.6997965543621643)</span>
 </pre></div>
 </div>
 <p>Admittedly, the output produced above is not very verbose, but we know from
@@ -576,7 +581,7 @@ first number is an F-statistic and that the second is the p-value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> also provides graphics functions. For example, we can draw a
 plot of partial regression for a set of regressors by:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">plot_partregress</span><span class="p">(</span><span class="s1">'Lottery'</span><span class="p">,</span> <span class="s1">'Wealth'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Region'</span><span class="p">,</span> <span class="s1">'Literacy'</span><span class="p">],</span>
-<span class="gp">   ....: </span>                             <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">obs_labels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">   ....: </span>                             <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">obs_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="gh">Out[19]: </span><span class="go">&lt;Figure size 640x480 with 1 Axes&gt;</span>
 </pre></div>
@@ -653,10 +658,10 @@ using <a class="reference internal" href="generated/statsmodels.tools.web.webdoc
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -665,9 +670,6 @@ using <a class="reference internal" href="generated/statsmodels.tools.web.webdoc
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
-  
-    <script src="_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

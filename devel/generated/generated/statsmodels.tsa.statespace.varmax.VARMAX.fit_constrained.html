@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#generated/generated/statsmodels.tsa.statespace.varmax.VARMAX.fit_constrained" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.varmax.VARMAX.fit_constrained </span>
         </div>
       </div>
@@ -190,7 +191,7 @@
       
     </a>
     <a href="../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -355,7 +356,7 @@ If None, the default is given by Model.start_params.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit_constrained</span><span class="p">({</span><span class="s1">'ar.L1'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
 </pre></div>
 </div>
@@ -409,10 +410,10 @@ If None, the default is given by Model.start_params.</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -421,9 +422,6 @@ If None, the default is given by Model.start_params.</p>
     </div>
   </footer>
   <script src="../../_static/javascripts/application.js"></script>
-  
-    <script src="../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

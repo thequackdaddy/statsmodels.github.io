@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/multivariate/factor" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.multivariate.factor </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -280,16 +281,16 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">eigh</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">matrix_rank</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">matrix_rank</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">minimize</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span>
-<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="k">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="k">import</span> <span class="n">summary2</span>
-<span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="k">import</span> <span class="n">_import_mpl</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
+<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="kn">import</span> <span class="n">summary2</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span>
 
-<span class="kn">from</span> <span class="nn">.factor_rotation</span> <span class="k">import</span> <span class="n">rotate_factors</span><span class="p">,</span> <span class="n">promax</span>
+<span class="kn">from</span> <span class="nn">.factor_rotation</span> <span class="kn">import</span> <span class="n">rotate_factors</span><span class="p">,</span> <span class="n">promax</span>
 
 
 <span class="n">_opt_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'gtol'</span><span class="p">:</span> <span class="mf">1e-7</span><span class="p">}</span>
@@ -381,7 +382,7 @@
 <span class="sd">    .. [*] J Bai, K Li (2012).  Statistical analysis of factor models of high</span>
 <span class="sd">       dimension.  Annals of Statistics. https://arxiv.org/pdf/1205.6617.pdf</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">corr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'pa'</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">corr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'pa'</span><span class="p">,</span>
                  <span class="n">smc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">endog_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">):</span>
 
         <span class="n">_check_args_1</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">n_factor</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
@@ -813,7 +814,7 @@
 <span class="sd">        features are added.</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">factor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endog_names</span> <span class="o">=</span> <span class="n">factor</span><span class="o">.</span><span class="n">endog_names</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">loadings_no_rot</span> <span class="o">=</span> <span class="n">factor</span><span class="o">.</span><span class="n">loadings</span>
@@ -838,7 +839,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_comp</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="FactorResults.rotate"><a class="viewcode-back" href="../../../generated/generated/statsmodels.multivariate.factor.FactorResults.rotate.html#statsmodels.multivariate.factor.FactorResults.rotate">[docs]</a>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
@@ -1202,7 +1203,7 @@
 <span class="sd">            Handle to the figure</span>
 <span class="sd">        """</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
-        <span class="kn">from</span> <span class="nn">.plots</span> <span class="k">import</span> <span class="n">plot_scree</span>
+        <span class="kn">from</span> <span class="nn">.plots</span> <span class="kn">import</span> <span class="n">plot_scree</span>
         <span class="k">return</span> <span class="n">plot_scree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_comp</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="FactorResults.plot_loadings"><a class="viewcode-back" href="../../../generated/generated/statsmodels.multivariate.factor.FactorResults.plot_loadings.html#statsmodels.multivariate.factor.FactorResults.plot_loadings">[docs]</a>    <span class="k">def</span> <span class="nf">plot_loadings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loading_pairs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot_prerotated</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -1225,7 +1226,7 @@
 
 <span class="sd">        """</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
-        <span class="kn">from</span> <span class="nn">.plots</span> <span class="k">import</span> <span class="n">plot_loadings</span>
+        <span class="kn">from</span> <span class="nn">.plots</span> <span class="kn">import</span> <span class="n">plot_loadings</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation_method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">plot_prerotated</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1335,10 +1336,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1347,9 +1348,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

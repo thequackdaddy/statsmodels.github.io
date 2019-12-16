@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#generated/generated/statsmodels.stats.weightstats.DescrStatsW.ztest_mean" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.weightstats.DescrStatsW.ztest_mean </span>
         </div>
       </div>
@@ -190,7 +191,7 @@
       
     </a>
     <a href="../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -404,7 +405,7 @@ calculation of the standard error of the mean, i.e it uses
 See Examples below for the difference.</p>
 <p class="rubric">Examples</p>
 <p>z-test on a proportion, with 20 observations, 15 of those are our event</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
@@ -418,7 +419,7 @@ freedom correction:
 (2.5819888974716112, 0.009823274507519247).</p>
 <p>We can replicate the results from <code class="docutils literal notranslate"><span class="pre">proportions_ztest</span></code> if we increase
 the weights to have artificially one more observation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span><span class="o">*</span><span class="mf">21.</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">ztest_mean</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span><span class="o">*</span><span class="mf">21.</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">ztest_mean</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="go">(2.5819888974716116, 0.0098232745075192366)</span>
 </pre></div>
 </div>
@@ -472,10 +473,10 @@ the weights to have artificially one more observation:</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -484,9 +485,6 @@ the weights to have artificially one more observation:</p>
     </div>
   </footer>
   <script src="../../_static/javascripts/application.js"></script>
-  
-    <script src="../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

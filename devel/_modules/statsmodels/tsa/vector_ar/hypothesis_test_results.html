@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/vector_ar/hypothesis_test_results" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.hypothesis_test_results </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -275,7 +276,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <h1 id="modules-statsmodels-tsa-vector-ar-hypothesis-test-results--page-root">Source code for statsmodels.tsa.vector_ar.hypothesis_test_results</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+<span></span><span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
@@ -300,7 +301,7 @@
 <span class="sd">        A string describing the null hypothesis. It will be used in the</span>
 <span class="sd">        summary.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
                  <span class="n">signif</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">h0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">test_statistic</span> <span class="o">=</span> <span class="n">test_statistic</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crit_value</span> <span class="o">=</span> <span class="n">crit_value</span>
@@ -317,7 +318,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">conclusion_str</span> <span class="o">=</span> <span class="s2">"Conclusion: </span><span class="si">%s</span><span class="s2"> H_0"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">conclusion</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">signif_str</span> <span class="o">=</span> <span class="s2">" at </span><span class="si">{:.0%}</span><span class="s2"> significance level"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signif</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HypothesisTestResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.hypothesis_test_results.HypothesisTestResults.summary.html#statsmodels.tsa.vector_ar.hypothesis_test_results.HypothesisTestResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Return summary"""</span>
         <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">+</span> <span class="s2">". "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h0</span> <span class="o">+</span> <span class="s2">". "</span> \
                                   <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">conclusion_str</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">signif_str</span> <span class="o">+</span> <span class="s2">"."</span>
@@ -332,9 +333,9 @@
                            <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
                            <span class="n">txt_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">,</span>
                            <span class="n">html_fmt</span><span class="o">=</span><span class="n">html_data_fmt</span><span class="p">,</span>
-                           <span class="n">ltx_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">)</span></div>
+                           <span class="n">ltx_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">"&lt;"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> \
                    <span class="o">+</span> <span class="s2">" object. "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h0</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">conclusion</span> \
                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">signif_str</span> \
@@ -342,7 +343,7 @@
                    <span class="o">+</span> <span class="s2">", critical value: </span><span class="si">{:.3f}</span><span class="s2">&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crit_value</span><span class="p">)</span> \
                    <span class="o">+</span> <span class="s2">", p-value: </span><span class="si">{:.3f}</span><span class="s2">&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_statistic</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">test_statistic</span><span class="p">)</span> \
@@ -375,7 +376,7 @@
 <span class="sd">        The kind of test. ``"f"`` indicates an F-test, ``"wald"`` indicates a</span>
 <span class="sd">        Wald-test.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">causing</span><span class="p">,</span> <span class="n">caused</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">causing</span><span class="p">,</span> <span class="n">caused</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
                  <span class="n">signif</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s2">"granger"</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">causing</span> <span class="o">=</span> <span class="n">causing</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">caused</span> <span class="o">=</span> <span class="n">caused</span>
@@ -403,7 +404,7 @@
                                                    <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span>
                                                    <span class="n">title</span><span class="p">,</span> <span class="n">h0</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">basic_test</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CausalityTestResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">basic_test</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
@@ -435,7 +436,7 @@
 <span class="sd">    signif : float</span>
 <span class="sd">        Significance level.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">):</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s2">"Jarque-Bera"</span>
         <span class="n">title</span> <span class="o">=</span> <span class="s2">"normality (skew and kurtosis) test"</span>
         <span class="n">h0</span> <span class="o">=</span> <span class="s1">'H_0: data generated by normally-distributed process'</span>
@@ -463,7 +464,7 @@
 <span class="sd">    nlags : int</span>
 <span class="sd">        Number of lags tested.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">,</span> <span class="n">nlags</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">,</span> <span class="n">nlags</span><span class="p">,</span>
                  <span class="n">adjusted</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lags</span> <span class="o">=</span> <span class="n">nlags</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">adjusted</span> <span class="o">=</span> <span class="n">adjusted</span>
@@ -499,10 +500,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -511,9 +512,6 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

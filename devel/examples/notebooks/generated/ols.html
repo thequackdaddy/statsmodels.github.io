@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/ols" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Ordinary Least Squares </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -502,16 +503,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -520,13 +521,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -534,35 +535,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -570,56 +571,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -713,9 +714,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.predstd</span> <span class="kn">import</span> <span class="n">wls_prediction_std</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9876789</span><span class="p">)</span>
@@ -757,7 +758,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -771,8 +772,8 @@ div.rendered_html tbody tr:hover {
 Dep. Variable:                      y   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 4.020e+06
-Date:                Sun, 15 Dec 2019   Prob (F-statistic):          2.83e-239
-Time:                        18:58:53   Log-Likelihood:                -146.51
+Date:                Mon, 16 Dec 2019   Prob (F-statistic):          2.83e-239
+Time:                        16:16:02   Log-Likelihood:                -146.51
 No. Observations:                 100   AIC:                             299.0
 Df Residuals:                      97   BIC:                             306.8
 Df Model:                           2
@@ -800,8 +801,8 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'R2: '</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">rsquared</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'R2: '</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">rsquared</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -841,7 +842,7 @@ R2:  0.9999879365025871
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -855,8 +856,8 @@ R2:  0.9999879365025871
 Dep. Variable:                      y   R-squared:                       0.933
 Model:                            OLS   Adj. R-squared:                  0.928
 Method:                 Least Squares   F-statistic:                     211.8
-Date:                Sun, 15 Dec 2019   Prob (F-statistic):           6.30e-27
-Time:                        18:58:53   Log-Likelihood:                -34.438
+Date:                Mon, 16 Dec 2019   Prob (F-statistic):           6.30e-27
+Time:                        16:16:02   Log-Likelihood:                -34.438
 No. Observations:                  50   AIC:                             76.88
 Df Residuals:                      46   BIC:                             84.52
 Df Model:                           3
@@ -885,9 +886,9 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Standard errors: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Predicted values: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">())</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Standard errors: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Predicted values: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -950,11 +951,11 @@ Predicted values:  [ 4.77072516  5.22213464  5.63620761  5.98658823  6.25643234 
 <span class="n">groups</span><span class="p">[</span><span class="mi">40</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="c1">#dummy = (groups[:,None] == np.unique(groups)).astype(float)</span>
 
-<span class="n">dummy</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">categorical</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dummy</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">categorical</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">nsample</span><span class="p">)</span>
 <span class="c1"># drop reference category</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">dummy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]))</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">beta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
@@ -969,10 +970,10 @@ Predicted values:  [ 4.77072516  5.22213464  5.63620761  5.98658823  6.25643234 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dummy</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dummy</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1004,7 @@ Predicted values:  [ 4.77072516  5.22213464  5.63620761  5.98658823  6.25643234 
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">res2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1017,8 +1018,8 @@ Predicted values:  [ 4.77072516  5.22213464  5.63620761  5.98658823  6.25643234 
 Dep. Variable:                      y   R-squared:                       0.978
 Model:                            OLS   Adj. R-squared:                  0.976
 Method:                 Least Squares   F-statistic:                     671.7
-Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.69e-38
-Time:                        18:58:54   Log-Likelihood:                -64.643
+Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.69e-38
+Time:                        16:16:03   Log-Likelihood:                -64.643
 No. Observations:                  50   AIC:                             137.3
 Df Residuals:                      46   BIC:                             144.9
 Df Model:                           3
@@ -1079,8 +1080,8 @@ Warnings:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">R</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1092,7 @@ Warnings:
 <div class="highlight"><pre>
 [[0 1 0 0]
  [0 0 1 0]]
-&lt;F test: F=array([[145.49268198]]), p=1.2834419617281953e-20, df_denom=46, df_num=2&gt;
+&lt;F test: F=array([[145.49268198]]), p=1.2834419617289997e-20, df_denom=46, df_num=2&gt;
 </pre></div></div>
 </div>
 <p>You can also use formula-like syntax to test hypotheses</p>
@@ -1100,7 +1101,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="s2">"x2 = x3 = 0"</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="s2">"x2 = x3 = 0"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1110,7 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;F test: F=array([[145.49268198]]), p=1.2834419617282074e-20, df_denom=46, df_num=2&gt;
+&lt;F test: F=array([[145.49268198]]), p=1.2834419617290716e-20, df_denom=46, df_num=2&gt;
 </pre></div></div>
 </div>
 
@@ -1134,7 +1135,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">res3</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res3</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1143,7 +1144,7 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;F test: F=array([[1.22491119]]), p=0.3031864410631272, df_denom=46, df_num=2&gt;
+&lt;F test: F=array([[1.22491119]]), p=0.30318644106321035, df_denom=46, df_num=2&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1151,7 +1152,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">res3</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="s2">"x2 = x3 = 0"</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res3</span><span class="o">.</span><span class="n">f_test</span><span class="p">(</span><span class="s2">"x2 = x3 = 0"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1160,7 +1161,7 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;F test: F=array([[1.22491119]]), p=0.30318644106312803, df_denom=46, df_num=2&gt;
+&lt;F test: F=array([[1.22491119]]), p=0.30318644106321035, df_denom=46, df_num=2&gt;
 </pre></div></div>
 </div>
 
@@ -1184,7 +1185,7 @@ Warnings:
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
 </div>
@@ -1196,7 +1197,7 @@ Warnings:
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ols_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 <span class="n">ols_results</span> <span class="o">=</span> <span class="n">ols_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ols_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ols_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1210,8 +1211,8 @@ Warnings:
 Dep. Variable:                 TOTEMP   R-squared:                       0.995
 Model:                            OLS   Adj. R-squared:                  0.992
 Method:                 Least Squares   F-statistic:                     330.3
-Date:                Sun, 15 Dec 2019   Prob (F-statistic):           4.98e-10
-Time:                        18:58:54   Log-Likelihood:                -109.62
+Date:                Mon, 16 Dec 2019   Prob (F-statistic):           4.98e-10
+Time:                        16:16:03   Log-Likelihood:                -109.62
 No. Observations:                  16   AIC:                             233.2
 Df Residuals:                       9   BIC:                             238.6
 Df Model:                           6
@@ -1244,7 +1245,7 @@ strong multicollinearity or other numerical problems.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/scipy/stats/stats.py:1450: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=16
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/scipy/stats/stats.py:1450: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=16
   "anyway, n=%i" % int(n))
 </pre></div></div>
 </div>
@@ -1273,7 +1274,7 @@ strong multicollinearity or other numerical problems.
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">eigs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">norm_xtx</span><span class="p">)</span>
 <span class="n">condition_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eigs</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="n">eigs</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">condition_number</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">condition_number</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1282,7 +1283,7 @@ strong multicollinearity or other numerical problems.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-56240.87037739987
+56240.86912789531
 </pre></div></div>
 </div>
 
@@ -1295,7 +1296,7 @@ strong multicollinearity or other numerical problems.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ols_results2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">14</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">14</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Percentage change </span><span class="si">%4.2f%%</span><span class="se">\n</span><span class="s2">"</span><span class="o">*</span><span class="mi">7</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ols_results2</span><span class="o">.</span><span class="n">params</span> <span class="o">-</span> <span class="n">ols_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">/</span><span class="n">ols_results</span><span class="o">.</span><span class="n">params</span><span class="o">*</span><span class="mi">100</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Percentage change </span><span class="si">%4.2f%%</span><span class="se">\n</span><span class="s2">"</span><span class="o">*</span><span class="mi">7</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ols_results2</span><span class="o">.</span><span class="n">params</span> <span class="o">-</span> <span class="n">ols_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">/</span><span class="n">ols_results</span><span class="o">.</span><span class="n">params</span><span class="o">*</span><span class="mi">100</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1338,17 +1339,17 @@ Percentage change 817944.26%
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.5
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.5
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">infl</span><span class="o">.</span><span class="n">summary_frame</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">"dfb"</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">infl</span><span class="o">.</span><span class="n">summary_frame</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">"dfb"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1376,11 +1377,11 @@ Percentage change 817944.26%
 15  -0.538323   102.027105  1.344844e+06  54721.897640  49660.474568
 
           dfb_POP      dfb_YEAR
-0   207954.113589 -31969.158503
+0   207954.113588 -31969.158503
 1    25343.938290 -29760.155888
 2   107465.770565 -29593.195253
 3   456190.215133 -36213.129569
-4  -389122.401699 -49905.782854
+4  -389122.401700 -49905.782854
 5   144354.586054 -28985.057609
 6  -107413.074918 -32984.462465
 7    92843.959345 -29724.975873
@@ -1399,17 +1400,17 @@ Percentage change 817944.26%
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/stats/outliers_influence.py:702: RuntimeWarning: invalid value encountered in sqrt
+/home/travis/build/statsmodels/statsmodels/statsmodels/stats/outliers_influence.py:702: RuntimeWarning: invalid value encountered in sqrt
   return self.resid / sigma / np.sqrt(1 - hii)
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:901: RuntimeWarning: invalid value encountered in greater
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:901: RuntimeWarning: invalid value encountered in greater
   return (a &lt; x) &amp; (x &lt; b)
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:901: RuntimeWarning: invalid value encountered in less
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:901: RuntimeWarning: invalid value encountered in less
   return (a &lt; x) &amp; (x &lt; b)
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:1892: RuntimeWarning: invalid value encountered in less_equal
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/scipy/stats/_distn_infrastructure.py:1892: RuntimeWarning: invalid value encountered in less_equal
   cond2 = cond0 &amp; (x &lt;= _a)
-/Users/peter/git/statsmodels/statsmodels/stats/outliers_influence.py:743: RuntimeWarning: invalid value encountered in sqrt
+/home/travis/build/statsmodels/statsmodels/statsmodels/stats/outliers_influence.py:743: RuntimeWarning: invalid value encountered in sqrt
   dffits_ = self.resid_studentized_internal * np.sqrt(hii / (1 - hii))
-/Users/peter/git/statsmodels/statsmodels/stats/outliers_influence.py:772: RuntimeWarning: invalid value encountered in sqrt
+/home/travis/build/statsmodels/statsmodels/statsmodels/stats/outliers_influence.py:772: RuntimeWarning: invalid value encountered in sqrt
   dffits_ = self.resid_studentized_external * np.sqrt(hii / (1 - hii))
 </pre></div></div>
 </div>
@@ -1465,10 +1466,10 @@ Percentage change 817944.26%
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1477,9 +1478,6 @@ Percentage change 817944.26%
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

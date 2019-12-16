@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/glm" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Generalized Linear Models </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -459,16 +460,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -477,13 +478,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -491,35 +492,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -527,56 +528,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -670,8 +671,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
@@ -687,7 +688,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -743,8 +744,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -754,7 +755,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
 </pre></div>
 </div>
 </div>
@@ -776,7 +777,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span>
 </pre></div>
 </div>
 </div>
@@ -809,7 +810,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">glm_binom</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">())</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">glm_binom</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -825,8 +826,8 @@ Model:                            GLM   Df Residuals:                      282
 Model Family:                Binomial   Df Model:                           20
 Link Function:                  logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -2998.6
-Date:                Sun, 15 Dec 2019   Deviance:                       4078.8
-Time:                        18:59:12   Pearson chi2:                 4.05e+03
+Date:                Mon, 16 Dec 2019   Deviance:                       4078.8
+Time:                        16:12:38   Pearson chi2:                 4.05e+03
 No. Iterations:                     5
 Covariance Type:            nonrobust
 ==============================================================================
@@ -864,9 +865,9 @@ const          2.9589      1.547      1.913      0.056      -0.073       5.990
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Total number of trials:'</span><span class="p">,</span>  <span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'T-values: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">tvalues</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Total number of trials:'</span><span class="p">,</span>  <span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'T-values: '</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">tvalues</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -912,7 +913,7 @@ T-values:  [-38.74908321  16.50473627 -25.1821894  -32.81791308   8.49827113
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%2.4f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">diff</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%2.4f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">diff</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -956,7 +957,7 @@ T-values:  [-38.74908321  16.50473627 -25.1821894  -32.81791308   8.49827113
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">line_fit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">line_fit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">abline_plot</span><span class="p">(</span><span class="n">model_results</span><span class="o">=</span><span class="n">line_fit</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
 
@@ -994,10 +995,10 @@ T-values:  [-38.74908321  16.50473627 -25.1821894  -32.81791308   8.49827113
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0.5, 0, 'Fitted values')
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, 'Fitted values')
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1068,7 +1069,7 @@ T-values:  [-38.74908321  16.50473627 -25.1821894  -32.81791308   8.49827113
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">scotland</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">scotland</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1100,9 +1101,9 @@ The original source files and variable information are included in
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">data2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">scotland</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<span class="n">data2</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">data2</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1134,7 +1135,7 @@ The original source files and variable information are included in
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">glm_gamma</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data2</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Gamma</span><span class="p">())</span>
 <span class="n">glm_results</span> <span class="o">=</span> <span class="n">glm_gamma</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">glm_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">glm_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1150,8 +1151,8 @@ Model:                            GLM   Df Residuals:                       24
 Model Family:                   Gamma   Df Model:                            7
 Link Function:          inverse_power   Scale:                       0.0035843
 Method:                          IRLS   Log-Likelihood:                -83.017
-Date:                Sun, 15 Dec 2019   Deviance:                     0.087389
-Time:                        18:59:13   Pearson chi2:                   0.0860
+Date:                Mon, 16 Dec 2019   Deviance:                     0.087389
+Time:                        16:12:39   Pearson chi2:                   0.0860
 No. Iterations:                     6
 Covariance Type:            nonrobust
 ==============================================================================
@@ -1173,7 +1174,7 @@ const         -0.0178      0.011     -1.548      0.122      -0.040       0.005
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/genmod/generalized_linear_model.py:279: DomainWarning: The inverse_power link function does not respect the domain of the Gamma family.
+/home/travis/build/statsmodels/statsmodels/statsmodels/genmod/generalized_linear_model.py:279: DomainWarning: The inverse_power link function does not respect the domain of the Gamma family.
   DomainWarning)
 </pre></div></div>
 </div>
@@ -1192,8 +1193,8 @@ const         -0.0178      0.011     -1.548      0.122      -0.040       0.005
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nobs2</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">54321</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">lny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="o">.</span><span class="mo">03</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="o">.</span><span class="mo">0001</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">))</span> <span class="o">+</span> <span class="o">.</span><span class="mo">001</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nobs2</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">lny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="o">.</span><span class="mi">03</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="o">.</span><span class="mi">0001</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">))</span> <span class="o">+</span> <span class="o">.</span><span class="mi">001</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nobs2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1207,7 +1208,7 @@ const         -0.0178      0.011     -1.548      0.122      -0.040       0.005
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gauss_log</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">lny</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Gaussian</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">log</span><span class="p">))</span>
 <span class="n">gauss_log_results</span> <span class="o">=</span> <span class="n">gauss_log</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">gauss_log_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gauss_log_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1223,8 +1224,8 @@ Model:                            GLM   Df Residuals:                       97
 Model Family:                Gaussian   Df Model:                            2
 Link Function:                    log   Scale:                      1.0531e-07
 Method:                          IRLS   Log-Likelihood:                 662.92
-Date:                Sun, 15 Dec 2019   Deviance:                   1.0215e-05
-Time:                        18:59:13   Pearson chi2:                 1.02e-05
+Date:                Mon, 16 Dec 2019   Deviance:                   1.0215e-05
+Time:                        16:12:39   Pearson chi2:                 1.02e-05
 No. Iterations:                     7
 Covariance Type:            nonrobust
 ==============================================================================
@@ -1241,7 +1242,7 @@ const          1.0003   5.39e-05   1.86e+04      0.000       1.000       1.000
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: Calling Family(..) with a link class as argument is deprecated.
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: Calling Family(..) with a link class as argument is deprecated.
 Use an instance of a link class instead.
   """Entry point for launching an IPython kernel.
 </pre></div></div>
@@ -1297,10 +1298,10 @@ Use an instance of a link class instead.
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1309,9 +1310,6 @@ Use an instance of a link class instead.
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

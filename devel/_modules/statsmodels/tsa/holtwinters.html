@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/holtwinters" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.holtwinters </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -290,18 +291,18 @@
 <span class="sd">"""</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">basinhopping</span><span class="p">,</span> <span class="n">brute</span><span class="p">,</span> <span class="n">minimize</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="k">import</span> <span class="n">sqeuclidean</span>
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">inv_boxcox</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">boxcox</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">basinhopping</span><span class="p">,</span> <span class="n">brute</span><span class="p">,</span> <span class="n">minimize</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">sqeuclidean</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">inv_boxcox</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">boxcox</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="k">import</span> <span class="n">Results</span>
-<span class="kn">from</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">import</span> <span class="p">(</span><span class="n">populate_wrapper</span><span class="p">,</span> <span class="n">union_dicts</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="kn">import</span> <span class="n">Results</span>
+<span class="kn">from</span> <span class="nn">statsmodels.base.wrapper</span> <span class="kn">import</span> <span class="p">(</span><span class="n">populate_wrapper</span><span class="p">,</span> <span class="n">union_dicts</span><span class="p">,</span>
                                       <span class="n">ResultsWrapper</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="k">import</span> <span class="p">(</span><span class="n">array_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span> <span class="n">float_like</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="p">(</span><span class="n">array_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span> <span class="n">float_like</span><span class="p">,</span>
                                           <span class="n">string_like</span><span class="p">,</span> <span class="n">int_like</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.base.tsa_model</span> <span class="k">import</span> <span class="n">TimeSeriesModel</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">import</span> <span class="n">freq_to_period</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.base.tsa_model</span> <span class="kn">import</span> <span class="n">TimeSeriesModel</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">freq_to_period</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa._exponential_smoothers</span> <span class="k">as</span> <span class="nn">smoothers</span>
 
 
@@ -575,7 +576,7 @@
 <span class="sd">        Optimization results if the parameters were optimized to fit the data.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">data</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">HoltWintersResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -642,8 +643,8 @@
 <span class="sd">        --------</span>
 <span class="sd">        statsmodels.iolib.summary.Summary</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
         <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">' Model Results'</span>
 
@@ -758,7 +759,7 @@
 <span class="sd">        and practice. OTexts, 2014.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">damped</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">damped</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">seasonal_periods</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ExponentialSmoothing</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span>
                                                    <span class="n">freq</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">)</span>
@@ -996,15 +997,15 @@
                     <span class="n">success</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">success</span>
 
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-                    <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
-                    <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">ConvergenceWarning</span>
+                    <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+                    <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ConvergenceWarning</span>
                     <span class="n">warn</span><span class="p">(</span><span class="s2">"Optimization failed to converge. Check mle_retvals."</span><span class="p">,</span>
                          <span class="n">ConvergenceWarning</span><span class="p">)</span>
                 <span class="n">p</span><span class="p">[</span><span class="n">xi</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span>
                 <span class="n">opt</span> <span class="o">=</span> <span class="n">res</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
-                <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">EstimationWarning</span>
+                <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+                <span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">EstimationWarning</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="s2">"Model has no free parameters to estimate. Set "</span> \
                           <span class="s2">"optimized=False to suppress this warning"</span>
                 <span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">EstimationWarning</span><span class="p">)</span>
@@ -1292,7 +1293,7 @@
 <span class="sd">        and practice. OTexts, 2014.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SimpleExpSmoothing</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SimpleExpSmoothing.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.tsa.holtwinters.SimpleExpSmoothing.fit.html#statsmodels.tsa.holtwinters.SimpleExpSmoothing.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smoothing_level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1371,7 +1372,7 @@
 <span class="sd">        and practice. OTexts, 2014.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exponential</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">damped</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exponential</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">damped</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">trend</span> <span class="o">=</span> <span class="s1">'mul'</span> <span class="k">if</span> <span class="n">exponential</span> <span class="k">else</span> <span class="s1">'add'</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Holt</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="n">trend</span><span class="p">,</span> <span class="n">damped</span><span class="o">=</span><span class="n">damped</span><span class="p">)</span>
 
@@ -1449,10 +1450,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1461,9 +1462,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

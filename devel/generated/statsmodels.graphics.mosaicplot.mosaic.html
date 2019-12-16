@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#generated/statsmodels.graphics.mosaicplot.mosaic" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.graphics.mosaicplot.mosaic </span>
         </div>
       </div>
@@ -189,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -455,14 +456,14 @@ March 1994, Vol. 89, No. 425, Theory and Methods</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statsmodels.graphics.mosaicplot</span> <span class="k">import</span> <span class="n">mosaic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statsmodels.graphics.mosaicplot</span> <span class="kn">import</span> <span class="n">mosaic</span>
 </pre></div>
 </div>
 <p>The most simple use case is to take a dictionary and plot the result</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mosaic</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'basic dictionary'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -470,14 +471,14 @@ March 1994, Vol. 89, No. 425, Theory and Methods</p>
 <p>A more useful example is given by a dictionary with multiple indices.
 In this case we use a wider gap to a better visual separation of the
 resulting plot</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">):</span> <span class="mi">4</span><span class="p">}</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">):</span> <span class="mi">4</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mosaic</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'complete dictionary'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The same data can be given as a simple or hierarchical indexed Series</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'qux'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'one'</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -487,7 +488,7 @@ resulting plot</p>
 </div>
 <p>The third accepted data structure is the np array, for which a
 very simple index will be created.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">rand</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mosaic</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'random non-labeled array'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -496,7 +497,7 @@ very simple index will be created.</p>
 <p>If you need to modify the labeling and the coloring you can give
 a function tocreate the labels and one with the graphical properties
 starting from the key tuple</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">props</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">key</span><span class="p">:</span> <span class="p">{</span><span class="s1">'color'</span><span class="p">:</span> <span class="s1">'r'</span> <span class="k">if</span> <span class="s1">'a'</span> <span class="ow">in</span> <span class="n">key</span> <span class="k">else</span> <span class="s1">'gray'</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">labelizer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="p">{(</span><span class="s1">'a'</span><span class="p">,):</span> <span class="s1">'first'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'b'</span><span class="p">,):</span> <span class="s1">'second'</span><span class="p">,</span>
 <span class="gp">... </span>                       <span class="p">(</span><span class="s1">'c'</span><span class="p">,):</span> <span class="s1">'third'</span><span class="p">}[</span><span class="n">k</span><span class="p">]</span>
@@ -506,7 +507,7 @@ starting from the key tuple</p>
 </pre></div>
 </div>
 <p>Using a DataFrame as source, specifying the name of the columns of interest</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gender</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'male'</span><span class="p">,</span> <span class="s1">'male'</span><span class="p">,</span> <span class="s1">'male'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gender</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'male'</span><span class="p">,</span> <span class="s1">'male'</span><span class="p">,</span> <span class="s1">'male'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pet</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'cat'</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'gender'</span><span class="p">:</span> <span class="n">gender</span><span class="p">,</span> <span class="s1">'pet'</span><span class="p">:</span> <span class="n">pet</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mosaic</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s1">'pet'</span><span class="p">,</span> <span class="s1">'gender'</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">'DataFrame as Source'</span><span class="p">)</span>
@@ -587,10 +588,10 @@ starting from the key tuple</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -599,9 +600,6 @@ starting from the key tuple</p>
     </div>
   </footer>
   <script src="../_static/javascripts/application.js"></script>
-  
-    <script src="../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

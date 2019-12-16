@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/statespace/structural" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.structural </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -284,22 +285,22 @@
 <span class="sd">License: Simplified-BSD</span>
 <span class="sd">"""</span>
 
-<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="k">import</span> <span class="n">Appender</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="k">import</span> <span class="n">Bunch</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">OutputWarning</span><span class="p">,</span> <span class="n">SpecificationWarning</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">Appender</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">OutputWarning</span><span class="p">,</span> <span class="n">SpecificationWarning</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.filters.hp_filter</span> <span class="k">import</span> <span class="n">hpfilter</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">import</span> <span class="n">lagmat</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.filters.hp_filter</span> <span class="kn">import</span> <span class="n">hpfilter</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">lagmat</span>
 
-<span class="kn">from</span> <span class="nn">.mlemodel</span> <span class="k">import</span> <span class="n">MLEModel</span><span class="p">,</span> <span class="n">MLEResults</span><span class="p">,</span> <span class="n">MLEResultsWrapper</span>
-<span class="kn">from</span> <span class="nn">.initialization</span> <span class="k">import</span> <span class="n">Initialization</span>
-<span class="kn">from</span> <span class="nn">.tools</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">.mlemodel</span> <span class="kn">import</span> <span class="n">MLEModel</span><span class="p">,</span> <span class="n">MLEResults</span><span class="p">,</span> <span class="n">MLEResultsWrapper</span>
+<span class="kn">from</span> <span class="nn">.initialization</span> <span class="kn">import</span> <span class="n">Initialization</span>
+<span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">companion_matrix</span><span class="p">,</span> <span class="n">constrain_stationary_univariate</span><span class="p">,</span>
     <span class="n">unconstrain_stationary_univariate</span><span class="p">,</span> <span class="n">prepare_exog</span><span class="p">)</span>
 
@@ -627,7 +628,7 @@
 <span class="sd">       Oxford University Press.</span>
 <span class="sd">    """</span>  <span class="c1"># noqa:E501</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">freq_seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">autoregressive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">irregular</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">stochastic_level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1448,7 +1449,7 @@
 <span class="sd">    statsmodels.tsa.statespace.mlemodel.MLEResults</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">UnobservedComponentsResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">cov_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1880,8 +1881,8 @@
 
 <span class="sd">        All plots contain (1 - `alpha`) %  confidence intervals.</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">norm</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="k">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
+        <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
         <span class="n">plt</span> <span class="o">=</span> <span class="n">_import_mpl</span><span class="p">()</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">create_mpl_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">figsize</span><span class="p">)</span>
 
@@ -2095,10 +2096,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2107,9 +2108,6 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

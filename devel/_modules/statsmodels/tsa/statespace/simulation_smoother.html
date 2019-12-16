@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/statespace/simulation_smoother" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.simulation_smoother </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -283,8 +284,8 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.kalman_smoother</span> <span class="k">import</span> <span class="n">KalmanSmoother</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">tools</span>
+<span class="kn">from</span> <span class="nn">.kalman_smoother</span> <span class="kn">import</span> <span class="n">KalmanSmoother</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">tools</span>
 
 <span class="n">SIMULATION_STATE</span> <span class="o">=</span> <span class="mh">0x01</span>
 <span class="n">SIMULATION_DISTURBANCE</span> <span class="o">=</span> <span class="mh">0x04</span>
@@ -327,7 +328,7 @@
         <span class="s1">'simulate_state'</span><span class="p">,</span> <span class="s1">'simulate_disturbance'</span><span class="p">,</span> <span class="s1">'simulate_all'</span>
     <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">,</span> <span class="n">k_states</span><span class="p">,</span> <span class="n">k_posdef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">,</span> <span class="n">k_states</span><span class="p">,</span> <span class="n">k_posdef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">simulation_smooth_results_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">simulation_smoother_classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SimulationSmoother</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -347,7 +348,7 @@
         <span class="c1"># simulating new time series.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_simulators</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="SimulationSmoother.get_simulation_output"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.get_simulation_output.html#statsmodels.tsa.statespace.simulation_smoother.SimulationSmoother.get_simulation_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_simulation_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">get_simulation_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                               <span class="n">simulate_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">simulate_disturbance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                               <span class="n">simulate_all</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
@@ -403,7 +404,7 @@
                 <span class="c1"># output</span>
                 <span class="n">simulation_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">smoother_output</span>
 
-        <span class="k">return</span> <span class="n">simulation_output</span></div>
+        <span class="k">return</span> <span class="n">simulation_output</span>
 
     <span class="k">def</span> <span class="nf">_simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="p">,</span> <span class="n">state_shocks</span><span class="p">,</span>
                   <span class="n">initial_state</span><span class="p">):</span>
@@ -597,7 +598,7 @@
 <span class="sd">        Simulated state disturbance.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">simulation_smoother</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">simulation_smoother</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">prefix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dtype</span>
@@ -806,7 +807,7 @@
             <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_simulated_state_disturbance</span>
 
-<div class="viewcode-block" id="SimulationSmoothResults.simulate"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.simulation_smoother.SimulationSmoothResults.simulate.html#statsmodels.tsa.statespace.simulation_smoother.SimulationSmoothResults.simulate">[docs]</a>    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_output</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">disturbance_variates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_output</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">disturbance_variates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">initial_state_variates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pretransformed_variates</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Perform simulation smoothing</span>
@@ -869,7 +870,7 @@
         <span class="c1"># Perform simulation smoothing</span>
         <span class="c1"># Note: simulation_output=-1 corresponds to whatever was setup when</span>
         <span class="c1"># the simulation smoother was constructed</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_simulation_smoother</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">simulation_output</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_simulation_smoother</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">simulation_output</span><span class="p">)</span></div>
 </pre></div>
 
           </article>
@@ -894,10 +895,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -906,9 +907,6 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

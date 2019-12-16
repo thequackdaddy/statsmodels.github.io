@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/statespace_seasonal" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Seasonality in time series data </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -495,16 +496,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -513,13 +514,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -527,35 +528,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -563,56 +564,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -711,10 +712,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -728,7 +729,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># First we'll simulate the synthetic data</span>
 <span class="k">def</span> <span class="nf">simulate_seasonal_term</span><span class="p">(</span><span class="n">periodicity</span><span class="p">,</span> <span class="n">total_cycles</span><span class="p">,</span> <span class="n">noise_std</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
-                           <span class="n">harmonics</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+                           <span class="n">harmonics</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">duration</span> <span class="o">=</span> <span class="n">periodicity</span> <span class="o">*</span> <span class="n">total_cycles</span>
     <span class="k">assert</span> <span class="n">duration</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
     <span class="n">duration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
@@ -808,16 +809,17 @@ div.rendered_html tbody tr:hover {
 <h2 id="Unobserved-components-(frequency-domain-modeling)">Unobserved components (frequency domain modeling)<a class="headerlink" href="#Unobserved-components-(frequency-domain-modeling)" title="Permalink to this headline">¶</a></h2>
 <p>The next method is an unobserved components model, where the trend is modeled as a fixed intercept and the seasonal components are modeled using trigonometric functions with primary periodicities of 10 and 100, respectively, and number of harmonics 3 and 2, respectively. Note that this is the correct, generating model. The process for the time series can be written as:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}  \begin{align}
-  y_t &amp; = \mu_t + \gamma^{(1)}_t + \gamma^{(2)}_t + \epsilon_t\\
-  \mu_{t+1} &amp; = \mu_t \\
-  \gamma^{(1)}_{t} &amp;= \sum_{j=1}^2 \gamma^{(1)}_{j, t} \\
-  \gamma^{(2)}_{t} &amp;= \sum_{j=1}^3 \gamma^{(2)}_{j, t}\\
-  \gamma^{(1)}_{j, t+1} &amp;= \gamma^{(1)}_{j, t}\cos(\lambda_j) + \gamma^{*, (1)}_{j, t}\sin(\lambda_j) + \omega^{(1)}_{j,t}, ~j = 1, 2, 3\\
-  \gamma^{*, (1)}_{j, t+1} &amp;= -\gamma^{(1)}_{j, t}\sin(\lambda_j) + \gamma^{*, (1)}_{j, t}\cos(\lambda_j) + \omega^{*, (1)}_{j, t}, ~j = 1, 2, 3\\
-  \gamma^{(2)}_{j, t+1} &amp;= \gamma^{(2)}_{j, t}\cos(\lambda_j) + \gamma^{*, (2)}_{j, t}\sin(\lambda_j) + \omega^{(2)}_{j,t}, ~j = 1, 2\\
-  \gamma^{*, (2)}_{j, t+1} &amp;= -\gamma^{(2)}_{j, t}\sin(\lambda_j) + \gamma^{*, (2)}_{j, t}\cos(\lambda_j) + \omega^{*, (2)}_{j, t}, ~j = 1, 2\\
-  \end{align}\end{split}\\$$\end{aligned}\end{align} \]</div>
+\[\begin{split}\begin{align}
+y_t &amp; = \mu_t + \gamma^{(1)}_t + \gamma^{(2)}_t + \epsilon_t\\
+\mu_{t+1} &amp; = \mu_t \\
+\gamma^{(1)}_{t} &amp;= \sum_{j=1}^2 \gamma^{(1)}_{j, t} \\
+\gamma^{(2)}_{t} &amp;= \sum_{j=1}^3 \gamma^{(2)}_{j, t}\\
+\gamma^{(1)}_{j, t+1} &amp;= \gamma^{(1)}_{j, t}\cos(\lambda_j) + \gamma^{*, (1)}_{j, t}\sin(\lambda_j) + \omega^{(1)}_{j,t}, ~j = 1, 2, 3\\
+\gamma^{*, (1)}_{j, t+1} &amp;= -\gamma^{(1)}_{j, t}\sin(\lambda_j) + \gamma^{*, (1)}_{j, t}\cos(\lambda_j) + \omega^{*, (1)}_{j, t}, ~j = 1, 2, 3\\
+\gamma^{(2)}_{j, t+1} &amp;= \gamma^{(2)}_{j, t}\cos(\lambda_j) + \gamma^{*, (2)}_{j, t}\sin(\lambda_j) + \omega^{(2)}_{j,t}, ~j = 1, 2\\
+\gamma^{*, (2)}_{j, t+1} &amp;= -\gamma^{(2)}_{j, t}\sin(\lambda_j) + \gamma^{*, (2)}_{j, t}\cos(\lambda_j) + \omega^{*, (2)}_{j, t}, ~j = 1, 2\\
+\end{align}\end{split}\]</div>
+<p>$$</p>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is white noise, <span class="math notranslate nohighlight">\(\omega^{(1)}_{j,t}\)</span> are i.i.d. <span class="math notranslate nohighlight">\(N(0, \sigma^2_1)\)</span>, and <span class="math notranslate nohighlight">\(\omega^{(2)}_{j,t}\)</span> are i.i.d. <span class="math notranslate nohighlight">\(N(0, \sigma^2_2)\)</span>, where <span class="math notranslate nohighlight">\(\sigma_1 = 2.\)</span></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -830,10 +832,10 @@ div.rendered_html tbody tr:hover {
                                                     <span class="s1">'harmonics'</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
                                                    <span class="p">{</span><span class="s1">'period'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
                                                     <span class="s1">'harmonics'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span>
-<span class="n">res_f</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res_f</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_f</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_f</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="c1"># The first state variable holds our estimate of the intercept</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as {0:.3f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_f</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as </span><span class="si">{0:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_f</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
 
 <span class="n">res_f</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -852,8 +854,8 @@ Dep. Variable:                                      y   No. Observations:       
 Model:                                fixed intercept   Log Likelihood               -1145.631
                     + stochastic freq_seasonal(10(3))   AIC                           2295.261
                    + stochastic freq_seasonal(100(2))   BIC                           2302.594
-Date:                                Sun, 15 Dec 2019   HQIC                          2298.200
-Time:                                        18:58:59
+Date:                                Mon, 16 Dec 2019   HQIC                          2298.200
+Time:                                        16:12:14
 Sample:                                             0
                                                 - 300
 Covariance Type:                                  opg
@@ -894,8 +896,9 @@ fixed intercept estimated as 4.053
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,
          0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
          0.        ],
        [ 0.        ,  0.80901699,  0.58778525,  0.        ,  0.        ,
@@ -928,8 +931,7 @@ fixed intercept estimated as 4.053
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
          0.        ,  0.        ,  0.        ,  0.        , -0.12533323,
          0.9921147 ]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>Observe that the fitted variances are pretty close to the true variances of 4 and 9. Further, the individual seasonal components look pretty close to the true seasonal components. The smoothed level term is kind of close to the true level of 10. Finally, our diagnostics look solid; the test statistics are small enough to fail to reject our three tests.</p>
 
@@ -955,10 +957,10 @@ y_t &amp; = \mu_t + \gamma^{(1)}_t + \gamma^{(2)}_t + \epsilon_t\\
                                     <span class="n">seasonal</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                     <span class="n">freq_seasonal</span><span class="o">=</span><span class="p">[{</span><span class="s1">'period'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
                                                     <span class="s1">'harmonics'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span>
-<span class="n">res_tf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res_tf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_tf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_tf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="c1"># The first state variable holds our estimate of the intercept</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as {0:.3f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_tf</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as </span><span class="si">{0:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_tf</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
 
 <span class="n">res_tf</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -976,8 +978,8 @@ Dep. Variable:                                      y   No. Observations:       
 Model:                                fixed intercept   Log Likelihood               -1238.113
                             + stochastic seasonal(10)   AIC                           2480.226
                    + stochastic freq_seasonal(100(2))   BIC                           2487.538
-Date:                                Sun, 15 Dec 2019   HQIC                          2483.157
-Time:                                        18:59:01
+Date:                                Mon, 16 Dec 2019   HQIC                          2483.157
+Time:                                        16:12:15
 Sample:                                             0
                                                 - 300
 Covariance Type:                                  opg
@@ -1028,10 +1030,10 @@ y_t &amp; = \mu_t + \gamma^{(1)}_t + \epsilon_t\\
 <span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">series</span><span class="p">,</span>
                                     <span class="n">level</span><span class="o">=</span><span class="s1">'fixed intercept'</span><span class="p">,</span>
                                     <span class="n">freq_seasonal</span><span class="o">=</span><span class="p">[{</span><span class="s1">'period'</span><span class="p">:</span> <span class="mi">100</span><span class="p">}])</span>
-<span class="n">res_lf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res_lf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_lf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_lf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="c1"># The first state variable holds our estimate of the intercept</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as {0:.3f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_lf</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as </span><span class="si">{0:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_lf</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
 
 <span class="n">res_lf</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1048,8 +1050,8 @@ y_t &amp; = \mu_t + \gamma^{(1)}_t + \epsilon_t\\
 Dep. Variable:                                       y   No. Observations:                  300
 Model:                                 fixed intercept   Log Likelihood               -1101.455
                    + stochastic freq_seasonal(100(50))   AIC                           2204.910
-Date:                                 Sun, 15 Dec 2019   BIC                           2208.204
-Time:                                         18:59:17   HQIC                          2206.243
+Date:                                 Mon, 16 Dec 2019   BIC                           2208.204
+Time:                                         16:12:21   HQIC                          2206.243
 Sample:                                              0
                                                  - 300
 Covariance Type:                                   opg
@@ -1096,10 +1098,10 @@ y_t &amp; =\mu_t + \gamma^{(1)}_t + \epsilon_t\\
 <span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">series</span><span class="p">,</span>
                                     <span class="n">level</span><span class="o">=</span><span class="s1">'fixed intercept'</span><span class="p">,</span>
                                     <span class="n">seasonal</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">res_lt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res_lt</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_lt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_lt</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="c1"># The first state variable holds our estimate of the intercept</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as {0:.3f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_lt</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"fixed intercept estimated as </span><span class="si">{0:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_lt</span><span class="o">.</span><span class="n">smoother_results</span><span class="o">.</span><span class="n">smoothed_state</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">]))</span>
 
 <span class="n">res_lt</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1116,8 +1118,8 @@ y_t &amp; =\mu_t + \gamma^{(1)}_t + \epsilon_t\\
 Dep. Variable:                              y   No. Observations:                  300
 Model:                        fixed intercept   Log Likelihood               -1564.378
                    + stochastic seasonal(100)   AIC                           3130.756
-Date:                        Sun, 15 Dec 2019   BIC                           3134.054
-Time:                                18:59:23   HQIC                          3132.091
+Date:                        Mon, 16 Dec 2019   BIC                           3134.054
+Time:                                16:12:26   HQIC                          3132.091
 Sample:                                     0
                                         - 300
 Covariance Type:                          opg
@@ -1295,10 +1297,10 @@ large number of states and incur additional variance as a result.</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1307,9 +1309,6 @@ large number of states and incur additional variance as a result.</p>
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

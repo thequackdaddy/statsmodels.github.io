@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/statespace_varmax" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> VARMAX models </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -479,16 +480,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -497,13 +498,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -511,35 +512,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -547,56 +548,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -695,10 +696,10 @@ M_1 \epsilon_{t-1} + \dots M_q \epsilon_{t-q}\]</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -728,8 +729,8 @@ M_1 \epsilon_{t-1} + \dots M_q \epsilon_{t-q}\]</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">exog</span> <span class="o">=</span> <span class="n">endog</span><span class="p">[</span><span class="s1">'dln_consump'</span><span class="p">]</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">VARMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">[[</span><span class="s1">'dln_inv'</span><span class="p">,</span> <span class="s1">'dln_inc'</span><span class="p">]],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -738,7 +739,7 @@ M_1 \epsilon_{t-1} + \dots M_q \epsilon_{t-q}\]</div>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -750,42 +751,42 @@ M_1 \epsilon_{t-1} + \dots M_q \epsilon_{t-q}\]</div>
                              Statespace Model Results
 ==================================================================================
 Dep. Variable:     ['dln_inv', 'dln_inc']   No. Observations:                   75
-Model:                            VARX(2)   Log Likelihood                 361.039
-Date:                    Sun, 15 Dec 2019   AIC                           -696.078
-Time:                            18:59:14   BIC                           -665.951
-Sample:                        04-01-1960   HQIC                          -684.049
+Model:                            VARX(2)   Log Likelihood                 361.036
+Date:                    Mon, 16 Dec 2019   AIC                           -696.072
+Time:                            16:13:10   BIC                           -665.945
+Sample:                        04-01-1960   HQIC                          -684.043
                              - 10-01-1978
 Covariance Type:                      opg
 ===================================================================================
-Ljung-Box (Q):                61.34, 39.27   Jarque-Bera (JB):          11.26, 2.40
-Prob(Q):                        0.02, 0.50   Prob(JB):                   0.00, 0.30
+Ljung-Box (Q):                61.20, 39.27   Jarque-Bera (JB):          11.47, 2.34
+Prob(Q):                        0.02, 0.50   Prob(JB):                   0.00, 0.31
 Heteroskedasticity (H):         0.45, 0.40   Skew:                      0.16, -0.38
-Prob(H) (two-sided):            0.05, 0.03   Kurtosis:                   4.87, 3.44
+Prob(H) (two-sided):            0.05, 0.03   Kurtosis:                   4.89, 3.43
                             Results for equation dln_inv
 ====================================================================================
                        coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------------
-L1.dln_inv          -0.2400      0.093     -2.580      0.010      -0.422      -0.058
-L1.dln_inc           0.2907      0.449      0.647      0.518      -0.590       1.172
-L2.dln_inv          -0.1650      0.155     -1.063      0.288      -0.469       0.139
-L2.dln_inc           0.0778      0.422      0.184      0.854      -0.749       0.905
-beta.dln_consump     0.9541      0.639      1.492      0.136      -0.299       2.207
+L1.dln_inv          -0.2372      0.093     -2.544      0.011      -0.420      -0.054
+L1.dln_inc           0.2837      0.449      0.632      0.528      -0.597       1.164
+L2.dln_inv          -0.1648      0.156     -1.057      0.290      -0.470       0.141
+L2.dln_inc           0.0754      0.422      0.178      0.858      -0.752       0.903
+beta.dln_consump     0.9544      0.640      1.492      0.136      -0.300       2.208
                             Results for equation dln_inc
 ====================================================================================
                        coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------------
-L1.dln_inv           0.0633      0.036      1.770      0.077      -0.007       0.133
-L1.dln_inc           0.0816      0.107      0.761      0.446      -0.129       0.292
-L2.dln_inv           0.0102      0.033      0.310      0.757      -0.054       0.075
-L2.dln_inc           0.0339      0.134      0.253      0.801      -0.229       0.297
-beta.dln_consump     0.7737      0.112      6.893      0.000       0.554       0.994
+L1.dln_inv           0.0636      0.036      1.782      0.075      -0.006       0.134
+L1.dln_inc           0.0847      0.107      0.793      0.428      -0.125       0.294
+L2.dln_inv           0.0098      0.033      0.298      0.765      -0.055       0.074
+L2.dln_inc           0.0356      0.134      0.265      0.791      -0.227       0.299
+beta.dln_consump     0.7684      0.112      6.853      0.000       0.549       0.988
                                   Error covariance matrix
 ============================================================================================
                                coef    std err          z      P&gt;|z|      [0.025      0.975]
 --------------------------------------------------------------------------------------------
-sqrt.var.dln_inv             0.0434      0.004     12.291      0.000       0.036       0.050
-sqrt.cov.dln_inv.dln_inc  5.537e-05      0.002      0.028      0.978      -0.004       0.004
-sqrt.var.dln_inc             0.0109      0.001     11.221      0.000       0.009       0.013
+sqrt.var.dln_inv             0.0434      0.004     12.269      0.000       0.036       0.050
+sqrt.cov.dln_inv.dln_inc  5.368e-05      0.002      0.027      0.979      -0.004       0.004
+sqrt.var.dln_inc             0.0109      0.001     11.239      0.000       0.009       0.013
 ============================================================================================
 
 Warnings:
@@ -798,7 +799,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">orthogonalized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">orthogonalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'t'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Responses to a shock to `dln_inv`'</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -820,8 +821,8 @@ Warnings:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">VARMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">[[</span><span class="s1">'dln_inv'</span><span class="p">,</span> <span class="s1">'dln_inc'</span><span class="p">]],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">error_cov_type</span><span class="o">=</span><span class="s1">'diagonal'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -830,7 +831,7 @@ Warnings:
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -842,42 +843,42 @@ Warnings:
                              Statespace Model Results
 ==================================================================================
 Dep. Variable:     ['dln_inv', 'dln_inc']   No. Observations:                   75
-Model:                             VMA(2)   Log Likelihood                 353.886
-                              + intercept   AIC                           -683.772
-Date:                    Sun, 15 Dec 2019   BIC                           -655.963
-Time:                            18:59:30   HQIC                          -672.668
+Model:                             VMA(2)   Log Likelihood                 353.887
+                              + intercept   AIC                           -683.774
+Date:                    Mon, 16 Dec 2019   BIC                           -655.964
+Time:                            16:13:14   HQIC                          -672.670
 Sample:                        04-01-1960
                              - 10-01-1978
 Covariance Type:                      opg
 ===================================================================================
-Ljung-Box (Q):                68.73, 39.10   Jarque-Bera (JB):         12.53, 12.99
+Ljung-Box (Q):                68.83, 39.18   Jarque-Bera (JB):         12.37, 13.43
 Prob(Q):                        0.00, 0.51   Prob(JB):                   0.00, 0.00
 Heteroskedasticity (H):         0.44, 0.81   Skew:                      0.05, -0.48
-Prob(H) (two-sided):            0.04, 0.60   Kurtosis:                   5.00, 4.80
+Prob(H) (two-sided):            0.04, 0.60   Kurtosis:                   4.99, 4.84
                            Results for equation dln_inv
 =================================================================================
                     coef    std err          z      P&gt;|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-intercept         0.0182      0.005      3.826      0.000       0.009       0.028
-L1.e(dln_inv)    -0.2607      0.106     -2.467      0.014      -0.468      -0.054
-L1.e(dln_inc)     0.5266      0.633      0.832      0.405      -0.714       1.767
-L2.e(dln_inv)     0.0291      0.148      0.196      0.845      -0.262       0.320
-L2.e(dln_inc)     0.1762      0.477      0.370      0.712      -0.758       1.110
+intercept         0.0182      0.005      3.803      0.000       0.009       0.028
+L1.e(dln_inv)    -0.2638      0.106     -2.499      0.012      -0.471      -0.057
+L1.e(dln_inc)     0.5232      0.632      0.828      0.407      -0.715       1.761
+L2.e(dln_inv)     0.0348      0.148      0.235      0.814      -0.255       0.324
+L2.e(dln_inc)     0.1824      0.477      0.383      0.702      -0.752       1.117
                            Results for equation dln_inc
 =================================================================================
                     coef    std err          z      P&gt;|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-intercept         0.0208      0.002     13.083      0.000       0.018       0.024
-L1.e(dln_inv)     0.0487      0.042      1.173      0.241      -0.033       0.130
-L1.e(dln_inc)    -0.0808      0.139     -0.583      0.560      -0.352       0.191
-L2.e(dln_inv)     0.0174      0.042      0.409      0.682      -0.066       0.100
-L2.e(dln_inc)     0.1312      0.152      0.861      0.389      -0.167       0.430
+intercept         0.0207      0.002     13.029      0.000       0.018       0.024
+L1.e(dln_inv)     0.0484      0.042      1.163      0.245      -0.033       0.130
+L1.e(dln_inc)    -0.0755      0.139     -0.542      0.588      -0.349       0.198
+L2.e(dln_inv)     0.0177      0.042      0.419      0.676      -0.065       0.101
+L2.e(dln_inc)     0.1298      0.153      0.849      0.396      -0.170       0.429
                              Error covariance matrix
 ==================================================================================
                      coef    std err          z      P&gt;|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------
-sigma2.dln_inv     0.0020      0.000      7.353      0.000       0.001       0.003
-sigma2.dln_inc     0.0001   2.33e-05      5.824      0.000       9e-05       0.000
+sigma2.dln_inv     0.0020      0.000      7.366      0.000       0.001       0.003
+sigma2.dln_inc     0.0001   2.33e-05      5.818      0.000    8.99e-05       0.000
 ==================================================================================
 
 Warnings:
@@ -894,8 +895,8 @@ Warnings:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">VARMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">[[</span><span class="s1">'dln_inv'</span><span class="p">,</span> <span class="s1">'dln_inc'</span><span class="p">]],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -904,9 +905,9 @@ Warnings:
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/tsa/statespace/varmax.py:164: EstimationWarning: Estimation of VARMA(p,q) models is not generically robust, due especially to identification issues.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/statespace/varmax.py:164: EstimationWarning: Estimation of VARMA(p,q) models is not generically robust, due especially to identification issues.
   EstimationWarning)
-/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency QS-OCT will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -918,43 +919,43 @@ Warnings:
                              Statespace Model Results
 ==================================================================================
 Dep. Variable:     ['dln_inv', 'dln_inc']   No. Observations:                   75
-Model:                         VARMA(1,1)   Log Likelihood                 355.082
-                              + intercept   AIC                           -684.164
-Date:                    Sun, 15 Dec 2019   BIC                           -654.037
-Time:                            18:59:39   HQIC                          -672.135
+Model:                         VARMA(1,1)   Log Likelihood                 354.288
+                              + intercept   AIC                           -682.576
+Date:                    Mon, 16 Dec 2019   BIC                           -652.449
+Time:                            16:13:16   HQIC                          -670.547
 Sample:                        04-01-1960
                              - 10-01-1978
 Covariance Type:                      opg
 ===================================================================================
-Ljung-Box (Q):                65.63, 35.92   Jarque-Bera (JB):         11.74, 19.64
-Prob(Q):                        0.01, 0.65   Prob(JB):                   0.00, 0.00
-Heteroskedasticity (H):         0.42, 0.86   Skew:                      0.04, -0.55
-Prob(H) (two-sided):            0.03, 0.70   Kurtosis:                   4.94, 5.25
+Ljung-Box (Q):                68.33, 39.15   Jarque-Bera (JB):         11.07, 14.06
+Prob(Q):                        0.00, 0.51   Prob(JB):                   0.00, 0.00
+Heteroskedasticity (H):         0.43, 0.91   Skew:                      0.01, -0.46
+Prob(H) (two-sided):            0.04, 0.81   Kurtosis:                   4.88, 4.92
                            Results for equation dln_inv
 =================================================================================
                     coef    std err          z      P&gt;|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-intercept        -0.0016      0.036     -0.044      0.965      -0.072       0.069
-L1.dln_inv       -0.0275      0.561     -0.049      0.961      -1.127       1.072
-L1.dln_inc        0.9911      1.514      0.655      0.513      -1.976       3.958
-L1.e(dln_inv)    -0.2305      0.588     -0.392      0.695      -1.382       0.921
-L1.e(dln_inc)    -0.4611      1.797     -0.257      0.798      -3.984       3.062
+intercept         0.0105      0.066      0.160      0.873      -0.118       0.139
+L1.dln_inv       -0.0061      0.699     -0.009      0.993      -1.375       1.363
+L1.dln_inc        0.3822      2.763      0.138      0.890      -5.032       5.797
+L1.e(dln_inv)    -0.2484      0.709     -0.350      0.726      -1.638       1.141
+L1.e(dln_inc)     0.1247      3.012      0.041      0.967      -5.779       6.029
                            Results for equation dln_inc
 =================================================================================
                     coef    std err          z      P&gt;|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-intercept         0.0066      0.009      0.758      0.449      -0.011       0.024
-L1.dln_inv        0.0226      0.187      0.121      0.904      -0.344       0.390
-L1.dln_inc        0.6614      0.344      1.921      0.055      -0.013       1.336
-L1.e(dln_inv)     0.0294      0.181      0.162      0.871      -0.326       0.385
-L1.e(dln_inc)    -0.6102      0.387     -1.575      0.115      -1.369       0.149
+intercept         0.0165      0.027      0.601      0.548      -0.037       0.070
+L1.dln_inv       -0.0334      0.279     -0.119      0.905      -0.581       0.514
+L1.dln_inc        0.2348      1.114      0.211      0.833      -1.950       2.419
+L1.e(dln_inv)     0.0889      0.286      0.311      0.756      -0.471       0.649
+L1.e(dln_inc)    -0.2382      1.149     -0.207      0.836      -2.490       2.014
                                   Error covariance matrix
 ============================================================================================
                                coef    std err          z      P&gt;|z|      [0.025      0.975]
 --------------------------------------------------------------------------------------------
-sqrt.var.dln_inv             0.0448      0.003     14.333      0.000       0.039       0.051
-sqrt.cov.dln_inv.dln_inc     0.0013      0.002      0.554      0.580      -0.003       0.006
-sqrt.var.dln_inc             0.0115      0.001     13.185      0.000       0.010       0.013
+sqrt.var.dln_inv             0.0449      0.003     14.523      0.000       0.039       0.051
+sqrt.cov.dln_inv.dln_inc     0.0017      0.003      0.650      0.516      -0.003       0.007
+sqrt.var.dln_inc             0.0116      0.001     11.712      0.000       0.010       0.013
 ============================================================================================
 
 Warnings:
@@ -1011,10 +1012,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1023,9 +1024,6 @@ Warnings:
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

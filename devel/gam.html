@@ -63,6 +63,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#gam" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Generalized Additive Models (GAM) </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -427,133 +428,135 @@ two explanatory variables is captured by penalized B-splines.
 The data is from the automobile dataset
 <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/automobile">https://archive.ics.uci.edu/ml/datasets/automobile</a>
 We can load a dataframe with selected columns from the unit test module.</p>
-<pre class="literal-block">In [1]: import statsmodels.api as sm
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
-In [2]: from statsmodels.gam.api import GLMGam, BSplines
+<span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">statsmodels.gam.api</span> <span class="kn">import</span> <span class="n">GLMGam</span><span class="p">,</span> <span class="n">BSplines</span>
 
-# import data
-In [3]: from statsmodels.gam.tests.test_penalized import df_autos
+<span class="go"># import data</span>
+<span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">statsmodels.gam.tests.test_penalized</span> <span class="kn">import</span> <span class="n">df_autos</span>
 
-# create spline basis for weight and hp
-In [4]: x_spline = df_autos[['weight', 'hp']]
+<span class="go"># create spline basis for weight and hp</span>
+<span class="gp">In [4]: </span><span class="n">x_spline</span> <span class="o">=</span> <span class="n">df_autos</span><span class="p">[[</span><span class="s1">'weight'</span><span class="p">,</span> <span class="s1">'hp'</span><span class="p">]]</span>
 
-In [5]: bs = BSplines(x_spline, df=[12, 10], degree=[3, 3])
+<span class="gp">In [5]: </span><span class="n">bs</span> <span class="o">=</span> <span class="n">BSplines</span><span class="p">(</span><span class="n">x_spline</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">degree</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-# penalization weight
-In [6]: alpha = np.array([21833888.8, 6460.38479])
+<span class="go"># penalization weight</span>
+<span class="gp">In [6]: </span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">21833888.8</span><span class="p">,</span> <span class="mf">6460.38479</span><span class="p">])</span>
 
-In [7]: gam_bs = GLMGam.from_formula('city_mpg ~ fuel + drive', data=df_autos,
-   ...:                              smoother=bs, alpha=alpha)
-   ...: 
+<span class="gp">In [7]: </span><span class="n">gam_bs</span> <span class="o">=</span> <span class="n">GLMGam</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">'city_mpg ~ fuel + drive'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_autos</span><span class="p">,</span>
+<span class="gp">   ...: </span>                             <span class="n">smoother</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="gp">   ...: </span>
 
-In [8]: res_bs = gam_bs.fit()
+<span class="gp">In [8]: </span><span class="n">res_bs</span> <span class="o">=</span> <span class="n">gam_bs</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-In [9]: print(res_bs.summary())
-                 Generalized Linear Model Regression Results                  
-==============================================================================
-Dep. Variable:               city_mpg   No. Observations:                  203
-Model:                         GLMGam   Df Residuals:                   189.13
-Model Family:                Gaussian   Df Model:                        12.87
-Link Function:               identity   Scale:                          4.8825
-Method:                         PIRLS   Log-Likelihood:                -441.81
-Date:                Sun, 15 Dec 2019   Deviance:                       923.45
-Time:                        19:01:47   Pearson chi2:                     923.
-No. Iterations:                     3                                         
-Covariance Type:            nonrobust                                         
-================================================================================
-                   coef    std err          z      P&gt;|z|      [0.025      0.975]
---------------------------------------------------------------------------------
-Intercept       51.9923      1.997     26.034      0.000      48.078      55.906
-fuel[T.gas]     -5.8099      0.727     -7.989      0.000      -7.235      -4.385
-drive[T.fwd]     1.3910      0.819      1.699      0.089      -0.213       2.995
-drive[T.rwd]     1.0638      0.842      1.263      0.207      -0.587       2.715
-weight_s0       -3.5556      0.959     -3.707      0.000      -5.436      -1.676
-weight_s1       -9.0876      1.750     -5.193      0.000     -12.518      -5.658
-weight_s2      -13.0303      1.827     -7.132      0.000     -16.611      -9.450
-weight_s3      -14.2641      1.854     -7.695      0.000     -17.897     -10.631
-weight_s4      -15.1805      1.892     -8.024      0.000     -18.889     -11.472
-weight_s5      -15.9557      1.963     -8.128      0.000     -19.803     -12.108
-weight_s6      -16.6297      2.038     -8.161      0.000     -20.624     -12.636
-weight_s7      -16.9928      2.045     -8.308      0.000     -21.002     -12.984
-weight_s8      -19.3480      2.367     -8.174      0.000     -23.987     -14.709
-weight_s9      -20.7978      2.455     -8.472      0.000     -25.609     -15.986
-weight_s10     -20.8062      2.443     -8.517      0.000     -25.594     -16.018
-hp_s0           -1.4473      0.558     -2.592      0.010      -2.542      -0.353
-hp_s1           -3.4228      1.012     -3.381      0.001      -5.407      -1.438
-hp_s2           -5.9026      1.251     -4.717      0.000      -8.355      -3.450
-hp_s3           -7.2389      1.352     -5.354      0.000      -9.889      -4.589
-hp_s4           -9.1052      1.384     -6.581      0.000     -11.817      -6.393
-hp_s5           -9.9865      1.525     -6.547      0.000     -12.976      -6.997
-hp_s6          -13.3639      2.228     -5.998      0.000     -17.731      -8.997
-hp_s7          -13.8902      3.194     -4.349      0.000     -20.150      -7.630
-hp_s8          -11.9752      2.556     -4.685      0.000     -16.985      -6.965
-================================================================================
+<span class="gp">In [9]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res_bs</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="go">                 Generalized Linear Model Regression Results                  </span>
+<span class="go">==============================================================================</span>
+<span class="go">Dep. Variable:               city_mpg   No. Observations:                  203</span>
+<span class="go">Model:                         GLMGam   Df Residuals:                   189.13</span>
+<span class="go">Model Family:                Gaussian   Df Model:                        12.87</span>
+<span class="go">Link Function:               identity   Scale:                          4.8825</span>
+<span class="go">Method:                         PIRLS   Log-Likelihood:                -441.81</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Deviance:                       923.45</span>
+<span class="go">Time:                        16:17:47   Pearson chi2:                     923.</span>
+<span class="go">No. Iterations:                     3                                         </span>
+<span class="go">Covariance Type:            nonrobust                                         </span>
+<span class="go">================================================================================</span>
+<span class="go">                   coef    std err          z      P&gt;|z|      [0.025      0.975]</span>
+<span class="gt">--------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>       <span class="mf">51.9923</span>      <span class="mf">1.997</span>     <span class="mf">26.034</span>      <span class="mf">0.000</span>      <span class="mf">48.078</span>      <span class="mf">55.906</span>
+<span class="n">fuel</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">gas</span><span class="p">]</span>     <span class="o">-</span><span class="mf">5.8099</span>      <span class="mf">0.727</span>     <span class="o">-</span><span class="mf">7.989</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">7.235</span>      <span class="o">-</span><span class="mf">4.385</span>
+<span class="n">drive</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">fwd</span><span class="p">]</span>     <span class="mf">1.3910</span>      <span class="mf">0.819</span>      <span class="mf">1.699</span>      <span class="mf">0.089</span>      <span class="o">-</span><span class="mf">0.213</span>       <span class="mf">2.995</span>
+<span class="n">drive</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">rwd</span><span class="p">]</span>     <span class="mf">1.0638</span>      <span class="mf">0.842</span>      <span class="mf">1.263</span>      <span class="mf">0.207</span>      <span class="o">-</span><span class="mf">0.587</span>       <span class="mf">2.715</span>
+<span class="n">weight_s0</span>       <span class="o">-</span><span class="mf">3.5556</span>      <span class="mf">0.959</span>     <span class="o">-</span><span class="mf">3.707</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">5.436</span>      <span class="o">-</span><span class="mf">1.676</span>
+<span class="n">weight_s1</span>       <span class="o">-</span><span class="mf">9.0876</span>      <span class="mf">1.750</span>     <span class="o">-</span><span class="mf">5.193</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">12.518</span>      <span class="o">-</span><span class="mf">5.658</span>
+<span class="n">weight_s2</span>      <span class="o">-</span><span class="mf">13.0303</span>      <span class="mf">1.827</span>     <span class="o">-</span><span class="mf">7.132</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">16.611</span>      <span class="o">-</span><span class="mf">9.450</span>
+<span class="n">weight_s3</span>      <span class="o">-</span><span class="mf">14.2641</span>      <span class="mf">1.854</span>     <span class="o">-</span><span class="mf">7.695</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">17.897</span>     <span class="o">-</span><span class="mf">10.631</span>
+<span class="n">weight_s4</span>      <span class="o">-</span><span class="mf">15.1805</span>      <span class="mf">1.892</span>     <span class="o">-</span><span class="mf">8.024</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">18.889</span>     <span class="o">-</span><span class="mf">11.472</span>
+<span class="n">weight_s5</span>      <span class="o">-</span><span class="mf">15.9557</span>      <span class="mf">1.963</span>     <span class="o">-</span><span class="mf">8.128</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">19.803</span>     <span class="o">-</span><span class="mf">12.108</span>
+<span class="n">weight_s6</span>      <span class="o">-</span><span class="mf">16.6297</span>      <span class="mf">2.038</span>     <span class="o">-</span><span class="mf">8.161</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">20.624</span>     <span class="o">-</span><span class="mf">12.636</span>
+<span class="n">weight_s7</span>      <span class="o">-</span><span class="mf">16.9928</span>      <span class="mf">2.045</span>     <span class="o">-</span><span class="mf">8.308</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">21.002</span>     <span class="o">-</span><span class="mf">12.984</span>
+<span class="n">weight_s8</span>      <span class="o">-</span><span class="mf">19.3480</span>      <span class="mf">2.367</span>     <span class="o">-</span><span class="mf">8.174</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">23.987</span>     <span class="o">-</span><span class="mf">14.709</span>
+<span class="n">weight_s9</span>      <span class="o">-</span><span class="mf">20.7978</span>      <span class="mf">2.455</span>     <span class="o">-</span><span class="mf">8.472</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">25.609</span>     <span class="o">-</span><span class="mf">15.986</span>
+<span class="n">weight_s10</span>     <span class="o">-</span><span class="mf">20.8062</span>      <span class="mf">2.443</span>     <span class="o">-</span><span class="mf">8.517</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">25.594</span>     <span class="o">-</span><span class="mf">16.018</span>
+<span class="n">hp_s0</span>           <span class="o">-</span><span class="mf">1.4473</span>      <span class="mf">0.558</span>     <span class="o">-</span><span class="mf">2.592</span>      <span class="mf">0.010</span>      <span class="o">-</span><span class="mf">2.542</span>      <span class="o">-</span><span class="mf">0.353</span>
+<span class="n">hp_s1</span>           <span class="o">-</span><span class="mf">3.4228</span>      <span class="mf">1.012</span>     <span class="o">-</span><span class="mf">3.381</span>      <span class="mf">0.001</span>      <span class="o">-</span><span class="mf">5.407</span>      <span class="o">-</span><span class="mf">1.438</span>
+<span class="n">hp_s2</span>           <span class="o">-</span><span class="mf">5.9026</span>      <span class="mf">1.251</span>     <span class="o">-</span><span class="mf">4.717</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">8.355</span>      <span class="o">-</span><span class="mf">3.450</span>
+<span class="n">hp_s3</span>           <span class="o">-</span><span class="mf">7.2389</span>      <span class="mf">1.352</span>     <span class="o">-</span><span class="mf">5.354</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">9.889</span>      <span class="o">-</span><span class="mf">4.589</span>
+<span class="n">hp_s4</span>           <span class="o">-</span><span class="mf">9.1052</span>      <span class="mf">1.384</span>     <span class="o">-</span><span class="mf">6.581</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">11.817</span>      <span class="o">-</span><span class="mf">6.393</span>
+<span class="n">hp_s5</span>           <span class="o">-</span><span class="mf">9.9865</span>      <span class="mf">1.525</span>     <span class="o">-</span><span class="mf">6.547</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">12.976</span>      <span class="o">-</span><span class="mf">6.997</span>
+<span class="n">hp_s6</span>          <span class="o">-</span><span class="mf">13.3639</span>      <span class="mf">2.228</span>     <span class="o">-</span><span class="mf">5.998</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">17.731</span>      <span class="o">-</span><span class="mf">8.997</span>
+<span class="n">hp_s7</span>          <span class="o">-</span><span class="mf">13.8902</span>      <span class="mf">3.194</span>     <span class="o">-</span><span class="mf">4.349</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">20.150</span>      <span class="o">-</span><span class="mf">7.630</span>
+<span class="n">hp_s8</span>          <span class="o">-</span><span class="mf">11.9752</span>      <span class="mf">2.556</span>     <span class="o">-</span><span class="mf">4.685</span>      <span class="mf">0.000</span>     <span class="o">-</span><span class="mf">16.985</span>      <span class="o">-</span><span class="mf">6.965</span>
+<span class="o">================================================================================</span>
 
-# plot smooth components
-In [10]: res_bs.plot_partial(0, cpr=True)
-Out[10]: &lt;Figure size 640x480 with 1 Axes&gt;
+<span class="c1"># plot smooth components</span>
+<span class="gp">In [10]: </span><span class="n">res_bs</span><span class="o">.</span><span class="n">plot_partial</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cpr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go">&lt;Figure size 640x480 with 1 Axes&gt;</span>
 
-In [11]: res_bs.plot_partial(1, cpr=True)
-Out[11]: &lt;Figure size 640x480 with 1 Axes&gt;
+<span class="gp">In [11]: </span><span class="n">res_bs</span><span class="o">.</span><span class="n">plot_partial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cpr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">&lt;Figure size 640x480 with 1 Axes&gt;</span>
 
-In [12]: alpha = np.array([8283989284.5829611, 14628207.58927821])
+<span class="gp">In [12]: </span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8283989284.5829611</span><span class="p">,</span> <span class="mf">14628207.58927821</span><span class="p">])</span>
 
-In [13]: gam_bs = GLMGam.from_formula('city_mpg ~ fuel + drive', data=df_autos,
-   ....:                              smoother=bs, alpha=alpha,
-   ....:                              family=sm.families.Poisson())
-   ....: 
+<span class="gp">In [13]: </span><span class="n">gam_bs</span> <span class="o">=</span> <span class="n">GLMGam</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">'city_mpg ~ fuel + drive'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_autos</span><span class="p">,</span>
+<span class="gp">   ....: </span>                             <span class="n">smoother</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+<span class="gp">   ....: </span>                             <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">())</span>
+<span class="gp">   ....: </span>
 
-In [14]: res_bs = gam_bs.fit()
+<span class="gp">In [14]: </span><span class="n">res_bs</span> <span class="o">=</span> <span class="n">gam_bs</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-In [15]: print(res_bs.summary())
-                 Generalized Linear Model Regression Results                  
-==============================================================================
-Dep. Variable:               city_mpg   No. Observations:                  203
-Model:                         GLMGam   Df Residuals:                   194.75
-Model Family:                 Poisson   Df Model:                         7.25
-Link Function:                    log   Scale:                          1.0000
-Method:                         PIRLS   Log-Likelihood:                -530.38
-Date:                Sun, 15 Dec 2019   Deviance:                       37.569
-Time:                        19:01:48   Pearson chi2:                     37.4
-No. Iterations:                     6                                         
-Covariance Type:            nonrobust                                         
-================================================================================
-                   coef    std err          z      P&gt;|z|      [0.025      0.975]
---------------------------------------------------------------------------------
-Intercept        3.9960      0.130     30.844      0.000       3.742       4.250
-fuel[T.gas]     -0.2398      0.057     -4.222      0.000      -0.351      -0.128
-drive[T.fwd]     0.0386      0.075      0.513      0.608      -0.109       0.186
-drive[T.rwd]     0.0309      0.078      0.395      0.693      -0.122       0.184
-weight_s0       -0.0811      0.030     -2.689      0.007      -0.140      -0.022
-weight_s1       -0.1938      0.063     -3.067      0.002      -0.318      -0.070
-weight_s2       -0.3160      0.082     -3.864      0.000      -0.476      -0.156
-weight_s3       -0.3735      0.090     -4.160      0.000      -0.549      -0.198
-weight_s4       -0.4187      0.096     -4.360      0.000      -0.607      -0.230
-weight_s5       -0.4645      0.103     -4.495      0.000      -0.667      -0.262
-weight_s6       -0.5092      0.112     -4.555      0.000      -0.728      -0.290
-weight_s7       -0.5469      0.119     -4.598      0.000      -0.780      -0.314
-weight_s8       -0.6211      0.137     -4.528      0.000      -0.890      -0.352
-weight_s9       -0.6866      0.153     -4.486      0.000      -0.987      -0.387
-weight_s10      -0.7370      0.174     -4.228      0.000      -1.079      -0.395
-hp_s0           -0.0247      0.010     -2.378      0.017      -0.045      -0.004
-hp_s1           -0.0557      0.022     -2.479      0.013      -0.100      -0.012
-hp_s2           -0.1046      0.038     -2.719      0.007      -0.180      -0.029
-hp_s3           -0.1438      0.050     -2.857      0.004      -0.242      -0.045
-hp_s4           -0.1919      0.063     -3.047      0.002      -0.315      -0.068
-hp_s5           -0.2567      0.079     -3.231      0.001      -0.412      -0.101
-hp_s6           -0.4152      0.120     -3.455      0.001      -0.651      -0.180
-hp_s7           -0.4889      0.152     -3.214      0.001      -0.787      -0.191
-hp_s8           -0.5470      0.195     -2.810      0.005      -0.928      -0.166
-================================================================================
+<span class="gp">In [15]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res_bs</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="go">                 Generalized Linear Model Regression Results                  </span>
+<span class="go">==============================================================================</span>
+<span class="go">Dep. Variable:               city_mpg   No. Observations:                  203</span>
+<span class="go">Model:                         GLMGam   Df Residuals:                   194.75</span>
+<span class="go">Model Family:                 Poisson   Df Model:                         7.25</span>
+<span class="go">Link Function:                    log   Scale:                          1.0000</span>
+<span class="go">Method:                         PIRLS   Log-Likelihood:                -530.38</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Deviance:                       37.569</span>
+<span class="go">Time:                        16:17:47   Pearson chi2:                     37.4</span>
+<span class="go">No. Iterations:                     6                                         </span>
+<span class="go">Covariance Type:            nonrobust                                         </span>
+<span class="go">================================================================================</span>
+<span class="go">                   coef    std err          z      P&gt;|z|      [0.025      0.975]</span>
+<span class="gt">--------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>        <span class="mf">3.9960</span>      <span class="mf">0.130</span>     <span class="mf">30.844</span>      <span class="mf">0.000</span>       <span class="mf">3.742</span>       <span class="mf">4.250</span>
+<span class="n">fuel</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">gas</span><span class="p">]</span>     <span class="o">-</span><span class="mf">0.2398</span>      <span class="mf">0.057</span>     <span class="o">-</span><span class="mf">4.222</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.351</span>      <span class="o">-</span><span class="mf">0.128</span>
+<span class="n">drive</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">fwd</span><span class="p">]</span>     <span class="mf">0.0386</span>      <span class="mf">0.075</span>      <span class="mf">0.513</span>      <span class="mf">0.608</span>      <span class="o">-</span><span class="mf">0.109</span>       <span class="mf">0.186</span>
+<span class="n">drive</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">rwd</span><span class="p">]</span>     <span class="mf">0.0309</span>      <span class="mf">0.078</span>      <span class="mf">0.395</span>      <span class="mf">0.693</span>      <span class="o">-</span><span class="mf">0.122</span>       <span class="mf">0.184</span>
+<span class="n">weight_s0</span>       <span class="o">-</span><span class="mf">0.0811</span>      <span class="mf">0.030</span>     <span class="o">-</span><span class="mf">2.689</span>      <span class="mf">0.007</span>      <span class="o">-</span><span class="mf">0.140</span>      <span class="o">-</span><span class="mf">0.022</span>
+<span class="n">weight_s1</span>       <span class="o">-</span><span class="mf">0.1938</span>      <span class="mf">0.063</span>     <span class="o">-</span><span class="mf">3.067</span>      <span class="mf">0.002</span>      <span class="o">-</span><span class="mf">0.318</span>      <span class="o">-</span><span class="mf">0.070</span>
+<span class="n">weight_s2</span>       <span class="o">-</span><span class="mf">0.3160</span>      <span class="mf">0.082</span>     <span class="o">-</span><span class="mf">3.864</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.476</span>      <span class="o">-</span><span class="mf">0.156</span>
+<span class="n">weight_s3</span>       <span class="o">-</span><span class="mf">0.3735</span>      <span class="mf">0.090</span>     <span class="o">-</span><span class="mf">4.160</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.549</span>      <span class="o">-</span><span class="mf">0.198</span>
+<span class="n">weight_s4</span>       <span class="o">-</span><span class="mf">0.4187</span>      <span class="mf">0.096</span>     <span class="o">-</span><span class="mf">4.360</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.607</span>      <span class="o">-</span><span class="mf">0.230</span>
+<span class="n">weight_s5</span>       <span class="o">-</span><span class="mf">0.4645</span>      <span class="mf">0.103</span>     <span class="o">-</span><span class="mf">4.495</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.667</span>      <span class="o">-</span><span class="mf">0.262</span>
+<span class="n">weight_s6</span>       <span class="o">-</span><span class="mf">0.5092</span>      <span class="mf">0.112</span>     <span class="o">-</span><span class="mf">4.555</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.728</span>      <span class="o">-</span><span class="mf">0.290</span>
+<span class="n">weight_s7</span>       <span class="o">-</span><span class="mf">0.5469</span>      <span class="mf">0.119</span>     <span class="o">-</span><span class="mf">4.598</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.780</span>      <span class="o">-</span><span class="mf">0.314</span>
+<span class="n">weight_s8</span>       <span class="o">-</span><span class="mf">0.6211</span>      <span class="mf">0.137</span>     <span class="o">-</span><span class="mf">4.528</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.890</span>      <span class="o">-</span><span class="mf">0.352</span>
+<span class="n">weight_s9</span>       <span class="o">-</span><span class="mf">0.6866</span>      <span class="mf">0.153</span>     <span class="o">-</span><span class="mf">4.486</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.987</span>      <span class="o">-</span><span class="mf">0.387</span>
+<span class="n">weight_s10</span>      <span class="o">-</span><span class="mf">0.7370</span>      <span class="mf">0.174</span>     <span class="o">-</span><span class="mf">4.228</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">1.079</span>      <span class="o">-</span><span class="mf">0.395</span>
+<span class="n">hp_s0</span>           <span class="o">-</span><span class="mf">0.0247</span>      <span class="mf">0.010</span>     <span class="o">-</span><span class="mf">2.378</span>      <span class="mf">0.017</span>      <span class="o">-</span><span class="mf">0.045</span>      <span class="o">-</span><span class="mf">0.004</span>
+<span class="n">hp_s1</span>           <span class="o">-</span><span class="mf">0.0557</span>      <span class="mf">0.022</span>     <span class="o">-</span><span class="mf">2.479</span>      <span class="mf">0.013</span>      <span class="o">-</span><span class="mf">0.100</span>      <span class="o">-</span><span class="mf">0.012</span>
+<span class="n">hp_s2</span>           <span class="o">-</span><span class="mf">0.1046</span>      <span class="mf">0.038</span>     <span class="o">-</span><span class="mf">2.719</span>      <span class="mf">0.007</span>      <span class="o">-</span><span class="mf">0.180</span>      <span class="o">-</span><span class="mf">0.029</span>
+<span class="n">hp_s3</span>           <span class="o">-</span><span class="mf">0.1438</span>      <span class="mf">0.050</span>     <span class="o">-</span><span class="mf">2.857</span>      <span class="mf">0.004</span>      <span class="o">-</span><span class="mf">0.242</span>      <span class="o">-</span><span class="mf">0.045</span>
+<span class="n">hp_s4</span>           <span class="o">-</span><span class="mf">0.1919</span>      <span class="mf">0.063</span>     <span class="o">-</span><span class="mf">3.047</span>      <span class="mf">0.002</span>      <span class="o">-</span><span class="mf">0.315</span>      <span class="o">-</span><span class="mf">0.068</span>
+<span class="n">hp_s5</span>           <span class="o">-</span><span class="mf">0.2567</span>      <span class="mf">0.079</span>     <span class="o">-</span><span class="mf">3.231</span>      <span class="mf">0.001</span>      <span class="o">-</span><span class="mf">0.412</span>      <span class="o">-</span><span class="mf">0.101</span>
+<span class="n">hp_s6</span>           <span class="o">-</span><span class="mf">0.4152</span>      <span class="mf">0.120</span>     <span class="o">-</span><span class="mf">3.455</span>      <span class="mf">0.001</span>      <span class="o">-</span><span class="mf">0.651</span>      <span class="o">-</span><span class="mf">0.180</span>
+<span class="n">hp_s7</span>           <span class="o">-</span><span class="mf">0.4889</span>      <span class="mf">0.152</span>     <span class="o">-</span><span class="mf">3.214</span>      <span class="mf">0.001</span>      <span class="o">-</span><span class="mf">0.787</span>      <span class="o">-</span><span class="mf">0.191</span>
+<span class="n">hp_s8</span>           <span class="o">-</span><span class="mf">0.5470</span>      <span class="mf">0.195</span>     <span class="o">-</span><span class="mf">2.810</span>      <span class="mf">0.005</span>      <span class="o">-</span><span class="mf">0.928</span>      <span class="o">-</span><span class="mf">0.166</span>
+<span class="o">================================================================================</span>
 
-# Optimal penalization weights alpha can be obtaine through generalized
-# cross-validation or k-fold cross-validation.
-# The alpha above are from the unit tests against the R mgcv package.
-In [16]: gam_bs.select_penweight()[0]
-Out[16]: array([8.2840e+09, 1.4629e+07])
+<span class="c1"># Optimal penalization weights alpha can be obtaine through generalized</span>
+<span class="c1"># cross-validation or k-fold cross-validation.</span>
+<span class="c1"># The alpha above are from the unit tests against the R mgcv package.</span>
+<span class="gp">In [16]: </span><span class="n">gam_bs</span><span class="o">.</span><span class="n">select_penweight</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gh">Out[16]: </span><span class="go">array([8.28381780e+09, 1.46281761e+07])</span>
 
-In [17]: gam_bs.select_penweight_kfold()[0]
-Out[17]: (10000000.0, 5.011872336272722)</pre>
+<span class="gp">In [17]: </span><span class="n">gam_bs</span><span class="o">.</span><span class="n">select_penweight_kfold</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gh">Out[17]: </span><span class="go">(10000000.0, 630.957344480193)</span>
+</pre></div>
+</div>
 
 <h3 id="references">References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -673,10 +676,10 @@ work for all options that are available in GLM.</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -685,9 +688,6 @@ work for all options that are available in GLM.</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
-  
-    <script src="_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

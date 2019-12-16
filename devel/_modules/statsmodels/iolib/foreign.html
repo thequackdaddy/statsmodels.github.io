@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/iolib/foreign" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.iolib.foreign </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -288,18 +289,18 @@
 <span class="sd">"""</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="p">(</span><span class="n">lzip</span><span class="p">,</span> <span class="n">lmap</span><span class="p">,</span> <span class="n">lrange</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="p">(</span><span class="n">lzip</span><span class="p">,</span> <span class="n">lmap</span><span class="p">,</span> <span class="n">lrange</span><span class="p">,</span>
                                        <span class="n">lfilter</span><span class="p">,</span> <span class="n">asbytes</span><span class="p">,</span> <span class="n">asstr</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">unpack</span><span class="p">,</span> <span class="n">calcsize</span><span class="p">,</span> <span class="n">pack</span>
-<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">struct_error</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span><span class="p">,</span> <span class="n">calcsize</span><span class="p">,</span> <span class="n">pack</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">struct_error</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tools.data</span> <span class="k">as</span> <span class="nn">data_util</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">isnull</span>
-<span class="kn">from</span> <span class="nn">pandas.io.stata</span> <span class="k">import</span> <span class="n">StataMissingValue</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.openfile</span> <span class="k">import</span> <span class="n">get_file_obj</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">isnull</span>
+<span class="kn">from</span> <span class="nn">pandas.io.stata</span> <span class="kn">import</span> <span class="n">StataMissingValue</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.openfile</span> <span class="kn">import</span> <span class="n">get_file_obj</span>
 
 <span class="n">_date_formats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"%tc"</span><span class="p">,</span> <span class="s2">"%tC"</span><span class="p">,</span> <span class="s2">"%td"</span><span class="p">,</span> <span class="s2">"%tw"</span><span class="p">,</span> <span class="s2">"%tm"</span><span class="p">,</span> <span class="s2">"%tq"</span><span class="p">,</span> <span class="s2">"%th"</span><span class="p">,</span> <span class="s2">"%ty"</span><span class="p">]</span>
 
@@ -322,7 +323,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">days</span> <span class="o">*</span> <span class="mi">86400000</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="n">seconds</span><span class="o">*</span><span class="mi">1000</span> <span class="o">+</span>
                 <span class="n">delta</span><span class="o">.</span><span class="n">microseconds</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"%tC"</span><span class="p">,</span> <span class="s2">"tC"</span><span class="p">]:</span>
-        <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
+        <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">"Stata Internal Format tC not supported."</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">date</span>
     <span class="k">elif</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"%td"</span><span class="p">,</span> <span class="s2">"td"</span><span class="p">]:</span>
@@ -389,10 +390,10 @@
     <span class="n">date</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
     <span class="n">stata_epoch</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"%tc"</span><span class="p">,</span> <span class="s2">"tc"</span><span class="p">]:</span>
-        <span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="k">import</span> <span class="n">relativedelta</span>
+        <span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="n">relativedelta</span>
         <span class="k">return</span> <span class="n">stata_epoch</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="n">date</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"%tC"</span><span class="p">,</span> <span class="s2">"tC"</span><span class="p">]:</span>
-        <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
+        <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">"Encountered %tC format. Leaving in Stata Internal Format."</span><span class="p">,</span>
              <span class="ne">UserWarning</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">date</span>
@@ -452,14 +453,14 @@
 <span class="sd">    -----</span>
 <span class="sd">    More information: http://www.stata.com/help.cgi?format</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable_data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable_data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">variable_data</span>
 
-    <span class="k">def</span> <span class="nf">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""the variable's index within an observation"""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""the name of the variable"""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 
@@ -566,7 +567,7 @@
             <span class="p">(</span><span class="o">-</span><span class="mi">2147483647</span><span class="p">,</span> <span class="mi">2147483620</span><span class="p">),</span> <span class="s1">'f'</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.701e+38</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.701e+38</span><span class="p">),</span> <span class="s1">'d'</span><span class="p">:</span>
             <span class="p">(</span><span class="o">-</span><span class="mf">1.798e+308</span><span class="p">,</span> <span class="o">+</span><span class="mf">8.988e+307</span><span class="p">)</span> <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">missing_values</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">missing_values</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
             <span class="s2">"StataReader is deprecated as of 0.10.0 and will be removed in a "</span>
             <span class="s2">"future version.  Use pandas.read_stata or "</span>
@@ -581,7 +582,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_missing_values</span> <span class="o">=</span> <span class="n">missing_values</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_parse_header</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 
-<div class="viewcode-block" id="StataReader.file_headers"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.file_headers.html#statsmodels.iolib.foreign.StataReader.file_headers">[docs]</a>    <span class="k">def</span> <span class="nf">file_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">file_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns all .dta file headers.</span>
 
@@ -589,9 +590,9 @@
 <span class="sd">            Has keys typlist, data_label, lbllist, varlist, nvar, filetype,</span>
 <span class="sd">            ds_format, nobs, fmtlist, vlblist, time_stamp, srtlist, byteorder</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
 
-<div class="viewcode-block" id="StataReader.file_format"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.file_format.html#statsmodels.iolib.foreign.StataReader.file_format">[docs]</a>    <span class="k">def</span> <span class="nf">file_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">file_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the file format.</span>
 
@@ -605,9 +606,9 @@
 <span class="sd">        Format 114: Stata 10/11</span>
 <span class="sd">        Format 115: Stata 12</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'ds_format'</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'ds_format'</span><span class="p">]</span>
 
-<div class="viewcode-block" id="StataReader.file_label"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.file_label.html#statsmodels.iolib.foreign.StataReader.file_label">[docs]</a>    <span class="k">def</span> <span class="nf">file_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">file_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the dataset's label.</span>
 
@@ -615,9 +616,9 @@
 <span class="sd">        -------</span>
 <span class="sd">        out: str</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'data_label'</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'data_label'</span><span class="p">]</span>
 
-<div class="viewcode-block" id="StataReader.file_timestamp"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.file_timestamp.html#statsmodels.iolib.foreign.StataReader.file_timestamp">[docs]</a>    <span class="k">def</span> <span class="nf">file_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">file_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the date and time Stata recorded on last file save.</span>
 
@@ -625,9 +626,9 @@
 <span class="sd">        -------</span>
 <span class="sd">        out : str</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'time_stamp'</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'time_stamp'</span><span class="p">]</span>
 
-<div class="viewcode-block" id="StataReader.variables"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.variables.html#statsmodels.iolib.foreign.StataReader.variables">[docs]</a>    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a list of the dataset's StataVariables objects.</span>
 <span class="sd">        """</span>
@@ -635,9 +636,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'typlist'</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'varlist'</span><span class="p">],</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'srtlist'</span><span class="p">],</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'fmtlist'</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'lbllist'</span><span class="p">],</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'vlblist'</span><span class="p">]))</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'vlblist'</span><span class="p">]))</span>
 
-<div class="viewcode-block" id="StataReader.dataset"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataReader.dataset.html#statsmodels.iolib.foreign.StataReader.dataset">[docs]</a>    <span class="k">def</span> <span class="nf">dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a Python generator object for iterating over the dataset.</span>
 
@@ -671,11 +672,11 @@
                 <span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">vars</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span><span class="p">()))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'nobs'</span><span class="p">]):</span>
-                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span><span class="p">()</span></div>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span><span class="p">()</span>
 
     <span class="c1">### Python special methods</span>
 
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Return the number of observations in the dataset.</span>
 
@@ -684,7 +685,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">[</span><span class="s1">'nobs'</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Seek to an observation indexed k in the file and return it, ordered</span>
 <span class="sd">        by Stata's output to the .dta file.</span>
@@ -988,7 +989,7 @@
                        <span class="s1">'l'</span> <span class="p">:</span> <span class="mi">2147483621</span><span class="p">,</span>
                        <span class="s1">'f'</span><span class="p">:</span> <span class="mf">1.7014118346046923e+38</span><span class="p">,</span>
                        <span class="s1">'d'</span><span class="p">:</span> <span class="mf">8.98846567431158e+307</span><span class="p">}</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">convert_dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">convert_dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">,</span>
                  <span class="n">byteorder</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
             <span class="s2">"StataWriter is deprecated as of 0.10.0 and will be removed in a "</span>
@@ -1080,10 +1081,10 @@
         <span class="c1">#NOTE: we might need a different API / class for pandas objects so</span>
         <span class="c1"># we can set different semantics - handle this with a PR to pandas.io</span>
         <span class="k">class</span> <span class="nc">DataFrameRowIter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-            <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+            <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 
-            <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
                     <span class="k">yield</span> <span class="n">row</span>
 
@@ -1108,7 +1109,7 @@
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">convert_dates</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">fmtlist</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_dates</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-<div class="viewcode-block" id="StataWriter.write_file"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.foreign.StataWriter.write_file.html#statsmodels.iolib.foreign.StataWriter.write_file">[docs]</a>    <span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_write_header</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_write_descriptors</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_write_variable_labels</span><span class="p">()</span>
@@ -1117,7 +1118,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_write_data_nodates</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_write_data_dates</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_write_data_dates</span><span class="p">()</span>
         <span class="c1">#self._write_value_labels()</span>
 
     <span class="k">def</span> <span class="nf">_write_header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_stamp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1306,7 +1307,7 @@
         <span class="n">data</span><span class="p">[</span><span class="n">rownum</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">pandas</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
+        <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">convert_dates</span><span class="p">:</span>
             <span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_date_formats</span><span class="p">,</span> <span class="n">fmtlist</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
@@ -1487,10 +1488,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1499,9 +1500,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

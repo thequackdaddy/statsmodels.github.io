@@ -63,6 +63,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -91,7 +92,7 @@
   <a href="#index" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="#" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -106,7 +107,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Introduction </span>
         </div>
       </div>
@@ -187,7 +188,7 @@
       
     </a>
     <a href="#"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -295,11 +296,11 @@ The online documentation is hosted at <a class="reference external" href="https:
 <h1 id="index--page-root">Introduction<a class="headerlink" href="#index--page-root" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> supports specifying models using R-style formulas and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames.
 Here is a simple example using ordinary least squares:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
-<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 
 <span class="go"># Load data</span>
 <span class="gp">In [4]: </span><span class="n">dat</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"Guerry"</span><span class="p">,</span> <span class="s2">"HistData"</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
@@ -308,14 +309,14 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [5]: </span><span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">'Lottery ~ Literacy + np.log(Pop1831)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="go"># Inspect the results</span>
-<span class="gp">In [6]: </span><span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                Lottery   R-squared:                       0.348</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.333</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     22.20</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.90e-08</span>
-<span class="go">Time:                        19:05:18   Log-Likelihood:                -379.82</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           1.90e-08</span>
+<span class="go">Time:                        16:17:08   Log-Likelihood:                -379.82</span>
 <span class="go">No. Observations:                  86   AIC:                             765.6</span>
 <span class="go">Df Residuals:                      83   BIC:                             773.0</span>
 <span class="go">Df Model:                           2                                         </span>
@@ -338,9 +339,9 @@ Here is a simple example using ordinary least squares:</p>
 </pre></div>
 </div>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays instead of formulas:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="gp">In [8]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="gp">In [8]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
 <span class="go"># Generate artificial data (2 regressors + constant)</span>
 <span class="gp">In [9]: </span><span class="n">nobs</span> <span class="o">=</span> <span class="mi">100</span>
@@ -359,29 +360,29 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [15]: </span><span class="n">results</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="go"># Inspect the results</span>
-<span class="gp">In [16]: </span><span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                      y   R-squared:                       0.215</span>
-<span class="go">Model:                            OLS   Adj. R-squared:                  0.198</span>
-<span class="go">Method:                 Least Squares   F-statistic:                     13.25</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           8.15e-06</span>
-<span class="go">Time:                        19:05:18   Log-Likelihood:                -15.067</span>
-<span class="go">No. Observations:                 100   AIC:                             36.13</span>
-<span class="go">Df Residuals:                      97   BIC:                             43.95</span>
+<span class="go">Dep. Variable:                      y   R-squared:                       0.274</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.259</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     18.28</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           1.84e-07</span>
+<span class="go">Time:                        16:17:08   Log-Likelihood:                -10.795</span>
+<span class="go">No. Observations:                 100   AIC:                             27.59</span>
+<span class="go">Df Residuals:                      97   BIC:                             35.41</span>
 <span class="go">Df Model:                           2                                         </span>
 <span class="go">Covariance Type:            nonrobust                                         </span>
 <span class="go">==============================================================================</span>
 <span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>          <span class="mf">1.5386</span>      <span class="mf">0.077</span>     <span class="mf">19.869</span>      <span class="mf">0.000</span>       <span class="mf">1.385</span>       <span class="mf">1.692</span>
-<span class="n">x1</span>            <span class="o">-</span><span class="mf">0.0672</span>      <span class="mf">0.101</span>     <span class="o">-</span><span class="mf">0.664</span>      <span class="mf">0.508</span>      <span class="o">-</span><span class="mf">0.268</span>       <span class="mf">0.134</span>
-<span class="n">x2</span>             <span class="mf">0.5048</span>      <span class="mf">0.099</span>      <span class="mf">5.090</span>      <span class="mf">0.000</span>       <span class="mf">0.308</span>       <span class="mf">0.702</span>
+<span class="n">const</span>          <span class="mf">1.4552</span>      <span class="mf">0.072</span>     <span class="mf">20.278</span>      <span class="mf">0.000</span>       <span class="mf">1.313</span>       <span class="mf">1.598</span>
+<span class="n">x1</span>             <span class="mf">0.0685</span>      <span class="mf">0.095</span>      <span class="mf">0.721</span>      <span class="mf">0.473</span>      <span class="o">-</span><span class="mf">0.120</span>       <span class="mf">0.257</span>
+<span class="n">x2</span>             <span class="mf">0.5826</span>      <span class="mf">0.098</span>      <span class="mf">5.928</span>      <span class="mf">0.000</span>       <span class="mf">0.388</span>       <span class="mf">0.778</span>
 <span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                       24.327   Durbin-Watson:                   2.228
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.273</span>
-<span class="ne">Skew</span>:                           0.253   Prob(JB):                       0.0434
-<span class="ne">Kurtosis</span>:                       1.883   Cond. No.                         5.44
+<span class="ne">Omnibus</span>:                       16.784   Durbin-Watson:                   1.586
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">4.917</span>
+<span class="ne">Skew</span>:                           0.163   Prob(JB):                       0.0856
+<span class="ne">Kurtosis</span>:                       1.964   Cond. No.                         5.23
 <span class="o">==============================================================================</span>
 
 <span class="ne">Warnings</span>:
@@ -461,10 +462,10 @@ of the 9th Python in Science Conference.</em> 2010.</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -473,9 +474,6 @@ of the 9th Python in Science Conference.</em> 2010.</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
-  
-    <script src="_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

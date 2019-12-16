@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.generalized_estimating_equations.OrdinalGEE </span>
         </div>
       </div>
@@ -189,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -424,7 +425,7 @@ If ‘raise’, an error is raised. Default is ‘none’.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="../glm.html#module-statsmodels.genmod.families.family" title="statsmodels.genmod.families.family"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statsmodels.genmod.families.family</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="../gee.html#module-statsmodels.genmod.families.family" title="statsmodels.genmod.families.family: Generalized Linear Model (GLM) families"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statsmodels.genmod.families.family</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="../glm.html#families"><span class="std std-ref">Families</span></a></dt><dd></dd>
 <dt><a class="reference internal" href="../glm.html#links"><span class="std std-ref">Link Functions</span></a></dt><dd></dd>
 </dl>
@@ -458,7 +459,7 @@ where N is the total sample size, and g is the average group size.</p>
 <p class="rubric">Examples</p>
 <p>Fit an ordinal regression model using GEE, with “global
 odds ratio” dependence:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gor</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">cov_struct</span><span class="o">.</span><span class="n">GlobalOddsRatio</span><span class="p">(</span><span class="s2">"ordinal"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OrdinalGEE</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">cov_struct</span><span class="o">=</span><span class="n">gor</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -466,7 +467,7 @@ odds ratio” dependence:</p>
 </pre></div>
 </div>
 <p>Using formulas:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ordinal_gee</span><span class="p">(</span><span class="s2">"y ~ x1 + x2"</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
 <span class="go">                                cov_struct=gor)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -586,10 +587,10 @@ odds ratio” dependence:</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -598,9 +599,6 @@ odds ratio” dependence:</p>
     </div>
   </footer>
   <script src="../_static/javascripts/application.js"></script>
-  
-    <script src="../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

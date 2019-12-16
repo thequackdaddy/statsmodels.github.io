@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/ar_model" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -278,30 +279,30 @@
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="k">import</span> <span class="n">Iterable</span>
-<span class="kn">from</span> <span class="nn">types</span> <span class="k">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">inv</span><span class="p">,</span> <span class="n">slogdet</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">gaussian_kde</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span><span class="p">,</span> <span class="n">slogdet</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">gaussian_kde</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.base.model</span> <span class="k">as</span> <span class="nn">base</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="k">import</span> <span class="n">Appender</span><span class="p">,</span> <span class="n">Substitution</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
-<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">import</span> <span class="n">OLS</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span><span class="p">,</span> <span class="n">cache_writable</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.docstring</span> <span class="k">import</span> <span class="p">(</span><span class="n">Docstring</span><span class="p">,</span> <span class="n">remove_parameters</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.numdiff</span> <span class="k">import</span> <span class="n">approx_fprime</span><span class="p">,</span> <span class="n">approx_hess</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="k">import</span> <span class="n">array_like</span><span class="p">,</span> <span class="n">string_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">Appender</span><span class="p">,</span> <span class="n">Substitution</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
+<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span><span class="p">,</span> <span class="n">cache_writable</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.docstring</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Docstring</span><span class="p">,</span> <span class="n">remove_parameters</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.numdiff</span> <span class="kn">import</span> <span class="n">approx_fprime</span><span class="p">,</span> <span class="n">approx_hess</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="n">array_like</span><span class="p">,</span> <span class="n">string_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span> \
     <span class="n">int_like</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_process</span> <span class="k">import</span> <span class="n">arma2ma</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.base</span> <span class="k">import</span> <span class="n">tsa_model</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.kalmanf.kalmanfilter</span> <span class="k">import</span> <span class="n">KalmanFilter</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">import</span> <span class="p">(</span><span class="n">lagmat</span><span class="p">,</span> <span class="n">add_trend</span><span class="p">,</span> <span class="n">_ar_transparams</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_process</span> <span class="kn">import</span> <span class="n">arma2ma</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.base</span> <span class="kn">import</span> <span class="n">tsa_model</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.kalmanf.kalmanfilter</span> <span class="kn">import</span> <span class="n">KalmanFilter</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="p">(</span><span class="n">lagmat</span><span class="p">,</span> <span class="n">add_trend</span><span class="p">,</span> <span class="n">_ar_transparams</span><span class="p">,</span>
                                       <span class="n">_ar_invtransparams</span><span class="p">,</span> <span class="n">freq_to_period</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar</span> <span class="k">import</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar</span> <span class="kn">import</span> <span class="n">util</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'AR'</span><span class="p">,</span> <span class="s1">'AutoReg'</span><span class="p">]</span>
 
@@ -436,7 +437,7 @@
 <span class="sd">    AIC: 5.884, HQIC: 5.959, BIC: 6.071</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">lags</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">lags</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">hold_back</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">AutoReg</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
                                       <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">)</span>
@@ -963,7 +964,7 @@
                                     <span class="s2">"extra_params"</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="n">_missing_param_doc</span><span class="p">,</span>
                                     <span class="s2">"extra_sections"</span><span class="p">:</span> <span class="s2">""</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">):</span>
         <span class="kn">import</span> <span class="nn">warnings</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">AR_DEPRECATION_WARN</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">AR</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">)</span>
@@ -1590,7 +1591,7 @@
 
     <span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for scale setter</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ARResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span>
                                         <span class="n">scale</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1817,7 +1818,7 @@
         <span class="n">smry</span><span class="o">.</span><span class="n">add_table_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># Make the roots table</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
 
         <span class="k">if</span> <span class="n">k_ar</span><span class="p">:</span>
             <span class="n">arstubs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"AR.</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k_ar</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -1879,7 +1880,7 @@
 
     <span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for scale setter</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">AutoRegResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
                                              <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
@@ -2107,7 +2108,7 @@
 <span class="sd">        statsmodels.stats.diagnostic.acorr_ljungbox</span>
 <span class="sd">        """</span>
         <span class="c1"># Deferred to prevent circular import</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="k">import</span> <span class="n">acorr_ljungbox</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
 
         <span class="n">lags</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">lags</span><span class="p">,</span> <span class="s1">'lags'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">model_df</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">model_df</span><span class="p">,</span> <span class="s1">'df_model'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2153,7 +2154,7 @@
 <span class="sd">        statsmodels.stats.stattools.jarque_bera</span>
 <span class="sd">        """</span>
         <span class="c1"># Deferred to prevent circular import</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.stats.stattools</span> <span class="k">import</span> <span class="n">jarque_bera</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.stats.stattools</span> <span class="kn">import</span> <span class="n">jarque_bera</span>
         <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Jarque-Bera'</span><span class="p">,</span> <span class="s1">'P-value'</span><span class="p">,</span> <span class="s1">'Skewness'</span><span class="p">,</span> <span class="s1">'Kurtosis'</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">jarque_bera</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span></div>
 
@@ -2180,7 +2181,7 @@
 <span class="sd">        statsmodels.sandbox.stats.diagnostic.acorr_lm</span>
 <span class="sd">            LM test for autocorrelation.</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.sandbox.stats.diagnostic</span> <span class="k">import</span> <span class="n">het_arch</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.sandbox.stats.diagnostic</span> <span class="kn">import</span> <span class="n">het_arch</span>
 
         <span class="n">lags</span> <span class="o">=</span> <span class="n">int_like</span><span class="p">(</span><span class="n">lags</span><span class="p">,</span> <span class="s1">'lags'</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">nobs_effective</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -2214,7 +2215,7 @@
 <span class="sd">        test_heteroskedasticity</span>
 <span class="sd">            Test models residuals for conditional heteroskedasticity.</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
         <span class="n">spacer</span> <span class="o">=</span> <span class="n">SimpleTable</span><span class="p">([</span><span class="s1">''</span><span class="p">])</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
         <span class="n">sc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_serial_correlation</span><span class="p">()</span>
@@ -2281,7 +2282,7 @@
 <span class="sd">        Figure</span>
 <span class="sd">            Figure handle containing the plot.</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="k">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">create_mpl_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">figsize</span><span class="p">)</span>
         <span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="n">dynamic</span><span class="p">,</span>
@@ -2351,7 +2352,7 @@
 <span class="sd">        statsmodels.graphics.gofplots.qqplot</span>
 <span class="sd">        statsmodels.graphics.tsaplots.plot_acf</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="k">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">create_mpl_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">figsize</span><span class="p">)</span>
         <span class="c1"># Eliminate residuals associated with burned or diffuse likelihoods</span>
@@ -2394,13 +2395,13 @@
 
         <span class="c1"># Bottom-left: QQ plot</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.gofplots</span> <span class="k">import</span> <span class="n">qqplot</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.gofplots</span> <span class="kn">import</span> <span class="n">qqplot</span>
         <span class="n">qqplot</span><span class="p">(</span><span class="n">std_resid</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">'s'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Normal Q-Q'</span><span class="p">)</span>
 
         <span class="c1"># Bottom-right: Correlogram</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="k">import</span> <span class="n">plot_acf</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
         <span class="n">plot_acf</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Correlogram'</span><span class="p">)</span>
 
@@ -2472,7 +2473,7 @@
         <span class="n">smry</span><span class="o">.</span><span class="n">add_table_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># Make the roots table</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_lag</span><span class="p">:</span>
             <span class="n">arstubs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"AR.</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_lag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -2641,7 +2642,7 @@
 <span class="sd">    Contains the information criteria for all fitted model orders.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ics</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="n">seasonal</span><span class="p">,</span> <span class="n">period</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ics</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="n">seasonal</span><span class="p">,</span> <span class="n">period</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ics</span> <span class="o">=</span> <span class="n">ics</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_trend</span> <span class="o">=</span> <span class="n">trend</span>
@@ -2735,10 +2736,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2747,9 +2748,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

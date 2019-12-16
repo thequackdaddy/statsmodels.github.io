@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/genmod/_prediction" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod._prediction </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -285,13 +286,13 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 
 
 <span class="c1"># this is similar to ContrastResults after t_test, partially copied and adjusted</span>
 <div class="viewcode-block" id="PredictionResults"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_linear_model.PredictionResults.html#statsmodels.genmod.generalized_linear_model.PredictionResults">[docs]</a><span class="k">class</span> <span class="nc">PredictionResults</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicted_mean</span><span class="p">,</span> <span class="n">var_pred_mean</span><span class="p">,</span> <span class="n">var_resid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicted_mean</span><span class="p">,</span> <span class="n">var_pred_mean</span><span class="p">,</span> <span class="n">var_resid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">row_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linpred</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># TODO: is var_resid used? drop from arguments?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">predicted_mean</span> <span class="o">=</span> <span class="n">predicted_mean</span>
@@ -325,7 +326,7 @@
     <span class="k">def</span> <span class="nf">tvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicted_mean</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">se_mean</span>
 
-<div class="viewcode-block" id="PredictionResults.t_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_linear_model.PredictionResults.t_test.html#statsmodels.genmod.generalized_linear_model.PredictionResults.t_test">[docs]</a>    <span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'two-sided'</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'two-sided'</span><span class="p">):</span>
         <span class="sd">'''z- or t-test for hypothesis that mean is equal to value</span>
 
 <span class="sd">        Parameters</span>
@@ -356,7 +357,7 @@
             <span class="n">pvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dist_args</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'invalid alternative'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">stat</span><span class="p">,</span> <span class="n">pvalue</span></div>
+        <span class="k">return</span> <span class="n">stat</span><span class="p">,</span> <span class="n">pvalue</span>
 
 <div class="viewcode-block" id="PredictionResults.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_linear_model.PredictionResults.conf_int.html#statsmodels.genmod.generalized_linear_model.PredictionResults.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'endpoint'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -397,11 +398,11 @@
 
         <span class="k">return</span> <span class="n">ci</span></div>
 
-<div class="viewcode-block" id="PredictionResults.summary_frame"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_linear_model.PredictionResults.summary_frame.html#statsmodels.genmod.generalized_linear_model.PredictionResults.summary_frame">[docs]</a>    <span class="k">def</span> <span class="nf">summary_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">'all'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">'all'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sd">"""Summary frame"""</span>
         <span class="c1"># TODO: finish and cleanup</span>
         <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-        <span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+        <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
         <span class="c1">#ci_obs = self.conf_int(alpha=alpha, obs=True) # need to split</span>
         <span class="n">ci_mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_int</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
         <span class="n">to_include</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
@@ -417,7 +418,7 @@
         <span class="c1">#names = ....</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_include</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row_labels</span><span class="p">,</span>
                            <span class="n">columns</span><span class="o">=</span><span class="n">to_include</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">res</span></div></div>
+        <span class="k">return</span> <span class="n">res</span></div>
 
 
 <span class="k">def</span> <span class="nf">get_prediction_glm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -458,7 +459,7 @@
 
     <span class="c1"># prepare exog and row_labels, based on base Results.predict</span>
     <span class="k">if</span> <span class="n">transform</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s1">'formula'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">exog</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">patsy</span> <span class="k">import</span> <span class="n">dmatrix</span>
+        <span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrix</span>
         <span class="n">exog</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">design_info</span><span class="p">,</span>
                        <span class="n">exog</span><span class="p">)</span>
 
@@ -525,7 +526,7 @@
 
 <span class="sd">    """</span>
 
-    <span class="kn">from</span> <span class="nn">statsmodels.genmod.families</span> <span class="k">import</span> <span class="n">links</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.genmod.families</span> <span class="kn">import</span> <span class="n">links</span>
     <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">transform</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">link</span> <span class="o">=</span> <span class="n">links</span><span class="o">.</span><span class="n">Log</span><span class="p">()</span>
 
@@ -573,10 +574,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -585,9 +586,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

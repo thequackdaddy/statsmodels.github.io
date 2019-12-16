@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/tsa_arma_0" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Autoregressive Moving Average (ARMA): Sunspots data </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -481,16 +482,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -499,13 +500,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -513,35 +514,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -549,56 +550,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -692,12 +693,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
@@ -717,7 +718,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">sunspots</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">sunspots</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -798,8 +799,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">arma_mod20</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">dta</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">arma_mod20</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span></span><span class="n">arma_mod20</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">dta</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arma_mod20</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -808,7 +809,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-const                49.659374
+const                49.659418
 ar.L1.SUNACTIVITY     1.390656
 ar.L2.SUNACTIVITY    -0.688571
 dtype: float64
@@ -819,7 +820,7 @@ dtype: float64
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -828,7 +829,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">arma_mod30</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">dta</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span></span><span class="n">arma_mod30</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">dta</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +838,7 @@ dtype: float64
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.
+/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency A-DEC will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -846,7 +847,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">arma_mod20</span><span class="o">.</span><span class="n">aic</span><span class="p">,</span> <span class="n">arma_mod20</span><span class="o">.</span><span class="n">bic</span><span class="p">,</span> <span class="n">arma_mod20</span><span class="o">.</span><span class="n">hqic</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">arma_mod20</span><span class="o">.</span><span class="n">aic</span><span class="p">,</span> <span class="n">arma_mod20</span><span class="o">.</span><span class="n">bic</span><span class="p">,</span> <span class="n">arma_mod20</span><span class="o">.</span><span class="n">hqic</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -855,7 +856,7 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2622.6363380637513 2637.569703171342 2628.6067259089973
+2622.6363380637504 2637.569703171341 2628.6067259089964
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -863,7 +864,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">arma_mod30</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">arma_mod30</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +873,7 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-const                49.749956
+const                49.749905
 ar.L1.SUNACTIVITY     1.300810
 ar.L2.SUNACTIVITY    -0.508093
 ar.L3.SUNACTIVITY    -0.129649
@@ -884,7 +885,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">arma_mod30</span><span class="o">.</span><span class="n">aic</span><span class="p">,</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">bic</span><span class="p">,</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">hqic</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">arma_mod30</span><span class="o">.</span><span class="n">aic</span><span class="p">,</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">bic</span><span class="p">,</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">hqic</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,7 +894,7 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2619.4036286964592 2638.070335080948 2626.8666135030167
+2619.4036286966934 2638.0703350811823 2626.866613503251
 </pre></div></div>
 </div>
 <ul class="simple">
@@ -912,10 +913,10 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>1.956480866389427
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.9564806206172771
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -957,10 +958,10 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>NormaltestResult(statistic=49.84502108731212, pvalue=1.5006907157360232e-11)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+NormaltestResult(statistic=49.84504478123703, pvalue=1.5006729372147695e-11)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -969,7 +970,7 @@ dtype: float64
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">qqplot</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">'q'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">qqplot</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">'q'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1005,10 +1006,10 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">fft</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span></span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">fft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">41</span><span class="p">),</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'lag'</span><span class="p">,</span> <span class="s2">"AC"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"Prob(&gt;Q)"</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1019,46 +1020,46 @@ dtype: float64
 <div class="highlight"><pre>
             AC          Q      Prob(&gt;Q)
 lag
-1.0   0.009179   0.026286  8.712032e-01
-2.0   0.041793   0.573041  7.508717e-01
-3.0  -0.001335   0.573600  9.024484e-01
-4.0   0.136089   6.408915  1.706207e-01
-5.0   0.092468   9.111819  1.046863e-01
-6.0   0.091948  11.793232  6.674373e-02
-7.0   0.068748  13.297188  6.519012e-02
-8.0  -0.015020  13.369216  9.976174e-02
-9.0   0.187592  24.641895  3.393928e-03
-10.0  0.213718  39.321981  2.229487e-05
-11.0  0.201082  52.361124  2.344962e-07
-12.0  0.117182  56.804175  8.574306e-08
-13.0 -0.014055  56.868312  1.893913e-07
-14.0  0.015398  56.945551  3.997680e-07
-15.0 -0.024967  57.149306  7.741508e-07
-16.0  0.080916  59.296755  6.872201e-07
-17.0  0.041138  59.853724  1.110950e-06
-18.0 -0.052021  60.747414  1.548440e-06
-19.0  0.062496  62.041677  1.831652e-06
-20.0 -0.010301  62.076965  3.381259e-06
-21.0  0.074453  63.926640  3.193602e-06
-22.0  0.124955  69.154757  8.978397e-07
-23.0  0.093162  72.071021  5.799809e-07
-24.0 -0.082152  74.346674  4.713037e-07
-25.0  0.015695  74.430030  8.289078e-07
-26.0 -0.025037  74.642889  1.367290e-06
-27.0 -0.125861  80.041136  3.722580e-07
-28.0  0.053225  81.009969  4.716297e-07
-29.0 -0.038693  81.523795  6.916658e-07
-30.0 -0.016904  81.622214  1.151665e-06
-31.0 -0.019296  81.750926  1.868773e-06
-32.0  0.104990  85.575054  8.927987e-07
-33.0  0.040086  86.134556  1.247513e-06
-34.0  0.008829  86.161799  2.047831e-06
-35.0  0.014588  86.236436  3.263817e-06
-36.0 -0.119329  91.248888  1.084457e-06
-37.0 -0.036665  91.723856  1.521927e-06
-38.0 -0.046193  92.480506  1.938739e-06
-39.0 -0.017768  92.592874  2.990686e-06
-40.0 -0.006220  92.606697  4.696995e-06
+1.0   0.009179   0.026287  8.712011e-01
+2.0   0.041794   0.573049  7.508687e-01
+3.0  -0.001335   0.573608  9.024467e-01
+4.0   0.136089   6.408928  1.706198e-01
+5.0   0.092468   9.111833  1.046858e-01
+6.0   0.091948  11.793244  6.674345e-02
+7.0   0.068748  13.297202  6.518981e-02
+8.0  -0.015020  13.369229  9.976133e-02
+9.0   0.187592  24.641919  3.393898e-03
+10.0  0.213718  39.322016  2.229455e-05
+11.0  0.201082  52.361172  2.344915e-07
+12.0  0.117182  56.804233  8.574099e-08
+13.0 -0.014055  56.868369  1.893868e-07
+14.0  0.015398  56.945609  3.997587e-07
+15.0 -0.024967  57.149364  7.741333e-07
+16.0  0.080916  59.296810  6.872056e-07
+17.0  0.041138  59.853777  1.110927e-06
+18.0 -0.052021  60.747467  1.548409e-06
+19.0  0.062496  62.041732  1.831616e-06
+20.0 -0.010301  62.077019  3.381194e-06
+21.0  0.074453  63.926697  3.193536e-06
+22.0  0.124955  69.154818  8.978200e-07
+23.0  0.093162  72.071085  5.799677e-07
+24.0 -0.082152  74.346735  4.712934e-07
+25.0  0.015695  74.430091  8.288901e-07
+26.0 -0.025037  74.642950  1.367261e-06
+27.0 -0.125861  80.041200  3.722497e-07
+28.0  0.053225  81.010031  4.716196e-07
+29.0 -0.038693  81.523858  6.916510e-07
+30.0 -0.016904  81.622277  1.151641e-06
+31.0 -0.019296  81.750988  1.868734e-06
+32.0  0.104990  85.575117  8.927801e-07
+33.0  0.040086  86.134619  1.247487e-06
+34.0  0.008829  86.161863  2.047790e-06
+35.0  0.014588  86.236500  3.263752e-06
+36.0 -0.119329  91.248951  1.084435e-06
+37.0 -0.036666  91.723920  1.521896e-06
+38.0 -0.046193  92.480571  1.938700e-06
+39.0 -0.017768  92.592941  2.990625e-06
+40.0 -0.006220  92.606764  4.696901e-06
 </pre></div></div>
 </div>
 <ul class="simple">
@@ -1070,8 +1071,8 @@ lag
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">predict_sunspots</span> <span class="o">=</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'1990'</span><span class="p">,</span> <span class="s1">'2012'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">predict_sunspots</span><span class="p">)</span>
+<span></span><span class="n">predict_sunspots</span> <span class="o">=</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'1990'</span><span class="p">,</span> <span class="s1">'2012'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">predict_sunspots</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,29 +1081,29 @@ lag
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1990-12-31    167.047423
-1991-12-31    140.993020
-1992-12-31     94.859147
-1993-12-31     46.860947
-1994-12-31     11.242638
-1995-12-31     -4.721244
-1996-12-31     -1.166874
-1997-12-31     16.185712
-1998-12-31     39.021889
-1999-12-31     59.449869
-2000-12-31     72.170138
-2001-12-31     75.376785
-2002-12-31     70.436469
-2003-12-31     60.731607
-2004-12-31     50.201825
-2005-12-31     42.076060
-2006-12-31     38.114319
-2007-12-31     38.454670
-2008-12-31     41.963836
-2009-12-31     46.869300
-2010-12-31     51.423270
-2011-12-31     54.399726
-2012-12-31     55.321700
+1990-12-31    167.047383
+1991-12-31    140.992929
+1992-12-31     94.859019
+1993-12-31     46.860813
+1994-12-31     11.242529
+1995-12-31     -4.721307
+1996-12-31     -1.166890
+1997-12-31     16.185729
+1998-12-31     39.021913
+1999-12-31     59.449874
+2000-12-31     72.170109
+2001-12-31     75.376718
+2002-12-31     70.436375
+2003-12-31     60.731501
+2004-12-31     50.201726
+2005-12-31     42.075980
+2006-12-31     38.114265
+2007-12-31     38.454638
+2008-12-31     41.963816
+2009-12-31     46.869281
+2010-12-31     51.423242
+2011-12-31     54.399683
+2012-12-31     55.321642
 Freq: A-DEC, dtype: float64
 </pre></div></div>
 </div>
@@ -1113,7 +1114,7 @@ Freq: A-DEC, dtype: float64
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'1950'</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">plot_predict</span><span class="p">(</span><span class="s1">'1990'</span><span class="p">,</span> <span class="s1">'2012'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">plot_insample</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">arma_mod30</span><span class="o">.</span><span class="n">plot_predict</span><span class="p">(</span><span class="s1">'1990'</span><span class="p">,</span> <span class="s1">'2012'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">plot_insample</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1147,10 +1148,10 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>5.63693501099916
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5.636993629037569
+</pre></div></div>
 </div>
 
 <h3 id="Exercise:-Can-you-obtain-a-better-fit-for-the-Sunspots-model?-(Hint:-sm.tsa.AR-has-a-method-select_order)">Exercise: Can you obtain a better fit for the Sunspots model? (Hint: sm.tsa.AR has a method select_order)<a class="headerlink" href="#Exercise:-Can-you-obtain-a-better-fit-for-the-Sunspots-model?-(Hint:-sm.tsa.AR-has-a-method-select_order)" title="Permalink to this headline">¶</a></h3>
@@ -1201,10 +1202,10 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -1219,10 +1220,10 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>False
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
 </div>
 <ul class="simple">
 <li><p>What does this mean?</p></li>
@@ -1261,10 +1262,10 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -1304,12 +1305,12 @@ Freq: A-DEC, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">arma11</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">arma_rvs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span></span><span class="n">arma11</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">arma_rvs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">resid</span> <span class="o">=</span> <span class="n">arma11</span><span class="o">.</span><span class="n">resid</span>
-<span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">41</span><span class="p">),</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'lag'</span><span class="p">,</span> <span class="s2">"AC"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"Prob(&gt;Q)"</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1320,46 +1321,46 @@ Freq: A-DEC, dtype: float64
 <div class="highlight"><pre>
             AC           Q      Prob(&gt;Q)
 lag
-1.0   0.254921   32.687685  1.082207e-08
-2.0  -0.172416   47.670758  4.450680e-11
-3.0  -0.420945  137.159400  1.548460e-29
-4.0  -0.046875  138.271310  6.617675e-29
-5.0   0.103240  143.675918  2.958706e-29
-6.0   0.214864  167.133007  1.823712e-33
-7.0  -0.000889  167.133409  1.009202e-32
-8.0  -0.045418  168.185761  3.094822e-32
-9.0  -0.061445  170.115811  5.837192e-32
-10.0  0.034623  170.729863  1.958729e-31
-11.0  0.006351  170.750565  8.267022e-31
-12.0 -0.012882  170.835917  3.220220e-30
-13.0 -0.053959  172.336555  6.181173e-30
-14.0 -0.016606  172.478973  2.160207e-29
-15.0  0.051742  173.864495  4.089530e-29
-16.0  0.078917  177.094289  3.217923e-29
-17.0 -0.001834  177.096037  1.093163e-28
-18.0 -0.101604  182.471946  3.103811e-29
-19.0 -0.057342  184.187781  4.624047e-29
-20.0  0.026975  184.568295  1.235665e-28
-21.0  0.062359  186.605972  1.530253e-28
-22.0 -0.009400  186.652374  4.548177e-28
-23.0 -0.068037  189.088194  4.561992e-28
-24.0 -0.035566  189.755211  9.901054e-28
-25.0  0.095679  194.592631  3.354276e-28
-26.0  0.065650  196.874886  3.487608e-28
-27.0 -0.018404  197.054622  9.008710e-28
-28.0 -0.079244  200.394018  5.773690e-28
-29.0  0.008499  200.432510  1.541380e-27
-30.0  0.053372  201.953785  2.133183e-27
-31.0  0.074816  204.949403  1.550155e-27
+1.0   0.254921   32.687679  1.082211e-08
+2.0  -0.172416   47.670749  4.450700e-11
+3.0  -0.420945  137.159394  1.548465e-29
+4.0  -0.046875  138.271303  6.617697e-29
+5.0   0.103240  143.675911  2.958716e-29
+6.0   0.214864  167.133000  1.823717e-33
+7.0  -0.000889  167.133402  1.009205e-32
+8.0  -0.045418  168.185755  3.094832e-32
+9.0  -0.061445  170.115804  5.837211e-32
+10.0  0.034623  170.729856  1.958736e-31
+11.0  0.006351  170.750557  8.267050e-31
+12.0 -0.012882  170.835910  3.220231e-30
+13.0 -0.053959  172.336547  6.181196e-30
+14.0 -0.016606  172.478965  2.160215e-29
+15.0  0.051742  173.864489  4.089542e-29
+16.0  0.078917  177.094280  3.217937e-29
+17.0 -0.001834  177.096028  1.093168e-28
+18.0 -0.101604  182.471939  3.103820e-29
+19.0 -0.057342  184.187772  4.624066e-29
+20.0  0.026975  184.568285  1.235671e-28
+21.0  0.062359  186.605964  1.530258e-28
+22.0 -0.009400  186.652366  4.548192e-28
+23.0 -0.068037  189.088184  4.562012e-28
+24.0 -0.035566  189.755202  9.901092e-28
+25.0  0.095679  194.592626  3.354283e-28
+26.0  0.065650  196.874879  3.487619e-28
+27.0 -0.018404  197.054614  9.008743e-28
+28.0 -0.079244  200.394013  5.773702e-28
+29.0  0.008499  200.432506  1.541383e-27
+30.0  0.053372  201.953778  2.133189e-27
+31.0  0.074816  204.949400  1.550158e-27
 32.0 -0.071187  207.667250  1.262284e-27
-33.0 -0.088145  211.843165  5.480793e-28
-34.0 -0.025283  212.187459  1.215223e-27
-35.0  0.125690  220.714906  8.231579e-29
-36.0  0.142724  231.734129  1.923073e-30
-37.0  0.095768  236.706170  5.937755e-31
-38.0 -0.084744  240.607813  2.890874e-31
-39.0 -0.150126  252.878995  3.962980e-33
-40.0 -0.083767  256.707752  1.996162e-33
+33.0 -0.088145  211.843160  5.480804e-28
+34.0 -0.025283  212.187455  1.215225e-27
+35.0  0.125690  220.714908  8.231574e-29
+36.0  0.142724  231.734123  1.923077e-30
+37.0  0.095768  236.706168  5.937760e-31
+38.0 -0.084744  240.607813  2.890873e-31
+39.0 -0.150126  252.878989  3.962990e-33
+40.0 -0.083767  256.707748  1.996165e-33
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1367,12 +1368,12 @@ lag
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">arma41</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">arma_rvs</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span></span><span class="n">arma41</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">ARMA</span><span class="p">(</span><span class="n">arma_rvs</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">resid</span> <span class="o">=</span> <span class="n">arma41</span><span class="o">.</span><span class="n">resid</span>
-<span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">41</span><span class="p">),</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'lag'</span><span class="p">,</span> <span class="s2">"AC"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"Prob(&gt;Q)"</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'lag'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1383,22 +1384,22 @@ lag
 <div class="highlight"><pre>
             AC          Q  Prob(&gt;Q)
 lag
-1.0  -0.007889   0.031302  0.859569
-2.0   0.004132   0.039907  0.980244
-3.0   0.018103   0.205417  0.976710
-4.0  -0.006760   0.228541  0.993948
-5.0   0.018120   0.395026  0.995465
-6.0   0.050688   1.700448  0.945087
-7.0   0.010252   1.753955  0.972196
+1.0  -0.007888   0.031301  0.859571
+2.0   0.004132   0.039906  0.980245
+3.0   0.018103   0.205416  0.976710
+4.0  -0.006760   0.228539  0.993948
+5.0   0.018120   0.395025  0.995466
+6.0   0.050688   1.700447  0.945087
+7.0   0.010252   1.753954  0.972197
 8.0  -0.011206   1.818017  0.986092
-9.0   0.020292   2.028518  0.991009
-10.0  0.001029   2.029060  0.996113
-11.0 -0.014035   2.130168  0.997984
+9.0   0.020292   2.028517  0.991009
+10.0  0.001029   2.029059  0.996113
+11.0 -0.014035   2.130167  0.997984
 12.0 -0.023858   2.422925  0.998427
-13.0 -0.002108   2.425216  0.999339
-14.0 -0.018783   2.607429  0.999590
+13.0 -0.002108   2.425215  0.999339
+14.0 -0.018783   2.607428  0.999590
 15.0  0.011316   2.673698  0.999805
-16.0  0.042159   3.595419  0.999443
+16.0  0.042159   3.595418  0.999443
 17.0  0.007943   3.628204  0.999734
 18.0 -0.074311   6.503854  0.993686
 19.0 -0.023379   6.789066  0.995256
@@ -1407,22 +1408,22 @@ lag
 22.0  0.017952   6.961434  0.999024
 23.0 -0.038576   7.744465  0.998744
 24.0 -0.029816   8.213248  0.998859
-25.0  0.077850  11.415822  0.990675
-26.0  0.040408  12.280446  0.989479
-27.0 -0.018612  12.464273  0.992262
-28.0 -0.014764  12.580184  0.994586
-29.0  0.017650  12.746188  0.996111
-30.0 -0.005486  12.762261  0.997504
-31.0  0.058256  14.578542  0.994614
-32.0 -0.040840  15.473081  0.993887
-33.0 -0.019493  15.677306  0.995393
-34.0  0.037269  16.425463  0.995214
-35.0  0.086212  20.437445  0.976296
-36.0  0.041271  21.358843  0.974774
-37.0  0.078704  24.716874  0.938949
-38.0 -0.029729  25.197051  0.944895
-39.0 -0.078397  28.543381  0.891179
-40.0 -0.014466  28.657572  0.909268
+25.0  0.077850  11.415823  0.990675
+26.0  0.040408  12.280447  0.989479
+27.0 -0.018612  12.464274  0.992262
+28.0 -0.014764  12.580185  0.994586
+29.0  0.017650  12.746189  0.996111
+30.0 -0.005486  12.762262  0.997504
+31.0  0.058256  14.578543  0.994614
+32.0 -0.040840  15.473082  0.993887
+33.0 -0.019493  15.677307  0.995393
+34.0  0.037269  16.425464  0.995214
+35.0  0.086212  20.437447  0.976296
+36.0  0.041271  21.358845  0.974774
+37.0  0.078704  24.716877  0.938948
+38.0 -0.029729  25.197054  0.944895
+39.0 -0.078397  28.543385  0.891179
+40.0 -0.014466  28.657576  0.909268
 </pre></div></div>
 </div>
 
@@ -1466,7 +1467,7 @@ lag
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">adfuller</span><span class="p">(</span><span class="n">cpi</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">adfuller</span><span class="p">(</span><span class="n">cpi</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1475,7 +1476,7 @@ lag
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.9904328188337422
+0.9904328188337421
 </pre></div></div>
 </div>
 
@@ -1530,10 +1531,10 @@ lag
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1542,9 +1543,6 @@ lag
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

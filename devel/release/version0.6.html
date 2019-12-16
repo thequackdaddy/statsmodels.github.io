@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#release/version0.6" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Release 0.6.1 </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -473,9 +474,9 @@ dependent variables with various distributions.</p>
 <p>Here is an example of GEE Poisson regression in a data set with four
 count-type repeated measures per subject, and three explanatory
 covariates.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"epil"</span><span class="p">,</span> <span class="s2">"MASS"</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 
@@ -483,7 +484,7 @@ covariates.</p>
              <span class="n">cov_struct</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">cov_struct</span><span class="o">.</span><span class="n">Independence</span><span class="p">(),</span>
              <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">())</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The dependence structure in a GEE is treated as a nuisance parameter
@@ -503,8 +504,8 @@ structure is misspecified.</p>
 
 <h2 id="seasonality-plots">Seasonality Plots<a class="headerlink" href="#seasonality-plots" title="Permalink to this headline">¶</a></h2>
 <p>Adding functionality to look at seasonality in plots. Two new functions are <code class="xref py py-func docutils literal notranslate"><span class="pre">sm.graphics.tsa.month_plot</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">sm.graphics.tsa.quarter_plot</span></code>. Another function <code class="xref py py-func docutils literal notranslate"><span class="pre">sm.graphics.tsa.seasonal_plot</span></code> is available for power users.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">elnino</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
 <span class="n">dta</span><span class="p">[</span><span class="s1">'YEAR'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">YEAR</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
@@ -520,11 +521,11 @@ structure is misspecified.</p>
 
 <h2 id="seasonal-decomposition">Seasonal Decomposition<a class="headerlink" href="#seasonal-decomposition" title="Permalink to this headline">¶</a></h2>
 <p>We added a naive seasonal decomposition tool in the same vein as R’s <code class="docutils literal notranslate"><span class="pre">decompose</span></code>. This function can be found as <code class="xref py py-func docutils literal notranslate"><span class="pre">sm.tsa.seasonal_decompose</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
 <span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
 <span class="c1"># deal with missing values. see issue</span>
-<span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="p">)</span>
 <span class="n">res</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -551,12 +552,12 @@ effects design matrices to be specified for the groups, so these and
 other types of random effects models can all be fit.</p>
 <p>Here is an example of fitting a random intercepts model to data from a
 longitudinal study:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s1">'dietox'</span><span class="p">,</span> <span class="s1">'geepack'</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s1">'dietox'</span><span class="p">,</span> <span class="s1">'geepack'</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="s2">"Weight ~ Time"</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"Pig"</span><span class="p">])</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The statsmodels LME framework currently supports post-estimation
@@ -570,14 +571,14 @@ hope to implement these features for the next release.</p>
 
 <h2 id="wrapping-x-12-arima-x-13-arima">Wrapping X-12-ARIMA/X-13-ARIMA<a class="headerlink" href="#wrapping-x-12-arima-x-13-arima" title="Permalink to this headline">¶</a></h2>
 <p>It is now possible to call out to X-12-ARIMA or X-13ARIMA-SEATS from statsmodels. These libraries must be installed separately.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
 <span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
-<span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">dta</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">x13_arima_select_order</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">sorder</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">sorder</span><span class="p">)</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">x13_arima_analysis</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">co2</span><span class="p">)</span>
 
@@ -1269,10 +1270,10 @@ this is the full list (generated with the script <code class="file docutils lite
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1281,9 +1282,6 @@ this is the full list (generated with the script <code class="file docutils lite
     </div>
   </footer>
   <script src="../_static/javascripts/application.js"></script>
-  
-    <script src="../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

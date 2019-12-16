@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/multivariate/multivariate_ols" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.multivariate.multivariate_ols </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -282,14 +283,14 @@
 <span class="sd">author: Yichuan Liu</span>
 <span class="sd">"""</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">matrix_rank</span><span class="p">,</span> <span class="n">pinv</span><span class="p">,</span> <span class="n">svd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">matrix_rank</span><span class="p">,</span> <span class="n">pinv</span><span class="p">,</span> <span class="n">svd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">patsy</span> <span class="k">import</span> <span class="n">DesignInfo</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">DesignInfo</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="k">import</span> <span class="n">Substitution</span>
-<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="k">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="k">import</span> <span class="n">summary2</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">Substitution</span>
+<span class="kn">from</span> <span class="nn">statsmodels.base.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="kn">import</span> <span class="n">summary2</span>
 <span class="n">__docformat__</span> <span class="o">=</span> <span class="s1">'restructuredtext en'</span>
 
 <span class="n">_hypotheses_doc</span> <span class="o">=</span> \
@@ -665,7 +666,7 @@
 <span class="sd">    """</span>
     <span class="n">_formula_max_endog</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">endog</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">endog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'There must be more than one dependent variable'</span>
                              <span class="s1">' to fit multivariate OLS!'</span><span class="p">)</span>
@@ -683,7 +684,7 @@
 <span class="sd">    _MultivariateOLS results class</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fitted_mv_ols</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fitted_mv_ols</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">fitted_mv_ols</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">)</span> <span class="ow">and</span>
                 <span class="nb">hasattr</span><span class="p">(</span><span class="n">fitted_mv_ols</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">'design_info'</span><span class="p">)):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">design_info</span> <span class="o">=</span> <span class="n">fitted_mv_ols</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">design_info</span>
@@ -693,7 +694,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">endog_names</span> <span class="o">=</span> <span class="n">fitted_mv_ols</span><span class="o">.</span><span class="n">endog_names</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fittedmod</span> <span class="o">=</span> <span class="n">fitted_mv_ols</span><span class="o">.</span><span class="n">_fittedmod</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="_MultivariateOLSResults.mv_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.multivariate.multivariate_ols._MultivariateOLSResults.mv_test.html#statsmodels.multivariate.multivariate_ols._MultivariateOLSResults.mv_test">[docs]</a>    <span class="nd">@Substitution</span><span class="p">(</span><span class="n">hypotheses_doc</span><span class="o">=</span><span class="n">_hypotheses_doc</span><span class="p">)</span>
@@ -763,15 +764,15 @@
 <span class="sd">    summary_frame : multiindex dataframe</span>
 <span class="sd">        Returns results as a multiindex dataframe</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mv_test_df</span><span class="p">,</span> <span class="n">endog_names</span><span class="p">,</span> <span class="n">exog_names</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mv_test_df</span><span class="p">,</span> <span class="n">endog_names</span><span class="p">,</span> <span class="n">exog_names</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">mv_test_df</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endog_names</span> <span class="o">=</span> <span class="n">endog_names</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">exog_names</span> <span class="o">=</span> <span class="n">exog_names</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
 
     <span class="nd">@property</span>
@@ -850,10 +851,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -862,9 +863,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

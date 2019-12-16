@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/genmod/generalized_estimating_equations" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.generalized_estimating_equations </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -299,38 +300,38 @@
 <span class="sd">LA Mancl LA, TA DeRouen (2001). A covariance estimator for GEE with</span>
 <span class="sd">improved small-sample properties.  Biometrics. 2001 Mar;57(1):126-34.</span>
 <span class="sd">"""</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">lzip</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="k">import</span> <span class="n">Appender</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lzip</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">Appender</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">patsy</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.model</span> <span class="k">as</span> <span class="nn">base</span>
 <span class="c1"># used for wrapper:</span>
 <span class="kn">import</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">as</span> <span class="nn">lm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.genmod</span> <span class="k">import</span> <span class="n">families</span>
-<span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="k">import</span> <span class="n">GLM</span>
-<span class="kn">from</span> <span class="nn">statsmodels.genmod</span> <span class="k">import</span> <span class="n">cov_struct</span> <span class="k">as</span> <span class="n">cov_structs</span>
+<span class="kn">from</span> <span class="nn">statsmodels.genmod</span> <span class="kn">import</span> <span class="n">families</span>
+<span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="kn">import</span> <span class="n">GLM</span>
+<span class="kn">from</span> <span class="nn">statsmodels.genmod</span> <span class="kn">import</span> <span class="n">cov_struct</span> <span class="k">as</span> <span class="n">cov_structs</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.genmod.families.varfuncs</span> <span class="k">as</span> <span class="nn">varfuncs</span>
-<span class="kn">from</span> <span class="nn">statsmodels.genmod.families.links</span> <span class="k">import</span> <span class="n">Link</span>
+<span class="kn">from</span> <span class="nn">statsmodels.genmod.families.links</span> <span class="kn">import</span> <span class="n">Link</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="p">(</span><span class="n">ConvergenceWarning</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ConvergenceWarning</span><span class="p">,</span>
                                              <span class="n">DomainWarning</span><span class="p">,</span>
                                              <span class="n">IterationLimitWarning</span><span class="p">,</span>
                                              <span class="n">ValueWarning</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.graphics._regressionplots_doc</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics._regressionplots_doc</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">_plot_added_variable_doc</span><span class="p">,</span>
     <span class="n">_plot_partial_residuals_doc</span><span class="p">,</span>
     <span class="n">_plot_ceres_residuals_doc</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">_get_margeff_exog</span><span class="p">,</span> <span class="n">_check_margeff_args</span><span class="p">,</span> <span class="n">_effects_at</span><span class="p">,</span> <span class="n">margeff_cov_with_se</span><span class="p">,</span>
     <span class="n">_check_at_is_all</span><span class="p">,</span> <span class="n">_transform_names</span><span class="p">,</span> <span class="n">_check_discrete_args</span><span class="p">,</span>
     <span class="n">_get_dummy_index</span><span class="p">,</span> <span class="n">_get_count_index</span><span class="p">)</span>
@@ -342,7 +343,7 @@
 <span class="sd">    vector.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">exog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">exog</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -752,7 +753,7 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"'exposure' and 'endog' should have the same size"</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="GEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEE.html#statsmodels.genmod.generalized_estimating_equations.GEE">[docs]</a><span class="k">class</span> <span class="nc">GEE</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEE.html#statsmodels.formula.api.GEE">[docs]</a><span class="k">class</span> <span class="nc">GEE</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 
     <span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"    Marginal Regression Model using Generalized Estimating "</span>
@@ -763,7 +764,7 @@
 
     <span class="n">cached_means</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">cov_struct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dep_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">update_dep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -929,7 +930,7 @@
 
     <span class="c1"># Override to allow groups and time to be passed as variable</span>
     <span class="c1"># names.</span>
-<div class="viewcode-block" id="GEE.from_formula"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.from_formula.html#statsmodels.genmod.generalized_estimating_equations.GEE.from_formula">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="GEE.from_formula"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.from_formula.html#statsmodels.formula.api.GEE.from_formula">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_formula</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1037,7 +1038,7 @@
 
         <span class="k">return</span> <span class="n">model</span></div>
 
-<div class="viewcode-block" id="GEE.cluster_list"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.cluster_list.html#statsmodels.genmod.generalized_estimating_equations.GEE.cluster_list">[docs]</a>    <span class="k">def</span> <span class="nf">cluster_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.cluster_list"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.cluster_list.html#statsmodels.formula.api.GEE.cluster_list">[docs]</a>    <span class="k">def</span> <span class="nf">cluster_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns `array` split into subarrays corresponding to the</span>
 <span class="sd">        cluster structure.</span>
@@ -1050,7 +1051,7 @@
             <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">group_indices</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">:])</span>
                     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_labels</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="GEE.compare_score_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.compare_score_test.html#statsmodels.genmod.generalized_estimating_equations.GEE.compare_score_test">[docs]</a>    <span class="k">def</span> <span class="nf">compare_score_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">submodel</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.compare_score_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.compare_score_test.html#statsmodels.formula.api.GEE.compare_score_test">[docs]</a>    <span class="k">def</span> <span class="nf">compare_score_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">submodel</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Perform a score test for the given submodel against this model.</span>
 
@@ -1163,7 +1164,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cov_struct</span> <span class="o">=</span> <span class="n">cov_struct_save</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cached_means</span> <span class="o">=</span> <span class="n">cached_means_save</span>
 
-        <span class="kn">from</span> <span class="nn">scipy.stats.distributions</span> <span class="k">import</span> <span class="n">chi2</span>
+        <span class="kn">from</span> <span class="nn">scipy.stats.distributions</span> <span class="kn">import</span> <span class="n">chi2</span>
         <span class="n">score_statistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">score2</span><span class="p">,</span>
                                  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">score_cov</span><span class="p">,</span> <span class="n">score2</span><span class="p">))</span>
         <span class="n">score_df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">score2</span><span class="p">)</span>
@@ -1172,7 +1173,7 @@
                 <span class="s2">"df"</span><span class="p">:</span> <span class="n">score_df</span><span class="p">,</span>
                 <span class="s2">"p-value"</span><span class="p">:</span> <span class="n">score_pvalue</span><span class="p">}</span></div>
 
-<div class="viewcode-block" id="GEE.estimate_scale"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.estimate_scale.html#statsmodels.genmod.generalized_estimating_equations.GEE.estimate_scale">[docs]</a>    <span class="k">def</span> <span class="nf">estimate_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.estimate_scale"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.estimate_scale.html#statsmodels.formula.api.GEE.estimate_scale">[docs]</a>    <span class="k">def</span> <span class="nf">estimate_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Estimate the dispersion/scale.</span>
 <span class="sd">        """</span>
@@ -1211,7 +1212,7 @@
 
         <span class="k">return</span> <span class="n">scale</span></div>
 
-<div class="viewcode-block" id="GEE.mean_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv.html#statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.mean_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv.html#statsmodels.formula.api.GEE.mean_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of the expected endog with respect to the parameters.</span>
 
@@ -1237,7 +1238,7 @@
         <span class="n">dmat</span> <span class="o">=</span> <span class="n">exog</span> <span class="o">*</span> <span class="n">idl</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">dmat</span></div>
 
-<div class="viewcode-block" id="GEE.mean_deriv_exog"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv_exog.html#statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv_exog">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv_exog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">offset_exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.mean_deriv_exog"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.mean_deriv_exog.html#statsmodels.formula.api.GEE.mean_deriv_exog">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv_exog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">offset_exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of the expected endog with respect to exog.</span>
 
@@ -1311,7 +1312,7 @@
 
         <span class="k">return</span> <span class="n">update</span><span class="p">,</span> <span class="n">score</span>
 
-<div class="viewcode-block" id="GEE.update_cached_means"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.update_cached_means.html#statsmodels.genmod.generalized_estimating_equations.GEE.update_cached_means">[docs]</a>    <span class="k">def</span> <span class="nf">update_cached_means</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean_params</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.update_cached_means"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.update_cached_means.html#statsmodels.formula.api.GEE.update_cached_means">[docs]</a>    <span class="k">def</span> <span class="nf">update_cached_means</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean_params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        cached_means should always contain the most recent calculation</span>
 <span class="sd">        of the group-wise mean vectors.  This function should be</span>
@@ -1441,7 +1442,7 @@
 
         <span class="k">return</span> <span class="n">cov_robust_bc</span>
 
-<div class="viewcode-block" id="GEE.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.predict.html#statsmodels.genmod.generalized_estimating_equations.GEE.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="GEE.predict"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.predict.html#statsmodels.formula.api.GEE.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Return predicted values for a marginal regression model fit</span>
@@ -1536,7 +1537,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span>
 
-<div class="viewcode-block" id="GEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.fit.html#statsmodels.genmod.generalized_estimating_equations.GEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
+<div class="viewcode-block" id="GEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.fit.html#statsmodels.formula.api.GEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ctol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">params_niter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_dep_update</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">cov_type</span><span class="o">=</span><span class="s1">'robust'</span><span class="p">,</span> <span class="n">ddof_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scaling_factor</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
@@ -1733,7 +1734,7 @@
 
         <span class="k">return</span> <span class="n">ma</span>
 
-<div class="viewcode-block" id="GEE.fit_regularized"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.fit_regularized.html#statsmodels.genmod.generalized_estimating_equations.GEE.fit_regularized">[docs]</a>    <span class="k">def</span> <span class="nf">fit_regularized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pen_wt</span><span class="p">,</span> <span class="n">scad_param</span><span class="o">=</span><span class="mf">3.7</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<div class="viewcode-block" id="GEE.fit_regularized"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.fit_regularized.html#statsmodels.formula.api.GEE.fit_regularized">[docs]</a>    <span class="k">def</span> <span class="nf">fit_regularized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pen_wt</span><span class="p">,</span> <span class="n">scad_param</span><span class="o">=</span><span class="mf">3.7</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
                         <span class="n">ddof_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">update_assoc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                         <span class="n">ctol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">ztol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -1910,7 +1911,7 @@
                             <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">amat_11</span><span class="p">,</span> <span class="n">bmat_11</span><span class="p">),</span>
                                    <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">amat_11</span><span class="p">,</span> <span class="n">amat_12</span><span class="p">)))</span>
 
-        <span class="kn">from</span> <span class="nn">scipy.stats.distributions</span> <span class="k">import</span> <span class="n">chi2</span>
+        <span class="kn">from</span> <span class="nn">scipy.stats.distributions</span> <span class="kn">import</span> <span class="n">chi2</span>
         <span class="n">score_statistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">score2</span><span class="p">,</span>
                                  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">score_cov</span><span class="p">,</span> <span class="n">score2</span><span class="p">))</span>
         <span class="n">score_df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">score2</span><span class="p">)</span>
@@ -1960,18 +1961,18 @@
         <span class="k">if</span> <span class="s1">'ey'</span> <span class="ow">in</span> <span class="n">transform</span><span class="p">:</span>
             <span class="n">margeff</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">exog</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">count_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="k">import</span> <span class="p">(</span>
+            <span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="kn">import</span> <span class="p">(</span>
                 <span class="n">_get_count_effects</span><span class="p">)</span>
             <span class="n">margeff</span> <span class="o">=</span> <span class="n">_get_count_effects</span><span class="p">(</span><span class="n">margeff</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">count_idx</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span>
                                          <span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">dummy_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="k">import</span> <span class="p">(</span>
+            <span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_margins</span> <span class="kn">import</span> <span class="p">(</span>
                 <span class="n">_get_dummy_effects</span><span class="p">)</span>
             <span class="n">margeff</span> <span class="o">=</span> <span class="n">_get_dummy_effects</span><span class="p">(</span><span class="n">margeff</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">dummy_idx</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span>
                                          <span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">margeff</span>
 
-<div class="viewcode-block" id="GEE.qic"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.qic.html#statsmodels.genmod.generalized_estimating_equations.GEE.qic">[docs]</a>    <span class="k">def</span> <span class="nf">qic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">):</span>
+<div class="viewcode-block" id="GEE.qic"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEE.qic.html#statsmodels.formula.api.GEE.qic">[docs]</a>    <span class="k">def</span> <span class="nf">qic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns quasi-information criteria and quasi-likelihood values.</span>
 
@@ -2046,7 +2047,7 @@
             <span class="n">qv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">du</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">g</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">vu</span><span class="p">)</span>
         <span class="n">qv</span> <span class="o">/=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
 
-        <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">trapz</span>
+        <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">trapz</span>
         <span class="n">ql</span> <span class="o">=</span> <span class="n">trapz</span><span class="p">(</span><span class="n">qv</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">xv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="n">qicu</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ql</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -2055,13 +2056,13 @@
         <span class="k">return</span> <span class="n">ql</span><span class="p">,</span> <span class="n">qic</span><span class="p">,</span> <span class="n">qicu</span></div></div>
 
 
-<div class="viewcode-block" id="GEEResults"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.html#statsmodels.genmod.generalized_estimating_equations.GEEResults">[docs]</a><span class="k">class</span> <span class="nc">GEEResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.html#statsmodels.formula.api.GEEResults">[docs]</a><span class="k">class</span> <span class="nc">GEEResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
 
     <span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"This class summarizes the fit of a marginal regression model "</span>
         <span class="s2">"using GEE.</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">_gee_results_doc</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span>
                  <span class="n">cov_type</span><span class="o">=</span><span class="s1">'robust'</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regularized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 
@@ -2102,7 +2103,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'cov_type in argument is different from '</span>
                                  <span class="s1">'already attached cov_type'</span><span class="p">)</span>
 
-<div class="viewcode-block" id="GEEResults.standard_errors"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.standard_errors.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.standard_errors">[docs]</a>    <span class="k">def</span> <span class="nf">standard_errors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="s2">"robust"</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults.standard_errors"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.standard_errors.html#statsmodels.formula.api.GEEResults.standard_errors">[docs]</a>    <span class="k">def</span> <span class="nf">standard_errors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="s2">"robust"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        This is a convenience function that returns the standard</span>
 <span class="sd">        errors for any covariance type.  The value of `bse` is the</span>
@@ -2148,7 +2149,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">endog</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">fittedvalues</span>
 
-<div class="viewcode-block" id="GEEResults.score_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.score_test.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.score_test">[docs]</a>    <span class="k">def</span> <span class="nf">score_test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults.score_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.score_test.html#statsmodels.formula.api.GEEResults.score_test">[docs]</a>    <span class="k">def</span> <span class="nf">score_test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Return the results of a score test for a linear constraint.</span>
 
@@ -2216,7 +2217,7 @@
             <span class="n">sresid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centered_resid</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">sresid</span>
 
-<div class="viewcode-block" id="GEEResults.qic"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.qic.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.qic">[docs]</a>    <span class="k">def</span> <span class="nf">qic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults.qic"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.qic.html#statsmodels.formula.api.GEEResults.qic">[docs]</a>    <span class="k">def</span> <span class="nf">qic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the QIC and QICu information criteria.</span>
 
@@ -2280,12 +2281,12 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">family</span><span class="o">.</span><span class="n">link</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span>
                                                      <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">))</span>
 
-<div class="viewcode-block" id="GEEResults.plot_added_variable"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_added_variable.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_added_variable">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_added_variable_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
+<div class="viewcode-block" id="GEEResults.plot_added_variable"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_added_variable.html#statsmodels.formula.api.GEEResults.plot_added_variable">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_added_variable_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plot_added_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">resid_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">use_glm_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="k">import</span> <span class="n">plot_added_variable</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="kn">import</span> <span class="n">plot_added_variable</span>
 
         <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_added_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span>
                                   <span class="n">resid_type</span><span class="o">=</span><span class="n">resid_type</span><span class="p">,</span>
@@ -2294,23 +2295,23 @@
 
         <span class="k">return</span> <span class="n">fig</span></div>
 
-<div class="viewcode-block" id="GEEResults.plot_partial_residuals"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_partial_residuals.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_partial_residuals">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_partial_residuals_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
+<div class="viewcode-block" id="GEEResults.plot_partial_residuals"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_partial_residuals.html#statsmodels.formula.api.GEEResults.plot_partial_residuals">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_partial_residuals_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plot_partial_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="k">import</span> <span class="n">plot_partial_residuals</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="kn">import</span> <span class="n">plot_partial_residuals</span>
 
         <span class="k">return</span> <span class="n">plot_partial_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GEEResults.plot_ceres_residuals"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_ceres_residuals.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_ceres_residuals">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_ceres_residuals_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
+<div class="viewcode-block" id="GEEResults.plot_ceres_residuals"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_ceres_residuals.html#statsmodels.formula.api.GEEResults.plot_ceres_residuals">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_plot_ceres_residuals_doc</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params_doc'</span><span class="p">:</span> <span class="s1">''</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plot_ceres_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.66</span><span class="p">,</span> <span class="n">cond_means</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                              <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="k">import</span> <span class="n">plot_ceres_residuals</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="kn">import</span> <span class="n">plot_ceres_residuals</span>
 
         <span class="k">return</span> <span class="n">plot_ceres_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">focus_exog</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span>
                                     <span class="n">cond_means</span><span class="o">=</span><span class="n">cond_means</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GEEResults.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.conf_int.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.conf_int.html#statsmodels.formula.api.GEEResults.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns confidence intervals for the fitted parameters.</span>
 
@@ -2350,7 +2351,7 @@
             <span class="n">upper</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="o">+</span> <span class="n">q</span> <span class="o">*</span> <span class="n">bse</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">lzip</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="GEEResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.summary.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.summary.html#statsmodels.formula.api.GEEResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Summarize the GEE regression results</span>
 
@@ -2434,7 +2435,7 @@
             <span class="n">yname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">endog_names</span>
 
         <span class="c1"># Create summary table instance</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
         <span class="n">smry</span><span class="o">.</span><span class="n">add_table_2cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gleft</span><span class="o">=</span><span class="n">top_left</span><span class="p">,</span> <span class="n">gright</span><span class="o">=</span><span class="n">top_right</span><span class="p">,</span>
                              <span class="n">yname</span><span class="o">=</span><span class="n">yname</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="n">xname</span><span class="p">,</span>
@@ -2447,7 +2448,7 @@
 
         <span class="k">return</span> <span class="n">smry</span></div>
 
-<div class="viewcode-block" id="GEEResults.get_margeff"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.get_margeff.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.get_margeff">[docs]</a>    <span class="k">def</span> <span class="nf">get_margeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="s1">'overall'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'dydx'</span><span class="p">,</span> <span class="n">atexog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="GEEResults.get_margeff"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.get_margeff.html#statsmodels.formula.api.GEEResults.get_margeff">[docs]</a>    <span class="k">def</span> <span class="nf">get_margeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="s1">'overall'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'dydx'</span><span class="p">,</span> <span class="n">atexog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">dummy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""Get marginal effects of the fitted model.</span>
 
@@ -2514,7 +2515,7 @@
 
         <span class="k">return</span> <span class="n">GEEMargins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">at</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">atexog</span><span class="p">,</span> <span class="n">dummy</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="GEEResults.plot_isotropic_dependence"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_isotropic_dependence.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_isotropic_dependence">[docs]</a>    <span class="k">def</span> <span class="nf">plot_isotropic_dependence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xpoints</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<div class="viewcode-block" id="GEEResults.plot_isotropic_dependence"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.plot_isotropic_dependence.html#statsmodels.formula.api.GEEResults.plot_isotropic_dependence">[docs]</a>    <span class="k">def</span> <span class="nf">plot_isotropic_dependence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xpoints</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                   <span class="n">min_n</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Create a plot of the pairwise products of within-group</span>
@@ -2537,7 +2538,7 @@
 <span class="sd">            product to be included on the plot.</span>
 <span class="sd">        """</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="k">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
 
         <span class="n">resid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cluster_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
         <span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cluster_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
@@ -2584,7 +2585,7 @@
 
         <span class="k">return</span> <span class="n">fig</span></div>
 
-<div class="viewcode-block" id="GEEResults.sensitivity_params"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.sensitivity_params.html#statsmodels.genmod.generalized_estimating_equations.GEEResults.sensitivity_params">[docs]</a>    <span class="k">def</span> <span class="nf">sensitivity_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dep_params_first</span><span class="p">,</span>
+<div class="viewcode-block" id="GEEResults.sensitivity_params"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEResults.sensitivity_params.html#statsmodels.formula.api.GEEResults.sensitivity_params">[docs]</a>    <span class="k">def</span> <span class="nf">sensitivity_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dep_params_first</span><span class="p">,</span>
                            <span class="n">dep_params_last</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Refits the GEE model using a sequence of values for the</span>
@@ -2647,7 +2648,7 @@
 <span class="n">wrap</span><span class="o">.</span><span class="n">populate_wrapper</span><span class="p">(</span><span class="n">GEEResultsWrapper</span><span class="p">,</span> <span class="n">GEEResults</span><span class="p">)</span>  <span class="c1"># noqa:E305</span>
 
 
-<div class="viewcode-block" id="OrdinalGEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.html#statsmodels.genmod.generalized_estimating_equations.OrdinalGEE">[docs]</a><span class="k">class</span> <span class="nc">OrdinalGEE</span><span class="p">(</span><span class="n">GEE</span><span class="p">):</span>
+<div class="viewcode-block" id="OrdinalGEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.html#statsmodels.formula.api.OrdinalGEE">[docs]</a><span class="k">class</span> <span class="nc">OrdinalGEE</span><span class="p">(</span><span class="n">GEE</span><span class="p">):</span>
 
     <span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"    Ordinal Response Marginal Regression Model using GEE</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
@@ -2655,7 +2656,7 @@
                          <span class="s1">'family_doc'</span><span class="p">:</span> <span class="n">_gee_ordinal_family_doc</span><span class="p">,</span>
                          <span class="s1">'example'</span><span class="p">:</span> <span class="n">_gee_ordinal_example</span><span class="p">})</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">cov_struct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">dep_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
@@ -2675,7 +2676,7 @@
                                          <span class="n">family</span><span class="p">,</span> <span class="n">cov_struct</span><span class="p">,</span> <span class="n">missing</span><span class="p">,</span>
                                          <span class="n">offset</span><span class="p">,</span> <span class="n">dep_data</span><span class="p">,</span> <span class="n">constraint</span><span class="p">)</span>
 
-<div class="viewcode-block" id="OrdinalGEE.setup_ordinal"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.setup_ordinal.html#statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.setup_ordinal">[docs]</a>    <span class="k">def</span> <span class="nf">setup_ordinal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+<div class="viewcode-block" id="OrdinalGEE.setup_ordinal"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.setup_ordinal.html#statsmodels.formula.api.OrdinalGEE.setup_ordinal">[docs]</a>    <span class="k">def</span> <span class="nf">setup_ordinal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Restructure ordinal data as binary indicators so that they can</span>
 <span class="sd">        be analyzed using Generalized Estimating Equations.</span>
@@ -2755,7 +2756,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span>
 
-<div class="viewcode-block" id="OrdinalGEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.fit.html#statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
+<div class="viewcode-block" id="OrdinalGEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.fit.html#statsmodels.formula.api.OrdinalGEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ctol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">params_niter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_dep_update</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">cov_type</span><span class="o">=</span><span class="s1">'robust'</span><span class="p">):</span>
@@ -2816,7 +2817,7 @@
 <span class="sd">        &gt;&gt;&gt; rslt.distribution_plot(exog_values=ev)</span>
 <span class="sd">        """</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="k">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
 
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">gutils</span><span class="o">.</span><span class="n">create_mpl_ax</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
@@ -2928,7 +2929,7 @@
 <span class="n">wrap</span><span class="o">.</span><span class="n">populate_wrapper</span><span class="p">(</span><span class="n">OrdinalGEEResultsWrapper</span><span class="p">,</span> <span class="n">OrdinalGEEResults</span><span class="p">)</span>  <span class="c1"># noqa:E305</span>
 
 
-<div class="viewcode-block" id="NominalGEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.html#statsmodels.genmod.generalized_estimating_equations.NominalGEE">[docs]</a><span class="k">class</span> <span class="nc">NominalGEE</span><span class="p">(</span><span class="n">GEE</span><span class="p">):</span>
+<div class="viewcode-block" id="NominalGEE"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.html#statsmodels.formula.api.NominalGEE">[docs]</a><span class="k">class</span> <span class="nc">NominalGEE</span><span class="p">(</span><span class="n">GEE</span><span class="p">):</span>
 
     <span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"    Nominal Response Marginal Regression Model using GEE.</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
@@ -2936,7 +2937,7 @@
                          <span class="s1">'family_doc'</span><span class="p">:</span> <span class="n">_gee_nominal_family_doc</span><span class="p">,</span>
                          <span class="s1">'example'</span><span class="p">:</span> <span class="n">_gee_nominal_example</span><span class="p">})</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">cov_struct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">dep_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
@@ -2960,7 +2961,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span>
 
-<div class="viewcode-block" id="NominalGEE.setup_nominal"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.setup_nominal.html#statsmodels.genmod.generalized_estimating_equations.NominalGEE.setup_nominal">[docs]</a>    <span class="k">def</span> <span class="nf">setup_nominal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+<div class="viewcode-block" id="NominalGEE.setup_nominal"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.setup_nominal.html#statsmodels.formula.api.NominalGEE.setup_nominal">[docs]</a>    <span class="k">def</span> <span class="nf">setup_nominal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Restructure nominal data as binary indicators so that they can</span>
 <span class="sd">        be analyzed using Generalized Estimating Equations.</span>
@@ -3035,7 +3036,7 @@
 
         <span class="k">return</span> <span class="n">endog_out</span><span class="p">,</span> <span class="n">exog_out</span><span class="p">,</span> <span class="n">groups_out</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">offset_out</span></div>
 
-<div class="viewcode-block" id="NominalGEE.mean_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv.html#statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
+<div class="viewcode-block" id="NominalGEE.mean_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv.html#statsmodels.formula.api.NominalGEE.mean_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">lin_pred</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of the expected endog with respect to the parameters.</span>
 
@@ -3078,7 +3079,7 @@
 
         <span class="k">return</span> <span class="n">dmat</span></div>
 
-<div class="viewcode-block" id="NominalGEE.mean_deriv_exog"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv_exog.html#statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv_exog">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv_exog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">offset_exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="NominalGEE.mean_deriv_exog"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.mean_deriv_exog.html#statsmodels.formula.api.NominalGEE.mean_deriv_exog">[docs]</a>    <span class="k">def</span> <span class="nf">mean_deriv_exog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">offset_exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of the expected endog with respect to exog for the</span>
 <span class="sd">        multinomial model, used in analyzing marginal effects.</span>
@@ -3136,7 +3137,7 @@
 
         <span class="k">return</span> <span class="n">dmat</span></div>
 
-<div class="viewcode-block" id="NominalGEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.fit.html#statsmodels.genmod.generalized_estimating_equations.NominalGEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
+<div class="viewcode-block" id="NominalGEE.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.fit.html#statsmodels.formula.api.NominalGEE.fit">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">_gee_fit_doc</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ctol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">params_niter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_dep_update</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">cov_type</span><span class="o">=</span><span class="s1">'robust'</span><span class="p">):</span>
@@ -3201,7 +3202,7 @@
 <span class="sd">        &gt;&gt;&gt; rslt.distribution_plot(exog_values=ex)</span>
 <span class="sd">        """</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="k">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">gutils</span>
 
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">gutils</span><span class="o">.</span><span class="n">create_mpl_ax</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
@@ -3274,7 +3275,7 @@
 <span class="sd">    so that p is in (0, 1)</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ncut</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ncut</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ncut</span> <span class="o">=</span> <span class="n">ncut</span>
 
     <span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lpr</span><span class="p">):</span>
@@ -3315,7 +3316,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">varfuncs</span><span class="o">.</span><span class="n">binary</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">_MultinomialLogit</span><span class="p">,</span> <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlevels</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlevels</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3330,7 +3331,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="n">_MultinomialLogit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ncut</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="GEEMargins"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.html#statsmodels.genmod.generalized_estimating_equations.GEEMargins">[docs]</a><span class="k">class</span> <span class="nc">GEEMargins</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEMargins"><a class="viewcode-back" href="../../../generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.html#statsmodels.formula.api.GEEMargins">[docs]</a><span class="k">class</span> <span class="nc">GEEMargins</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Estimated marginal effects for a regression model fit with GEE.</span>
 
@@ -3346,7 +3347,7 @@
 <span class="sd">        results.get_margeff. See there for more information.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">results</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_margeff</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -3359,7 +3360,7 @@
         <span class="n">_check_at_is_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">margeff_options</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">margeff</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">margeff_se</span>
 
-<div class="viewcode-block" id="GEEMargins.summary_frame"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary_frame.html#statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary_frame">[docs]</a>    <span class="k">def</span> <span class="nf">summary_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEMargins.summary_frame"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary_frame.html#statsmodels.formula.api.GEEMargins.summary_frame">[docs]</a>    <span class="k">def</span> <span class="nf">summary_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a DataFrame summarizing the marginal effects.</span>
 
@@ -3375,7 +3376,7 @@
 <span class="sd">            A DataFrame summarizing the marginal effects.</span>
 <span class="sd">        """</span>
         <span class="n">_check_at_is_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">margeff_options</span><span class="p">)</span>
-        <span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
+        <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
         <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">_transform_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">margeff_options</span><span class="p">[</span><span class="s1">'method'</span><span class="p">]],</span>
                  <span class="s1">'Std. Err.'</span><span class="p">,</span> <span class="s1">'z'</span><span class="p">,</span> <span class="s1">'Pr(&gt;|z|)'</span><span class="p">,</span>
                  <span class="s1">'Conf. Int. Low'</span><span class="p">,</span> <span class="s1">'Cont. Int. Hi.'</span><span class="p">]</span>
@@ -3391,7 +3392,7 @@
         <span class="n">_check_at_is_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">margeff_options</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tvalues</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
 
-<div class="viewcode-block" id="GEEMargins.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.conf_int.html#statsmodels.genmod.generalized_estimating_equations.GEEMargins.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEMargins.conf_int"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.conf_int.html#statsmodels.formula.api.GEEMargins.conf_int">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the confidence intervals of the marginal effects</span>
 
@@ -3414,7 +3415,7 @@
         <span class="n">upper</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">margeff</span> <span class="o">+</span> <span class="n">q</span> <span class="o">*</span> <span class="n">me_se</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">lzip</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="GEEMargins.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary.html#statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+<div class="viewcode-block" id="GEEMargins.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.summary.html#statsmodels.formula.api.GEEMargins.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns a summary table for marginal effects</span>
 
@@ -3438,7 +3439,7 @@
                     <span class="p">(</span><span class="s1">'Method:'</span><span class="p">,</span> <span class="p">[</span><span class="n">method</span><span class="p">]),</span>
                     <span class="p">(</span><span class="s1">'At:'</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">margeff_options</span><span class="p">[</span><span class="s1">'at'</span><span class="p">]]),</span> <span class="p">]</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="p">(</span><span class="n">Summary</span><span class="p">,</span> <span class="n">summary_params</span><span class="p">,</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Summary</span><span class="p">,</span> <span class="n">summary_params</span><span class="p">,</span>
                                                <span class="n">table_extend</span><span class="p">)</span>
         <span class="n">exog_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">exog_names</span><span class="p">[:]</span>  <span class="c1"># copy</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
@@ -3496,7 +3497,7 @@
         <span class="n">smry</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">smry</span></div>
 
-<div class="viewcode-block" id="GEEMargins.get_margeff"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.get_margeff.html#statsmodels.genmod.generalized_estimating_equations.GEEMargins.get_margeff">[docs]</a>    <span class="k">def</span> <span class="nf">get_margeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="s1">'overall'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'dydx'</span><span class="p">,</span> <span class="n">atexog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="GEEMargins.get_margeff"><a class="viewcode-back" href="../../../generated/generated/statsmodels.genmod.generalized_estimating_equations.GEEMargins.get_margeff.html#statsmodels.formula.api.GEEMargins.get_margeff">[docs]</a>    <span class="k">def</span> <span class="nf">get_margeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="s1">'overall'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'dydx'</span><span class="p">,</span> <span class="n">atexog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">dummy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># always reset the cache when this is called</span>
@@ -3570,10 +3571,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -3582,9 +3583,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

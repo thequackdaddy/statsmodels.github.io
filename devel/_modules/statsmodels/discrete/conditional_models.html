@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/discrete/conditional_models" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.discrete.conditional_models </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -283,7 +284,7 @@
 <span class="kn">import</span> <span class="nn">statsmodels.base.model</span> <span class="k">as</span> <span class="nn">base</span>
 <span class="kn">import</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">as</span> <span class="nn">lm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
-<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="k">import</span> <span class="p">(</span><span class="n">MultinomialResults</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="kn">import</span> <span class="p">(</span><span class="n">MultinomialResults</span><span class="p">,</span>
       <span class="n">MultinomialResultsWrapper</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -292,7 +293,7 @@
 
 <span class="k">class</span> <span class="nc">_ConditionalModel</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModel</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="s2">"groups"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"'groups' is a required argument"</span><span class="p">)</span>
@@ -374,7 +375,7 @@
 
     <span class="k">def</span> <span class="nf">hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.tools.numdiff</span> <span class="k">import</span> <span class="n">approx_fprime</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.tools.numdiff</span> <span class="kn">import</span> <span class="n">approx_fprime</span>
         <span class="n">hess</span> <span class="o">=</span> <span class="n">approx_fprime</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
         <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">hess</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">hess</span>
@@ -444,7 +445,7 @@
 <span class="sd">            A results instance.</span>
 <span class="sd">        """</span>
 
-        <span class="kn">from</span> <span class="nn">statsmodels.base.elastic_net</span> <span class="k">import</span> <span class="n">fit_elasticnet</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.base.elastic_net</span> <span class="kn">import</span> <span class="n">fit_elasticnet</span>
 
         <span class="k">if</span> <span class="n">method</span> <span class="o">!=</span> <span class="s2">"elastic_net"</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"method for fit_regularied must be elastic_net"</span><span class="p">)</span>
@@ -487,7 +488,7 @@
         <span class="k">return</span> <span class="n">model</span>
 
 
-<div class="viewcode-block" id="ConditionalLogit"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalLogit.html#statsmodels.discrete.conditional_models.ConditionalLogit">[docs]</a><span class="k">class</span> <span class="nc">ConditionalLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ConditionalLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional logistic regression model to grouped data.</span>
 
@@ -507,7 +508,7 @@
 <span class="sd">        Codes defining the groups. This is a required keyword parameter.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">(</span><span class="n">ConditionalLogit</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -622,10 +623,10 @@
             <span class="n">ofs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_grp</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span>
 
         <span class="n">d</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_denom_grad</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">ofs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xy</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="n">d</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xy</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="n">d</span></div>
 
 
-<div class="viewcode-block" id="ConditionalPoisson"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalPoisson.html#statsmodels.discrete.conditional_models.ConditionalPoisson">[docs]</a><span class="k">class</span> <span class="nc">ConditionalPoisson</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ConditionalPoisson</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional Poisson regression model to grouped data.</span>
 
@@ -685,11 +686,11 @@
             <span class="n">score</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
             <span class="n">score</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sumy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exb</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>
 
-        <span class="k">return</span> <span class="n">score</span></div></div>
+        <span class="k">return</span> <span class="n">score</span></div>
 
 
 <span class="k">class</span> <span class="nc">ConditionalResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">(</span><span class="n">ConditionalResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">model</span><span class="p">,</span>
@@ -747,7 +748,7 @@
             <span class="n">title</span> <span class="o">=</span> <span class="s2">"Conditional Logit Model Regression Results"</span>
 
         <span class="c1"># create summary tables</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
         <span class="n">smry</span><span class="o">.</span><span class="n">add_table_2cols</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -761,7 +762,7 @@
 
         <span class="k">return</span> <span class="n">smry</span>
 
-<div class="viewcode-block" id="ConditionalMNLogit"><a class="viewcode-back" href="../../../generated/statsmodels.discrete.conditional_models.ConditionalMNLogit.html#statsmodels.discrete.conditional_models.ConditionalMNLogit">[docs]</a><span class="k">class</span> <span class="nc">ConditionalMNLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ConditionalMNLogit</span><span class="p">(</span><span class="n">_ConditionalModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fit a conditional multinomial logit model to grouped data.</span>
 
@@ -786,7 +787,7 @@
 <span class="sd">    data. The Review of Economic Studies.  Vol. 47, No. 1, pp. 225-238.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">(</span><span class="n">ConditionalMNLogit</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -900,7 +901,7 @@
 
             <span class="n">grad</span> <span class="o">-=</span> <span class="n">denomg</span> <span class="o">/</span> <span class="n">denom</span>
 
-        <span class="k">return</span> <span class="n">grad</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span></div></div>
+        <span class="k">return</span> <span class="n">grad</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span></div>
 
 
 
@@ -933,10 +934,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -945,9 +946,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

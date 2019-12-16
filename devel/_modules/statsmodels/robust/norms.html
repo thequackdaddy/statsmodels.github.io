@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/robust/norms" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.robust.norms </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -306,7 +307,7 @@
 <span class="sd">        Springer, New York, 2002.</span>
 <span class="sd">    """</span>
 
-<div class="viewcode-block" id="RobustNorm.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RobustNorm.rho.html#statsmodels.robust.norms.RobustNorm.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The robust criterion estimator function.</span>
 
@@ -314,9 +315,9 @@
 
 <span class="sd">        -2 loglike used in M-estimator</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
-<div class="viewcode-block" id="RobustNorm.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RobustNorm.psi.html#statsmodels.robust.norms.RobustNorm.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of rho.  Sometimes referred to as the influence function.</span>
 
@@ -324,9 +325,9 @@
 
 <span class="sd">        psi = rho'</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
-<div class="viewcode-block" id="RobustNorm.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RobustNorm.weights.html#statsmodels.robust.norms.RobustNorm.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the value of psi(z) / z</span>
 
@@ -334,9 +335,9 @@
 
 <span class="sd">        psi(z) / z</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
-<div class="viewcode-block" id="RobustNorm.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RobustNorm.psi_deriv.html#statsmodels.robust.norms.RobustNorm.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Derivative of psi.  Used to obtain robust covariance matrix.</span>
 
@@ -346,9 +347,9 @@
 
 <span class="sd">        psi_derive = psi'</span>
 <span class="sd">        """</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the value of estimator rho applied to an input</span>
 <span class="sd">        """</span>
@@ -365,7 +366,7 @@
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
 
-<div class="viewcode-block" id="LeastSquares.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.LeastSquares.rho.html#statsmodels.robust.norms.LeastSquares.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The least squares estimator rho function</span>
 
@@ -380,9 +381,9 @@
 <span class="sd">            rho(z) = (1/2.)*z**2</span>
 <span class="sd">        """</span>
 
-        <span class="k">return</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span></div>
+        <span class="k">return</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span>
 
-<div class="viewcode-block" id="LeastSquares.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.LeastSquares.psi.html#statsmodels.robust.norms.LeastSquares.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The psi function for the least squares estimator</span>
 
@@ -399,9 +400,9 @@
 <span class="sd">            psi(z) = z</span>
 <span class="sd">        """</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
-<div class="viewcode-block" id="LeastSquares.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.LeastSquares.weights.html#statsmodels.robust.norms.LeastSquares.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The least squares estimator weighting function for the IRLS algorithm.</span>
 
@@ -419,9 +420,9 @@
 <span class="sd">        """</span>
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
-<div class="viewcode-block" id="LeastSquares.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.LeastSquares.psi_deriv.html#statsmodels.robust.norms.LeastSquares.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of the least squares psi function.</span>
 
@@ -434,7 +435,7 @@
 <span class="sd">        -----</span>
 <span class="sd">        Used to estimate the robust covariance matrix.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="HuberT"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.HuberT.html#statsmodels.robust.norms.HuberT">[docs]</a><span class="k">class</span> <span class="nc">HuberT</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
@@ -452,7 +453,7 @@
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">1.345</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">1.345</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
 
     <span class="k">def</span> <span class="nf">_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
@@ -462,7 +463,7 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HuberT.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.HuberT.rho.html#statsmodels.robust.norms.HuberT.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for Huber's t.</span>
 
@@ -481,9 +482,9 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">test</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
-                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span></div>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
-<div class="viewcode-block" id="HuberT.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.HuberT.psi.html#statsmodels.robust.norms.HuberT.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for Huber's t estimator</span>
 
@@ -503,9 +504,9 @@
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HuberT.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.HuberT.weights.html#statsmodels.robust.norms.HuberT.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Huber's t weighting function for the IRLS algorithm</span>
 
@@ -527,9 +528,9 @@
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">absz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">absz</span><span class="p">[</span><span class="n">test</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="k">return</span> <span class="n">test</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">/</span> <span class="n">absz</span></div>
+        <span class="k">return</span> <span class="n">test</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">/</span> <span class="n">absz</span>
 
-<div class="viewcode-block" id="HuberT.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.HuberT.psi_deriv.html#statsmodels.robust.norms.HuberT.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of Huber's t psi function</span>
 
@@ -537,7 +538,7 @@
 <span class="sd">        -----</span>
 <span class="sd">        Used to estimate the robust covariance matrix.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span></div>
 
 
 <span class="c1"># TODO: untested, but looks right.  RamsayE not available in R or SAS?</span>
@@ -556,10 +557,10 @@
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=.</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=.</span><span class="mi">3</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
 
-<div class="viewcode-block" id="RamsayE.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RamsayE.rho.html#statsmodels.robust.norms.RamsayE.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for Ramsay's Ea.</span>
 
@@ -575,9 +576,9 @@
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">*</span>
-                <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span></div>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 
-<div class="viewcode-block" id="RamsayE.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RamsayE.psi.html#statsmodels.robust.norms.RamsayE.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for Ramsay's Ea estimator</span>
 
@@ -594,9 +595,9 @@
 <span class="sd">            psi(z) = z*exp(-a*\|z\|)</span>
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 
-<div class="viewcode-block" id="RamsayE.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RamsayE.weights.html#statsmodels.robust.norms.RamsayE.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Ramsay's Ea weighting function for the IRLS algorithm</span>
 
@@ -614,9 +615,9 @@
 <span class="sd">        """</span>
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 
-<div class="viewcode-block" id="RamsayE.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.RamsayE.psi_deriv.html#statsmodels.robust.norms.RamsayE.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of Ramsay's Ea psi function.</span>
 
@@ -629,7 +630,7 @@
         <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">z</span>
         <span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">dx</span></div></div>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">dx</span></div>
 
 
 <div class="viewcode-block" id="AndrewWave"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.AndrewWave.html#statsmodels.robust.norms.AndrewWave">[docs]</a><span class="k">class</span> <span class="nc">AndrewWave</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
@@ -647,7 +648,7 @@
 <span class="sd">    --------</span>
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.339</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.339</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
 
     <span class="k">def</span> <span class="nf">_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
@@ -657,7 +658,7 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AndrewWave.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.AndrewWave.rho.html#statsmodels.robust.norms.AndrewWave.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for Andrew's wave.</span>
 
@@ -678,9 +679,9 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">test</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">a</span><span class="p">))</span> <span class="o">+</span>
-                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span></div>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AndrewWave.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.AndrewWave.psi.html#statsmodels.robust.norms.AndrewWave.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for Andrew's wave</span>
 
@@ -702,9 +703,9 @@
         <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AndrewWave.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.AndrewWave.weights.html#statsmodels.robust.norms.AndrewWave.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Andrew's wave weighting function for the IRLS algorithm</span>
 
@@ -734,9 +735,9 @@
             <span class="n">weights</span><span class="p">[</span><span class="n">large</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">large</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span> <span class="o">/</span> <span class="n">ratio</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">weights</span> <span class="o">=</span> <span class="n">test</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span> <span class="o">/</span> <span class="n">ratio</span>
-        <span class="k">return</span> <span class="n">weights</span></div>
+        <span class="k">return</span> <span class="n">weights</span>
 
-<div class="viewcode-block" id="AndrewWave.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.AndrewWave.psi_deriv.html#statsmodels.robust.norms.AndrewWave.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of Andrew's wave psi function</span>
 
@@ -746,7 +747,7 @@
 <span class="sd">        """</span>
 
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span></div></div>
+        <span class="k">return</span> <span class="n">test</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span></div>
 
 
 <span class="c1"># TODO: this is untested</span>
@@ -765,7 +766,7 @@
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">2.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">2.</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
 
     <span class="k">def</span> <span class="nf">_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
@@ -776,7 +777,7 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TrimmedMean.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TrimmedMean.rho.html#statsmodels.robust.norms.TrimmedMean.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for least trimmed mean.</span>
 
@@ -795,9 +796,9 @@
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span></div>
+        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span>
 
-<div class="viewcode-block" id="TrimmedMean.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TrimmedMean.psi.html#statsmodels.robust.norms.TrimmedMean.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for least trimmed mean</span>
 
@@ -818,9 +819,9 @@
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span></div>
+        <span class="k">return</span> <span class="n">test</span> <span class="o">*</span> <span class="n">z</span>
 
-<div class="viewcode-block" id="TrimmedMean.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TrimmedMean.weights.html#statsmodels.robust.norms.TrimmedMean.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Least trimmed mean weighting function for the IRLS algorithm</span>
 
@@ -841,9 +842,9 @@
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span></div>
+        <span class="k">return</span> <span class="n">test</span>
 
-<div class="viewcode-block" id="TrimmedMean.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TrimmedMean.psi_deriv.html#statsmodels.robust.norms.TrimmedMean.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of least trimmed mean psi function</span>
 
@@ -852,7 +853,7 @@
 <span class="sd">        Used to estimate the robust covariance matrix.</span>
 <span class="sd">        """</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">test</span></div></div>
+        <span class="k">return</span> <span class="n">test</span></div>
 
 
 <div class="viewcode-block" id="Hampel"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.Hampel.html#statsmodels.robust.norms.Hampel">[docs]</a><span class="k">class</span> <span class="nc">Hampel</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
@@ -873,7 +874,7 @@
 <span class="sd">    statsmodels.robust.norms.RobustNorm</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">8.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">8.</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
@@ -888,7 +889,7 @@
         <span class="n">t3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span>
 
-<div class="viewcode-block" id="Hampel.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.Hampel.rho.html#statsmodels.robust.norms.Hampel.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for Hampel's estimator</span>
 
@@ -918,9 +919,9 @@
              <span class="n">t2</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">z</span> <span class="o">-</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span>
              <span class="n">t3</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">6.</span><span class="p">)</span> <span class="o">+</span>
              <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">t3</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">v</span></div>
+        <span class="k">return</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Hampel.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.Hampel.psi.html#statsmodels.robust.norms.Hampel.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for Hampel's estimator</span>
 
@@ -952,9 +953,9 @@
         <span class="n">v</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">t1</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span>
                  <span class="n">t2</span> <span class="o">*</span> <span class="n">a</span><span class="o">*</span><span class="n">s</span> <span class="o">+</span>
                  <span class="n">t3</span> <span class="o">*</span> <span class="n">a</span><span class="o">*</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">v</span></div>
+        <span class="k">return</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Hampel.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.Hampel.weights.html#statsmodels.robust.norms.Hampel.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Hampel weighting function for the IRLS algorithm</span>
 
@@ -990,9 +991,9 @@
         <span class="n">abs_zt3</span> <span class="o">=</span> <span class="n">abs_z</span><span class="p">[</span><span class="n">t3</span><span class="p">]</span>
         <span class="n">v</span><span class="p">[</span><span class="n">t3</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">abs_zt3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">abs_zt3</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span>
         <span class="n">v</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">v</span><span class="p">))]</span> <span class="o">=</span> <span class="mf">1.</span>  <span class="c1"># TODO: for some reason 0 returns a nan?</span>
-        <span class="k">return</span> <span class="n">v</span></div>
+        <span class="k">return</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Hampel.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.Hampel.psi_deriv.html#statsmodels.robust.norms.Hampel.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span>
         <span class="c1"># default is t1</span>
@@ -1000,7 +1001,7 @@
         <span class="n">d</span><span class="p">[</span><span class="n">t1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="n">zt3</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">t3</span><span class="p">]</span>
         <span class="n">d</span><span class="p">[</span><span class="n">t3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">zt3</span><span class="p">)</span> <span class="o">*</span> <span class="n">zt3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">zt3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">d</span></div></div>
+        <span class="k">return</span> <span class="n">d</span></div>
 
 
 <div class="viewcode-block" id="TukeyBiweight"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.TukeyBiweight.html#statsmodels.robust.norms.TukeyBiweight">[docs]</a><span class="k">class</span> <span class="nc">TukeyBiweight</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
@@ -1019,7 +1020,7 @@
 <span class="sd">    Tukey's biweight is sometime's called bisquare.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">4.685</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">4.685</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
 
     <span class="k">def</span> <span class="nf">_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
@@ -1029,7 +1030,7 @@
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TukeyBiweight.rho"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TukeyBiweight.rho.html#statsmodels.robust.norms.TukeyBiweight.rho">[docs]</a>    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The robust criterion function for Tukey's biweight estimator</span>
 
@@ -1046,9 +1047,9 @@
 <span class="sd">            rho(z) = 0                              for \|z\| &gt; R</span>
 <span class="sd">        """</span>
         <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">subset</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">6.</span></div>
+        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">subset</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">6.</span>
 
-<div class="viewcode-block" id="TukeyBiweight.psi"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TukeyBiweight.psi.html#statsmodels.robust.norms.TukeyBiweight.psi">[docs]</a>    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The psi function for Tukey's biweight estimator</span>
 
@@ -1069,9 +1070,9 @@
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">subset</span></div>
+        <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">subset</span>
 
-<div class="viewcode-block" id="TukeyBiweight.weights"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TukeyBiweight.weights.html#statsmodels.robust.norms.TukeyBiweight.weights">[docs]</a>    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Tukey's biweight weighting function for the IRLS algorithm</span>
 
@@ -1091,9 +1092,9 @@
 <span class="sd">        """</span>
 
         <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">subset</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">subset</span>
 
-<div class="viewcode-block" id="TukeyBiweight.psi_deriv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.norms.TukeyBiweight.psi_deriv.html#statsmodels.robust.norms.TukeyBiweight.psi_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">psi_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        The derivative of Tukey's biweight psi function</span>
 
@@ -1103,7 +1104,7 @@
 <span class="sd">        """</span>
         <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">subset</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-                         <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span></div></div>
+                         <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="estimate_location"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.estimate_location.html#statsmodels.robust.norms.estimate_location">[docs]</a><span class="k">def</span> <span class="nf">estimate_location</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1180,10 +1181,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1192,9 +1193,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

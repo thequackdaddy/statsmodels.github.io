@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/gam/generalized_additive_model" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.gam.generalized_additive_model </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -285,31 +286,31 @@
 <span class="sd">created on 08/07/2015</span>
 <span class="sd">"""</span>
 
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="k">import</span> <span class="n">Iterable</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
 <span class="kn">import</span> <span class="nn">copy</span>  <span class="c1"># check if needed when dropping python 2.7</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.base.wrapper</span> <span class="k">as</span> <span class="nn">wrap</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="k">import</span> <span class="n">Logit</span>
-<span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="kn">import</span> <span class="n">Logit</span>
+<span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">GLM</span><span class="p">,</span> <span class="n">GLMResults</span><span class="p">,</span> <span class="n">GLMResultsWrapper</span><span class="p">,</span> <span class="n">_check_convergence</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">as</span> <span class="nn">lm</span>
 <span class="c1"># import statsmodels.regression._tools as reg_tools  # TODO: use this for pirls</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="p">(</span><span class="n">PerfectSeparationError</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PerfectSeparationError</span><span class="p">,</span>
                                              <span class="n">ValueWarning</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.data</span> <span class="k">import</span> <span class="n">_is_using_pandas</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.linalg</span> <span class="k">import</span> <span class="n">matrix_sqrt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.data</span> <span class="kn">import</span> <span class="n">_is_using_pandas</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.linalg</span> <span class="kn">import</span> <span class="n">matrix_sqrt</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.base._penalized</span> <span class="k">import</span> <span class="n">PenalizedMixin</span>
-<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_penalties</span> <span class="k">import</span> <span class="n">MultivariateGamPenalty</span>
-<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_cross_validation.gam_cross_validation</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.base._penalized</span> <span class="kn">import</span> <span class="n">PenalizedMixin</span>
+<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_penalties</span> <span class="kn">import</span> <span class="n">MultivariateGamPenalty</span>
+<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_cross_validation.gam_cross_validation</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">MultivariateGAMCVPath</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_cross_validation.cross_validators</span> <span class="k">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">statsmodels.gam.gam_cross_validation.cross_validators</span> <span class="kn">import</span> <span class="n">KFold</span>
 
 
 <span class="k">def</span> <span class="nf">_transform_predict_exog</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">design_info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -329,7 +330,7 @@
         <span class="n">design_info</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">'design_info'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">design_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">exog</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">patsy</span> <span class="k">import</span> <span class="n">dmatrix</span>
+        <span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrix</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exog</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
             <span class="c1"># we are guessing whether it should be column or row</span>
             <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">exog</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span>
@@ -393,7 +394,7 @@
 
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 
         <span class="c1"># this is a messy way to compute edf and update scale</span>
         <span class="c1"># need several attributes to compute edf</span>
@@ -615,7 +616,7 @@
 <span class="sd">        fig : matplotlib Figure instance</span>
 
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="k">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_ax</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_ax</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
 
         <span class="n">variable</span> <span class="o">=</span> <span class="n">smooth_index</span>
@@ -791,7 +792,7 @@
     <span class="n">_results_class</span> <span class="o">=</span> <span class="n">GLMGamResults</span>
     <span class="n">_results_class_wrapper</span> <span class="o">=</span> <span class="n">GLMGamResultsWrapper</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smoother</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smoother</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="c1"># TODO: check usage of hasconst</span>
@@ -884,7 +885,7 @@
             <span class="n">alpha</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">alpha</span>
 
-<div class="viewcode-block" id="GLMGam.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.gam.generalized_additive_model.GLMGam.fit.html#statsmodels.gam.generalized_additive_model.GLMGam.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'pirls'</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'pirls'</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
             <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="s1">'nonrobust'</span><span class="p">,</span> <span class="n">cov_kwds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_start_irls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">"""estimate parameters and create instance of GLMGamResults class</span>
@@ -933,7 +934,7 @@
                                           <span class="n">full_output</span><span class="o">=</span><span class="n">full_output</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="n">disp</span><span class="p">,</span>
                                           <span class="n">max_start_irls</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                                           <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span></div>
+        <span class="k">return</span> <span class="n">res</span>
 
     <span class="c1"># pag 165 4.3 # pag 136 PIRLS</span>
     <span class="k">def</span> <span class="nf">_fit_pirls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
@@ -1036,7 +1037,7 @@
 
         <span class="k">return</span> <span class="n">GLMGamResultsWrapper</span><span class="p">(</span><span class="n">glm_results</span><span class="p">)</span>
 
-<div class="viewcode-block" id="GLMGam.select_penweight"><a class="viewcode-back" href="../../../generated/generated/statsmodels.gam.generalized_additive_model.GLMGam.select_penweight.html#statsmodels.gam.generalized_additive_model.GLMGam.select_penweight">[docs]</a>    <span class="k">def</span> <span class="nf">select_penweight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">'aic'</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">select_penweight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">'aic'</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">start_model_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">method</span><span class="o">=</span><span class="s1">'basinhopping'</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwds</span><span class="p">):</span>
         <span class="sd">"""find alpha by minimizing results criterion</span>
@@ -1146,9 +1147,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">scaletype</span> <span class="o">=</span> <span class="n">scaletype_keep</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha_keep</span>
 
-        <span class="k">return</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">fit_res</span><span class="p">,</span> <span class="n">history</span></div>
+        <span class="k">return</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">fit_res</span><span class="p">,</span> <span class="n">history</span>
 
-<div class="viewcode-block" id="GLMGam.select_penweight_kfold"><a class="viewcode-back" href="../../../generated/generated/statsmodels.gam.generalized_additive_model.GLMGam.select_penweight_kfold.html#statsmodels.gam.generalized_additive_model.GLMGam.select_penweight_kfold">[docs]</a>    <span class="k">def</span> <span class="nf">select_penweight_kfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alphas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cv_iterator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">select_penweight_kfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alphas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cv_iterator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                <span class="n">k_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">k_grid</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
         <span class="sd">"""find alphas by k-fold cross-validation</span>
 
@@ -1199,7 +1200,7 @@
                                        <span class="n">cv_iterator</span><span class="o">=</span><span class="n">cv_iterator</span><span class="p">)</span>
         <span class="n">gam_cv_res</span> <span class="o">=</span> <span class="n">gam_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">gam_cv_res</span><span class="o">.</span><span class="n">alpha_cv</span><span class="p">,</span> <span class="n">gam_cv_res</span></div></div>
+        <span class="k">return</span> <span class="n">gam_cv_res</span><span class="o">.</span><span class="n">alpha_cv</span><span class="p">,</span> <span class="n">gam_cv_res</span></div>
 
 
 <div class="viewcode-block" id="LogitGam"><a class="viewcode-back" href="../../../generated/statsmodels.gam.generalized_additive_model.LogitGam.html#statsmodels.gam.generalized_additive_model.LogitGam">[docs]</a><span class="k">class</span> <span class="nc">LogitGam</span><span class="p">(</span><span class="n">PenalizedMixin</span><span class="p">,</span> <span class="n">Logit</span><span class="p">):</span>
@@ -1213,7 +1214,7 @@
 <span class="sd">    not verified yet.</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">smoother</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">smoother</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
             <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">alpha</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">smoother</span><span class="o">.</span><span class="n">smoothers</span><span class="p">))</span>
 
@@ -1322,10 +1323,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1334,9 +1335,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

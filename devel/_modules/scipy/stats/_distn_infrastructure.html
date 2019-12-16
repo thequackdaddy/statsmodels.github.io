@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/scipy/stats/_distn_infrastructure" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> scipy.stats._distn_infrastructure </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -279,10 +280,10 @@
 <span class="c1"># Author:  Travis Oliphant  2002-2011 with contributions from</span>
 <span class="c1">#          SciPy Developers 2004-2011</span>
 <span class="c1">#</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span>
 
-<span class="kn">from</span> <span class="nn">scipy._lib.six</span> <span class="k">import</span> <span class="n">string_types</span><span class="p">,</span> <span class="n">exec_</span><span class="p">,</span> <span class="n">PY3</span>
-<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="k">import</span> <span class="n">getargspec_no_self</span> <span class="k">as</span> <span class="n">_getargspec</span>
+<span class="kn">from</span> <span class="nn">scipy._lib.six</span> <span class="kn">import</span> <span class="n">string_types</span><span class="p">,</span> <span class="n">exec_</span><span class="p">,</span> <span class="n">PY3</span>
+<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">getargspec_no_self</span> <span class="k">as</span> <span class="n">_getargspec</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">keyword</span>
@@ -290,29 +291,29 @@
 <span class="kn">import</span> <span class="nn">types</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
-<span class="kn">from</span> <span class="nn">scipy._lib</span> <span class="k">import</span> <span class="n">doccer</span>
-<span class="kn">from</span> <span class="nn">._distr_params</span> <span class="k">import</span> <span class="n">distcont</span><span class="p">,</span> <span class="n">distdiscrete</span>
-<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="k">import</span> <span class="n">check_random_state</span>
-<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="k">import</span> <span class="n">_valarray</span> <span class="k">as</span> <span class="n">valarray</span>
+<span class="kn">from</span> <span class="nn">scipy._lib</span> <span class="kn">import</span> <span class="n">doccer</span>
+<span class="kn">from</span> <span class="nn">._distr_params</span> <span class="kn">import</span> <span class="n">distcont</span><span class="p">,</span> <span class="n">distdiscrete</span>
+<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="n">_valarray</span> <span class="k">as</span> <span class="n">valarray</span>
 
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">rel_entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">rel_entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
 
 <span class="c1"># for root finding for discrete distribution ppf, and max likelihood estimation</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 
 <span class="c1"># for functions of continuous distributions (e.g. moments, entropy, cdf)</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">integrate</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 
 <span class="c1"># to approximate the pdf of a continuous distribution given its cdf</span>
-<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="k">import</span> <span class="n">derivative</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
 
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="p">(</span><span class="n">arange</span><span class="p">,</span> <span class="n">putmask</span><span class="p">,</span> <span class="n">ravel</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">floor</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">arange</span><span class="p">,</span> <span class="n">putmask</span><span class="p">,</span> <span class="n">ravel</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">floor</span><span class="p">,</span>
                    <span class="n">logical_and</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">place</span><span class="p">,</span> <span class="n">argmax</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">,</span> <span class="n">asarray</span><span class="p">,</span>
                    <span class="n">nan</span><span class="p">,</span> <span class="n">inf</span><span class="p">,</span> <span class="n">isinf</span><span class="p">,</span> <span class="n">NINF</span><span class="p">,</span> <span class="n">empty</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">._constants</span> <span class="k">import</span> <span class="n">_XMAX</span>
+<span class="kn">from</span> <span class="nn">._constants</span> <span class="kn">import</span> <span class="n">_XMAX</span>
 
 <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">instancemethod</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
@@ -696,7 +697,7 @@
 <span class="c1"># Frozen RV class</span>
 <span class="k">class</span> <span class="nc">rv_frozen</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span> <span class="o">=</span> <span class="n">kwds</span>
 
@@ -861,7 +862,7 @@
 <span class="sd">    and rv_continuous.</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">rv_generic</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="c1"># figure out if _stats signature has 'moments' keyword</span>
@@ -1044,7 +1045,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="n">rv_frozen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">freeze</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
     <span class="fm">__call__</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">freeze</span><span class="o">.</span><span class="vm">__doc__</span>
 
@@ -1826,7 +1827,7 @@
 <span class="sd">    ``gaussian._pdf(y) / scale``.</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">momtype</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">momtype</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span>
                  <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">longname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">shapes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extradoc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
@@ -3040,7 +3041,7 @@
 <span class="sd">    &gt;&gt;&gt; R = custm.rvs(size=100)</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">moment_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">longname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">shapes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extradoc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
@@ -3051,7 +3052,7 @@
             <span class="c1"># business as usual</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">rv_discrete</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">moment_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">longname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">shapes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extradoc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
@@ -3695,7 +3696,7 @@
 
 <span class="sd">       The ctor ignores most of the arguments, only needs the `values` argument.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">badvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">moment_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">longname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">shapes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extradoc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
@@ -3846,10 +3847,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -3858,9 +3859,6 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

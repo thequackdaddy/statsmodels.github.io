@@ -63,6 +63,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#contrasts" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Patsy: Contrast Coding Systems for categorical variables </span>
         </div>
       </div>
@@ -179,7 +180,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -328,7 +329,7 @@
 
 <span class="gp">In [7]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Treatment</span><span class="p">(</span><span class="n">reference</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[0. 0. 0.]</span>
 <span class="go"> [1. 0. 0.]</span>
 <span class="go"> [0. 1. 0.]</span>
@@ -367,14 +368,14 @@
 
 <span class="gp">In [12]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [13]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [13]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -721.77</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:57   Log-Likelihood:                -721.77</span>
 <span class="go">No. Observations:                 200   AIC:                             1452.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1465.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -404,7 +405,7 @@
 <p>Like Treatment Coding, Simple Coding compares each level to a fixed reference level. However, with simple coding, the intercept is the grand mean of all the levels of the factors. See <a class="reference internal" href="#user-defined"><span class="std std-ref">User-Defined Coding</span></a> for how to implement the Simple contrast.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Simple</span><span class="p">()</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [15]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [15]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[-0.25 -0.25 -0.25]</span>
 <span class="go"> [ 0.75 -0.25 -0.25]</span>
 <span class="go"> [-0.25  0.75 -0.25]</span>
@@ -414,14 +415,14 @@
 
 <span class="gp">In [17]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -721.77</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:57   Log-Likelihood:                -721.77</span>
 <span class="go">No. Observations:                 200   AIC:                             1452.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1465.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -452,7 +453,7 @@
 
 <span class="gp">In [20]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">()</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [21]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [21]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[ 1.  0.  0.]</span>
 <span class="go"> [ 0.  1.  0.]</span>
 <span class="go"> [ 0.  0.  1.]</span>
@@ -462,14 +463,14 @@
 
 <span class="gp">In [23]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [24]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [24]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -721.77</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:57   Log-Likelihood:                -721.77</span>
 <span class="go">No. Observations:                 200   AIC:                             1452.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1465.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -505,7 +506,7 @@
 
 <span class="gp">In [27]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">()</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [28]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[-0.75 -0.5  -0.25]</span>
 <span class="go"> [ 0.25 -0.5  -0.25]</span>
 <span class="go"> [ 0.25  0.5  -0.25]</span>
@@ -515,14 +516,14 @@
 
 <span class="gp">In [30]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [31]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [31]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -721.77</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:58   Log-Likelihood:                -721.77</span>
 <span class="go">No. Observations:                 200   AIC:                             1452.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1465.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -546,13 +547,15 @@
 </pre></div>
 </div>
 <p>For example, here the coefficient on level 1 is the mean of <cite>write</cite> at level 2 compared with the mean at level 1. Ie.,</p>
-<pre class="literal-block">In [32]: res.params["C(race, Diff)[D.1]"]
-Out[32]: 11.541666666666575
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"C(race, Diff)[D.1]"</span><span class="p">]</span>
+<span class="gh">Out[32]: </span><span class="go">11.541666666666657</span>
 
-In [33]: hsb2.groupby('race').mean()["write"][2] - \
-   ....:     hsb2.groupby('race').mean()["write"][1]
-   ....: 
-Out[33]: 11.541666666666664</pre>
+<span class="gp">In [33]: </span><span class="n">hsb2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'race'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">"write"</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> \
+<span class="gp">   ....: </span>    <span class="n">hsb2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'race'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">"write"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[33]: </span><span class="go">11.541666666666664</span>
+</pre></div>
+</div>
 
 
 <h2 id="helmert-coding">Helmert Coding<a class="headerlink" href="#helmert-coding" title="Permalink to this headline">¶</a></h2>
@@ -561,7 +564,7 @@ Out[33]: 11.541666666666664</pre>
 
 <span class="gp">In [35]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Helmert</span><span class="p">()</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [36]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[-1. -1. -1.]</span>
 <span class="go"> [ 1. -1. -1.]</span>
 <span class="go"> [ 0.  2. -1.]</span>
@@ -571,14 +574,14 @@ Out[33]: 11.541666666666664</pre>
 
 <span class="gp">In [38]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [39]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [39]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -721.77</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:58   Log-Likelihood:                -721.77</span>
 <span class="go">No. Observations:                 200   AIC:                             1452.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1465.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -627,7 +630,7 @@ Out[33]: 11.541666666666664</pre>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">_</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">hsb2</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [47]: </span><span class="k">try</span><span class="p">:</span> <span class="c1"># requires numpy master</span>
-<span class="gp">   ....: </span>    <span class="n">readcat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">hsb2</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">readcat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">hsb2</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="gp">   ....: </span><span class="k">except</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">readcat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">hsb2</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 <span class="gp">   ....: </span>
@@ -650,7 +653,7 @@ Out[33]: 11.541666666666664</pre>
 
 <span class="gp">In [52]: </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">()</span><span class="o">.</span><span class="n">code_without_intercept</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="gp">In [53]: </span><span class="k">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">In [53]: </span><span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
 <span class="go">[[-0.6708  0.5    -0.2236]</span>
 <span class="go"> [-0.2236 -0.5     0.6708]</span>
 <span class="go"> [ 0.2236 -0.5    -0.6708]</span>
@@ -660,14 +663,14 @@ Out[33]: 11.541666666666664</pre>
 
 <span class="gp">In [55]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [56]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [56]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                  write   R-squared:                       0.320</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.309</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     30.73</span>
-<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           2.51e-16</span>
-<span class="go">Time:                        19:00:38   Log-Likelihood:                -694.54</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           2.51e-16</span>
+<span class="go">Time:                        16:16:58   Log-Likelihood:                -694.54</span>
 <span class="go">No. Observations:                 200   AIC:                             1397.</span>
 <span class="go">Df Residuals:                     196   BIC:                             1410.</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -695,65 +698,67 @@ Out[33]: 11.541666666666664</pre>
 
 <span id="user-defined"></span><h2 id="user-defined-coding">User-Defined Coding<a class="headerlink" href="#user-defined-coding" title="Permalink to this headline">¶</a></h2>
 <p>If you want to use your own coding, you must do so by writing a coding class that contains a code_with_intercept and a code_without_intercept method that return a <cite>patsy.contrast.ContrastMatrix</cite> instance.</p>
-<pre class="literal-block">In [57]: from patsy.contrasts import ContrastMatrix
-   ....: 
-   ....: def _name_levels(prefix, levels):
-   ....:     return ["[%s%s]" % (prefix, level) for level in levels]
-   ....: 
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="kn">from</span> <span class="nn">patsy.contrasts</span> <span class="kn">import</span> <span class="n">ContrastMatrix</span>
+<span class="gp">   ....: </span>
+<span class="gp">   ....: </span><span class="k">def</span> <span class="nf">_name_levels</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="p">[</span><span class="s2">"[</span><span class="si">%s%s</span><span class="s2">]"</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">levels</span><span class="p">]</span>
+<span class="gp">   ....: </span>
 
-In [58]: class Simple(object):
-   ....:     def _simple_contrast(self, levels):
-   ....:         nlevels = len(levels)
-   ....:         contr = -1./nlevels * np.ones((nlevels, nlevels-1))
-   ....:         contr[1:][np.diag_indices(nlevels-1)] = (nlevels-1.)/nlevels
-   ....:         return contr
-   ....: 
-   ....:     def code_with_intercept(self, levels):
-   ....:         contrast = np.column_stack((np.ones(len(levels)),
-   ....:                                    self._simple_contrast(levels)))
-   ....:         return ContrastMatrix(contrast, _name_levels("Simp.", levels))
-   ....: 
-   ....:    def code_without_intercept(self, levels):
-   ....:        contrast = self._simple_contrast(levels)
-   ....:        return ContrastMatrix(contrast, _name_levels("Simp.", levels[:-1]))
-   ....: 
-  File "&lt;tokenize&gt;", line 13
-    def code_without_intercept(self, levels):
-    ^
-IndentationError: unindent does not match any outer indentation level
+<span class="gp">In [58]: </span><span class="k">class</span> <span class="nc">Simple</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">_simple_contrast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="n">nlevels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+<span class="gp">   ....: </span>        <span class="n">contr</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">nlevels</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nlevels</span><span class="p">,</span> <span class="n">nlevels</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">   ....: </span>        <span class="n">contr</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">diag_indices</span><span class="p">(</span><span class="n">nlevels</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">nlevels</span><span class="o">-</span><span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="n">nlevels</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">contr</span>
+<span class="gp">   ....: </span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">code_with_intercept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="n">contrast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)),</span>
+<span class="gp">   ....: </span>                                   <span class="bp">self</span><span class="o">.</span><span class="n">_simple_contrast</span><span class="p">(</span><span class="n">levels</span><span class="p">)))</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">ContrastMatrix</span><span class="p">(</span><span class="n">contrast</span><span class="p">,</span> <span class="n">_name_levels</span><span class="p">(</span><span class="s2">"Simp."</span><span class="p">,</span> <span class="n">levels</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+<span class="gp">   ....: </span>   <span class="k">def</span> <span class="nf">code_without_intercept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+<span class="gp">   ....: </span>       <span class="n">contrast</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_simple_contrast</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+<span class="gp">   ....: </span>       <span class="k">return</span> <span class="n">ContrastMatrix</span><span class="p">(</span><span class="n">contrast</span><span class="p">,</span> <span class="n">_name_levels</span><span class="p">(</span><span class="s2">"Simp."</span><span class="p">,</span> <span class="n">levels</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">   ....: </span>
+<span class="gt">  File</span><span class="nn"> "&lt;tokenize&gt;"</span><span class="gt">, line </span><span class="mi">13</span>
+    <span class="k">def</span> <span class="nf">code_without_intercept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unindent does not match any outer indentation level
 
 
-In [60]: mod = ols("write ~ C(race, Simple)", data=hsb2)
-   ....: res = mod.fit()
-   ....: print(res.summary())
-   ....: 
-                           OLS Regression Results                            
-==============================================================================
-Dep. Variable:                  write   R-squared:                       0.107
-Model:                            OLS   Adj. R-squared:                  0.093
-Method:                 Least Squares   F-statistic:                     7.833
-Date:                Sun, 15 Dec 2019   Prob (F-statistic):           5.78e-05
-Time:                        19:00:38   Log-Likelihood:                -721.77
-No. Observations:                 200   AIC:                             1452.
-Df Residuals:                     196   BIC:                             1465.
-Df Model:                           3                                         
-Covariance Type:            nonrobust                                         
-===========================================================================================
-                              coef    std err          t      P&gt;|t|      [0.025      0.975]
--------------------------------------------------------------------------------------------
-Intercept                  51.6784      0.982     52.619      0.000      49.741      53.615
-C(race, Simple)[Simp.1]    11.5417      3.286      3.512      0.001       5.061      18.022
-C(race, Simple)[Simp.2]     1.7417      2.732      0.637      0.525      -3.647       7.131
-C(race, Simple)[Simp.3]     7.5968      1.989      3.820      0.000       3.675      11.519
-==============================================================================
-Omnibus:                       10.487   Durbin-Watson:                   1.779
-Prob(Omnibus):                  0.005   Jarque-Bera (JB):               11.031
-Skew:                          -0.551   Prob(JB):                      0.00402
-Kurtosis:                       2.670   Cond. No.                         7.03
-==============================================================================
+<span class="gp">In [60]: </span><span class="n">mod</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">"write ~ C(race, Simple)"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">hsb2</span><span class="p">)</span>
+<span class="gp">   ....: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="gp">   ....: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">   ....: </span>
+<span class="go">                            OLS Regression Results                            </span>
+<span class="go">==============================================================================</span>
+<span class="go">Dep. Variable:                  write   R-squared:                       0.107</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.093</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     7.833</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.78e-05</span>
+<span class="go">Time:                        16:16:58   Log-Likelihood:                -721.77</span>
+<span class="go">No. Observations:                 200   AIC:                             1452.</span>
+<span class="go">Df Residuals:                     196   BIC:                             1465.</span>
+<span class="go">Df Model:                           3                                         </span>
+<span class="go">Covariance Type:            nonrobust                                         </span>
+<span class="go">===========================================================================================</span>
+<span class="go">                              coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
+<span class="gt">-------------------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>                  <span class="mf">51.6784</span>      <span class="mf">0.982</span>     <span class="mf">52.619</span>      <span class="mf">0.000</span>      <span class="mf">49.741</span>      <span class="mf">53.615</span>
+<span class="n">C</span><span class="p">(</span><span class="n">race</span><span class="p">,</span> <span class="n">Simple</span><span class="p">)[</span><span class="n">Simp</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span>    <span class="mf">11.5417</span>      <span class="mf">3.286</span>      <span class="mf">3.512</span>      <span class="mf">0.001</span>       <span class="mf">5.061</span>      <span class="mf">18.022</span>
+<span class="n">C</span><span class="p">(</span><span class="n">race</span><span class="p">,</span> <span class="n">Simple</span><span class="p">)[</span><span class="n">Simp</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span>     <span class="mf">1.7417</span>      <span class="mf">2.732</span>      <span class="mf">0.637</span>      <span class="mf">0.525</span>      <span class="o">-</span><span class="mf">3.647</span>       <span class="mf">7.131</span>
+<span class="n">C</span><span class="p">(</span><span class="n">race</span><span class="p">,</span> <span class="n">Simple</span><span class="p">)[</span><span class="n">Simp</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span>     <span class="mf">7.5968</span>      <span class="mf">1.989</span>      <span class="mf">3.820</span>      <span class="mf">0.000</span>       <span class="mf">3.675</span>      <span class="mf">11.519</span>
+<span class="o">==============================================================================</span>
+<span class="ne">Omnibus</span>:                       10.487   Durbin-Watson:                   1.779
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.005</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>               <span class="mf">11.031</span>
+<span class="ne">Skew</span>:                          -0.551   Prob(JB):                      0.00402
+<span class="ne">Kurtosis</span>:                       2.670   Cond. No.                         7.03
+<span class="o">==============================================================================</span>
 
-Warnings:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</pre>
+<span class="ne">Warnings</span>:
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Standard</span> <span class="n">Errors</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errors</span> <span class="ow">is</span> <span class="n">correctly</span> <span class="n">specified</span><span class="o">.</span>
+</pre></div>
+</div>
 
 
 
@@ -780,10 +785,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -792,9 +797,6 @@ Warnings:
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
-  
-    <script src="_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#generated/statsmodels.graphics.gofplots.ProbPlot" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.graphics.gofplots.ProbPlot </span>
         </div>
       </div>
@@ -189,7 +190,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -438,9 +439,9 @@ unscaled quantiles of the sample data.</p>
 </ol>
 <p class="rubric">Examples</p>
 <p>The first example shows a Q-Q plot for regression residuals</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 1</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">longley</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
@@ -454,7 +455,7 @@ unscaled quantiles of the sample data.</p>
 </div>
 <p>qqplot of the residuals against quantiles of t-distribution with 4
 degrees of freedom:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">probplot</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ProbPlot</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">distargs</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">probplot</span><span class="o">.</span><span class="n">qqplot</span><span class="p">()</span>
@@ -463,7 +464,7 @@ degrees of freedom:</p>
 </pre></div>
 </div>
 <p>qqplot against same as above, but with mean 3 and std 10:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 3</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">probplot</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ProbPlot</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">distargs</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">probplot</span><span class="o">.</span><span class="n">qqplot</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Ex. 3 - qqplot - resids vs quantiles of t-dist'</span><span class="p">)</span>
@@ -472,7 +473,7 @@ degrees of freedom:</p>
 </div>
 <p>Automatically determine parameters for t distribution including the
 loc and scale:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 4</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">probplot</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ProbPlot</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">probplot</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="s1">'45'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Ex. 4 - qqplot - resids vs. quantiles of fitted t-dist'</span><span class="p">)</span>
@@ -481,7 +482,7 @@ loc and scale:</p>
 </div>
 <p>A second <cite>ProbPlot</cite> object can be used to compare two separate sample
 sets by using the <cite>other</cite> kwarg in the <cite>qqplot</cite> and <cite>ppplot</cite> methods.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 5</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.25</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.75</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.75</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">3.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span>
@@ -495,7 +496,7 @@ sets by using the <cite>other</cite> kwarg in the <cite>qqplot</cite> and <cite>
 <p>In qqplot, sample size of <cite>other</cite> can be equal or larger than the first.
 In case of larger, size of <cite>other</cite> samples will be reduced to match the
 size of the first by interpolation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 6</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.25</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.75</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.75</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">3.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">57</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pp_x</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ProbPlot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -510,7 +511,7 @@ size of the first by interpolation</p>
 will be used to estimate an empirical cumulative distribution function
 (ECDF). ECDF(x) will be plotted against p(x)=0.5/n, 1.5/n, …, (n-0.5)/n
 where x are sorted samples from the first.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 7</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># example 7</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.25</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.75</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">8.75</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">3.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">57</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pp_x</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ProbPlot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -633,10 +634,10 @@ code.</p>
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -645,9 +646,6 @@ code.</p>
     </div>
   </footer>
   <script src="../_static/javascripts/application.js"></script>
-  
-    <script src="../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

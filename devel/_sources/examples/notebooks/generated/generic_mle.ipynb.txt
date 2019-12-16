@@ -107,7 +107,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.\n",
+      "/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.\n",
       "  return ptp(axis=axis, out=out, **kwargs)\n"
      ]
     }
@@ -160,14 +160,20 @@
       "Optimization terminated successfully.\n",
       "         Current function value: 0.400588\n",
       "         Iterations: 292\n",
-      "         Function evaluations: 494\n",
+      "         Function evaluations: 494\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "                               MyProbit Results                               \n",
       "==============================================================================\n",
       "Dep. Variable:                  GRADE   Log-Likelihood:                -12.819\n",
       "Model:                       MyProbit   AIC:                             33.64\n",
       "Method:            Maximum Likelihood   BIC:                             39.50\n",
-      "Date:                Sun, 15 Dec 2019                                         \n",
-      "Time:                        18:58:40                                         \n",
+      "Date:                Mon, 16 Dec 2019                                         \n",
+      "Time:                        16:11:59                                         \n",
       "No. Observations:                  32                                         \n",
       "Df Residuals:                      28                                         \n",
       "Df Model:                           3                                         \n",
@@ -256,10 +262,10 @@
       "GPA   -1.169668  0.481473 -0.018914  0.105439\n",
       "TUCE  -0.101173 -0.018914  0.007038  0.002472\n",
       "PSI   -0.594792  0.105439  0.002472  0.354070\n",
-      "[[ 6.46416779e+00 -1.16966620e+00 -1.01173181e-01 -5.94788996e-01]\n",
-      " [-1.16966620e+00  4.81472121e-01 -1.89134583e-02  1.05438227e-01]\n",
-      " [-1.01173181e-01 -1.89134583e-02  7.03758391e-03  2.47189197e-03]\n",
-      " [-5.94788996e-01  1.05438227e-01  2.47189197e-03  3.54069515e-01]]\n"
+      "[[ 6.46416770e+00 -1.16966617e+00 -1.01173181e-01 -5.94789009e-01]\n",
+      " [-1.16966617e+00  4.81472117e-01 -1.89134591e-02  1.05438228e-01]\n",
+      " [-1.01173181e-01 -1.89134591e-02  7.03758403e-03  2.47189233e-03]\n",
+      " [-5.94789009e-01  1.05438228e-01  2.47189233e-03  3.54069514e-01]]\n"
      ]
     }
    ],
@@ -611,9 +617,9 @@
      "output_type": "stream",
      "text": [
       "Parameters:  [ 0.2212642   0.70613942 -0.06798155 -0.12903932  2.31026565  0.44575147]\n",
-      "Standard errors:  [0.05059259 0.07613047 0.05326097 0.06854141 0.06794692 0.01981542]\n",
-      "P-values:  [1.22297920e-005 1.76978024e-020 2.01819161e-001 5.97481600e-002\n",
-      " 2.15079626e-253 4.62688439e-112]\n",
+      "Standard errors:  [0.05059259 0.07613047 0.05326096 0.0685414  0.06794696 0.01981542]\n",
+      "P-values:  [1.22298084e-005 1.76979047e-020 2.01819053e-001 5.97481232e-002\n",
+      " 2.15207253e-253 4.62688811e-112]\n",
       "AIC:  9604.95320583016\n"
      ]
     }
@@ -650,8 +656,8 @@
       "Dep. Variable:                    los   Log-Likelihood:                -4797.5\n",
       "Model:                           NBin   AIC:                             9605.\n",
       "Method:            Maximum Likelihood   BIC:                             9632.\n",
-      "Date:                Sun, 15 Dec 2019                                         \n",
-      "Time:                        18:58:41                                         \n",
+      "Date:                Mon, 16 Dec 2019                                         \n",
+      "Time:                        16:12:00                                         \n",
       "No. Observations:                1495                                         \n",
       "Df Residuals:                    1490                                         \n",
       "Df Model:                           4                                         \n",
@@ -702,8 +708,8 @@
       "Dep. Variable:                    los   No. Observations:                 1495\n",
       "Model:               NegativeBinomial   Df Residuals:                     1490\n",
       "Method:                           MLE   Df Model:                            4\n",
-      "Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                 0.01215\n",
-      "Time:                        18:58:41   Log-Likelihood:                -4797.5\n",
+      "Date:                Mon, 16 Dec 2019   Pseudo R-squ.:                 0.01215\n",
+      "Time:                        16:12:00   Log-Likelihood:                -4797.5\n",
       "converged:                       True   LL-Null:                       -4856.5\n",
       "Covariance Type:            nonrobust   LLR p-value:                 1.404e-24\n",
       "==============================================================================\n",
@@ -816,7 +822,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.3"
+   "version": "3.7.5"
   }
  },
  "nbformat": 4,

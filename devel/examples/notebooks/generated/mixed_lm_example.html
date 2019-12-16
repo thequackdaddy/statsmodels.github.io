@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/mixed_lm_example" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> Linear Mixed Effects Models </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -470,16 +471,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -488,13 +489,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -502,35 +503,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -538,56 +539,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -674,10 +675,10 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -704,20 +705,19 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/rpy2/rinterface/__init__.py:146: RRuntimeWarning: Loading required package: Matrix
+R[write to console]: Loading required package: Matrix
 
-  warnings.warn(x, RRuntimeWarning)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array(['lme4', 'Matrix', 'tools', 'stats', 'graphics', 'grDevices',
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array(['lme4', 'Matrix', 'tools', 'stats', 'graphics', 'grDevices',
        'utils', 'datasets', 'methods', 'base'], dtype='&lt;U9')
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 
 
@@ -736,7 +736,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s1">'dietox'</span><span class="p">,</span> <span class="s1">'geepack'</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="s2">"Weight ~ Time"</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"Pig"</span><span class="p">])</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -783,11 +783,12 @@ Group Var    40.394    2.149
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Linear mixed model fit by REML ['lmerMod']
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Linear mixed model fit by REML ['lmerMod']
 Formula: Weight ~ Time + (1 | Pig)
    Data: dietox
 
@@ -811,9 +812,205 @@ Time         6.94251    0.03339  207.94
 Correlation of Fixed Effects:
      (Intr)
 Time -0.275
-
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
+<div class="output_area rendered_html docutils container">
+<span>ListVector with 18 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    methTitle
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'Linear mixed model fit by REML'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    objClass
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'lmerMod'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    devcomp
+    </th>
+<td>
+<span>ListVector with 2 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    cmp
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8e7c096e0="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+<tr>
+<th>
+    dims
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8e7c095f0="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    ...
+    </th>
+<td>
+    ...
+    </td>
+</tr>
+<tr>
+<th>
+    residuals
+    </th>
+<td>
+<span>FloatVector with 861 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    1.496969
+    </td>
+<td>
+    -0.235951
+    </td>
+<td>
+    0.344655
+    </td>
+<td>
+    ...
+    </td>
+<td>
+    1.267057
+    </td>
+<td>
+    0.898527
+    </td>
+<td>
+    1.063883
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    fitMsgs
+    </th>
+<td>
+<span>StrVector with 0 elements.</span>
+<table>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    optinfo
+    </th>
+<td>
+<span>ListVector with 7 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    optimizer
+    </th>
+<td>
+<rpy2.rinterface_lib.sexp.strsexpvector 0x7ff8e7bf0780="" at="" object=""> [RTYPES.STRSXP]
+    </rpy2.rinterface_lib.sexp.strsexpvector></td>
+</tr>
+<tr>
+<th>
+    control
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7bf0870="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    derivs
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7bf0910="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    conv
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7bf09b0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    feval
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8e7bf0a50="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+<tr>
+<th>
+    warnings
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7bf0af0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    val
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8e7bf0b90="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <p>Note that in the statsmodels summary of results, the fixed effects and random effects parameter estimates are shown in a single table. The random effect for animal is labeled “Intercept RE” in the statsmodels output above. In the LME4 output, this effect is the pig intercept under the random effects section.</p>
 <p>There has been a lot of debate about whether the standard errors for random effect variance and covariance parameters are useful. In LME4, these standard errors are not displayed, because the authors of the package believe they are not very informative. While there is good reason to question their utility, we elected to include the standard errors in the summary table, but do not show the corresponding Wald confidence intervals.</p>
@@ -825,7 +1022,7 @@ Time -0.275
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="s2">"Weight ~ Time"</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"Pig"</span><span class="p">],</span> <span class="n">re_formula</span><span class="o">=</span><span class="s2">"~Time"</span><span class="p">)</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -834,17 +1031,23 @@ Time -0.275
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
   ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with cg
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with cg
   ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  "Check mle_retvals", ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2118: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  warnings.warn(msg, ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2130: ConvergenceWarning: Gradient optimization failed, |grad| = 31.645802
+  warnings.warn(msg, ConvergenceWarning)
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -869,19 +1072,6 @@ Time Var          0.483    0.046
 
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
-  "Check mle_retvals", ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2118: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
-  warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2130: ConvergenceWarning: Gradient optimization failed, |grad| = 31.645802
-  warnings.warn(msg, ConvergenceWarning)
-</pre></div></div>
-</div>
 <p>Here is the same model fit using LMER in R:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -892,11 +1082,12 @@ Time Var          0.483    0.046
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Linear mixed model fit by REML ['lmerMod']
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Linear mixed model fit by REML ['lmerMod']
 Formula: Weight ~ Time + (1 + Time | Pig)
    Data: dietox
 
@@ -921,9 +1112,205 @@ Time         6.93901    0.07982   86.93
 Correlation of Fixed Effects:
      (Intr)
 Time 0.006
-
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
+<div class="output_area rendered_html docutils container">
+<span>ListVector with 18 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    methTitle
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'Linear mixed model fit by REML'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    objClass
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'lmerMod'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    devcomp
+    </th>
+<td>
+<span>ListVector with 2 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    cmp
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8eefbe460="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+<tr>
+<th>
+    dims
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8eefbe050="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    ...
+    </th>
+<td>
+    ...
+    </td>
+</tr>
+<tr>
+<th>
+    residuals
+    </th>
+<td>
+<span>FloatVector with 861 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    1.848528
+    </td>
+<td>
+    -0.490872
+    </td>
+<td>
+    0.344168
+    </td>
+<td>
+    ...
+    </td>
+<td>
+    0.984331
+    </td>
+<td>
+    0.273690
+    </td>
+<td>
+    0.295605
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    fitMsgs
+    </th>
+<td>
+<span>StrVector with 0 elements.</span>
+<table>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    optinfo
+    </th>
+<td>
+<span>ListVector with 7 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    optimizer
+    </th>
+<td>
+<rpy2.rinterface_lib.sexp.strsexpvector 0x7ff8eefbe7d0="" at="" object=""> [RTYPES.STRSXP]
+    </rpy2.rinterface_lib.sexp.strsexpvector></td>
+</tr>
+<tr>
+<th>
+    control
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8eefbe5a0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    derivs
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8eefbe640="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    conv
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8eefbe6e0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    feval
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8eefbebe0="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+<tr>
+<th>
+    warnings
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8ef04bcd0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    val
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8ef04bb90="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <p>The random intercept and random slope are only weakly correlated <span class="math notranslate nohighlight">\((0.294 / \sqrt{19.493 * 0.416} \approx 0.1)\)</span>. So next we fit a model in which the two random effects are constrained to be uncorrelated:</p>
 <div class="nbinput docutils container">
@@ -939,10 +1326,10 @@ Time 0.006
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.10324316832591753
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.10324316832591753
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -955,7 +1342,7 @@ Time 0.006
                                                                       <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">free</span><span class="o">=</span><span class="n">free</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -964,13 +1351,17 @@ Time 0.006
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  "Check mle_retvals", ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2114: ConvergenceWarning: Retrying MixedLM optimization with cg
   ConvergenceWarning)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -981,7 +1372,7 @@ Model:             MixedLM  Dependent Variable:  Weight
 No. Observations:  861      Method:              REML
 No. Groups:        72       Scale:               5.8015
 Min. group size:   11       Log-Likelihood:      -2220.0996
-Max. group size:   12       Converged:           Yes
+Max. group size:   12       Converged:           No
 Mean group size:   12.0
 -----------------------------------------------------------
                  Coef.  Std.Err.   z    P&gt;|z| [0.025 0.975]
@@ -995,6 +1386,19 @@ Time Var          0.462    0.040
 
 </pre></div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  "Check mle_retvals", ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2118: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  warnings.warn(msg, ConvergenceWarning)
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2130: ConvergenceWarning: Gradient optimization failed, |grad| = 20.942980
+  warnings.warn(msg, ConvergenceWarning)
+</pre></div></div>
+</div>
 <p>The likelihood drops by 0.3 when we fix the correlation parameter to 0. Comparing 2 x 0.3 = 0.6 to the chi^2 1 df reference distribution suggests that the data are very consistent with a model in which this parameter is equal to 0.</p>
 <p>Here is the same model fit using LMER in R (note that here R is reporting the REML criterion instead of the likelihood, where the REML criterion is twice the log likelihood):</p>
 <div class="nbinput docutils container">
@@ -1006,11 +1410,12 @@ Time Var          0.462    0.040
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Linear mixed model fit by REML ['lmerMod']
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Linear mixed model fit by REML ['lmerMod']
 Formula: Weight ~ Time + (1 | Pig) + (0 + Time | Pig)
    Data: dietox
 
@@ -1035,9 +1440,205 @@ Time         6.93899    0.08045   86.25
 Correlation of Fixed Effects:
      (Intr)
 Time -0.086
-
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
+<div class="output_area rendered_html docutils container">
+<span>ListVector with 18 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    methTitle
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'Linear mixed model fit by REML'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    objClass
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'lmerMod'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    devcomp
+    </th>
+<td>
+<span>ListVector with 2 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    cmp
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8e8138320="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+<tr>
+<th>
+    dims
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8e81380a0="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    ...
+    </th>
+<td>
+    ...
+    </td>
+</tr>
+<tr>
+<th>
+    residuals
+    </th>
+<td>
+<span>FloatVector with 861 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    1.849594
+    </td>
+<td>
+    -0.491631
+    </td>
+<td>
+    0.344031
+    </td>
+<td>
+    ...
+    </td>
+<td>
+    0.975652
+    </td>
+<td>
+    0.260676
+    </td>
+<td>
+    0.278822
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    fitMsgs
+    </th>
+<td>
+<span>StrVector with 0 elements.</span>
+<table>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    optinfo
+    </th>
+<td>
+<span>ListVector with 7 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    optimizer
+    </th>
+<td>
+<rpy2.rinterface_lib.sexp.strsexpvector 0x7ff8e7be8f00="" at="" object=""> [RTYPES.STRSXP]
+    </rpy2.rinterface_lib.sexp.strsexpvector></td>
+</tr>
+<tr>
+<th>
+    control
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7be8500="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    derivs
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7be83c0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    conv
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7be8be0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    feval
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8e7be8b40="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+<tr>
+<th>
+    warnings
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e87f9910="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    val
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8e7bebaa0="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 
 
@@ -1063,7 +1664,7 @@ Time -0.086
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">md</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"tree"</span><span class="p">],</span> <span class="n">exog_re</span><span class="o">=</span><span class="n">exog</span><span class="p">[</span><span class="s2">"Intercept"</span><span class="p">])</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1105,8 +1706,9 @@ Intercept Var 0.374    0.345
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Linear mixed model fit by REML ['lmerMod']
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Linear mixed model fit by REML ['lmerMod']
 Formula: size ~ Time + (1 | tree)
    Data: Sitka
 
@@ -1130,9 +1732,7 @@ Time        0.0126855  0.0002654   47.80
 Correlation of Fixed Effects:
      (Intr)
 Time -0.611
-
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>We can now try to add a random slope. We start with R this time. From the code and output below we see that the REML estimate of the variance of the random slope is nearly zero.</p>
 <div class="nbinput docutils container">
@@ -1144,11 +1744,12 @@ Time -0.611
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Linear mixed model fit by REML ['lmerMod']
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Linear mixed model fit by REML ['lmerMod']
 Formula: size ~ Time + (1 + Time | tree)
    Data: Sitka
 
@@ -1178,9 +1779,205 @@ Model failed to converge with max|grad| = 0.793203 (tol = 0.002, component 1)
 Model is nearly unidentifiable: very large eigenvalue
  - Rescale variables?
 
-
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
+<div class="output_area rendered_html docutils container">
+<span>ListVector with 18 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    methTitle
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'Linear mixed model fit by REML'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    objClass
+    </th>
+<td>
+<span>StrVector with 1 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    'lmerMod'
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    devcomp
+    </th>
+<td>
+<span>ListVector with 2 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    cmp
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8e81386e0="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+<tr>
+<th>
+    dims
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8e8138910="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    ...
+    </th>
+<td>
+    ...
+    </td>
+</tr>
+<tr>
+<th>
+    residuals
+    </th>
+<td>
+<span>FloatVector with 395 elements.</span>
+<table>
+<tbody>
+<tr>
+<td>
+    -0.788132
+    </td>
+<td>
+    0.028246
+    </td>
+<td>
+    0.260036
+    </td>
+<td>
+    ...
+    </td>
+<td>
+    1.368503
+    </td>
+<td>
+    1.668039
+    </td>
+<td>
+    0.122694
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    fitMsgs
+    </th>
+<td>
+<span>StrVector with 0 elements.</span>
+<table>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<th>
+    optinfo
+    </th>
+<td>
+<span>ListVector with 7 elements.</span>
+<table>
+<tbody>
+<tr>
+<th>
+    optimizer
+    </th>
+<td>
+<rpy2.rinterface_lib.sexp.strsexpvector 0x7ff8e8138320="" at="" object=""> [RTYPES.STRSXP]
+    </rpy2.rinterface_lib.sexp.strsexpvector></td>
+</tr>
+<tr>
+<th>
+    control
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e8138050="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    derivs
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e8138190="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    conv
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8e7c229b0="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    feval
+    </th>
+<td>
+<rpy2.rinterface.intsexpvector 0x7ff8ef071dc0="" at="" object=""> [RTYPES.INTSXP]
+    </rpy2.rinterface.intsexpvector></td>
+</tr>
+<tr>
+<th>
+    warnings
+    </th>
+<td>
+<rpy2.rinterface.listsexpvector 0x7ff8ef071910="" at="" object=""> [RTYPES.VECSXP]
+    </rpy2.rinterface.listsexpvector></td>
+</tr>
+<tr>
+<th>
+    val
+    </th>
+<td>
+<rpy2.rinterface.floatsexpvector 0x7ff8ef071a00="" at="" object=""> [RTYPES.REALSXP]
+    </rpy2.rinterface.floatsexpvector></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <p>If we run this in statsmodels LME with defaults, we see that the variance estimate is indeed very small, which leads to a warning about the solution being on the boundary of the parameter space. The regression slopes agree very well with R, but the likelihood value is much higher than that returned by R.</p>
 <div class="nbinput docutils container">
@@ -1191,7 +1988,7 @@ Model is nearly unidentifiable: very large eigenvalue
 <span></span><span class="n">exog_re</span> <span class="o">=</span> <span class="n">exog</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">md</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MixedLM</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">"tree"</span><span class="p">],</span> <span class="n">exog_re</span><span class="p">)</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1225,7 +2022,7 @@ Time Var              0.000    0.000
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
 </pre></div></div>
 </div>
@@ -1249,7 +2046,7 @@ Time Var              0.000    0.000
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -1269,10 +2066,10 @@ Time Var              0.000    0.000
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0, 0.5, '-2 times profile log likelihood')
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, '-2 times profile log likelihood')
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1302,27 +2099,27 @@ Time Var              0.000    0.000
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
-/Users/peter/git/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+/home/travis/build/statsmodels/statsmodels/statsmodels/regression/mixed_linear_model.py:2149: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
   warnings.warn(msg, ConvergenceWarning)
 </pre></div></div>
 </div>
@@ -1330,10 +2127,10 @@ Time Var              0.000    0.000
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0, 0.5, '-2 times profile log likelihood')
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, '-2 times profile log likelihood')
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1392,10 +2189,10 @@ Time Var              0.000    0.000
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1404,9 +2201,6 @@ Time Var              0.000    0.000
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

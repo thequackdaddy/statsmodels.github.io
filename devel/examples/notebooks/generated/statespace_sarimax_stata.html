@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -92,7 +93,7 @@
   <a href="#examples/notebooks/generated/statespace_sarimax_stata" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> SARIMAX: Introduction </span>
         </div>
       </div>
@@ -188,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -483,16 +484,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -501,13 +502,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -515,35 +516,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -551,56 +552,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -708,11 +709,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
@@ -753,8 +754,8 @@ div.rendered_html tbody tr:hover {
 
 <span class="c1"># Fit the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'wpi'</span><span class="p">],</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -767,8 +768,8 @@ div.rendered_html tbody tr:hover {
 ==============================================================================
 Dep. Variable:                    wpi   No. Observations:                  124
 Model:               SARIMAX(1, 1, 1)   Log Likelihood                -135.351
-Date:                Sun, 15 Dec 2019   AIC                            278.703
-Time:                        18:58:33   BIC                            289.951
+Date:                Mon, 16 Dec 2019   AIC                            278.703
+Time:                        16:13:23   BIC                            289.951
 Sample:                    01-01-1960   HQIC                           283.272
                          - 10-01-1990
 Covariance Type:                  opg
@@ -907,8 +908,8 @@ Warnings:
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Fit the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'ln_wpi'</span><span class="p">],</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -921,21 +922,21 @@ Warnings:
 =================================================================================
 Dep. Variable:                    ln_wpi   No. Observations:                  124
 Model:             SARIMAX(1, 1, [1, 4])   Log Likelihood                 386.033
-Date:                   Sun, 15 Dec 2019   AIC                           -762.067
-Time:                           18:58:35   BIC                           -748.006
+Date:                   Mon, 16 Dec 2019   AIC                           -762.067
+Time:                           16:13:24   BIC                           -748.006
 Sample:                       01-01-1960   HQIC                          -756.355
                             - 10-01-1990
 Covariance Type:                     opg
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-intercept      0.0024      0.002      1.482      0.138      -0.001       0.006
-ar.L1          0.7811      0.095      8.264      0.000       0.596       0.966
+intercept      0.0024      0.002      1.483      0.138      -0.001       0.006
+ar.L1          0.7810      0.095      8.265      0.000       0.596       0.966
 ma.L1         -0.3996      0.126     -3.171      0.002      -0.647      -0.153
-ma.L4          0.3077      0.120      2.561      0.010       0.072       0.543
-sigma2         0.0001    9.8e-06     11.115      0.000    8.97e-05       0.000
+ma.L4          0.3075      0.120      2.560      0.010       0.072       0.543
+sigma2         0.0001   9.79e-06     11.119      0.000    8.97e-05       0.000
 ===================================================================================
-Ljung-Box (Q):                       30.02   Jarque-Bera (JB):                45.22
+Ljung-Box (Q):                       30.02   Jarque-Bera (JB):                45.23
 Prob(Q):                              0.87   Prob(JB):                         0.00
 Heteroskedasticity (H):               2.58   Skew:                             0.29
 Prob(H) (two-sided):                  0.00   Kurtosis:                         5.91
@@ -1000,9 +1001,9 @@ periodicity of the seasons (e.g. it is often 4 for quarterly data or 12 for mon
 <span class="n">data</span><span class="p">[</span><span class="s1">'lnair'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'air'</span><span class="p">])</span>
 
 <span class="c1"># Fit the model</span>
-<span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'lnair'</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">simple_differencing</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'lnair'</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">simple_differencing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1015,8 +1016,8 @@ periodicity of the seasons (e.g. it is often 4 for quarterly data or 12 for mon
 ==========================================================================================
 Dep. Variable:                       D.DS12.lnair   No. Observations:                  131
 Model:             SARIMAX(2, 0, 0)x(1, 0, 0, 12)   Log Likelihood                 240.821
-Date:                            Sun, 15 Dec 2019   AIC                           -473.643
-Time:                                    18:58:35   BIC                           -462.142
+Date:                            Mon, 16 Dec 2019   AIC                           -473.643
+Time:                                    16:13:25   BIC                           -462.142
 Sample:                                02-01-1950   HQIC                          -468.970
                                      - 12-01-1960
 Covariance Type:                              opg
@@ -1076,8 +1077,8 @@ simple differencing) or if the seasonal periodicity is large.</p>
 
 <span class="c1"># Fit the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1086,7 +1087,7 @@ simple differencing) or if the seasonal periodicity is large.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
 </div>
@@ -1099,21 +1100,21 @@ simple differencing) or if the seasonal periodicity is large.</p>
 ==============================================================================
 Dep. Variable:                consump   No. Observations:                   92
 Model:               SARIMAX(1, 0, 1)   Log Likelihood                -340.508
-Date:                Sun, 15 Dec 2019   AIC                            691.015
-Time:                        18:58:36   BIC                            703.624
+Date:                Mon, 16 Dec 2019   AIC                            691.015
+Time:                        16:13:26   BIC                            703.624
 Sample:                    01-01-1959   HQIC                           696.105
                          - 10-01-1981
 Covariance Type:                  opg
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const        -36.0605     56.643     -0.637      0.524    -147.079      74.958
-m2             1.1220      0.036     30.824      0.000       1.051       1.193
-ar.L1          0.9348      0.041     22.717      0.000       0.854       1.016
+const        -36.0618     56.647     -0.637      0.524    -147.088      74.964
+m2             1.1220      0.036     30.823      0.000       1.051       1.193
+ar.L1          0.9349      0.041     22.717      0.000       0.854       1.016
 ma.L1          0.3091      0.089      3.488      0.000       0.135       0.483
-sigma2        93.2556     10.889      8.565      0.000      71.914     114.597
+sigma2        93.2547     10.888      8.565      0.000      71.914     114.596
 ===================================================================================
-Ljung-Box (Q):                       38.72   Jarque-Bera (JB):                23.49
+Ljung-Box (Q):                       38.72   Jarque-Bera (JB):                23.50
 Prob(Q):                              0.53   Prob(JB):                         0.00
 Heteroskedasticity (H):              22.51   Skew:                             0.17
 Prob(H) (two-sided):                  0.00   Kurtosis:                         5.45
@@ -1146,8 +1147,8 @@ Warnings:
 
 <span class="c1"># Fit the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">'1978-01-01'</span><span class="p">],</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">'1978-01-01'</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">fit_res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">fit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">fit_res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1160,19 +1161,19 @@ Warnings:
 ==============================================================================
 Dep. Variable:                consump   No. Observations:                   77
 Model:               SARIMAX(1, 0, 1)   Log Likelihood                -243.316
-Date:                Sun, 15 Dec 2019   AIC                            496.633
-Time:                        18:58:37   BIC                            508.352
+Date:                Mon, 16 Dec 2019   AIC                            496.633
+Time:                        16:13:26   BIC                            508.352
 Sample:                    01-01-1959   HQIC                           501.320
                          - 01-01-1978
 Covariance Type:                  opg
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.6777     18.491      0.037      0.971     -35.565      36.920
-m2             1.0379      0.021     50.330      0.000       0.997       1.078
-ar.L1          0.8775      0.059     14.859      0.000       0.762       0.993
+const          0.6771     18.490      0.037      0.971     -35.563      36.917
+m2             1.0379      0.021     50.332      0.000       0.997       1.078
+ar.L1          0.8775      0.059     14.860      0.000       0.762       0.993
 ma.L1          0.2771      0.108      2.572      0.010       0.066       0.488
-sigma2        31.6977      4.683      6.769      0.000      22.520      40.876
+sigma2        31.6970      4.683      6.769      0.000      22.519      40.875
 ===================================================================================
 Ljung-Box (Q):                       46.78   Jarque-Bera (JB):                 6.05
 Prob(Q):                              0.21   Prob(JB):                         0.05
@@ -1346,10 +1347,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1358,9 +1359,6 @@ Warnings:
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

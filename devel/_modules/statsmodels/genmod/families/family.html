@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/genmod/families/family" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.families.family </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -287,9 +288,9 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">special</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">links</span> <span class="k">as</span> <span class="n">L</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">varfuncs</span> <span class="k">as</span> <span class="n">V</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">links</span> <span class="k">as</span> <span class="n">L</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">varfuncs</span> <span class="k">as</span> <span class="n">V</span>
 
 <span class="n">FLOAT_EPS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
 
@@ -351,7 +352,7 @@
     <span class="c1"># link property for each family is a pointer to link instance</span>
     <span class="n">link</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_getlink</span><span class="p">,</span> <span class="n">_setlink</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">"Link function for family"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">variance</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">variance</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
             <span class="n">warnmssg</span> <span class="o">=</span> <span class="s2">"Calling Family(..) with a link class as argument "</span>
             <span class="n">warnmssg</span> <span class="o">+=</span> <span class="s2">"is deprecated.</span><span class="se">\n</span><span class="s2">"</span>
@@ -674,7 +675,7 @@
     <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">Log</span><span class="p">,</span> <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Poisson</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">link</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="n">Poisson</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span>
@@ -706,7 +707,7 @@
         <span class="n">resid_dev</span> <span class="o">=</span> <span class="n">endog</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog_mu</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">resid_dev</span>
 
-<div class="viewcode-block" id="Poisson.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Poisson.loglike_obs.html#statsmodels.genmod.families.family.Poisson.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Poisson distribution.</span>
@@ -735,9 +736,9 @@
 <span class="sd">            \ln \Gamma(endog_i + 1))</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">-</span>
-                                      <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">endog</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span></div>
+                                      <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">endog</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Poisson.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Poisson.resid_anscombe.html#statsmodels.genmod.families.family.Poisson.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -768,7 +769,7 @@
         <span class="n">resid</span> <span class="o">=</span> <span class="p">((</span><span class="mi">3</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">3.</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">3.</span><span class="p">))</span> <span class="o">/</span>
                  <span class="p">(</span><span class="n">mu</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">6.</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">))</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 
 
 <div class="viewcode-block" id="Gaussian"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.Gaussian.html#statsmodels.genmod.families.family.Gaussian">[docs]</a><span class="k">class</span> <span class="nc">Gaussian</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -800,7 +801,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">constant</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="n">links</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">identity</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Gaussian</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">link</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="n">Gaussian</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span>
@@ -829,7 +830,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-<div class="viewcode-block" id="Gaussian.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Gaussian.loglike_obs.html#statsmodels.genmod.families.family.Gaussian.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Gaussian distribution.</span>
@@ -877,9 +878,9 @@
         <span class="n">ll_obs</span> <span class="o">=</span> <span class="o">-</span><span class="n">var_weights</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">scale</span>
         <span class="n">ll_obs</span> <span class="o">+=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">scale</span> <span class="o">/</span> <span class="n">var_weights</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">/=</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">ll_obs</span></div>
+        <span class="k">return</span> <span class="n">ll_obs</span>
 
-<div class="viewcode-block" id="Gaussian.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Gaussian.resid_anscombe.html#statsmodels.genmod.families.family.Gaussian.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -912,7 +913,7 @@
 <span class="sd">        """</span>
         <span class="n">resid</span> <span class="o">=</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">**</span> <span class="mf">0.5</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 
 
 <div class="viewcode-block" id="Gamma"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.Gamma.html#statsmodels.genmod.families.family.Gamma">[docs]</a><span class="k">class</span> <span class="nc">Gamma</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -943,7 +944,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">mu_squared</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">Log</span><span class="p">,</span> <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">inverse_power</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Gamma</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">link</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="n">Gamma</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span>
@@ -975,7 +976,7 @@
         <span class="n">resid_dev</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog_mu</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">mu</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">resid_dev</span>
 
-<div class="viewcode-block" id="Gamma.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Gamma.loglike_obs.html#statsmodels.genmod.families.family.Gamma.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Gamma distribution.</span>
@@ -1010,13 +1011,13 @@
         <span class="n">ll_obs</span> <span class="o">=</span> <span class="n">weight_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">weight_scale</span> <span class="o">*</span> <span class="n">endog_mu</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">-=</span> <span class="n">weight_scale</span> <span class="o">*</span> <span class="n">endog_mu</span>
         <span class="n">ll_obs</span> <span class="o">-=</span> <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">weight_scale</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ll_obs</span></div>
+        <span class="k">return</span> <span class="n">ll_obs</span>
 
         <span class="c1"># in Stata scale is set to equal 1 for reporting llf</span>
         <span class="c1"># in R it's the dispersion, though there is a loss of precision vs.</span>
         <span class="c1"># our results due to an assumed difference in implementation</span>
 
-<div class="viewcode-block" id="Gamma.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Gamma.resid_anscombe.html#statsmodels.genmod.families.family.Gamma.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -1046,7 +1047,7 @@
 <span class="sd">        """</span>
         <span class="n">resid</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span> <span class="o">/</span> <span class="n">mu</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">**</span> <span class="mf">0.5</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 
 
 <div class="viewcode-block" id="Binomial"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.Binomial.html#statsmodels.genmod.families.family.Binomial">[docs]</a><span class="k">class</span> <span class="nc">Binomial</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -1092,7 +1093,7 @@
     <span class="c1"># Other safe links, e.g. cloglog and probit are subclasses</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">Logit</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">CDFLink</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># , n=1.):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># , n=1.):</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">logit</span><span class="p">()</span>
         <span class="c1"># TODO: it *should* work for a constant n&gt;1 actually, if freq_weights</span>
@@ -1322,7 +1323,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">mu_cubed</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">inverse_squared</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">Log</span><span class="p">,</span> <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">inverse_squared</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">InverseGaussian</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -1352,7 +1353,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="n">endog</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-<div class="viewcode-block" id="InverseGaussian.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.InverseGaussian.loglike_obs.html#statsmodels.genmod.families.family.InverseGaussian.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Inverse Gaussian distribution.</span>
@@ -1385,9 +1386,9 @@
         <span class="n">ll_obs</span> <span class="o">=</span> <span class="o">-</span><span class="n">var_weights</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">endog</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">+=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">endog</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">var_weights</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">/=</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">ll_obs</span></div>
+        <span class="k">return</span> <span class="n">ll_obs</span>
 
-<div class="viewcode-block" id="InverseGaussian.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.InverseGaussian.resid_anscombe.html#statsmodels.genmod.families.family.InverseGaussian.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -1418,7 +1419,7 @@
 <span class="sd">        """</span>
         <span class="n">resid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog</span> <span class="o">/</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 
 
 <div class="viewcode-block" id="NegativeBinomial"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.NegativeBinomial.html#statsmodels.genmod.families.family.NegativeBinomial">[docs]</a><span class="k">class</span> <span class="nc">NegativeBinomial</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -1469,7 +1470,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">nbinom</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">Log</span><span class="p">,</span> <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># make it at least float</span>
         <span class="k">if</span> <span class="n">link</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">link</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
@@ -1507,7 +1508,7 @@
         <span class="n">resid_dev</span> <span class="o">-=</span> <span class="n">endog_alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">endog_alpha</span> <span class="o">/</span> <span class="n">mu_alpha</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">resid_dev</span>
 
-<div class="viewcode-block" id="NegativeBinomial.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.NegativeBinomial.loglike_obs.html#statsmodels.genmod.families.family.NegativeBinomial.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Negative Binomial distribution.</span>
@@ -1557,9 +1558,9 @@
         <span class="n">ll_obs</span> <span class="o">+=</span> <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">endog</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">-=</span> <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
         <span class="n">ll_obs</span> <span class="o">-=</span> <span class="n">special</span><span class="o">.</span><span class="n">gammaln</span><span class="p">(</span><span class="n">endog</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">ll_obs</span></div>
+        <span class="k">return</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">ll_obs</span>
 
-<div class="viewcode-block" id="NegativeBinomial.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.NegativeBinomial.resid_anscombe.html#statsmodels.genmod.families.family.NegativeBinomial.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -1604,7 +1605,7 @@
                  <span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span>
                  <span class="n">scale</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">6.</span><span class="p">))</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 
 
 <div class="viewcode-block" id="Tweedie"><a class="viewcode-back" href="../../../../generated/statsmodels.genmod.families.family.Tweedie.html#statsmodels.genmod.families.family.Tweedie">[docs]</a><span class="k">class</span> <span class="nc">Tweedie</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span>
@@ -1650,7 +1651,7 @@
     <span class="n">variance</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">Power</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
     <span class="n">safe_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">Power</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">var_power</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">eql</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">var_power</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">eql</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var_power</span> <span class="o">=</span> <span class="n">var_power</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eql</span> <span class="o">=</span> <span class="n">eql</span>
         <span class="k">if</span> <span class="n">eql</span> <span class="ow">and</span> <span class="p">(</span><span class="n">var_power</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">var_power</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">):</span>
@@ -1726,7 +1727,7 @@
                    <span class="n">endog</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dev</span>
 
-<div class="viewcode-block" id="Tweedie.loglike_obs"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Tweedie.loglike_obs.html#statsmodels.genmod.families.family.Tweedie.loglike_obs">[docs]</a>    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loglike_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The log-likelihood function for each observation in terms of the fitted</span>
 <span class="sd">        mean response for the Tweedie distribution.</span>
@@ -1782,9 +1783,9 @@
             <span class="n">u</span> <span class="o">*=</span> <span class="n">var_weights</span> <span class="o">/</span> <span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
         <span class="n">llf</span> <span class="o">-=</span> <span class="n">u</span>
 
-        <span class="k">return</span> <span class="n">llf</span></div>
+        <span class="k">return</span> <span class="n">llf</span>
 
-<div class="viewcode-block" id="Tweedie.resid_anscombe"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.genmod.families.family.Tweedie.resid_anscombe.html#statsmodels.genmod.families.family.Tweedie.resid_anscombe">[docs]</a>    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resid_anscombe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var_weights</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        The Anscombe residuals</span>
 
@@ -1832,7 +1833,7 @@
             <span class="n">resid</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">endog</span> <span class="o">**</span> <span class="n">c</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">**</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span>
                      <span class="n">mu</span> <span class="o">**</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_power</span> <span class="o">/</span> <span class="mf">6.</span><span class="p">))</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">**</span> <span class="mf">0.5</span>
         <span class="n">resid</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_weights</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resid</span></div></div>
+        <span class="k">return</span> <span class="n">resid</span></div>
 </pre></div>
 
           </article>
@@ -1857,10 +1858,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1869,9 +1870,6 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

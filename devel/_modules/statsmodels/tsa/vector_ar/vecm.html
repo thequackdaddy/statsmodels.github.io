@@ -63,6 +63,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -90,7 +91,7 @@
   <a href="#_modules/statsmodels/tsa/vector_ar/vecm" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
+    <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -105,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+691)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.vecm </span>
         </div>
       </div>
@@ -186,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+691)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -277,29 +278,29 @@
   <h1 id="modules-statsmodels-tsa-vector-ar-vecm--page-root">Source code for statsmodels.tsa.vector_ar.vecm</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">hstack</span><span class="p">,</span> <span class="n">vstack</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">inv</span><span class="p">,</span> <span class="n">svd</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">hstack</span><span class="p">,</span> <span class="n">vstack</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span><span class="p">,</span> <span class="n">svd</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">iteritems</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">HypothesisTestWarning</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">import</span> <span class="n">duplication_matrix</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">lagmat</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">iteritems</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">HypothesisTestWarning</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">duplication_matrix</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">lagmat</span>
 
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.base.tsa_model</span> <span class="k">as</span> <span class="nn">tsbase</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.vector_ar.irf</span> <span class="k">as</span> <span class="nn">irf</span>
 <span class="kn">import</span> <span class="nn">statsmodels.tsa.vector_ar.plotting</span> <span class="k">as</span> <span class="nn">plot</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.hypothesis_test_results</span> <span class="k">import</span> \
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.hypothesis_test_results</span> <span class="kn">import</span> \
     <span class="n">CausalityTestResults</span><span class="p">,</span> <span class="n">WhitenessTestResults</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.util</span> <span class="k">import</span> <span class="n">get_index</span><span class="p">,</span> <span class="n">seasonal_dummies</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.var_model</span> <span class="k">import</span> <span class="n">forecast</span><span class="p">,</span> <span class="n">forecast_interval</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.util</span> <span class="kn">import</span> <span class="n">get_index</span><span class="p">,</span> <span class="n">seasonal_dummies</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.vector_ar.var_model</span> <span class="kn">import</span> <span class="n">forecast</span><span class="p">,</span> <span class="n">forecast_interval</span><span class="p">,</span> \
     <span class="n">VAR</span><span class="p">,</span> <span class="n">ma_rep</span><span class="p">,</span> <span class="n">orth_ma_rep</span><span class="p">,</span> <span class="n">test_normality</span><span class="p">,</span> <span class="n">LagOrderResults</span><span class="p">,</span> <span class="n">_compute_acov</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.coint_tables</span> <span class="k">import</span> <span class="n">c_sja</span><span class="p">,</span> <span class="n">c_sjt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.coint_tables</span> <span class="kn">import</span> <span class="n">c_sja</span><span class="p">,</span> <span class="n">c_sjt</span>
 
 
 <div class="viewcode-block" id="select_order"><a class="viewcode-back" href="../../../../generated/statsmodels.tsa.vector_ar.vecm.select_order.html#statsmodels.tsa.vector_ar.vecm.select_order">[docs]</a><span class="k">def</span> <span class="nf">select_order</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">maxlags</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="s2">"nc"</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -709,7 +710,7 @@
 <span class="sd">    signif : float, {0.1, 0.05, 0.01}, default: 0.05</span>
 <span class="sd">        The test's significance level.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">neqs</span><span class="p">,</span> <span class="n">test_stats</span><span class="p">,</span> <span class="n">crit_vals</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"trace"</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">neqs</span><span class="p">,</span> <span class="n">test_stats</span><span class="p">,</span> <span class="n">crit_vals</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"trace"</span><span class="p">,</span>
                  <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span> <span class="o">=</span> <span class="n">neqs</span>
@@ -720,7 +721,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">signif</span> <span class="o">=</span> <span class="n">signif</span>
 
-<div class="viewcode-block" id="CointRankResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.CointRankResults.summary.html#statsmodels.tsa.vector_ar.vecm.CointRankResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"r_0"</span><span class="p">,</span> <span class="s2">"r_1"</span><span class="p">,</span> <span class="s2">"test statistic"</span><span class="p">,</span> <span class="s2">"critical value"</span><span class="p">]</span>
         <span class="n">title</span> <span class="o">=</span> <span class="s2">"Johansen cointegration test using "</span> <span class="o">+</span> \
             <span class="p">(</span><span class="s2">"trace"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">"trace"</span> <span class="k">else</span> <span class="s2">"maximum eigenvalue"</span><span class="p">)</span> <span class="o">+</span> \
@@ -736,9 +737,9 @@
                                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">html_data_fmt</span><span class="p">[</span><span class="s2">"data_fmts"</span><span class="p">]]</span>
         <span class="k">return</span> <span class="n">SimpleTable</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
                            <span class="n">txt_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">,</span> <span class="n">html_fmt</span><span class="o">=</span><span class="n">html_data_fmt</span><span class="p">,</span>
-                           <span class="n">ltx_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">)</span></div>
+                           <span class="n">ltx_fmt</span><span class="o">=</span><span class="n">data_fmt</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">as_text</span><span class="p">()</span></div>
 
 
@@ -848,7 +849,7 @@
                       <span class="s2">"with 12 variables at most."</span><span class="p">,</span>
                       <span class="n">category</span><span class="o">=</span><span class="n">HypothesisTestWarning</span><span class="p">)</span>
 
-    <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">import</span> <span class="n">OLS</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
 
     <span class="k">def</span> <span class="nf">detrend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
@@ -940,7 +941,7 @@
 <span class="sd">    .. [1] Lütkepohl, H. 2005. New Introduction to Multiple Time Series</span>
 <span class="sd">        Analysis. Springer.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rkt</span><span class="p">,</span> <span class="n">r0t</span><span class="p">,</span> <span class="n">eig</span><span class="p">,</span> <span class="n">evec</span><span class="p">,</span> <span class="n">lr1</span><span class="p">,</span> <span class="n">lr2</span><span class="p">,</span> <span class="n">cvt</span><span class="p">,</span> <span class="n">cvm</span><span class="p">,</span> <span class="n">ind</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rkt</span><span class="p">,</span> <span class="n">r0t</span><span class="p">,</span> <span class="n">eig</span><span class="p">,</span> <span class="n">evec</span><span class="p">,</span> <span class="n">lr1</span><span class="p">,</span> <span class="n">lr2</span><span class="p">,</span> <span class="n">cvt</span><span class="p">,</span> <span class="n">cvm</span><span class="p">,</span> <span class="n">ind</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_meth</span> <span class="o">=</span> <span class="s1">'johansen'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rkt</span> <span class="o">=</span> <span class="n">rkt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_r0t</span> <span class="o">=</span> <span class="n">r0t</span>
@@ -1128,7 +1129,7 @@
 
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_coint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_coint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">k_ar_diff</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">coint_rank</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                  <span class="n">deterministic</span><span class="o">=</span><span class="s2">"nc"</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_season</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">VECM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span>
@@ -1149,7 +1150,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">first_season</span> <span class="o">=</span> <span class="n">first_season</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_coef_repr</span> <span class="o">=</span> <span class="s2">"ec"</span>  <span class="c1"># name for loading coef. (alpha) in summary</span>
 
-<div class="viewcode-block" id="VECM.fit"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECM.fit.html#statsmodels.tsa.vector_ar.vecm.VECM.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"ml"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"ml"</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Estimates the parameters of a VECM.</span>
 
@@ -1172,7 +1173,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_estimate_vecm_ml</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> not recognized, must be among </span><span class="si">%s</span><span class="s2">"</span>
-                             <span class="o">%</span> <span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s2">"ml"</span><span class="p">))</span></div>
+                             <span class="o">%</span> <span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s2">"ml"</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_estimate_vecm_ml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">y_1_T</span><span class="p">,</span> <span class="n">delta_y_1_T</span><span class="p">,</span> <span class="n">y_lag1</span><span class="p">,</span> <span class="n">delta_x</span> <span class="o">=</span> <span class="n">_endog_matrices</span><span class="p">(</span>
@@ -1512,7 +1513,7 @@
 <span class="sd">    .. [1] Lütkepohl, H. 2005. *New Introduction to Multiple Time Series Analysis*. Springer.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">exog_coint</span><span class="p">,</span> <span class="n">k_ar</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">exog_coint</span><span class="p">,</span> <span class="n">k_ar</span><span class="p">,</span>
                  <span class="n">coint_rank</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">sigma_u</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="s1">'nc'</span><span class="p">,</span>
                  <span class="n">seasons</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_season</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delta_y_1_T</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_lag1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">delta_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1790,21 +1791,21 @@
         <span class="n">struct_arr</span><span class="p">[</span><span class="s2">"upper"</span><span class="p">]</span> <span class="o">=</span> <span class="n">est</span> <span class="o">+</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">stderr</span>
         <span class="k">return</span> <span class="n">struct_arr</span>
 
-<div class="viewcode-block" id="VECMResults.conf_int_alpha"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_alpha.html#statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_alpha">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int_alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_alpha</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">conf_int_alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_alpha</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.conf_int_beta"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_beta.html#statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_beta">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int_beta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_beta</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">conf_int_beta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_beta</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.conf_int_det_coef_coint"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_det_coef_coint.html#statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_det_coef_coint">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int_det_coef_coint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">conf_int_det_coef_coint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">det_coef_coint</span><span class="p">,</span>
-                                   <span class="bp">self</span><span class="o">.</span><span class="n">stderr_det_coef_coint</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">stderr_det_coef_coint</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.conf_int_gamma"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_gamma.html#statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_gamma">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int_gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">conf_int_gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.conf_int_det_coef"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_det_coef.html#statsmodels.tsa.vector_ar.vecm.VECMResults.conf_int_det_coef">[docs]</a>    <span class="k">def</span> <span class="nf">conf_int_det_coef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">det_coef</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_det_coef</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">conf_int_det_coef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_conf_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">det_coef</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr_det_coef</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">var_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1872,14 +1873,14 @@
         <span class="n">vvt</span> <span class="o">=</span> <span class="n">vecm_var_transformation</span>
         <span class="k">return</span> <span class="n">vvt</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_params_wo_det</span> <span class="o">@</span> <span class="n">vvt</span><span class="o">.</span><span class="n">T</span>
 
-<div class="viewcode-block" id="VECMResults.ma_rep"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.ma_rep.html#statsmodels.tsa.vector_ar.vecm.VECMResults.ma_rep">[docs]</a>    <span class="k">def</span> <span class="nf">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_rep</span><span class="p">,</span> <span class="n">maxn</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_rep</span><span class="p">,</span> <span class="n">maxn</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">_chol_sigma_u</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_u</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.orth_ma_rep"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.orth_ma_rep.html#statsmodels.tsa.vector_ar.vecm.VECMResults.orth_ma_rep">[docs]</a>    <span class="k">def</span> <span class="nf">orth_ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">orth_ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Compute orthogonalized MA coefficient matrices.</span>
 
 <span class="sd">        For this purpose a matrix  P is used which fulfills</span>
@@ -1898,9 +1899,9 @@
 <span class="sd">        -------</span>
 <span class="sd">        coefs : ndarray (maxn x neqs x neqs)</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">orth_ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">orth_ma_rep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxn</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.predict"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.predict.html#statsmodels.tsa.vector_ar.vecm.VECMResults.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_fc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_coint_fc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_fc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog_coint_fc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Calculate future values of the time series.</span>
 
@@ -2012,9 +2013,9 @@
                                      <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">forecast</span><span class="p">(</span><span class="n">last_observations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_rep</span><span class="p">,</span> <span class="n">trend_coefs</span><span class="p">,</span>
-                            <span class="n">steps</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span></div>
+                            <span class="n">steps</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.plot_forecast"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.plot_forecast.html#statsmodels.tsa.vector_ar.vecm.VECMResults.plot_forecast">[docs]</a>    <span class="k">def</span> <span class="nf">plot_forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">plot_conf_int</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">plot_forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">plot_conf_int</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                       <span class="n">n_last_obs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Plot the forecast.</span>
@@ -2037,9 +2038,9 @@
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">k_ar</span><span class="p">:]</span> <span class="k">if</span> <span class="n">n_last_obs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="n">n_last_obs</span><span class="p">:]</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">plot_var_forc</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
                            <span class="n">plot_stderr</span><span class="o">=</span><span class="n">plot_conf_int</span><span class="p">,</span>
-                           <span class="n">legend_options</span><span class="o">=</span><span class="p">{</span><span class="s2">"loc"</span><span class="p">:</span> <span class="s2">"lower left"</span><span class="p">})</span></div>
+                           <span class="n">legend_options</span><span class="o">=</span><span class="p">{</span><span class="s2">"loc"</span><span class="p">:</span> <span class="s2">"lower left"</span><span class="p">})</span>
 
-<div class="viewcode-block" id="VECMResults.test_granger_causality"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.test_granger_causality.html#statsmodels.tsa.vector_ar.vecm.VECMResults.test_granger_causality">[docs]</a>    <span class="k">def</span> <span class="nf">test_granger_causality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caused</span><span class="p">,</span> <span class="n">causing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_granger_causality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caused</span><span class="p">,</span> <span class="n">causing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Test for Granger-causality.</span>
 
@@ -2171,9 +2172,9 @@
         <span class="n">crit_value</span> <span class="o">=</span> <span class="n">f_distribution</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">signif</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">CausalityTestResults</span><span class="p">(</span><span class="n">causing</span><span class="p">,</span> <span class="n">caused</span><span class="p">,</span> <span class="n">f_statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span>
                                     <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s2">"granger"</span><span class="p">,</span>
-                                    <span class="n">method</span><span class="o">=</span><span class="s2">"f"</span><span class="p">)</span></div>
+                                    <span class="n">method</span><span class="o">=</span><span class="s2">"f"</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.test_inst_causality"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.test_inst_causality.html#statsmodels.tsa.vector_ar.vecm.VECMResults.test_inst_causality">[docs]</a>    <span class="k">def</span> <span class="nf">test_inst_causality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">causing</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_inst_causality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">causing</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Test for instantaneous causality.</span>
 
@@ -2229,10 +2230,10 @@
         <span class="c1"># fit with trend "nc" because all trend information is already in exog</span>
         <span class="n">var_results</span> <span class="o">=</span> <span class="n">VAR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_all</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxlags</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s2">"n"</span><span class="p">)</span>
         <span class="n">var_results</span><span class="o">.</span><span class="n">_results</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
-        <span class="k">return</span> <span class="n">var_results</span><span class="o">.</span><span class="n">test_inst_causality</span><span class="p">(</span><span class="n">causing</span><span class="o">=</span><span class="n">causing</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">var_results</span><span class="o">.</span><span class="n">test_inst_causality</span><span class="p">(</span><span class="n">causing</span><span class="o">=</span><span class="n">causing</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.irf"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.irf.html#statsmodels.tsa.vector_ar.vecm.VECMResults.irf">[docs]</a>    <span class="k">def</span> <span class="nf">irf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">irf</span><span class="o">.</span><span class="n">IRAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">vecm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">irf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">irf</span><span class="o">.</span><span class="n">IRAnalysis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">vecm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@cache_readonly</span>
     <span class="k">def</span> <span class="nf">fittedvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2267,7 +2268,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_all</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">k_ar</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">fittedvalues</span>
 
-<div class="viewcode-block" id="VECMResults.test_normality"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.test_normality.html#statsmodels.tsa.vector_ar.vecm.VECMResults.test_normality">[docs]</a>    <span class="k">def</span> <span class="nf">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Test assumption of normal-distributed errors using Jarque-Bera-style</span>
 <span class="sd">        omnibus :math:`\\chi^2` test.</span>
@@ -2287,9 +2288,9 @@
 
 <span class="sd">        .. |H0| replace:: H\ :sub:`0`</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">test_normality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.test_whiteness"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.test_whiteness.html#statsmodels.tsa.vector_ar.vecm.VECMResults.test_whiteness">[docs]</a>    <span class="k">def</span> <span class="nf">test_whiteness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">adjusted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_whiteness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">adjusted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Test the whiteness of the residuals using the Portmanteau test.</span>
 
@@ -2337,9 +2338,9 @@
         <span class="n">crit_value</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">signif</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">WhitenessTestResults</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">crit_value</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">signif</span><span class="p">,</span>
-                                    <span class="n">nlags</span><span class="p">,</span> <span class="n">adjusted</span><span class="p">)</span></div>
+                                    <span class="n">nlags</span><span class="p">,</span> <span class="n">adjusted</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.plot_data"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.plot_data.html#statsmodels.tsa.vector_ar.vecm.VECMResults.plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_presample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_presample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Plot the input time series.</span>
 
@@ -2352,9 +2353,9 @@
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_all</span> <span class="k">if</span> <span class="n">with_presample</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_all</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ar</span><span class="p">:]</span>
         <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
         <span class="n">dates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates</span> <span class="k">if</span> <span class="n">with_presample</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">k_ar</span><span class="p">:]</span>
-        <span class="n">plot</span><span class="o">.</span><span class="n">plot_mts</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span></div>
+        <span class="n">plot</span><span class="o">.</span><span class="n">plot_mts</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
 
-<div class="viewcode-block" id="VECMResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.vecm.VECMResults.summary.html#statsmodels.tsa.vector_ar.vecm.VECMResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Return a summary of the estimation results.</span>
 
@@ -2368,7 +2369,7 @@
 <span class="sd">        summary : :class:`statsmodels.iolib.summary.Summary`</span>
 <span class="sd">            A summary containing information about estimated parameters.</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">summary_params</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">summary_params</span>
 
         <span class="n">summary</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
 
@@ -2560,7 +2561,7 @@
                                <span class="n">coint_names</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
             <span class="n">summary</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">summary</span></div></div>
+        <span class="k">return</span> <span class="n">summary</span></div>
 </pre></div>
 
           </article>
@@ -2585,10 +2586,10 @@
               
           </div>
             Last updated on
-              Dec 15, 2019.
+              Dec 16, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2597,9 +2598,6 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
-  
-    <script src="../../../../_static/javascripts/dropdown.js"></script>
-  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>
