@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/statespace_dfm_coincident" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -508,16 +507,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -526,13 +525,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -540,35 +539,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -576,56 +575,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -726,12 +725,12 @@ to provide a theoretical foundation for them.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -801,7 +800,7 @@ to provide a theoretical foundation for them.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dta</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'indprod'</span><span class="p">:</span><span class="s1">'emp'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+<span></span><span class="n">dta</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'indprod'</span><span class="p">:</span><span class="s1">'emp'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -882,8 +881,8 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
 
 <span class="c1"># Create the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">DynamicFactor</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">k_factors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">factor_order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">error_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">initial_res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'powell'</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">initial_res</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">initial_res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'powell'</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">initial_res</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -892,9 +891,9 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency MS will be used.
+/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency MS will be used.
   % freq, ValueWarning)
-/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
 </pre></div></div>
 </div>
@@ -916,7 +915,7 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">separate_params</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">separate_params</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -928,36 +927,36 @@ f_t &amp; = a_1 f_{t-1} + a_2 f_{t-2} + \eta_t \qquad &amp; \eta_t \sim N(0, I)\
                                              Statespace Model Results
 =================================================================================================================
 Dep. Variable:     ['std_indprod', 'std_income', 'std_sales', 'std_emp']   No. Observations:                  431
-Model:                                 DynamicFactor(factors=1, order=2)   Log Likelihood               -2066.915
-                                                          + AR(2) errors   AIC                           4169.831
-Date:                                                   Sat, 14 Dec 2019   BIC                           4243.021
-Time:                                                           18:59:14   HQIC                          4198.729
+Model:                                 DynamicFactor(factors=1, order=2)   Log Likelihood               -2066.918
+                                                          + AR(2) errors   AIC                           4169.835
+Date:                                                   Sun, 15 Dec 2019   BIC                           4243.025
+Time:                                                           18:58:49   HQIC                          4198.733
 Sample:                                                       02-01-1979
                                                             - 12-01-2014
 Covariance Type:                                                     opg
 ====================================================================================================
                                        coef    std err          z      P&gt;|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------------------------
-loading.f1.std_indprod              -0.8524      0.016    -52.173      0.000      -0.884      -0.820
-loading.f1.std_income               -0.2430      0.033     -7.351      0.000      -0.308      -0.178
+loading.f1.std_indprod              -0.8523      0.016    -52.180      0.000      -0.884      -0.820
+loading.f1.std_income               -0.2430      0.033     -7.343      0.000      -0.308      -0.178
 loading.f1.std_sales                -0.4731      0.024    -20.066      0.000      -0.519      -0.427
-loading.f1.std_emp                  -0.2692      0.028     -9.669      0.000      -0.324      -0.215
-sigma2.std_indprod                 2.27e-15   1.37e-09   1.66e-06      1.000   -2.68e-09    2.68e-09
+loading.f1.std_emp                  -0.2692      0.028     -9.670      0.000      -0.324      -0.215
+sigma2.std_indprod                2.269e-15   1.37e-09   1.66e-06      1.000   -2.68e-09    2.68e-09
 sigma2.std_income                    0.9089      0.017     53.352      0.000       0.876       0.942
-sigma2.std_sales                     0.6032      0.035     17.330      0.000       0.535       0.671
-sigma2.std_emp                       0.3725      0.014     26.623      0.000       0.345       0.400
-L1.f1.f1                             0.2190      0.019     11.537      0.000       0.182       0.256
-L2.f1.f1                             0.2814      0.023     11.999      0.000       0.235       0.327
-L1.e(std_indprod).e(std_indprod)    -1.5174      0.000  -5455.419      0.000      -1.518      -1.517
-L2.e(std_indprod).e(std_indprod)    -1.0000      0.000  -5725.669      0.000      -1.000      -1.000
+sigma2.std_sales                     0.6032      0.035     17.331      0.000       0.535       0.671
+sigma2.std_emp                       0.3725      0.014     26.628      0.000       0.345       0.400
+L1.f1.f1                             0.2190      0.019     11.552      0.000       0.182       0.256
+L2.f1.f1                             0.2814      0.023     12.018      0.000       0.235       0.327
+L1.e(std_indprod).e(std_indprod)    -1.5174      0.000  -1.09e+04      0.000      -1.518      -1.517
+L2.e(std_indprod).e(std_indprod)    -1.0000      0.000  -5722.733      0.000      -1.000      -1.000
 L1.e(std_income).e(std_income)      -0.1585      0.018     -8.580      0.000      -0.195      -0.122
-L2.e(std_income).e(std_income)      -0.0833      0.020     -4.204      0.000      -0.122      -0.044
-L1.e(std_sales).e(std_sales)        -0.4430      0.029    -15.054      0.000      -0.501      -0.385
-L2.e(std_sales).e(std_sales)        -0.2058      0.020    -10.476      0.000      -0.244      -0.167
-L1.e(std_emp).e(std_emp)             0.2989      0.033      9.100      0.000       0.235       0.363
+L2.e(std_income).e(std_income)      -0.0833      0.020     -4.205      0.000      -0.122      -0.044
+L1.e(std_sales).e(std_sales)        -0.4430      0.029    -15.058      0.000      -0.501      -0.385
+L2.e(std_sales).e(std_sales)        -0.2058      0.020    -10.478      0.000      -0.244      -0.167
+L1.e(std_emp).e(std_emp)             0.2989      0.033      9.101      0.000       0.235       0.363
 L2.e(std_emp).e(std_emp)             0.4858      0.029     16.938      0.000       0.430       0.542
 ========================================================================================================
-Ljung-Box (Q):          85.11, 34.51, 68.73, 68.85   Jarque-Bera (JB):   193.87, 9396.60, 19.80, 4209.89
+Ljung-Box (Q):          85.11, 34.51, 68.73, 68.85   Jarque-Bera (JB):   193.87, 9396.60, 19.80, 4209.90
 Prob(Q):                    0.00, 0.72, 0.00, 0.00   Prob(JB):                    0.00, 0.00, 0.00, 0.00
 Heteroskedasticity (H):     0.80, 4.85, 0.47, 0.41   Skew:                       0.09, -0.98, 0.18, 0.86
 Prob(H) (two-sided):        0.18, 0.00, 0.00, 0.00   Kurtosis:                  6.28, 25.79, 3.98, 18.21
@@ -965,7 +964,7 @@ Prob(H) (two-sided):        0.18, 0.00, 0.00, 0.00   Kurtosis:                  
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 3.38e+17. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 1.18e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 
@@ -1396,14 +1395,14 @@ f_{t-4} \\
             <span class="c1"># Return all the parameters</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">unconstrained</span><span class="p">,</span> <span class="n">constrained</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Peform the transformation, if required</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">transformed</span><span class="p">:</span>
             <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="n">params</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_factor_zero</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="c1"># Now perform the usual DFM update, but exclude our new parameters</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ExtendedDFM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ExtendedDFM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">transformed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># Finally, set our new parameters in the design matrix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="p">[</span><span class="s1">'design'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
@@ -1434,9 +1433,9 @@ is important because starting parameters are usually specified in terms of value
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create the model</span>
 <span class="n">extended_mod</span> <span class="o">=</span> <span class="n">ExtendedDFM</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
-<span class="n">initial_extended_res</span> <span class="o">=</span> <span class="n">extended_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">initial_extended_res</span> <span class="o">=</span> <span class="n">extended_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">extended_res</span> <span class="o">=</span> <span class="n">extended_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">initial_extended_res</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'nm'</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">extended_res</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">separate_params</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">extended_res</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">separate_params</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1445,7 +1444,7 @@ is important because starting parameters are usually specified in terms of value
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency MS will be used.
+/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency MS will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -1456,15 +1455,15 @@ is important because starting parameters are usually specified in terms of value
 <div class="highlight"><pre>
 Optimization terminated successfully.
          Current function value: 4.698591
-         Iterations: 295
-         Function evaluations: 504
+         Iterations: 247
+         Function evaluations: 434
                                              Statespace Model Results
 =================================================================================================================
 Dep. Variable:     ['std_indprod', 'std_income', 'std_sales', 'std_emp']   No. Observations:                  431
 Model:                                 DynamicFactor(factors=1, order=4)   Log Likelihood               -2025.093
                                                           + AR(2) errors   AIC                           4096.186
-Date:                                                   Sat, 14 Dec 2019   BIC                           4189.706
-Time:                                                           18:59:28   HQIC                          4133.111
+Date:                                                   Sun, 15 Dec 2019   BIC                           4189.706
+Time:                                                           18:59:06   HQIC                          4133.111
 Sample:                                                       02-01-1979
                                                             - 12-01-2014
 Covariance Type:                                                     opg
@@ -1475,27 +1474,27 @@ loading.f1.std_indprod              -0.6890      0.036    -19.095      0.000    
 loading.f1.std_income               -0.2583      0.038     -6.722      0.000      -0.334      -0.183
 loading.f1.std_sales                -0.4390      0.024    -18.550      0.000      -0.485      -0.393
 loading.f1.std_emp                  -0.4168      0.039    -10.758      0.000      -0.493      -0.341
-sigma2.std_indprod                   0.2455      0.046      5.318      0.000       0.155       0.336
-sigma2.std_income                    0.8737      0.030     29.560      0.000       0.816       0.932
+sigma2.std_indprod                   0.2456      0.046      5.319      0.000       0.155       0.336
+sigma2.std_income                    0.8736      0.030     29.562      0.000       0.816       0.932
 sigma2.std_sales                     0.5346      0.034     15.532      0.000       0.467       0.602
-sigma2.std_emp                       0.2530      0.024     10.497      0.000       0.206       0.300
+sigma2.std_emp                       0.2530      0.024     10.496      0.000       0.206       0.300
 L1.f1.f1                             0.3048      0.059      5.172      0.000       0.189       0.420
-L2.f1.f1                             0.3767      0.062      6.077      0.000       0.255       0.498
-L3.f1.f1                                  0   6.86e-10          0      1.000   -1.34e-09    1.34e-09
-L4.f1.f1                                  0   6.86e-10          0      1.000   -1.34e-09    1.34e-09
+L2.f1.f1                             0.3767      0.062      6.078      0.000       0.255       0.498
+L3.f1.f1                                  0   1.23e-09          0      1.000   -2.41e-09    2.41e-09
+L4.f1.f1                                  0   1.23e-09          0      1.000   -2.41e-09    2.41e-09
 L1.e(std_indprod).e(std_indprod)    -0.3203      0.113     -2.828      0.005      -0.542      -0.098
-L2.e(std_indprod).e(std_indprod)    -0.2253      0.090     -2.495      0.013      -0.402      -0.048
-L1.e(std_income).e(std_income)      -0.1730      0.022     -7.836      0.000      -0.216      -0.130
-L2.e(std_income).e(std_income)      -0.0936      0.044     -2.118      0.034      -0.180      -0.007
+L2.e(std_indprod).e(std_indprod)    -0.2252      0.090     -2.495      0.013      -0.402      -0.048
+L1.e(std_income).e(std_income)      -0.1730      0.022     -7.837      0.000      -0.216      -0.130
+L2.e(std_income).e(std_income)      -0.0936      0.044     -2.119      0.034      -0.180      -0.007
 L1.e(std_sales).e(std_sales)        -0.4895      0.046    -10.601      0.000      -0.580      -0.399
 L2.e(std_sales).e(std_sales)        -0.2268      0.050     -4.540      0.000      -0.325      -0.129
 L1.e(std_emp).e(std_emp)             0.2341      0.042      5.530      0.000       0.151       0.317
-L2.e(std_emp).e(std_emp)             0.4956      0.051      9.766      0.000       0.396       0.595
+L2.e(std_emp).e(std_emp)             0.4957      0.051      9.766      0.000       0.396       0.595
 loading.L1.f1.std_emp               -0.0724      0.038     -1.895      0.058      -0.147       0.002
 loading.L2.f1.std_emp                0.0004      0.036      0.010      0.992      -0.071       0.071
 loading.L3.f1.std_emp               -0.1738      0.028     -6.168      0.000      -0.229      -0.119
 ========================================================================================================
-Ljung-Box (Q):          59.19, 34.27, 68.30, 61.67   Jarque-Bera (JB):   231.73, 9688.65, 25.32, 3387.21
+Ljung-Box (Q):          59.19, 34.27, 68.30, 61.67   Jarque-Bera (JB):   231.74, 9688.24, 25.32, 3387.10
 Prob(Q):                    0.03, 0.73, 0.00, 0.02   Prob(JB):                    0.00, 0.00, 0.00, 0.00
 Heteroskedasticity (H):     0.76, 5.03, 0.44, 0.45   Skew:                       0.22, -0.97, 0.24, 0.75
 Prob(H) (two-sided):        0.11, 0.00, 0.00, 0.00   Kurtosis:                  6.56, 26.15, 4.08, 16.65
@@ -1503,7 +1502,7 @@ Prob(H) (two-sided):        0.11, 0.00, 0.00, 0.00   Kurtosis:                  
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 2.99e+17. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 2.95e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 <p>Although this model increases the likelihood, it is not preferred by the AIC and BIC measures which penalize the additional three parameters.</p>
@@ -1605,10 +1604,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1617,6 +1616,9 @@ Warnings:
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

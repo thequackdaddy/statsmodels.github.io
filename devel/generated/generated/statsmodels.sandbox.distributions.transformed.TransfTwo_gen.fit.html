@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#generated/generated/statsmodels.sandbox.distributions.transformed.TransfTwo_gen.fit" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -426,7 +425,7 @@ may only be locally optimal, or the optimization may fail altogether.</p>
 <p class="rubric">Examples</p>
 <p>Generate some data to fit: draw random variates from the <cite>beta</cite>
 distribution</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">beta</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
@@ -452,7 +451,7 @@ equivalently, <code class="docutils literal notranslate"><span class="pre">fa=1<
 </div>
 <p>Not all distributions return estimates for the shape parameters.
 <code class="docutils literal notranslate"><span class="pre">norm</span></code> for example just returns estimates for location and scale:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">norm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">loc1</span><span class="p">,</span> <span class="n">scale1</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">loc1</span><span class="p">,</span> <span class="n">scale1</span>
@@ -509,10 +508,10 @@ equivalently, <code class="docutils literal notranslate"><span class="pre">fa=1<
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -521,6 +520,9 @@ equivalently, <code class="docutils literal notranslate"><span class="pre">fa=1<
     </div>
   </footer>
   <script src="../../_static/javascripts/application.js"></script>
+  
+    <script src="../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

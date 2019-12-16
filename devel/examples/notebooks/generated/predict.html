@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/predict" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -478,16 +477,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -496,13 +495,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -510,35 +509,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -546,56 +545,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -689,8 +688,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
@@ -722,7 +721,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">olsmod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 <span class="n">olsres</span> <span class="o">=</span> <span class="n">olsmod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">olsres</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">olsres</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -733,27 +732,27 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
                             OLS Regression Results
 ==============================================================================
-Dep. Variable:                      y   R-squared:                       0.987
-Model:                            OLS   Adj. R-squared:                  0.986
-Method:                 Least Squares   F-statistic:                     1133.
-Date:                Sat, 14 Dec 2019   Prob (F-statistic):           4.21e-43
-Time:                        18:55:37   Log-Likelihood:                 5.2621
-No. Observations:                  50   AIC:                            -2.524
-Df Residuals:                      46   BIC:                             5.124
+Dep. Variable:                      y   R-squared:                       0.979
+Model:                            OLS   Adj. R-squared:                  0.978
+Method:                 Least Squares   F-statistic:                     721.9
+Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.12e-38
+Time:                        18:58:33   Log-Likelihood:                -4.1075
+No. Observations:                  50   AIC:                             16.21
+Df Residuals:                      46   BIC:                             23.86
 Df Model:                           3
 Covariance Type:            nonrobust
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.9174      0.077     63.536      0.000       4.762       5.073
-x1             0.4865      0.012     40.754      0.000       0.462       0.510
-x2             0.4243      0.047      9.043      0.000       0.330       0.519
-x3            -0.0178      0.001    -16.960      0.000      -0.020      -0.016
+const          5.0603      0.093     54.209      0.000       4.872       5.248
+x1             0.5042      0.014     35.021      0.000       0.475       0.533
+x2             0.4888      0.057      8.637      0.000       0.375       0.603
+x3            -0.0214      0.001    -16.961      0.000      -0.024      -0.019
 ==============================================================================
-Omnibus:                        2.755   Durbin-Watson:                   1.660
-Prob(Omnibus):                  0.252   Jarque-Bera (JB):                2.393
-Skew:                           0.430   Prob(JB):                        0.302
-Kurtosis:                       2.360   Cond. No.                         221.
+Omnibus:                        0.122   Durbin-Watson:                   2.135
+Prob(Omnibus):                  0.941   Jarque-Bera (JB):                0.265
+Skew:                           0.102   Prob(JB):                        0.876
+Kurtosis:                       2.707   Cond. No.                         221.
 ==============================================================================
 
 Warnings:
@@ -769,7 +768,7 @@ Warnings:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ypred</span> <span class="o">=</span> <span class="n">olsres</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ypred</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ypred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -778,15 +777,15 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.473068    4.90963703  5.3126115   5.65886574  5.93361999  6.13286871
-  6.26403868  6.34476878  6.400012    6.45793569  6.5452938   6.68303124
-  6.8828427   7.14525128  7.45952247  7.80542789  8.15656868  8.4847128
-  8.76443347  8.97728671  9.11484163  9.1800656   9.18683675  9.15766379
-  9.11998791  9.10167428  9.12643387  9.20992781  9.35719431  9.56182089
-  9.80699794 10.06828048 10.31760443 10.52789741 10.67752671 10.75385344
- 10.7553091  10.69165323 10.58237001 10.453467   10.33320223 10.24744143
- 10.21540842 10.24652664 10.33887093 10.47948384 10.64650448 10.8127602
- 10.95023101 11.03465315]
+[ 4.5242736   5.00800354  5.45271488  5.83176944  6.12814264  6.33722055
+  6.46755799  6.53947291  6.58170833  6.62670982  6.70529489  6.84158967
+  7.04906514  7.32832382  7.66700081  8.04179528  8.42229879  8.77599124
+  9.07358387  9.29383131  9.42702214  9.47657445  9.45847424  9.39864899
+  9.32870782  9.28074824  9.28208258  9.35075067  9.49255596  9.70011199
+  9.95405602 10.22623022 10.48430795 10.69710494 10.83970276 10.89754286
+ 10.86881848 10.76477153 10.60784554 10.42799827 10.25777974 10.12698434
+ 10.0577557  10.06094855 10.13434534 10.26302055 10.42179292 10.57936268
+ 10.70345398 10.76611773]
 </pre></div></div>
 </div>
 
@@ -801,7 +800,7 @@ Warnings:
 <span class="n">Xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x1n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x1n</span><span class="p">),</span> <span class="p">(</span><span class="n">x1n</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">Xnew</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">Xnew</span><span class="p">)</span>
 <span class="n">ynewpred</span> <span class="o">=</span>  <span class="n">olsres</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xnew</span><span class="p">)</span> <span class="c1"># predict out of sample</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ynewpred</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ynewpred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -810,8 +809,8 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[11.04241307 10.93772391 10.73722634 10.47884234 10.21249062  9.9878647
-  9.84226628  9.79147243  9.82587283  9.91282275]
+[10.73225647 10.56838419 10.29366905  9.95179287  9.60025628  9.29630058
+  9.08289306  8.97820712  8.97117277  9.02418697]
 </pre></div></div>
 </div>
 
@@ -822,7 +821,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Data"</span><span class="p">)</span>
@@ -870,14 +869,14 @@ Warnings:
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Intercept           4.917433
-x1                  0.486456
-np.sin(x1)          0.424331
-I((x1 - 5) ** 2)   -0.017775
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Intercept           5.060256
+x1                  0.504174
+np.sin(x1)          0.488781
+I((x1 - 5) ** 2)   -0.021439
 dtype: float64
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 <p>Now we only have to pass the single variable and we get the transformed right-hand side variables automatically</p>
 <div class="nbinput docutils container">
@@ -893,20 +892,20 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0    11.042413
-1    10.937724
-2    10.737226
-3    10.478842
-4    10.212491
-5     9.987865
-6     9.842266
-7     9.791472
-8     9.825873
-9     9.912823
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0    10.732256
+1    10.568384
+2    10.293669
+3     9.951793
+4     9.600256
+5     9.296301
+6     9.082893
+7     8.978207
+8     8.971173
+9     9.024187
 dtype: float64
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 
 
@@ -958,10 +957,10 @@ dtype: float64
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -970,6 +969,9 @@ dtype: float64
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

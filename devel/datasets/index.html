@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#datasets/index" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -396,81 +395,79 @@ examples, tutorials, model testing, etc.</p>
 
 <h2 id="using-datasets-from-r">Using Datasets from R<a class="headerlink" href="#using-datasets-from-r" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://vincentarelbundock.github.io/Rdatasets/">Rdatasets project</a> gives access to the datasets available in R’s core datasets package and many other common R packages. All of these datasets are available to statsmodels by using the <a class="reference internal" href="statsmodels.datasets.get_rdataset.html#statsmodels.datasets.get_rdataset" title="statsmodels.datasets.get_rdataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_rdataset</span></code></a> function. The actual data is accessible by the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute. For example:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<pre class="literal-block">In [1]: import statsmodels.api as sm
 
-<span class="gp">In [2]: </span><span class="n">duncan_prestige</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"Duncan"</span><span class="p">,</span> <span class="s2">"carData"</span><span class="p">)</span>
+In [2]: duncan_prestige = sm.datasets.get_rdataset("Duncan", "carData")
 
-<span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">duncan_prestige</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="go">+--------+-----------------+</span>
-<span class="go">| Duncan | R Documentation |</span>
-<span class="go">+--------+-----------------+</span>
+In [3]: print(duncan_prestige.__doc__)
++--------+-----------------+
+| Duncan | R Documentation |
++--------+-----------------+
 
-<span class="go">Duncan's Occupational Prestige Data</span>
-<span class="gt">-----------------------------------</span>
+Duncan's Occupational Prestige Data
+-----------------------------------
 
-<span class="n">Description</span>
-<span class="o">~~~~~~~~~~~</span>
+Description
+~~~~~~~~~~~
 
-<span class="n">The</span> <span class="err">``</span><span class="n">Duncan</span><span class="err">``</span> <span class="n">data</span> <span class="n">frame</span> <span class="n">has</span> <span class="mi">45</span> <span class="n">rows</span> <span class="ow">and</span> <span class="mi">4</span> <span class="n">columns</span><span class="o">.</span> <span class="n">Data</span> <span class="n">on</span> <span class="n">the</span>
-<span class="n">prestige</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">characteristics</span> <span class="n">of</span> <span class="mi">45</span> <span class="n">U</span><span class="o">.</span> <span class="n">S</span><span class="o">.</span> <span class="n">occupations</span> <span class="ow">in</span> <span class="mf">1950.</span>
+The ``Duncan`` data frame has 45 rows and 4 columns. Data on the
+prestige and other characteristics of 45 U. S. occupations in 1950.
 
-<span class="n">Usage</span>
-<span class="o">~~~~~</span>
+Usage
+~~~~~
 
-<span class="p">::</span>
+::
 
-   <span class="n">Duncan</span>
+   Duncan
 
-<span class="n">Format</span>
-<span class="o">~~~~~~</span>
+Format
+~~~~~~
 
-<span class="n">This</span> <span class="n">data</span> <span class="n">frame</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">following</span> <span class="n">columns</span><span class="p">:</span>
+This data frame contains the following columns:
 
-<span class="nb">type</span>
-   <span class="n">Type</span> <span class="n">of</span> <span class="n">occupation</span><span class="o">.</span> <span class="n">A</span> <span class="n">factor</span> <span class="k">with</span> <span class="n">the</span> <span class="n">following</span> <span class="n">levels</span><span class="p">:</span> <span class="err">``</span><span class="n">prof</span><span class="err">``</span><span class="p">,</span>
-   <span class="n">professional</span> <span class="ow">and</span> <span class="n">managerial</span><span class="p">;</span> <span class="err">``</span><span class="n">wc</span><span class="err">``</span><span class="p">,</span> <span class="n">white</span><span class="o">-</span><span class="n">collar</span><span class="p">;</span> <span class="err">``</span><span class="n">bc</span><span class="err">``</span><span class="p">,</span>
-   <span class="n">blue</span><span class="o">-</span><span class="n">collar</span><span class="o">.</span>
+type
+   Type of occupation. A factor with the following levels: ``prof``,
+   professional and managerial; ``wc``, white-collar; ``bc``,
+   blue-collar.
 
-<span class="n">income</span>
-   <span class="n">Percentage</span> <span class="n">of</span> <span class="n">occupational</span> <span class="n">incumbents</span> <span class="ow">in</span> <span class="n">the</span> <span class="mi">1950</span> <span class="n">US</span> <span class="n">Census</span> <span class="n">who</span>
-   <span class="n">earned</span> <span class="err">$</span><span class="mi">3</span><span class="p">,</span><span class="mi">500</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">per</span> <span class="n">year</span> <span class="p">(</span><span class="n">about</span> <span class="err">$</span><span class="mi">36</span><span class="p">,</span><span class="mi">000</span> <span class="ow">in</span> <span class="mi">2017</span> <span class="n">US</span> <span class="n">dollars</span><span class="p">)</span><span class="o">.</span>
+income
+   Percentage of occupational incumbents in the 1950 US Census who
+   earned $3,500 or more per year (about $36,000 in 2017 US dollars).
 
-<span class="n">education</span>
-   <span class="n">Percentage</span> <span class="n">of</span> <span class="n">occupational</span> <span class="n">incumbents</span> <span class="ow">in</span> <span class="mi">1950</span> <span class="n">who</span> <span class="n">were</span> <span class="n">high</span> <span class="n">school</span>
-   <span class="n">graduates</span> <span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">were</span> <span class="n">we</span> <span class="n">cynical</span><span class="p">,</span> <span class="n">we</span> <span class="n">would</span> <span class="n">say</span> <span class="ow">is</span> <span class="n">roughly</span> <span class="n">equivalent</span>
-   <span class="n">to</span> <span class="n">a</span> <span class="n">PhD</span> <span class="ow">in</span> <span class="mi">2017</span><span class="p">)</span>
+education
+   Percentage of occupational incumbents in 1950 who were high school
+   graduates (which, were we cynical, we would say is roughly equivalent
+   to a PhD in 2017)
 
-<span class="n">prestige</span>
-   <span class="n">Percentage</span> <span class="n">of</span> <span class="n">respondents</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">social</span> <span class="n">survey</span> <span class="n">who</span> <span class="n">rated</span> <span class="n">the</span> <span class="n">occupation</span>
-   <span class="k">as</span> <span class="err">“</span><span class="n">good</span><span class="err">”</span> <span class="ow">or</span> <span class="n">better</span> <span class="ow">in</span> <span class="n">prestige</span>
+prestige
+   Percentage of respondents in a social survey who rated the occupation
+   as “good” or better in prestige
 
-<span class="n">Source</span>
-<span class="o">~~~~~~</span>
+Source
+~~~~~~
 
-<span class="n">Duncan</span><span class="p">,</span> <span class="n">O</span><span class="o">.</span> <span class="n">D</span><span class="o">.</span> <span class="p">(</span><span class="mi">1961</span><span class="p">)</span> <span class="n">A</span> <span class="n">socioeconomic</span> <span class="n">index</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">occupations</span><span class="o">.</span> <span class="n">In</span>
-<span class="n">Reiss</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span> <span class="n">J</span><span class="o">.</span><span class="p">,</span> <span class="n">Jr</span><span class="o">.</span> <span class="p">(</span><span class="n">Ed</span><span class="o">.</span><span class="p">)</span> <span class="o">*</span><span class="n">Occupations</span> <span class="ow">and</span> <span class="n">Social</span> <span class="n">Status</span><span class="o">.*</span> <span class="n">Free</span> <span class="n">Press</span>
-<span class="p">[</span><span class="n">Table</span> <span class="n">VI</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span>
+Duncan, O. D. (1961) A socioeconomic index for all occupations. In
+Reiss, A. J., Jr. (Ed.) *Occupations and Social Status.* Free Press
+[Table VI-1].
 
-<span class="n">References</span>
-<span class="o">~~~~~~~~~~</span>
+References
+~~~~~~~~~~
 
-<span class="n">Fox</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="p">(</span><span class="mi">2008</span><span class="p">)</span> <span class="o">*</span><span class="n">Applied</span> <span class="n">Regression</span> <span class="n">Analysis</span> <span class="ow">and</span> <span class="n">Generalized</span> <span class="n">Linear</span>
-<span class="n">Models</span><span class="o">*</span><span class="p">,</span> <span class="n">Second</span> <span class="n">Edition</span><span class="o">.</span> <span class="n">Sage</span><span class="o">.</span>
+Fox, J. (2008) *Applied Regression Analysis and Generalized Linear
+Models*, Second Edition. Sage.
 
-<span class="n">Fox</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="ow">and</span> <span class="n">Weisberg</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span> <span class="p">(</span><span class="mi">2011</span><span class="p">)</span> <span class="o">*</span><span class="n">An</span> <span class="n">R</span> <span class="n">Companion</span> <span class="n">to</span> <span class="n">Applied</span> <span class="n">Regression</span><span class="o">*</span><span class="p">,</span>
-<span class="n">Second</span> <span class="n">Edition</span><span class="p">,</span> <span class="n">Sage</span><span class="o">.</span>
+Fox, J. and Weisberg, S. (2011) *An R Companion to Applied Regression*,
+Second Edition, Sage.
 
 
-<span class="gp">In [4]: </span><span class="n">duncan_prestige</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
-<span class="go">            type  income  education  prestige</span>
-<span class="go">accountant  prof      62         86        82</span>
-<span class="go">pilot       prof      72         76        83</span>
-<span class="go">architect   prof      75         92        90</span>
-<span class="go">author      prof      55         90        76</span>
-<span class="go">chemist     prof      64         86        90</span>
-</pre></div>
-</div>
+In [4]: duncan_prestige.data.head(5)
+Out[4]: 
+            type  income  education  prestige
+accountant  prof      62         86        82
+pilot       prof      72         76        83
+architect   prof      75         92        90
+author      prof      55         90        76
+chemist     prof      64         86        90</pre>
 
 
 <h2 id="r-datasets-function-reference">R Datasets Function Reference<a class="headerlink" href="#r-datasets-function-reference" title="Permalink to this headline">¶</a></h2>
@@ -529,7 +526,7 @@ examples, tutorials, model testing, etc.</p>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Load a dataset:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="gp">In [6]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">longley</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span>
 </pre></div>
@@ -558,34 +555,30 @@ in the <code class="docutils literal notranslate"><span class="pre">data</span><
 </pre></div>
 </div>
 <p>Most datasets hold convenient representations of the data in the attributes <cite>endog</cite> and <cite>exog</cite>:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
-<span class="go">0    60323.0</span>
-<span class="go">1    61122.0</span>
-<span class="go">2    60171.0</span>
-<span class="go">3    61187.0</span>
-<span class="go">4    63221.0</span>
-<span class="go">Name: TOTEMP, dtype: float64</span>
+<pre class="literal-block">In [8]: data.endog.iloc[:5]
+Out[8]: 
+0    60323.0
+1    61122.0
+2    60171.0
+3    61187.0
+4    63221.0
+Name: TOTEMP, dtype: float64
 
-<span class="gp">In [9]: </span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:]</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
-<span class="go">   GNPDEFL       GNP   UNEMP   ARMED       POP    YEAR</span>
-<span class="go">0     83.0  234289.0  2356.0  1590.0  107608.0  1947.0</span>
-<span class="go">1     88.5  259426.0  2325.0  1456.0  108632.0  1948.0</span>
-<span class="go">2     88.2  258054.0  3682.0  1616.0  109773.0  1949.0</span>
-<span class="go">3     89.5  284599.0  3351.0  1650.0  110929.0  1950.0</span>
-<span class="go">4     96.2  328975.0  2099.0  3099.0  112075.0  1951.0</span>
-</pre></div>
-</div>
+In [9]: data.exog.iloc[:5,:]
+Out[9]: 
+   GNPDEFL       GNP   UNEMP   ARMED       POP    YEAR
+0     83.0  234289.0  2356.0  1590.0  107608.0  1947.0
+1     88.5  259426.0  2325.0  1456.0  108632.0  1948.0
+2     88.2  258054.0  3682.0  1616.0  109773.0  1949.0
+3     89.5  284599.0  3351.0  1650.0  110929.0  1950.0
+4     96.2  328975.0  2099.0  3099.0  112075.0  1951.0</pre>
 <p>Univariate datasets, however, do not have an <cite>exog</cite> attribute.</p>
 <p>Variable names can be obtained by typing:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">data</span><span class="o">.</span><span class="n">endog_name</span>
-<span class="gh">Out[10]: </span><span class="go">'TOTEMP'</span>
+<pre class="literal-block">In [10]: data.endog_name
+Out[10]: 'TOTEMP'
 
-<span class="gp">In [11]: </span><span class="n">data</span><span class="o">.</span><span class="n">exog_name</span>
-<span class="gh">Out[11]: </span><span class="go">['GNPDEFL', 'GNP', 'UNEMP', 'ARMED', 'POP', 'YEAR']</span>
-</pre></div>
-</div>
+In [11]: data.exog_name
+Out[11]: ['GNPDEFL', 'GNP', 'UNEMP', 'ARMED', 'POP', 'YEAR']</pre>
 <p>If the dataset does not have a clear interpretation of what should be an
 <cite>endog</cite> and <cite>exog</cite>, then you can always access the <cite>data</cite> or <cite>raw_data</cite>
 attributes. This is the case for the <cite>macrodata</cite> dataset, which is a collection
@@ -593,64 +586,60 @@ of US macroeconomic data rather than a dataset with a specific example in mind.
 The <cite>data</cite> attribute contains a record array of the full dataset and the
 <cite>raw_data</cite> attribute contains an ndarray with the names of the columns given
 by the <cite>names</cite> attribute.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="gh">Out[12]: </span><span class="go">pandas.core.frame.DataFrame</span>
+<pre class="literal-block">In [12]: type(data.data)
+Out[12]: pandas.core.frame.DataFrame
 
-<span class="gp">In [13]: </span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">raw_data</span><span class="p">)</span>
-<span class="gh">Out[13]: </span><span class="go">pandas.core.frame.DataFrame</span>
+In [13]: type(data.raw_data)
+Out[13]: pandas.core.frame.DataFrame
 
-<span class="gp">In [14]: </span><span class="n">data</span><span class="o">.</span><span class="n">names</span>
-<span class="gh">Out[14]: </span><span class="go">['TOTEMP', 'GNPDEFL', 'GNP', 'UNEMP', 'ARMED', 'POP', 'YEAR']</span>
-</pre></div>
-</div>
+In [14]: data.names
+Out[14]: ['TOTEMP', 'GNPDEFL', 'GNP', 'UNEMP', 'ARMED', 'POP', 'YEAR']</pre>
 
 <h3 id="loading-data-as-pandas-objects">Loading data as pandas objects<a class="headerlink" href="#loading-data-as-pandas-objects" title="Permalink to this headline">¶</a></h3>
 <p>For many users it may be preferable to get the datasets as a pandas DataFrame or
 Series object. Each of the dataset modules is equipped with a <code class="docutils literal notranslate"><span class="pre">load_pandas</span></code>
 method which returns a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> instance with the data readily available as pandas objects:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">longley</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span>
+<pre class="literal-block">In [15]: data = sm.datasets.longley.load_pandas()
 
-<span class="gp">In [16]: </span><span class="n">data</span><span class="o">.</span><span class="n">exog</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">    GNPDEFL       GNP   UNEMP   ARMED       POP    YEAR</span>
-<span class="go">0      83.0  234289.0  2356.0  1590.0  107608.0  1947.0</span>
-<span class="go">1      88.5  259426.0  2325.0  1456.0  108632.0  1948.0</span>
-<span class="go">2      88.2  258054.0  3682.0  1616.0  109773.0  1949.0</span>
-<span class="go">3      89.5  284599.0  3351.0  1650.0  110929.0  1950.0</span>
-<span class="go">4      96.2  328975.0  2099.0  3099.0  112075.0  1951.0</span>
-<span class="go">5      98.1  346999.0  1932.0  3594.0  113270.0  1952.0</span>
-<span class="go">6      99.0  365385.0  1870.0  3547.0  115094.0  1953.0</span>
-<span class="go">7     100.0  363112.0  3578.0  3350.0  116219.0  1954.0</span>
-<span class="go">8     101.2  397469.0  2904.0  3048.0  117388.0  1955.0</span>
-<span class="go">9     104.6  419180.0  2822.0  2857.0  118734.0  1956.0</span>
-<span class="go">10    108.4  442769.0  2936.0  2798.0  120445.0  1957.0</span>
-<span class="go">11    110.8  444546.0  4681.0  2637.0  121950.0  1958.0</span>
-<span class="go">12    112.6  482704.0  3813.0  2552.0  123366.0  1959.0</span>
-<span class="go">13    114.2  502601.0  3931.0  2514.0  125368.0  1960.0</span>
-<span class="go">14    115.7  518173.0  4806.0  2572.0  127852.0  1961.0</span>
-<span class="go">15    116.9  554894.0  4007.0  2827.0  130081.0  1962.0</span>
+In [16]: data.exog
+Out[16]: 
+    GNPDEFL       GNP   UNEMP   ARMED       POP    YEAR
+0      83.0  234289.0  2356.0  1590.0  107608.0  1947.0
+1      88.5  259426.0  2325.0  1456.0  108632.0  1948.0
+2      88.2  258054.0  3682.0  1616.0  109773.0  1949.0
+3      89.5  284599.0  3351.0  1650.0  110929.0  1950.0
+4      96.2  328975.0  2099.0  3099.0  112075.0  1951.0
+5      98.1  346999.0  1932.0  3594.0  113270.0  1952.0
+6      99.0  365385.0  1870.0  3547.0  115094.0  1953.0
+7     100.0  363112.0  3578.0  3350.0  116219.0  1954.0
+8     101.2  397469.0  2904.0  3048.0  117388.0  1955.0
+9     104.6  419180.0  2822.0  2857.0  118734.0  1956.0
+10    108.4  442769.0  2936.0  2798.0  120445.0  1957.0
+11    110.8  444546.0  4681.0  2637.0  121950.0  1958.0
+12    112.6  482704.0  3813.0  2552.0  123366.0  1959.0
+13    114.2  502601.0  3931.0  2514.0  125368.0  1960.0
+14    115.7  518173.0  4806.0  2572.0  127852.0  1961.0
+15    116.9  554894.0  4007.0  2827.0  130081.0  1962.0
 
-<span class="gp">In [17]: </span><span class="n">data</span><span class="o">.</span><span class="n">endog</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
-<span class="go">0     60323.0</span>
-<span class="go">1     61122.0</span>
-<span class="go">2     60171.0</span>
-<span class="go">3     61187.0</span>
-<span class="go">4     63221.0</span>
-<span class="go">5     63639.0</span>
-<span class="go">6     64989.0</span>
-<span class="go">7     63761.0</span>
-<span class="go">8     66019.0</span>
-<span class="go">9     67857.0</span>
-<span class="go">10    68169.0</span>
-<span class="go">11    66513.0</span>
-<span class="go">12    68655.0</span>
-<span class="go">13    69564.0</span>
-<span class="go">14    69331.0</span>
-<span class="go">15    70551.0</span>
-<span class="go">Name: TOTEMP, dtype: float64</span>
-</pre></div>
-</div>
+In [17]: data.endog
+Out[17]: 
+0     60323.0
+1     61122.0
+2     60171.0
+3     61187.0
+4     63221.0
+5     63639.0
+6     64989.0
+7     63761.0
+8     66019.0
+9     67857.0
+10    68169.0
+11    66513.0
+12    68655.0
+13    69564.0
+14    69331.0
+15    70551.0
+Name: TOTEMP, dtype: float64</pre>
 <p>The full DataFrame is available in the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute of the Dataset object</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">data</span><span class="o">.</span><span class="n">data</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
@@ -675,58 +664,56 @@ method which returns a <code class="docutils literal notranslate"><span class="p
 </div>
 <p>With pandas integration in the estimation classes, the metadata will be attached
 to model results:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">exog</span>
+<pre class="literal-block">In [19]: y, x = data.endog, data.exog
 
-<span class="gp">In [20]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+In [20]: res = sm.OLS(y, x).fit()
 
-<span class="gp">In [21]: </span><span class="n">res</span><span class="o">.</span><span class="n">params</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
-<span class="go">GNPDEFL   -52.993570</span>
-<span class="go">GNP         0.071073</span>
-<span class="go">UNEMP      -0.423466</span>
-<span class="go">ARMED      -0.572569</span>
-<span class="go">POP        -0.414204</span>
-<span class="go">YEAR       48.417866</span>
-<span class="go">dtype: float64</span>
+In [21]: res.params
+Out[21]: 
+GNPDEFL   -52.993570
+GNP         0.071073
+UNEMP      -0.423466
+ARMED      -0.572569
+POP        -0.414204
+YEAR       48.417866
+dtype: float64
 
-<span class="gp">In [22]: </span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
-<span class="go">&lt;class 'statsmodels.iolib.summary.Summary'&gt;</span>
-<span class="go">"""</span>
-<span class="go">                                 OLS Regression Results                                </span>
-<span class="go">=======================================================================================</span>
-<span class="go">Dep. Variable:                 TOTEMP   R-squared (uncentered):                   1.000</span>
-<span class="go">Model:                            OLS   Adj. R-squared (uncentered):              1.000</span>
-<span class="go">Method:                 Least Squares   F-statistic:                          5.052e+04</span>
-<span class="go">Date:                Sat, 14 Dec 2019   Prob (F-statistic):                    8.20e-22</span>
-<span class="go">Time:                        18:59:50   Log-Likelihood:                         -117.56</span>
-<span class="go">No. Observations:                  16   AIC:                                      247.1</span>
-<span class="go">Df Residuals:                      10   BIC:                                      251.8</span>
-<span class="go">Df Model:                           6                                                  </span>
-<span class="go">Covariance Type:            nonrobust                                                  </span>
-<span class="go">==============================================================================</span>
-<span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
-<span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">GNPDEFL</span>      <span class="o">-</span><span class="mf">52.9936</span>    <span class="mf">129.545</span>     <span class="o">-</span><span class="mf">0.409</span>      <span class="mf">0.691</span>    <span class="o">-</span><span class="mf">341.638</span>     <span class="mf">235.650</span>
-<span class="n">GNP</span>            <span class="mf">0.0711</span>      <span class="mf">0.030</span>      <span class="mf">2.356</span>      <span class="mf">0.040</span>       <span class="mf">0.004</span>       <span class="mf">0.138</span>
-<span class="n">UNEMP</span>         <span class="o">-</span><span class="mf">0.4235</span>      <span class="mf">0.418</span>     <span class="o">-</span><span class="mf">1.014</span>      <span class="mf">0.335</span>      <span class="o">-</span><span class="mf">1.354</span>       <span class="mf">0.507</span>
-<span class="n">ARMED</span>         <span class="o">-</span><span class="mf">0.5726</span>      <span class="mf">0.279</span>     <span class="o">-</span><span class="mf">2.052</span>      <span class="mf">0.067</span>      <span class="o">-</span><span class="mf">1.194</span>       <span class="mf">0.049</span>
-<span class="n">POP</span>           <span class="o">-</span><span class="mf">0.4142</span>      <span class="mf">0.321</span>     <span class="o">-</span><span class="mf">1.289</span>      <span class="mf">0.226</span>      <span class="o">-</span><span class="mf">1.130</span>       <span class="mf">0.302</span>
-<span class="n">YEAR</span>          <span class="mf">48.4179</span>     <span class="mf">17.689</span>      <span class="mf">2.737</span>      <span class="mf">0.021</span>       <span class="mf">9.003</span>      <span class="mf">87.832</span>
-<span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                        1.443   Durbin-Watson:                   1.277
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.486</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">0.605</span>
-<span class="ne">Skew</span>:                           0.476   Prob(JB):                        0.739
-<span class="ne">Kurtosis</span>:                       3.031   Cond. No.                     4.56e+05
-<span class="o">==============================================================================</span>
+In [22]: res.summary()
+Out[22]: 
+&lt;class 'statsmodels.iolib.summary.Summary'&gt;
+"""
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                 TOTEMP   R-squared (uncentered):                   1.000
+Model:                            OLS   Adj. R-squared (uncentered):              1.000
+Method:                 Least Squares   F-statistic:                          5.052e+04
+Date:                Sun, 15 Dec 2019   Prob (F-statistic):                    8.20e-22
+Time:                        19:00:39   Log-Likelihood:                         -117.56
+No. Observations:                  16   AIC:                                      247.1
+Df Residuals:                      10   BIC:                                      251.8
+Df Model:                           6                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+GNPDEFL      -52.9936    129.545     -0.409      0.691    -341.638     235.650
+GNP            0.0711      0.030      2.356      0.040       0.004       0.138
+UNEMP         -0.4235      0.418     -1.014      0.335      -1.354       0.507
+ARMED         -0.5726      0.279     -2.052      0.067      -1.194       0.049
+POP           -0.4142      0.321     -1.289      0.226      -1.130       0.302
+YEAR          48.4179     17.689      2.737      0.021       9.003      87.832
+==============================================================================
+Omnibus:                        1.443   Durbin-Watson:                   1.277
+Prob(Omnibus):                  0.486   Jarque-Bera (JB):                0.605
+Skew:                           0.476   Prob(JB):                        0.739
+Kurtosis:                       3.031   Cond. No.                     4.56e+05
+==============================================================================
 
-<span class="ne">Warnings</span>:
-<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Standard</span> <span class="n">Errors</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errors</span> <span class="ow">is</span> <span class="n">correctly</span> <span class="n">specified</span><span class="o">.</span>
-<span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">The</span> <span class="n">condition</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">large</span><span class="p">,</span> <span class="mf">4.56e+05</span><span class="o">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">there</span> <span class="n">are</span>
-<span class="n">strong</span> <span class="n">multicollinearity</span> <span class="ow">or</span> <span class="n">other</span> <span class="n">numerical</span> <span class="n">problems</span><span class="o">.</span>
-<span class="s2">"""</span>
-</pre></div>
-</div>
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.56e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.
+"""</pre>
 
 
 <h3 id="extra-information">Extra Information<a class="headerlink" href="#extra-information" title="Permalink to this headline">¶</a></h3>
@@ -794,10 +781,10 @@ following, again using the Longley dataset as an example</p>
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -806,6 +793,9 @@ following, again using the Longley dataset as an example</p>
     </div>
   </footer>
   <script src="../_static/javascripts/application.js"></script>
+  
+    <script src="../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

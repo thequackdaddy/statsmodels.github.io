@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/statespace_local_linear_trend" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -468,16 +467,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -486,13 +485,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -500,35 +499,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -536,56 +535,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -693,11 +692,11 @@ Q_t &amp; = \begin{bmatrix} \sigma_\xi^2 &amp; 0 \\ 0 &amp; \sigma_\zeta^2 \end{
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -787,7 +786,7 @@ constrained vector of parameters used in likelihood evaluation. <code class="doc
 <span class="n">zipped</span> <span class="o">=</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">ck</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
     <span class="n">BytesIO</span><span class="p">(</span><span class="n">zipped</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'OxCodeIntroStateSpaceBook/Chapter_2/NorwayFinland.txt'</span><span class="p">)),</span>
-    <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">'python'</span><span class="p">,</span>
+    <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">'python'</span><span class="p">,</span>
     <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'date'</span><span class="p">,</span><span class="s1">'nf'</span><span class="p">,</span> <span class="s1">'ff'</span><span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
@@ -809,8 +808,8 @@ constrained vector of parameters used in likelihood evaluation. <code class="doc
 <span class="n">mod</span> <span class="o">=</span> <span class="n">LocalLinearTrend</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'lff'</span><span class="p">])</span>
 
 <span class="c1"># Fit it using MLE (recall that we are fitting the three variance parameters)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -823,8 +822,8 @@ constrained vector of parameters used in likelihood evaluation. <code class="doc
 ==============================================================================
 Dep. Variable:                    lff   No. Observations:                   34
 Model:               LocalLinearTrend   Log Likelihood                  27.510
-Date:                Sat, 14 Dec 2019   AIC                            -49.020
-Time:                        18:56:06   BIC                            -44.623
+Date:                Sun, 15 Dec 2019   AIC                            -49.020
+Time:                        18:58:35   BIC                            -44.623
 Sample:                    01-01-1970   HQIC                           -47.563
                          - 01-01-2003
 Covariance Type:                  opg
@@ -833,7 +832,7 @@ Covariance Type:                  opg
 --------------------------------------------------------------------------------------
 sigma2.measurement     0.0010      0.003      0.346      0.730      -0.005       0.007
 sigma2.level           0.0074      0.005      1.564      0.118      -0.002       0.017
-sigma2.trend        2.419e-11      0.000   1.61e-07      1.000      -0.000       0.000
+sigma2.trend        2.436e-11      0.000   1.62e-07      1.000      -0.000       0.000
 ===================================================================================
 Ljung-Box (Q):                       24.37   Jarque-Bera (JB):                 0.68
 Prob(Q):                              0.80   Prob(JB):                         0.71
@@ -950,10 +949,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -962,6 +961,9 @@ Warnings:
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

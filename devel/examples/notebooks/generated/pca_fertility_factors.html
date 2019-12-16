@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/pca_fertility_factors" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -444,16 +443,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -462,13 +461,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -476,35 +475,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -512,56 +511,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -651,10 +650,10 @@ using standard PCA in this case.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.multivariate.pca</span> <span class="kn">import</span> <span class="n">PCA</span>
 </pre></div>
 </div>
@@ -849,7 +848,7 @@ using standard PCA in this case.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">2012</span><span class="p">)))</span>
-<span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Country Name'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Country Name'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">dta</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
 <span class="n">dta</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">dta</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1059,7 +1058,7 @@ using standard PCA in this case.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Fertility rate"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">17</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
@@ -1070,10 +1069,10 @@ using standard PCA in this case.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(0, 51)
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(0, 51)
+</pre></div>
+</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1088,7 +1087,7 @@ using standard PCA in this case.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pca_model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">demean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">pca_model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">demean</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1098,7 +1097,7 @@ using standard PCA in this case.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">plot_scree</span><span class="p">(</span><span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">plot_scree</span><span class="p">(</span><span class="n">log_scale</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1123,7 +1122,7 @@ data range, but higher than average fertility in the middle of the range.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">85</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">)</span>
 <span class="n">legend</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="p">[</span><span class="s1">'PC 1'</span><span class="p">,</span> <span class="s1">'PC 2'</span><span class="p">,</span> <span class="s1">'PC 3'</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'center right'</span><span class="p">)</span>
-<span class="n">legend</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1152,14 +1151,14 @@ data range, but higher than average fertility in the middle of the range.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    <span class="n">dta</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Mean'</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">dta</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Mean'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">51</span><span class="p">);</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Fertility"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">17</span><span class="p">);</span>
     <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">*</span><span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">(),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">legend</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">legend</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1234,10 +1233,10 @@ continuum of variation.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array(['Oman', 'Yemen, Rep.'], dtype=object)
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array(['Oman', 'Yemen, Rep.'], dtype=object)
+</pre></div>
+</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1295,10 +1294,10 @@ array(['Oman', 'Yemen, Rep.'], dtype=object)
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1307,6 +1306,9 @@ array(['Oman', 'Yemen, Rep.'], dtype=object)
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

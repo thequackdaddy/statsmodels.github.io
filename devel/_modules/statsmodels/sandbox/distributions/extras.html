@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/sandbox/distributions/extras" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -329,14 +328,14 @@
 <span class="sd">'''</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">poly1d</span><span class="p">,</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">exp</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">poly1d</span><span class="p">,</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">exp</span>
 
 <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">special</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">distributions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">special</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">distributions</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">iteritems</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats.moment_helpers</span> <span class="kn">import</span> <span class="n">mvsk2mc</span><span class="p">,</span> <span class="n">mc2mvsk</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">iteritems</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.moment_helpers</span> <span class="k">import</span> <span class="n">mvsk2mc</span><span class="p">,</span> <span class="n">mc2mvsk</span>
 
 
 <span class="c1">#note copied from distr_skewnorm_0.py</span>
@@ -350,7 +349,7 @@
 
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1">#super(SkewNorm_gen,self).__init__(</span>
         <span class="n">distributions</span><span class="o">.</span><span class="n">rv_continuous</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s1">'Skew Normal distribution'</span><span class="p">,</span> <span class="n">shapes</span> <span class="o">=</span> <span class="s1">'alpha'</span><span class="p">,</span>
@@ -407,7 +406,7 @@
 <span class="sd">    class follows scipy.stats.distributions pattern</span>
 <span class="sd">    but with __init__</span>
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1">#super(SkewT_gen,self).__init__(</span>
         <span class="n">distributions</span><span class="o">.</span><span class="n">rv_continuous</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s1">'Skew T distribution'</span><span class="p">,</span> <span class="n">shapes</span> <span class="o">=</span> <span class="s1">'df, alpha'</span><span class="p">,</span>
@@ -678,7 +677,7 @@
 <span class="sd">    but with __init__</span>
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="c1">#todo: replace with super call</span>
         <span class="n">distributions</span><span class="o">.</span><span class="n">rv_continuous</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s1">'Normal Expansion distribution'</span><span class="p">,</span> <span class="n">shapes</span> <span class="o">=</span> <span class="s1">' '</span><span class="p">,</span>
@@ -781,7 +780,7 @@
     <span class="sd">'''a class for non-linear monotonic transformation of a continuous random variable</span>
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">funcinv</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">funcinv</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1">#print args</span>
         <span class="c1">#print kwargs</span>
 
@@ -867,7 +866,7 @@
 <span class="sd">    and generates the distribution of the transformed random variable</span>
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1">#print args</span>
         <span class="c1">#print kwargs</span>
         <span class="c1">#explicit for self.__dict__.update(kwargs)</span>
@@ -899,7 +898,7 @@
 <span class="sd">    and generates the distribution of the transformed random variable</span>
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1">#explicit for self.__dict__.update(kwargs)</span>
         <span class="k">if</span> <span class="s1">'numargs'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">numargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'numargs'</span><span class="p">]</span>
@@ -979,7 +978,7 @@
 
 <span class="sd">    '''</span>
     <span class="c1">#a class for non-linear non-monotonic transformation of a continuous random variable</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">funcinvplus</span><span class="p">,</span> <span class="n">funcinvminus</span><span class="p">,</span> <span class="n">derivplus</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">funcinvplus</span><span class="p">,</span> <span class="n">funcinvminus</span><span class="p">,</span> <span class="n">derivplus</span><span class="p">,</span>
                  <span class="n">derivminus</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1">#print args</span>
         <span class="c1">#print kwargs</span>
@@ -1436,10 +1435,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1448,6 +1447,9 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

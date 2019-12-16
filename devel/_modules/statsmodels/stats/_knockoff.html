@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/stats/_knockoff" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -303,7 +302,7 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="kn">import</span> <span class="n">summary2</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="k">import</span> <span class="n">summary2</span>
 
 
 <div class="viewcode-block" id="RegressionFDR"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.RegressionFDR.html#statsmodels.stats.multitest.RegressionFDR">[docs]</a><span class="k">class</span> <span class="nc">RegressionFDR</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -348,7 +347,7 @@
 <span class="sd">    sdp approach requires that the cvxopt package be installed.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">regeffects</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"knockoff"</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">regeffects</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"knockoff"</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">exog</span><span class="p">,</span> <span class="s2">"columns"</span><span class="p">):</span>
@@ -407,7 +406,7 @@
         <span class="n">df</span><span class="p">[</span><span class="s2">"FDR"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fdr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fdr_df</span> <span class="o">=</span> <span class="n">df</span>
 
-    <span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tfdr</span><span class="p">):</span>
+<div class="viewcode-block" id="RegressionFDR.threshold"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.multitest.RegressionFDR.threshold.html#statsmodels.stats.multitest.RegressionFDR.threshold">[docs]</a>    <span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tfdr</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the threshold statistic for a given target FDR.</span>
 <span class="sd">        """</span>
@@ -415,15 +414,15 @@
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ufdr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tfdr</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unq</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_ufdr</span> <span class="o">&lt;=</span> <span class="n">tfdr</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span></div>
 
-    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="RegressionFDR.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.multitest.RegressionFDR.summary.html#statsmodels.stats.multitest.RegressionFDR.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">summ</span> <span class="o">=</span> <span class="n">summary2</span><span class="o">.</span><span class="n">Summary</span><span class="p">()</span>
         <span class="n">summ</span><span class="o">.</span><span class="n">add_title</span><span class="p">(</span><span class="s2">"Regression FDR results"</span><span class="p">)</span>
         <span class="n">summ</span><span class="o">.</span><span class="n">add_df</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fdr_df</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">summ</span></div>
+        <span class="k">return</span> <span class="n">summ</span></div></div>
 
 
 <span class="k">def</span> <span class="nf">_design_knockoff_sdp</span><span class="p">(</span><span class="n">exog</span><span class="p">):</span>
@@ -435,7 +434,7 @@
 <span class="sd">    """</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">cvxopt</span> <span class="kn">import</span> <span class="n">solvers</span><span class="p">,</span> <span class="n">matrix</span>
+        <span class="kn">from</span> <span class="nn">cvxopt</span> <span class="k">import</span> <span class="n">solvers</span><span class="p">,</span> <span class="n">matrix</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"SDP knockoff designs require installation of cvxopt"</span><span class="p">)</span>
 
@@ -556,10 +555,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -568,6 +567,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

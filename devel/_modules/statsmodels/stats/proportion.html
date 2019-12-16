@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/stats/proportion" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -284,13 +283,13 @@
 <span class="sd">Author: Josef Perktold</span>
 <span class="sd">License: BSD-3</span>
 <span class="sd">"""</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lzip</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">lzip</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">float_info</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">float_info</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.stats.base</span> <span class="kn">import</span> <span class="n">AllPairsResults</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">HypothesisTestWarning</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.base</span> <span class="k">import</span> <span class="n">AllPairsResults</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">HypothesisTestWarning</span>
 
 
 <div class="viewcode-block" id="proportion_confint"><a class="viewcode-back" href="../../../generated/statsmodels.stats.proportion.proportion_confint.html#statsmodels.stats.proportion.proportion_confint">[docs]</a><span class="k">def</span> <span class="nf">proportion_confint</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'normal'</span><span class="p">):</span>
@@ -1122,7 +1121,7 @@
         <span class="n">p_pooled</span> <span class="o">=</span> <span class="n">prop_var</span>
     <span class="n">var_</span> <span class="o">=</span> <span class="n">p_pooled</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_pooled</span><span class="p">)</span> <span class="o">*</span> <span class="n">nobs_fact</span>
     <span class="n">std_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_</span><span class="p">)</span>
-    <span class="kn">from</span> <span class="nn">statsmodels.stats.weightstats</span> <span class="kn">import</span> <span class="n">_zstat_generic2</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.weightstats</span> <span class="k">import</span> <span class="n">_zstat_generic2</span>
     <span class="k">return</span> <span class="n">_zstat_generic2</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">std_diff</span><span class="p">,</span> <span class="n">alternative</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="proportions_ztost"><a class="viewcode-back" href="../../../generated/statsmodels.stats.proportion.proportions_ztost.html#statsmodels.stats.proportion.proportions_ztost">[docs]</a><span class="k">def</span> <span class="nf">proportions_ztost</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">upp</span><span class="p">,</span> <span class="n">prop_var</span><span class="o">=</span><span class="s1">'sample'</span><span class="p">):</span>
@@ -1346,10 +1345,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1358,6 +1357,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#contingency_tables" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -442,11 +441,11 @@ learn about properties of <span class="math notranslate nohighlight">\(P\)</span
 working with contingency tables.  We can create a <code class="docutils literal notranslate"><span class="pre">Table</span></code> object
 directly from any rectangular array-like object containing the
 contingency table cell counts:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="gp">In [4]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"Arthritis"</span><span class="p">,</span> <span class="s2">"vcd"</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 
@@ -475,25 +474,23 @@ product of the row and column marginal distributions:</p>
 <p>We can obtain the best-fitting independent distribution for our
 observed data, and then view residuals which identify particular cells
 that most strongly violate independence:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">table_orig</span><span class="p">)</span>
-<span class="go">Improved   Marked  None  Some</span>
-<span class="go">Treatment                    </span>
-<span class="go">Placebo         7    29     7</span>
-<span class="go">Treated        21    13     7</span>
+<pre class="literal-block">In [10]: print(table.table_orig)
+Improved   Marked  None  Some
+Treatment                    
+Placebo         7    29     7
+Treated        21    13     7
 
-<span class="gp">In [11]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
-<span class="go">Improved      Marked  None      Some</span>
-<span class="go">Treatment                           </span>
-<span class="go">Placebo    14.333333  21.5  7.166667</span>
-<span class="go">Treated    13.666667  20.5  6.833333</span>
+In [11]: print(table.fittedvalues)
+Improved      Marked  None      Some
+Treatment                           
+Placebo    14.333333  21.5  7.166667
+Treated    13.666667  20.5  6.833333
 
-<span class="gp">In [12]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">resid_pearson</span><span class="p">)</span>
-<span class="go">Improved     Marked      None      Some</span>
-<span class="go">Treatment                              </span>
-<span class="go">Placebo   -1.936992  1.617492 -0.062257</span>
-<span class="go">Treated    1.983673 -1.656473  0.063758</span>
-</pre></div>
-</div>
+In [12]: print(table.resid_pearson)
+Improved     Marked      None      Some
+Treatment                              
+Placebo   -1.936992  1.617492 -0.062257
+Treated    1.983673 -1.656473  0.063758</pre>
 <p>In this example, compared to a sample from a population in which the
 rows and columns are independent, we have too many observations in the
 placebo/no improvement and treatment/marked improvement cells, and too
@@ -505,18 +502,16 @@ factors), then the most common approach for formally assessing
 independence is using Pearson’s <span class="math notranslate nohighlight">\(\chi^2\)</span> statistic.  It’s often
 useful to look at the cell-wise contributions to the <span class="math notranslate nohighlight">\(\chi^2\)</span>
 statistic to see where the evidence for dependence is coming from.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">rslt</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">test_nominal_association</span><span class="p">()</span>
+<pre class="literal-block">In [13]: rslt = table.test_nominal_association()
 
-<span class="gp">In [14]: </span><span class="nb">print</span><span class="p">(</span><span class="n">rslt</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
-<span class="go">0.0014626434089526352</span>
+In [14]: print(rslt.pvalue)
+0.0014626434089526352
 
-<span class="gp">In [15]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">chi2_contribs</span><span class="p">)</span>
-<span class="go">Improved     Marked      None      Some</span>
-<span class="go">Treatment                              </span>
-<span class="go">Placebo    3.751938  2.616279  0.003876</span>
-<span class="go">Treated    3.934959  2.743902  0.004065</span>
-</pre></div>
-</div>
+In [15]: print(table.chi2_contribs)
+Improved     Marked      None      Some
+Treatment                              
+Placebo    3.751938  2.616279  0.003876
+Treated    3.934959  2.743902  0.004065</pre>
 <p>For tables with ordered row and column factors, we can us the <strong>linear
 by linear</strong> association test to obtain more power against alternative
 hypotheses that respect the ordering.  The test statistic for the
@@ -528,7 +523,7 @@ these scores are set to the sequences 0, 1, ….  This gives the
 ‘Cochran-Armitage trend test’.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">rslt</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">test_ordinal_association</span><span class="p">()</span>
 
-<span class="gp">In [17]: </span><span class="nb">print</span><span class="p">(</span><span class="n">rslt</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+<span class="gp">In [17]: </span><span class="k">print</span><span class="p">(</span><span class="n">rslt</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
 <span class="go">0.023644578093923983</span>
 </pre></div>
 </div>
@@ -537,7 +532,7 @@ constructing a series of <span class="math notranslate nohighlight">\(2\times 2\
 their odds ratios.  There are two ways to do this.  The <strong>local odds
 ratios</strong> construct <span class="math notranslate nohighlight">\(2\times 2\)</span> tables from adjacent row and
 column categories.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">local_oddsratios</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">local_oddsratios</span><span class="p">)</span>
 <span class="go">Improved     Marked      None  Some</span>
 <span class="go">Treatment                          </span>
 <span class="go">Placebo    0.149425  2.230769   NaN</span>
@@ -545,18 +540,18 @@ column categories.</p>
 
 <span class="gp">In [19]: </span><span class="n">taloc</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">13</span><span class="p">]]))</span>
 
-<span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="n">taloc</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
+<span class="gp">In [20]: </span><span class="k">print</span><span class="p">(</span><span class="n">taloc</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
 <span class="go">0.14942528735632185</span>
 
 <span class="gp">In [21]: </span><span class="n">taloc</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">29</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]))</span>
 
-<span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="n">taloc</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
+<span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">taloc</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
 <span class="go">2.230769230769231</span>
 </pre></div>
 </div>
 <p>The <strong>cumulative odds ratios</strong> construct <span class="math notranslate nohighlight">\(2\times 2\)</span> tables by
 dichotomizing the row and column factors at each possible point.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">cumulative_oddsratios</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">cumulative_oddsratios</span><span class="p">)</span>
 <span class="go">Improved     Marked      None  Some</span>
 <span class="go">Treatment                          </span>
 <span class="go">Placebo    0.185185  1.058824   NaN</span>
@@ -566,14 +561,14 @@ dichotomizing the row and column factors at each possible point.</p>
 
 <span class="gp">In [25]: </span><span class="n">tacum</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">tab1</span><span class="p">)</span>
 
-<span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="n">tacum</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
+<span class="gp">In [26]: </span><span class="k">print</span><span class="p">(</span><span class="n">tacum</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
 <span class="go">0.18518518518518517</span>
 
 <span class="gp">In [27]: </span><span class="n">tab1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span> <span class="o">+</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
 
 <span class="gp">In [28]: </span><span class="n">tacum</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">tab1</span><span class="p">)</span>
 
-<span class="gp">In [29]: </span><span class="nb">print</span><span class="p">(</span><span class="n">tacum</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
+<span class="gp">In [29]: </span><span class="k">print</span><span class="p">(</span><span class="n">tacum</span><span class="o">.</span><span class="n">oddsratio</span><span class="p">)</span>
 <span class="go">1.0588235294117647</span>
 </pre></div>
 </div>
@@ -614,7 +609,7 @@ contingency table.</p>
 
 <span class="gp">In [37]: </span><span class="n">tab</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="gp">In [38]: </span><span class="k">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
 <span class="go">right     1     2     3    4</span>
 <span class="go">left                        </span>
 <span class="go">1      1520   234   117   36</span>
@@ -625,30 +620,28 @@ contingency table.</p>
 </div>
 <p>Next we create a <a class="reference internal" href="generated/statsmodels.stats.contingency_tables.SquareTable.html#statsmodels.stats.contingency_tables.SquareTable" title="statsmodels.stats.contingency_tables.SquareTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">SquareTable</span></code></a> object from the contingency
 table.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">sqtab</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">SquareTable</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<pre class="literal-block">In [39]: sqtab = sm.stats.SquareTable(tab)
 
-<span class="gp">In [40]: </span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">sqtab</span><span class="o">.</span><span class="n">marginal_probabilities</span>
+In [40]: row, col = sqtab.marginal_probabilities
 
-<span class="gp">In [41]: </span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-<span class="go">right</span>
-<span class="go">1    0.255049</span>
-<span class="go">2    0.297178</span>
-<span class="go">3    0.335295</span>
-<span class="go">4    0.112478</span>
-<span class="go">dtype: float64</span>
+In [41]: print(row)
+right
+1    0.255049
+2    0.297178
+3    0.335295
+4    0.112478
+dtype: float64
 
-<span class="gp">In [42]: </span><span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-<span class="go">right</span>
-<span class="go">1    0.264277</span>
-<span class="go">2    0.301725</span>
-<span class="go">3    0.328474</span>
-<span class="go">4    0.105524</span>
-<span class="go">dtype: float64</span>
-</pre></div>
-</div>
+In [42]: print(col)
+right
+1    0.264277
+2    0.301725
+3    0.328474
+4    0.105524
+dtype: float64</pre>
 <p>The <code class="docutils literal notranslate"><span class="pre">summary</span></code> method prints results for the symmetry and homogeneity
 testing procedures.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sqtab</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="k">print</span><span class="p">(</span><span class="n">sqtab</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">            Statistic P-value DF</span>
 <span class="gt">--------------------------------</span>
 <span class="n">Symmetry</span>       <span class="mf">19.107</span>   <span class="mf">0.004</span>  <span class="mi">6</span>
@@ -674,7 +667,7 @@ table.</p>
 
 <span class="gp">In [45]: </span><span class="n">t22</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 
-<span class="gp">In [46]: </span><span class="nb">print</span><span class="p">(</span><span class="n">t22</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [46]: </span><span class="k">print</span><span class="p">(</span><span class="n">t22</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">               Estimate   SE   LCB   UCB  p-value</span>
 <span class="gt">-------------------------------------------------</span>
 <span class="n">Odds</span> <span class="n">ratio</span>        <span class="mf">3.867</span>       <span class="mf">1.890</span> <span class="mf">7.912</span>   <span class="mf">0.000</span>
@@ -690,7 +683,7 @@ obtained if the transposed table is analyzed.</p>
 
 <span class="gp">In [48]: </span><span class="n">t22</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">Table2x2</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="gp">In [49]: </span><span class="nb">print</span><span class="p">(</span><span class="n">t22</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [49]: </span><span class="k">print</span><span class="p">(</span><span class="n">t22</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">               Estimate   SE   LCB   UCB  p-value</span>
 <span class="gt">-------------------------------------------------</span>
 <span class="n">Odds</span> <span class="n">ratio</span>        <span class="mf">3.867</span>       <span class="mf">1.890</span> <span class="mf">7.912</span>   <span class="mf">0.000</span>
@@ -725,7 +718,7 @@ methods and attributes.</p>
 
 <span class="gp">In [53]: </span><span class="n">st</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">StratifiedTable</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
 
-<span class="gp">In [54]: </span><span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [54]: </span><span class="k">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                   Estimate   LCB    UCB </span>
 <span class="gt">-----------------------------------------</span>
 <span class="n">Pooled</span> <span class="n">odds</span>           <span class="mf">2.174</span>   <span class="mf">1.984</span> <span class="mf">2.383</span>
@@ -830,10 +823,10 @@ including Fisher’s exact test which is not currently in statsmodels.</p>
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -842,6 +835,9 @@ including Fisher’s exact test which is not currently in statsmodels.</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#discretemod" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -411,41 +410,39 @@ ZeroInflatedGeneralizedPoisson.</p>
 <p>See <a class="reference internal" href="#module-reference">Module Reference</a> for commands and arguments.</p>
 
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Load the data from Spector and Mazzeo (1980)</span>
-<span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<pre class="literal-block"># Load the data from Spector and Mazzeo (1980)
+In [1]: import statsmodels.api as sm
 
-<span class="gp">In [2]: </span><span class="n">spector_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">spector</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span>
+In [2]: spector_data = sm.datasets.spector.load_pandas()
 
-<span class="gp">In [3]: </span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
+In [3]: spector_data.exog = sm.add_constant(spector_data.exog)
 
-<span class="go"># Logit Model</span>
-<span class="gp">In [4]: </span><span class="n">logit_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
+# Logit Model
+In [4]: logit_mod = sm.Logit(spector_data.endog, spector_data.exog)
 
-<span class="gp">In [5]: </span><span class="n">logit_res</span> <span class="o">=</span> <span class="n">logit_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="go">Optimization terminated successfully.</span>
-<span class="go">         Current function value: 0.402801</span>
-<span class="go">         Iterations 7</span>
+In [5]: logit_res = logit_mod.fit()
+Optimization terminated successfully.
+         Current function value: 0.402801
+         Iterations 7
 
-<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">logit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-<span class="go">                           Logit Regression Results                           </span>
-<span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                  GRADE   No. Observations:                   32</span>
-<span class="go">Model:                          Logit   Df Residuals:                       28</span>
-<span class="go">Method:                           MLE   Df Model:                            3</span>
-<span class="go">Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.3740</span>
-<span class="go">Time:                        18:59:56   Log-Likelihood:                -12.890</span>
-<span class="go">converged:                       True   LL-Null:                       -20.592</span>
-<span class="go">Covariance Type:            nonrobust   LLR p-value:                  0.001502</span>
-<span class="go">==============================================================================</span>
-<span class="go">                 coef    std err          z      P&gt;|z|      [0.025      0.975]</span>
-<span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>        <span class="o">-</span><span class="mf">13.0213</span>      <span class="mf">4.931</span>     <span class="o">-</span><span class="mf">2.641</span>      <span class="mf">0.008</span>     <span class="o">-</span><span class="mf">22.687</span>      <span class="o">-</span><span class="mf">3.356</span>
-<span class="n">GPA</span>            <span class="mf">2.8261</span>      <span class="mf">1.263</span>      <span class="mf">2.238</span>      <span class="mf">0.025</span>       <span class="mf">0.351</span>       <span class="mf">5.301</span>
-<span class="n">TUCE</span>           <span class="mf">0.0952</span>      <span class="mf">0.142</span>      <span class="mf">0.672</span>      <span class="mf">0.501</span>      <span class="o">-</span><span class="mf">0.182</span>       <span class="mf">0.373</span>
-<span class="n">PSI</span>            <span class="mf">2.3787</span>      <span class="mf">1.065</span>      <span class="mf">2.234</span>      <span class="mf">0.025</span>       <span class="mf">0.292</span>       <span class="mf">4.465</span>
-<span class="o">==============================================================================</span>
-</pre></div>
-</div>
+In [6]: print(logit_res.summary())
+                          Logit Regression Results                           
+==============================================================================
+Dep. Variable:                  GRADE   No. Observations:                   32
+Model:                          Logit   Df Residuals:                       28
+Method:                           MLE   Df Model:                            3
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.3740
+Time:                        19:00:42   Log-Likelihood:                -12.890
+converged:                       True   LL-Null:                       -20.592
+Covariance Type:            nonrobust   LLR p-value:                  0.001502
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -13.0213      4.931     -2.641      0.008     -22.687      -3.356
+GPA            2.8261      1.263      2.238      0.025       0.351       5.301
+TUCE           0.0952      0.142      0.672      0.501      -0.182       0.373
+PSI            2.3787      1.065      2.234      0.025       0.292       4.465
+==============================================================================</pre>
 <p>Detailed examples can be found here:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="examples/notebooks/generated/discrete_choice_overview.html">Overview</a></p></li>
@@ -690,10 +687,10 @@ methods and attributes defined by <code class="xref py py-class docutils literal
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -702,6 +699,9 @@ methods and attributes defined by <code class="xref py py-class docutils literal
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

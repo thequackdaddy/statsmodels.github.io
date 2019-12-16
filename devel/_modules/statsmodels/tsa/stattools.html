@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/tsa/stattools" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -279,28 +278,28 @@
 <span></span><span class="sd">"""</span>
 <span class="sd">Statistical tools for time series analysis</span>
 <span class="sd">"""</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">iteritems</span><span class="p">,</span> <span class="n">lrange</span><span class="p">,</span> <span class="n">lzip</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">deprecate_kwarg</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.numpy</span> <span class="kn">import</span> <span class="n">lstsq</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.scipy</span> <span class="kn">import</span> <span class="n">_next_regular</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">iteritems</span><span class="p">,</span> <span class="n">lrange</span><span class="p">,</span> <span class="n">lzip</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="k">import</span> <span class="n">deprecate_kwarg</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.numpy</span> <span class="k">import</span> <span class="n">lstsq</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.scipy</span> <span class="k">import</span> <span class="n">_next_regular</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">LinAlgError</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">LinAlgError</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">yule_walker</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="p">(</span><span class="n">InterpolationWarning</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">import</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">yule_walker</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="p">(</span><span class="n">InterpolationWarning</span><span class="p">,</span>
                                              <span class="n">MissingDataError</span><span class="p">,</span>
                                              <span class="n">CollinearityWarning</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">add_constant</span><span class="p">,</span> <span class="n">Bunch</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="kn">import</span> <span class="p">(</span><span class="n">array_like</span><span class="p">,</span> <span class="n">string_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="k">import</span> <span class="n">add_constant</span><span class="p">,</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.validation</span> <span class="k">import</span> <span class="p">(</span><span class="n">array_like</span><span class="p">,</span> <span class="n">string_like</span><span class="p">,</span> <span class="n">bool_like</span><span class="p">,</span>
                                           <span class="n">int_like</span><span class="p">,</span> <span class="n">dict_like</span><span class="p">,</span> <span class="n">float_like</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa._bds</span> <span class="kn">import</span> <span class="n">bds</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa._innovations</span> <span class="kn">import</span> <span class="n">innovations_filter</span><span class="p">,</span> <span class="n">innovations_algo</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.adfvalues</span> <span class="kn">import</span> <span class="n">mackinnonp</span><span class="p">,</span> <span class="n">mackinnoncrit</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_model</span> <span class="kn">import</span> <span class="n">ARMA</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="kn">import</span> <span class="n">lagmat</span><span class="p">,</span> <span class="n">lagmat2ds</span><span class="p">,</span> <span class="n">add_trend</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa._bds</span> <span class="k">import</span> <span class="n">bds</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa._innovations</span> <span class="k">import</span> <span class="n">innovations_filter</span><span class="p">,</span> <span class="n">innovations_algo</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.adfvalues</span> <span class="k">import</span> <span class="n">mackinnonp</span><span class="p">,</span> <span class="n">mackinnoncrit</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_model</span> <span class="k">import</span> <span class="n">ARMA</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.tsatools</span> <span class="k">import</span> <span class="n">lagmat</span><span class="p">,</span> <span class="n">lagmat2ds</span><span class="p">,</span> <span class="n">add_trend</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'acovf'</span><span class="p">,</span> <span class="s1">'acf'</span><span class="p">,</span> <span class="s1">'pacf'</span><span class="p">,</span> <span class="s1">'pacf_yw'</span><span class="p">,</span> <span class="s1">'pacf_ols'</span><span class="p">,</span> <span class="s1">'ccovf'</span><span class="p">,</span> <span class="s1">'ccf'</span><span class="p">,</span>
            <span class="s1">'periodogram'</span><span class="p">,</span> <span class="s1">'q_stat'</span><span class="p">,</span> <span class="s1">'coint'</span><span class="p">,</span> <span class="s1">'arma_order_select_ic'</span><span class="p">,</span>
@@ -314,7 +313,7 @@
 <span class="c1">#NOTE: now in two places to avoid circular import</span>
 <span class="c1">#TODO: I like the bunch pattern for this too.</span>
 <span class="k">class</span> <span class="nc">ResultsStore</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_str</span>  <span class="c1"># pylint: disable=E1101</span>
 
 
@@ -1902,7 +1901,7 @@
 <span class="sd">       investigation. Journal of Business and Economic Statistics, 7 (2):</span>
 <span class="sd">       147-159.</span>
 <span class="sd">    """</span>
-    <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+    <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">array_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">)</span>
     <span class="n">regression</span> <span class="o">=</span> <span class="n">string_like</span><span class="p">(</span><span class="n">regression</span><span class="p">,</span> <span class="s1">'regression'</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'ct'</span><span class="p">))</span>
@@ -2017,7 +2016,7 @@
     <span class="sd">"""</span>
 <span class="sd">    Class wrapper for Zivot-Andrews structural-break unit-root test</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Critical values for the three different models specified for the</span>
 <span class="sd">        Zivot-Andrews unit-root test.</span>
@@ -2309,7 +2308,7 @@
         <span class="n">cvdict</span> <span class="o">=</span> <span class="n">crit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">zastat</span><span class="p">,</span> <span class="n">pval</span><span class="p">,</span> <span class="n">cvdict</span><span class="p">,</span> <span class="n">baselags</span><span class="p">,</span> <span class="n">bpidx</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span>
                  <span class="n">autolag</span><span class="o">=</span><span class="s1">'AIC'</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="n">trim</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="n">maxlag</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="n">regression</span><span class="p">,</span>
                         <span class="n">autolag</span><span class="o">=</span><span class="n">autolag</span><span class="p">)</span>
@@ -2341,10 +2340,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2353,6 +2352,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

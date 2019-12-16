@@ -279,8 +279,8 @@
       "Dep. Variable:                Lottery   R-squared:                       0.338\n",
       "Model:                            OLS   Adj. R-squared:                  0.287\n",
       "Method:                 Least Squares   F-statistic:                     6.636\n",
-      "Date:                Sat, 14 Dec 2019   Prob (F-statistic):           1.07e-05\n",
-      "Time:                        18:56:01   Log-Likelihood:                -375.30\n",
+      "Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.07e-05\n",
+      "Time:                        18:58:33   Log-Likelihood:                -375.30\n",
       "No. Observations:                  85   AIC:                             764.6\n",
       "Df Residuals:                      78   BIC:                             781.7\n",
       "Df Model:                           6                                         \n",
@@ -611,8 +611,8 @@
       "Dep. Variable:                Lottery   R-squared:                       0.309\n",
       "Model:                            OLS   Adj. R-squared:                  0.283\n",
       "Method:                 Least Squares   F-statistic:                     12.06\n",
-      "Date:                Sat, 14 Dec 2019   Prob (F-statistic):           1.32e-06\n",
-      "Time:                        18:56:02   Log-Likelihood:                -377.13\n",
+      "Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.32e-06\n",
+      "Time:                        18:58:33   Log-Likelihood:                -377.13\n",
       "No. Observations:                  85   AIC:                             762.3\n",
       "Df Residuals:                      81   BIC:                             772.0\n",
       "Df Model:                           3                                         \n",
@@ -659,7 +659,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.5"
+   "version": "3.7.3"
   }
  },
  "nbformat": 4,

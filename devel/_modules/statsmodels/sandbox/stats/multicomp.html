@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/sandbox/stats/multicomp" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -339,20 +338,20 @@
 
 
 <span class="sd">'''</span>
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lzip</span><span class="p">,</span> <span class="n">lrange</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">lzip</span><span class="p">,</span> <span class="n">lrange</span>
 
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_almost_equal</span><span class="p">,</span> <span class="n">assert_equal</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="k">import</span> <span class="n">assert_almost_equal</span><span class="p">,</span> <span class="n">assert_equal</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">interpolate</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
 <span class="c1">#temporary circular import</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span><span class="p">,</span> <span class="n">_ecdf</span> <span class="k">as</span> <span class="n">ecdf</span><span class="p">,</span> <span class="n">fdrcorrection</span> <span class="k">as</span> <span class="n">fdrcorrection0</span><span class="p">,</span> <span class="n">fdrcorrection_twostage</span>
-<span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ValueWarning</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="k">import</span> <span class="n">multipletests</span><span class="p">,</span> <span class="n">_ecdf</span> <span class="k">as</span> <span class="n">ecdf</span><span class="p">,</span> <span class="n">fdrcorrection</span> <span class="k">as</span> <span class="n">fdrcorrection0</span><span class="p">,</span> <span class="n">fdrcorrection_twostage</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">ValueWarning</span>
 
 <span class="n">qcrit</span> <span class="o">=</span> <span class="s1">'''</span>
 <span class="s1">  2     3     4     5     6     7     8     9     10</span>
@@ -389,7 +388,7 @@
 <span class="n">cv001</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="viewcode-block" id="get_tukeyQcrit"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.get_tukeyQcrit.html#statsmodels.sandbox.stats.multicomp.get_tukeyQcrit">[docs]</a><span class="k">def</span> <span class="nf">get_tukeyQcrit</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
 <span class="sd">    return critical values for Tukey's HSD (Q)</span>
 
@@ -412,7 +411,7 @@
         <span class="n">intp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">crows</span><span class="p">,</span> <span class="n">cv001</span><span class="p">[:,</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'only implemented for alpha equal to 0.01 and 0.05'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">intp</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
 
 <span class="k">def</span> <span class="nf">get_tukeyQcrit2</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">'''</span>
@@ -431,7 +430,7 @@
 
 <span class="sd">    not enough error checking for limitations</span>
 <span class="sd">    '''</span>
-    <span class="kn">from</span> <span class="nn">statsmodels.stats.libqsturng</span> <span class="kn">import</span> <span class="n">qsturng</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.libqsturng</span> <span class="k">import</span> <span class="n">qsturng</span>
     <span class="k">return</span> <span class="n">qsturng</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 
 
@@ -450,7 +449,7 @@
 
 <span class="sd">    '''</span>
 
-    <span class="kn">from</span> <span class="nn">statsmodels.stats.libqsturng</span> <span class="kn">import</span> <span class="n">psturng</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.libqsturng</span> <span class="k">import</span> <span class="n">psturng</span>
     <span class="k">return</span> <span class="n">psturng</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 
 
@@ -569,7 +568,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">maxzero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="maxzero"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.maxzero.html#statsmodels.sandbox.stats.multicomp.maxzero">[docs]</a><span class="k">def</span> <span class="nf">maxzero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''find all up zero crossings and return the index of the highest</span>
 
 <span class="sd">    Not used anymore</span>
@@ -603,9 +602,9 @@
         <span class="n">maxz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allzeros</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">maxz</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span>
+    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span></div>
 
-<span class="k">def</span> <span class="nf">maxzerodown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="maxzerodown"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.maxzerodown.html#statsmodels.sandbox.stats.multicomp.maxzerodown">[docs]</a><span class="k">def</span> <span class="nf">maxzerodown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''find all up zero crossings and return the index of the highest</span>
 
 <span class="sd">    Not used anymore</span>
@@ -638,11 +637,11 @@
         <span class="n">maxz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allzeros</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">maxz</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span>
+    <span class="k">return</span> <span class="n">maxz</span><span class="p">,</span> <span class="n">allzeros</span></div>
 
 
 
-<span class="k">def</span> <span class="nf">rejectionline</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<div class="viewcode-block" id="rejectionline"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.rejectionline.html#statsmodels.sandbox.stats.multicomp.rejectionline">[docs]</a><span class="k">def</span> <span class="nf">rejectionline</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
     <span class="sd">'''reference line for rejection in multiple tests</span>
 
 <span class="sd">    Not used anymore</span>
@@ -651,7 +650,7 @@
 <span class="sd">    '''</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">frej</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="p">(</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">frej</span>
+    <span class="k">return</span> <span class="n">frej</span></div>
 
 
 
@@ -698,7 +697,7 @@
     <span class="n">reject</span><span class="p">[:</span><span class="n">rejectmax</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="n">reject</span><span class="p">[</span><span class="n">pvals_sortind</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
 
-<span class="k">def</span> <span class="nf">mcfdr</span><span class="p">(</span><span class="n">nrepl</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntests</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ntrue</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+<div class="viewcode-block" id="mcfdr"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.mcfdr.html#statsmodels.sandbox.stats.multicomp.mcfdr">[docs]</a><span class="k">def</span> <span class="nf">mcfdr</span><span class="p">(</span><span class="n">nrepl</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntests</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ntrue</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
     <span class="sd">'''MonteCarlo to test fdrcorrection</span>
 <span class="sd">    '''</span>
     <span class="n">nfalse</span> <span class="o">=</span> <span class="n">ntests</span> <span class="o">-</span> <span class="n">ntrue</span>
@@ -719,9 +718,9 @@
                         <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="p">)]</span> <span class="o">+</span>
                        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[:</span><span class="n">ntrue</span><span class="p">]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="o">/</span><span class="n">ntests</span><span class="p">),</span>
                         <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tpval</span><span class="p">[</span><span class="n">ntrue</span><span class="p">:]</span><span class="o">&lt;</span><span class="n">alpha</span><span class="o">/</span><span class="n">ntests</span><span class="p">)])</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
 
-<span class="k">def</span> <span class="nf">randmvn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="randmvn"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.randmvn.html#statsmodels.sandbox.stats.multicomp.randmvn">[docs]</a><span class="k">def</span> <span class="nf">randmvn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''create random draws from equi-correlated multivariate normal distribution</span>
 
 <span class="sd">    Parameters</span>
@@ -754,7 +753,7 @@
         <span class="n">rvs2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">nvars</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">standardize</span><span class="p">:</span>
         <span class="n">rvs2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">rvs2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">rvs2</span>
+    <span class="k">return</span> <span class="n">rvs2</span></div>
 
 <span class="c1">#============================</span>
 <span class="c1">#</span>
@@ -762,7 +761,7 @@
 <span class="c1">#</span>
 <span class="c1">#============================</span>
 
-<span class="k">def</span> <span class="nf">tiecorrect</span><span class="p">(</span><span class="n">xranks</span><span class="p">):</span>
+<div class="viewcode-block" id="tiecorrect"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.tiecorrect.html#statsmodels.sandbox.stats.multicomp.tiecorrect">[docs]</a><span class="k">def</span> <span class="nf">tiecorrect</span><span class="p">(</span><span class="n">xranks</span><span class="p">):</span>
     <span class="sd">'''</span>
 
 <span class="sd">    should be equivalent of scipy.stats.tiecorrect</span>
@@ -773,7 +772,7 @@
     <span class="n">nties</span> <span class="o">=</span> <span class="n">rankbincount</span><span class="p">[</span><span class="n">rankbincount</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">ntot</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xranks</span><span class="p">))</span>
     <span class="n">tiecorrection</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">nties</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">nties</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">ntot</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">ntot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tiecorrection</span>
+    <span class="k">return</span> <span class="n">tiecorrection</span></div>
 
 
 <div class="viewcode-block" id="GroupsStats"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.GroupsStats.html#statsmodels.sandbox.stats.multicomp.GroupsStats">[docs]</a><span class="k">class</span> <span class="nc">GroupsStats</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -791,7 +790,7 @@
 
 <span class="sd">    '''</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intlab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">useranks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intlab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">'''descriptive statistics by groups</span>
 
 <span class="sd">        Parameters</span>
@@ -900,7 +899,7 @@
 <span class="sd">    MultiComparison instance: data, df_total, groups, groupsunique, variance.</span>
 
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mc_object</span><span class="p">,</span> <span class="n">results_table</span><span class="p">,</span> <span class="n">q_crit</span><span class="p">,</span> <span class="n">reject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mc_object</span><span class="p">,</span> <span class="n">results_table</span><span class="p">,</span> <span class="n">q_crit</span><span class="p">,</span> <span class="n">reject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">meandiffs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">std_pairs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">confint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">reject2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pvalues</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
@@ -920,7 +919,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_multicomp</span><span class="o">.</span><span class="n">groups</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">groupsunique</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_multicomp</span><span class="o">.</span><span class="n">groupsunique</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_results_table</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TukeyHSDResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.stats.multicomp.TukeyHSDResults.summary.html#statsmodels.sandbox.stats.multicomp.TukeyHSDResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1076,7 +1075,7 @@
 
 <span class="sd">    '''</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">group_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">group_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'data has </span><span class="si">%d</span><span class="s1"> elements and groups has </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)))</span>
@@ -1288,7 +1287,7 @@
                                <span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">var_</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span></div></div>
 
 
-<span class="k">def</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="rankdata"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.rankdata.html#statsmodels.sandbox.stats.multicomp.rankdata">[docs]</a><span class="k">def</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">'''rankdata, equivalent to scipy.stats.rankdata</span>
 
 <span class="sd">    just a different implementation, I have not yet compared speed</span>
@@ -1303,7 +1302,7 @@
     <span class="n">groupranksum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">intlab</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">rankraw</span><span class="p">)</span>
     <span class="c1"># start at 1 for stats.rankdata :</span>
     <span class="n">grouprankmean</span> <span class="o">=</span> <span class="n">groupranksum</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">groupnobs</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="n">intlab</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">grouprankmean</span><span class="p">[</span><span class="n">intlab</span><span class="p">]</span></div>
 
 
 <span class="c1">#new</span>
@@ -1332,7 +1331,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">varcorrection_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_unbalanced"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_unbalanced.html#statsmodels.sandbox.stats.multicomp.varcorrection_unbalanced">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''correction factor for variance with unequal sample sizes</span>
 
 <span class="sd">    this is just a harmonic mean</span>
@@ -1370,9 +1369,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">srange</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nobs_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">)</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_pairs_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_pairs_unbalanced"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unbalanced.html#statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unbalanced">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_pairs_unbalanced</span><span class="p">(</span><span class="n">nobs_all</span><span class="p">,</span> <span class="n">srange</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''correction factor for variance with unequal sample sizes for all pairs</span>
 
 <span class="sd">    this is just a harmonic mean</span>
@@ -1414,9 +1413,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">srange</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_unequal"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_unequal.html#statsmodels.sandbox.stats.multicomp.varcorrection_unequal">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
     <span class="sd">'''return joint variance from samples with unequal variances and unequal</span>
 <span class="sd">    sample sizes</span>
 
@@ -1462,9 +1461,9 @@
 
     <span class="n">dfjoint</span> <span class="o">=</span> <span class="n">varjoint</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">var_over_n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">df_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span>
+    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span></div>
 
-<span class="k">def</span> <span class="nf">varcorrection_pairs_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
+<div class="viewcode-block" id="varcorrection_pairs_unequal"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unequal.html#statsmodels.sandbox.stats.multicomp.varcorrection_pairs_unequal">[docs]</a><span class="k">def</span> <span class="nf">varcorrection_pairs_unequal</span><span class="p">(</span><span class="n">var_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">df_all</span><span class="p">):</span>
     <span class="sd">'''return joint variance from samples with unequal variances and unequal</span>
 <span class="sd">    sample sizes for all pairs</span>
 
@@ -1513,7 +1512,7 @@
 
     <span class="n">dfjoint</span> <span class="o">=</span> <span class="n">varjoint</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">df1</span> <span class="o">*</span> <span class="p">(</span><span class="n">v1</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">df2</span> <span class="o">*</span> <span class="p">(</span><span class="n">v2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span>
+    <span class="k">return</span> <span class="n">varjoint</span><span class="p">,</span> <span class="n">dfjoint</span></div>
 
 <span class="k">def</span> <span class="nf">tukeyhsd</span><span class="p">(</span><span class="n">mean_all</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">q_crit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">'''simultaneous Tukey HSD</span>
@@ -1771,7 +1770,7 @@
     <span class="sd">'''pvalues for simultaneous tests</span>
 
 <span class="sd">    '''</span>
-    <span class="kn">from</span> <span class="nn">statsmodels.sandbox.distributions.multivariate</span> <span class="kn">import</span> <span class="n">mvstdtprob</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.sandbox.distributions.multivariate</span> <span class="k">import</span> <span class="n">mvstdtprob</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">dist</span> <span class="o">==</span> <span class="s1">'t'</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'df has to be specified for the t-distribution'</span><span class="p">)</span>
     <span class="n">tstat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">tstat</span><span class="p">)</span>
@@ -1824,7 +1823,7 @@
 
 <span class="sd">    '''</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">nobs_all</span><span class="p">,</span> <span class="n">var_all</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vals</span> <span class="o">=</span> <span class="n">vals</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_vals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nobs_all</span> <span class="o">=</span> <span class="n">nobs_all</span>
@@ -1911,7 +1910,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
+<div class="viewcode-block" id="homogeneous_subsets"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.homogeneous_subsets.html#statsmodels.sandbox.stats.multicomp.homogeneous_subsets">[docs]</a><span class="k">def</span> <span class="nf">homogeneous_subsets</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dcrit</span><span class="p">):</span>
     <span class="sd">'''recursively check all pairs of vals for minimum distance</span>
 
 <span class="sd">    step down method as in Newman-Keuls and Ryan procedures. This is not a</span>
@@ -1981,9 +1980,9 @@
     <span class="n">rejs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rejected</span><span class="p">)</span>
     <span class="n">not_rejected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_pairs</span><span class="p">)</span> <span class="o">-</span> <span class="n">rejs</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rejs</span><span class="p">),</span> <span class="n">not_rejected</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subsetsli</span><span class="p">)),</span> <span class="n">res</span></div>
 
-<span class="k">def</span> <span class="nf">set_partition</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
+<div class="viewcode-block" id="set_partition"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_partition.html#statsmodels.sandbox.stats.multicomp.set_partition">[docs]</a><span class="k">def</span> <span class="nf">set_partition</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
     <span class="sd">'''extract a partition from a list of tuples</span>
 
 <span class="sd">    this should be correctly called select largest disjoint sets.</span>
@@ -2017,10 +2016,10 @@
 
     <span class="n">missing</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="n">ssli</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">)</span>
                    <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="n">part</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">part</span><span class="p">,</span> <span class="n">missing</span>
+    <span class="k">return</span> <span class="n">part</span><span class="p">,</span> <span class="n">missing</span></div>
 
 
-<span class="k">def</span> <span class="nf">set_remove_subs</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
+<div class="viewcode-block" id="set_remove_subs"><a class="viewcode-back" href="../../../../generated/statsmodels.sandbox.stats.multicomp.set_remove_subs.html#statsmodels.sandbox.stats.multicomp.set_remove_subs">[docs]</a><span class="k">def</span> <span class="nf">set_remove_subs</span><span class="p">(</span><span class="n">ssli</span><span class="p">):</span>
     <span class="sd">'''remove sets that are subsets of another set from a list of tuples</span>
 
 <span class="sd">    Parameters</span>
@@ -2054,7 +2053,7 @@
 
 <span class="c1">##    missing = list(set(i for ll in ssli for i in ll)</span>
 <span class="c1">##                   - set(i for ll in part for i in ll))</span>
-    <span class="k">return</span> <span class="n">part</span>
+    <span class="k">return</span> <span class="n">part</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
@@ -2070,7 +2069,7 @@
     <span class="c1"># Example FDR</span>
     <span class="c1"># ------------</span>
     <span class="k">if</span> <span class="p">(</span><span class="s1">'fdr'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">'bonf'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">.ex_multicomp</span> <span class="kn">import</span> <span class="n">example_fdr_bonferroni</span>
+        <span class="kn">from</span> <span class="nn">.ex_multicomp</span> <span class="k">import</span> <span class="n">example_fdr_bonferroni</span>
         <span class="n">example_fdr_bonferroni</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="s1">'fdrmc'</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
@@ -2256,10 +2255,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2268,6 +2267,9 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

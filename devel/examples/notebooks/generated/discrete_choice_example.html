@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/discrete_choice_example" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -420,16 +419,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -438,13 +437,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -452,35 +451,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -488,56 +487,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -634,11 +633,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">logit</span>
 </pre></div>
 </div>
@@ -648,7 +647,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fair</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fair</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -670,7 +669,7 @@ The data is available at http://fairmodel.econ.yale.edu/rayfair/pdf/2011b.htm
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fair</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fair</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -724,7 +723,7 @@ The data is available at http://fairmodel.econ.yale.edu/rayfair/pdf/2011b.htm
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dta</span><span class="p">[</span><span class="s1">'affair'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dta</span><span class="p">[</span><span class="s1">'affairs'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -763,7 +762,7 @@ The data is available at http://fairmodel.econ.yale.edu/rayfair/pdf/2011b.htm
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -819,7 +818,7 @@ Optimization terminated successfully.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">affair_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">affair_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -833,8 +832,8 @@ Optimization terminated successfully.
 Dep. Variable:                 affair   No. Observations:                 6366
 Model:                          Logit   Df Residuals:                     6357
 Method:                           MLE   Df Model:                            8
-Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.1327
-Time:                        18:57:23   Log-Likelihood:                -3471.5
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.1327
+Time:                        18:58:33   Log-Likelihood:                -3471.5
 converged:                       True   LL-Null:                       -4002.5
 Covariance Type:            nonrobust   LLR p-value:                5.807e-224
 ===================================================================================
@@ -866,11 +865,11 @@ religious          -0.3752      0.035    -10.792      0.000      -0.443      -0.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[3882.,  431.],
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[3882.,  431.],
        [1326.,  727.]])
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 <p>The coefficients of the discrete choice model do not tell us much. What we’re after is marginal effects.</p>
 <div class="nbinput docutils container">
@@ -879,7 +878,7 @@ array([[3882.,  431.],
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mfx</span> <span class="o">=</span> <span class="n">affair_mod</span><span class="o">.</span><span class="n">get_margeff</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mfx</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mfx</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -913,7 +912,7 @@ religious          -0.0685      0.006    -11.119      0.000      -0.081      -0.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">respondent1000</span> <span class="o">=</span> <span class="n">dta</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">respondent1000</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">respondent1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -945,7 +944,7 @@ Name: 1000, dtype: float64
                                             <span class="s2">"age"</span><span class="p">,</span> <span class="s2">"yrs_married"</span><span class="p">,</span> <span class="s2">"children"</span><span class="p">,</span>
                                             <span class="s2">"religious"</span><span class="p">]]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
 <span class="n">resp</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -963,7 +962,7 @@ Name: 1000, dtype: float64
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mfx</span> <span class="o">=</span> <span class="n">affair_mod</span><span class="o">.</span><span class="n">get_margeff</span><span class="p">(</span><span class="n">atexog</span><span class="o">=</span><span class="n">resp</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mfx</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mfx</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1006,11 +1005,11 @@ religious          -0.0937      0.009    -10.722      0.000      -0.111      -0.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1000    0.518782
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>1000    0.518782
 dtype: float64
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1025,10 +1024,10 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.0751615928505509
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.07516159285057644
+</pre></div>
+</div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -1043,10 +1042,10 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.518781557212144
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.5187815572121504
+</pre></div>
+</div>
 </div>
 <p>The “correct” model here is likely the Tobit model. We have an work in progress branch “tobit-model” on github, if anyone is interested in censored regression models.</p>
 
@@ -1102,7 +1101,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1123,7 +1122,7 @@ http://jgill.wustl.edu/research/books.html
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1150,7 +1149,7 @@ The data used in this example is only a subset of the original source.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">NOTE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1206,7 +1205,7 @@ The data used in this example is only a subset of the original source.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">star98</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1228,7 +1227,7 @@ Index(['NABOVE', 'NBELOW', 'LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP',
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dta</span><span class="p">[[</span><span class="s1">'NABOVE'</span><span class="p">,</span> <span class="s1">'NBELOW'</span><span class="p">,</span> <span class="s1">'LOWINC'</span><span class="p">,</span> <span class="s1">'PERASIAN'</span><span class="p">,</span> <span class="s1">'PERBLACK'</span><span class="p">,</span> <span class="s1">'PERHISP'</span><span class="p">,</span> <span class="s1">'PERMINTE'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">dta</span><span class="p">[[</span><span class="s1">'NABOVE'</span><span class="p">,</span> <span class="s1">'NBELOW'</span><span class="p">,</span> <span class="s1">'LOWINC'</span><span class="p">,</span> <span class="s1">'PERASIAN'</span><span class="p">,</span> <span class="s1">'PERBLACK'</span><span class="p">,</span> <span class="s1">'PERHISP'</span><span class="p">,</span> <span class="s1">'PERMINTE'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1255,7 +1254,7 @@ Index(['NABOVE', 'NBELOW', 'LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP',
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dta</span><span class="p">[[</span><span class="s1">'AVYRSEXP'</span><span class="p">,</span> <span class="s1">'AVSALK'</span><span class="p">,</span> <span class="s1">'PERSPENK'</span><span class="p">,</span> <span class="s1">'PTRATIO'</span><span class="p">,</span> <span class="s1">'PCTAF'</span><span class="p">,</span> <span class="s1">'PCTCHRT'</span><span class="p">,</span> <span class="s1">'PCTYRRND'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">dta</span><span class="p">[[</span><span class="s1">'AVYRSEXP'</span><span class="p">,</span> <span class="s1">'AVSALK'</span><span class="p">,</span> <span class="s1">'PERSPENK'</span><span class="p">,</span> <span class="s1">'PTRATIO'</span><span class="p">,</span> <span class="s1">'PCTAF'</span><span class="p">,</span> <span class="s1">'PCTCHRT'</span><span class="p">,</span> <span class="s1">'PCTYRRND'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1303,10 +1302,10 @@ Index(['NABOVE', 'NBELOW', 'LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP',
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.16075102880658435
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.16075102880658435
+</pre></div>
+</div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1322,10 +1321,10 @@ Index(['NABOVE', 'NBELOW', 'LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP',
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.1607510288065844
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.1607510288065844
+</pre></div>
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -1342,7 +1341,7 @@ Index(['NABOVE', 'NBELOW', 'LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP',
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">glm_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">glm_mod</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1358,8 +1357,8 @@ Model:                              GLM   Df Residuals:                      282
 Model Family:                  Binomial   Df Model:                           20
 Link Function:                    logit   Scale:                          1.0000
 Method:                            IRLS   Log-Likelihood:                -2998.6
-Date:                  Sat, 14 Dec 2019   Deviance:                       4078.8
-Time:                          18:57:25   Pearson chi2:                 4.05e+03
+Date:                  Sun, 15 Dec 2019   Deviance:                       4078.8
+Time:                          18:58:34   Pearson chi2:                 4.05e+03
 No. Iterations:                       5
 Covariance Type:              nonrobust
 ============================================================================================
@@ -1403,9 +1402,8 @@ PERSPENK:PTRATIO:PCTAF      -0.0022      0.000     -6.445      0.000      -0.003
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0      807.0
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0      807.0
 1      184.0
 2      571.0
 3      573.0
@@ -1417,7 +1415,8 @@ PERSPENK:PTRATIO:PCTAF      -0.0022      0.000     -6.445      0.000      -0.003
 301    709.0
 302    156.0
 Length: 303, dtype: float64
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -1432,9 +1431,8 @@ Length: 303, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0      470.732584
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0      470.732584
 1      138.266178
 2      285.832629
 3      392.702917
@@ -1446,7 +1444,8 @@ Length: 303, dtype: float64
 301    290.952508
 302     53.312851
 Length: 303, dtype: float64
-</pre></div></div>
+</pre></div>
+</div>
 </div>
 <p>First differences: We hold all explanatory variables constant at their means and manipulate the percentage of low income households to assess its impact on the response variables:</p>
 <div class="nbinput nblast docutils container">
@@ -1464,7 +1463,7 @@ Length: 303, dtype: float64
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">means25</span> <span class="o">=</span> <span class="n">exog</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">means25</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">means25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1503,7 +1502,7 @@ dtype: float64
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">means25</span><span class="p">[</span><span class="s1">'LOWINC'</span><span class="p">]</span> <span class="o">=</span> <span class="n">exog</span><span class="p">[</span><span class="s1">'LOWINC'</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">means25</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">means25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1543,7 +1542,7 @@ dtype: float64
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">means75</span> <span class="o">=</span> <span class="n">exog</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">means75</span><span class="p">[</span><span class="s1">'LOWINC'</span><span class="p">]</span> <span class="o">=</span> <span class="n">exog</span><span class="p">[</span><span class="s1">'LOWINC'</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">means75</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">means75</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1594,7 +1593,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%2.4f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%2.4f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1626,7 +1625,7 @@ dtype: float64
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Observed Values'</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">'Fitted Values'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">y_vs_yhat</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">y_vs_yhat</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">abline_plot</span><span class="p">(</span><span class="n">model_results</span><span class="o">=</span><span class="n">y_vs_yhat</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1692,7 +1691,7 @@ dtype: float64
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Standardized Deviance Residuals"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">resid_std</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">resid_std</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kde_resid</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">kde_resid</span><span class="o">.</span><span class="n">density</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1777,10 +1776,10 @@ dtype: float64
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1789,6 +1788,9 @@ dtype: float64
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

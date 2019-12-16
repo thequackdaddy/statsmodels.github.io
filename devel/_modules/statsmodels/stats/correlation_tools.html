@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/stats/correlation_tools" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -287,12 +286,12 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sparse</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">svds</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fminbound</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="k">import</span> <span class="n">svds</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">fminbound</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">Bunch</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="k">import</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="p">(</span>
     <span class="n">IterationLimitWarning</span><span class="p">,</span> <span class="n">iteration_limit_doc</span><span class="p">)</span>
 
 
@@ -484,7 +483,7 @@
 <span class="sd">    corr_clipped</span>
 <span class="sd">    """</span>
 
-    <span class="kn">from</span> <span class="nn">statsmodels.stats.moment_helpers</span> <span class="kn">import</span> <span class="n">cov2corr</span><span class="p">,</span> <span class="n">corr2cov</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.moment_helpers</span> <span class="k">import</span> <span class="n">cov2corr</span><span class="p">,</span> <span class="n">corr2cov</span>
     <span class="n">cov_</span><span class="p">,</span> <span class="n">std_</span> <span class="o">=</span> <span class="n">cov2corr</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'clipped'</span><span class="p">:</span>
         <span class="n">corr_</span> <span class="o">=</span> <span class="n">corr_clipped</span><span class="p">(</span><span class="n">cov_</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span>
@@ -724,7 +723,7 @@
 <span class="sd">    are diagonal matrices, and `factor` is an orthogonal matrix.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diag</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diag</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">diag</span> <span class="o">=</span> <span class="n">diag</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
         <span class="n">root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">diag</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
@@ -732,14 +731,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">factor</span> <span class="o">=</span> <span class="n">u</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scales</span> <span class="o">=</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FactoredPSDMatrix.to_matrix"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.correlation_tools.FactoredPSDMatrix.to_matrix.html#statsmodels.stats.correlation_tools.FactoredPSDMatrix.to_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the PSD matrix represented by this instance as a full</span>
 <span class="sd">        (square) matrix.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">diag</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">decorrelate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
+<div class="viewcode-block" id="FactoredPSDMatrix.decorrelate"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.correlation_tools.FactoredPSDMatrix.decorrelate.html#statsmodels.stats.correlation_tools.FactoredPSDMatrix.decorrelate">[docs]</a>    <span class="k">def</span> <span class="nf">decorrelate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Decorrelate the columns of `rhs`.</span>
 
@@ -774,9 +773,9 @@
         <span class="n">rhs1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">factor</span><span class="p">,</span> <span class="n">rhs1</span><span class="p">)</span>
         <span class="n">rhs</span> <span class="o">+=</span> <span class="n">rhs1</span>
 
-        <span class="k">return</span> <span class="n">rhs</span>
+        <span class="k">return</span> <span class="n">rhs</span></div>
 
-    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
+<div class="viewcode-block" id="FactoredPSDMatrix.solve"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.correlation_tools.FactoredPSDMatrix.solve.html#statsmodels.stats.correlation_tools.FactoredPSDMatrix.solve">[docs]</a>    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Solve a linear system of equations with factor-structured</span>
 <span class="sd">        coefficients.</span>
@@ -802,9 +801,9 @@
         <span class="n">rhs</span> <span class="o">=</span> <span class="n">rhs</span> <span class="o">/</span> <span class="n">dr</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="n">mat</span> <span class="o">=</span> <span class="n">qval</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">factor</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
         <span class="n">rhs</span> <span class="o">=</span> <span class="n">rhs</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">factor</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">rhs</span> <span class="o">/</span> <span class="n">dr</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">rhs</span> <span class="o">/</span> <span class="n">dr</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span></div>
 
-    <span class="k">def</span> <span class="nf">logdet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FactoredPSDMatrix.logdet"><a class="viewcode-back" href="../../../generated/generated/statsmodels.stats.correlation_tools.FactoredPSDMatrix.logdet.html#statsmodels.stats.correlation_tools.FactoredPSDMatrix.logdet">[docs]</a>    <span class="k">def</span> <span class="nf">logdet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the logarithm of the determinant of a</span>
 <span class="sd">        factor-structured matrix.</span>
@@ -814,7 +813,7 @@
         <span class="n">logdet</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scales</span><span class="p">))</span>
         <span class="n">logdet</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scales</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">logdet</span></div>
+        <span class="k">return</span> <span class="n">logdet</span></div></div>
 
 
 <div class="viewcode-block" id="corr_nearest_factor"><a class="viewcode-back" href="../../../generated/statsmodels.stats.correlation_tools.corr_nearest_factor.html#statsmodels.stats.correlation_tools.corr_nearest_factor">[docs]</a><span class="k">def</span> <span class="nf">corr_nearest_factor</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">ctol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">lam_min</span><span class="o">=</span><span class="mf">1e-30</span><span class="p">,</span>
@@ -1339,10 +1338,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1351,6 +1350,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

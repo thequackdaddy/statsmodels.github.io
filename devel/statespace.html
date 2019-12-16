@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#statespace" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -518,7 +517,7 @@ arbitrary trend polynomials.</p>
 <a class="reference external" href="examples/notebooks/generated/statespace_sarimax_stata.html">SARIMAX example notebook</a>
 or the very brief code snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># Load your dataset</span>
 <span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
@@ -532,7 +531,7 @@ or the very brief code snippet below:</p>
 <span class="c1"># Note that res_ar2 is an instance of the SARIMAXResults class</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_ar2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_ar2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># We could also fit a more complicated model with seasonal components.</span>
 <span class="c1"># As an example, here is an SARIMA(1,1,1) x (0,1,1,4):</span>
@@ -541,7 +540,7 @@ or the very brief code snippet below:</p>
 <span class="n">res_sarimax</span> <span class="o">=</span> <span class="n">mod_sarimax</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_sarimax</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_sarimax</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>The results object has many of the attributes and methods you would expect from
@@ -570,7 +569,7 @@ specification.</p>
 </table>
 <p>For examples of the use of this model, see the <a class="reference external" href="examples/notebooks/generated/statespace_structural_harvey_jaeger.html">example notebook</a> or a notebook on using the unobserved components model to <a class="reference external" href="examples/notebooks/generated/statespace_cycles.html">decompose a time series into a trend and cycle</a> or the very brief code snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># Load your dataset</span>
 <span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
@@ -584,19 +583,19 @@ specification.</p>
 <span class="c1"># Note that res_ll is an instance of the UnobservedComponentsResults class</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_ll</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_ll</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># Show a plot of the estimated level and trend component series</span>
 <span class="n">fig_ll</span> <span class="o">=</span> <span class="n">res_ll</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
 
 <span class="c1"># We could further add a damped stochastic cycle as follows</span>
-<span class="n">mod_cycle</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="s1">'local level'</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="n">mod_cycle</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="s1">'local level'</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
                                         <span class="n">damped_cycle</span><span class="o">=</span><span class="n">true</span><span class="p">,</span>
-                                        <span class="n">stochastic_cycle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                        <span class="n">stochastic_cycle</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">res_cycle</span> <span class="o">=</span> <span class="n">mod_cycle</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_cycle</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_cycle</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># Show a plot of the estimated level, trend, and cycle component series</span>
 <span class="n">fig_cycle</span> <span class="o">=</span> <span class="n">res_cycle</span><span class="o">.</span><span class="n">plot_components</span><span class="p">()</span>
@@ -622,7 +621,7 @@ specification.</p>
 </table>
 <p>For an example of the use of this model, see the <a class="reference external" href="examples/notebooks/generated/statespace_varmax.html">VARMAX example notebook</a> or the very brief code snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># Load your (multivariate) dataset</span>
 <span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
@@ -636,7 +635,7 @@ specification.</p>
 <span class="c1"># Note that res_var1 is an instance of the VARMAXResults class</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_var1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_var1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># Construct impulse responses</span>
 <span class="n">irfs</span> <span class="o">=</span> <span class="n">res_ll</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -663,7 +662,7 @@ model.</p>
 </table>
 <p>For an example of the use of this model, see the <a class="reference external" href="examples/notebooks/generated/statespace_dfm_coincident.html">Dynamic Factor example notebook</a> or the very brief code snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># Load your dataset</span>
 <span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
@@ -677,7 +676,7 @@ model.</p>
 <span class="c1"># Note that res_dfm is an instance of the DynamicFactorResults class</span>
 
 <span class="c1"># Show the summary of results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_ll</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_ll</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># Show a plot of the r^2 values from regressions of</span>
 <span class="c1"># individual estimated factors on endogenous variables.</span>
@@ -712,7 +711,7 @@ See below for details of the differences between these classes.</p>
 </table>
 <p>A very brief code snippet follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the statsmodels api</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># Load your dataset</span>
 <span class="n">endog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your/dataset/here.csv'</span><span class="p">)</span>
@@ -722,18 +721,18 @@ See below for details of the differences between these classes.</p>
 <span class="n">res_ses</span> <span class="o">=</span> <span class="n">mod_ses</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1"># Holt's linear method, denoted (A,A,N)</span>
-<span class="n">mod_h</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mod_h</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">res_h</span> <span class="o">=</span> <span class="n">mod_h</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1"># Damped trend model, denoted (A,Ad,N)</span>
-<span class="n">mod_dt</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                <span class="n">damped_trend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mod_dt</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                                <span class="n">damped_trend</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">res_dt</span> <span class="o">=</span> <span class="n">mod_dt</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1"># Holt-Winters' trend and seasonality method, denoted (A,A,A)</span>
 <span class="c1"># (assuming that `endog` has a seasonal periodicity of 4, for example if it</span>
 <span class="c1"># is quarterly data).</span>
-<span class="n">mod_hw</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="n">mod_hw</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
                                                 <span class="n">seasonal</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">res_hw</span> <span class="o">=</span> <span class="n">mod_hw</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
@@ -790,9 +789,9 @@ For a more sophisticated example, see the source code for the <cite>SARIMAX</cit
 <p>In simple cases, the model can be constructed entirely using the MLEModel
 class. For example, the AR(2) model from above could be constructed and
 estimated using only the following code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">lfilter</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="c1"># True model parameters</span>
 <span class="n">nobs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
@@ -818,7 +817,7 @@ estimated using only the following code:</p>
         <span class="bp">self</span><span class="p">[</span><span class="s1">'selection'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="c1"># Describe how parameters enter the model</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">AR2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="p">[</span><span class="s1">'transition'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -832,7 +831,7 @@ estimated using only the following code:</p>
 <span class="c1"># Create and fit the model</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">AR2</span><span class="p">(</span><span class="n">endog</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>This results in the following summary table:</p>
@@ -894,10 +893,10 @@ output summary.</p>
 <span class="c1"># Step 3: explore / use results</span>
 
 <span class="c1"># - Print a table summarizing estimation results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 <span class="c1"># - Print only the estimated parameters</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 
 <span class="c1"># - Create diagnostic figures based on standardized residuals:</span>
 <span class="c1">#   (1) time series graph</span>
@@ -908,22 +907,22 @@ output summary.</p>
 
 <span class="c1"># - Examine diagnostic hypothesis tests</span>
 <span class="c1"># Jarque-Bera: [test_statistic, pvalue, skewness, kurtosis]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_normality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'jarquebera'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_normality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'jarquebera'</span><span class="p">))</span>
 <span class="c1"># Goldfeld-Quandt type test: [test_statistic, pvalue]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_heteroskedasticity</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'breakvar'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_heteroskedasticity</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'breakvar'</span><span class="p">))</span>
 <span class="c1"># Ljung-Box test: [test_statistic, pvalue] for each lag</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_serial_correlation</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'ljungbox'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">test_serial_correlation</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'ljungbox'</span><span class="p">))</span>
 
 <span class="c1"># - Forecast the next 4 values</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># - Forecast until 2020Q4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="s1">'2020Q4'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="s1">'2020Q4'</span><span class="p">))</span>
 
 <span class="c1"># - Plot in-sample dynamic prediction starting in 2005Q1</span>
 <span class="c1">#   and out-of-sample forecasts until 2010Q4 along with</span>
 <span class="c1">#   90% confidence intervals</span>
-<span class="n">predict_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">'2005Q1'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'2010Q4'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">predict_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">'2005Q1'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'2010Q4'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">predict_df</span> <span class="o">=</span> <span class="n">predict_results</span><span class="o">.</span><span class="n">summary_frame</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">predict_df</span><span class="p">[</span><span class="s1">'mean'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -931,10 +930,10 @@ output summary.</p>
                 <span class="n">predict_df</span><span class="p">[</span><span class="s1">'mean_ci_upper'</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
 <span class="c1"># - Simulate two years of new data after the end of the sample</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">'end'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">'end'</span><span class="p">))</span>
 
 <span class="c1"># - Impulse responses for two years</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">impulse_responses</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 
@@ -1106,7 +1105,7 @@ the example below, we use the <cite>extend</cite> method.</p>
 
 <span class="c1"># Print the sum of squared errors in the test sample,</span>
 <span class="c1"># based on parameters computed using only the training sample</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_results</span><span class="o">.</span><span class="n">sse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test_results</span><span class="o">.</span><span class="n">sse</span><span class="p">)</span>
 </pre></div>
 </div>
 
@@ -1123,7 +1122,7 @@ maximum likelihood. An example of this is:</p>
 <span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># To find out the parameter names, use:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
 
 <span class="c1"># Fit the model with a fixed value for the AR(1) coefficient:</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_constrained</span><span class="p">({</span><span class="s1">'ar.L1'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
@@ -1354,10 +1353,10 @@ class:</p>
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1366,6 +1365,9 @@ class:</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

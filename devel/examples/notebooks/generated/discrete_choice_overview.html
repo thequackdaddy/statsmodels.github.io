@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/discrete_choice_overview" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -416,16 +415,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -434,13 +433,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -448,35 +447,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -484,56 +483,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -618,8 +617,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
@@ -631,8 +630,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">spector_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">spector</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">spector_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">spector</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -642,8 +641,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -670,7 +669,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">lpm_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
 <span class="n">lpm_res</span> <span class="o">=</span> <span class="n">lpm_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">lpm_res</span><span class="o">.</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">lpm_res</span><span class="o">.</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -692,7 +691,7 @@ Parameters:  [0.46385168 0.01049512 0.37855479]
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">logit_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
 <span class="n">logit_res</span> <span class="o">=</span> <span class="n">logit_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">logit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">logit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +710,7 @@ Parameters:  [  2.82611259   0.09515766   2.37868766 -13.02134686]
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">margeff</span> <span class="o">=</span> <span class="n">logit_res</span><span class="o">.</span><span class="n">get_margeff</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">margeff</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">margeff</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -740,7 +739,7 @@ x3             0.3052      0.092      3.304      0.001       0.124       0.486
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">logit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">logit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -754,8 +753,8 @@ x3             0.3052      0.092      3.304      0.001       0.124       0.486
 Dep. Variable:                      y   No. Observations:                   32
 Model:                          Logit   Df Residuals:                       28
 Method:                           MLE   Df Model:                            3
-Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.3740
-Time:                        18:55:06   Log-Likelihood:                -12.890
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.3740
+Time:                        18:58:51   Log-Likelihood:                -12.890
 converged:                       True   LL-Null:                       -20.592
 Covariance Type:            nonrobust   LLR p-value:                  0.001502
 ==============================================================================
@@ -779,9 +778,9 @@ const        -13.0213      4.931     -2.641      0.008     -22.687      -3.356
 <span></span><span class="n">probit_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Probit</span><span class="p">(</span><span class="n">spector_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">spector_data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
 <span class="n">probit_res</span> <span class="o">=</span> <span class="n">probit_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">probit_margeff</span> <span class="o">=</span> <span class="n">probit_res</span><span class="o">.</span><span class="n">get_margeff</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">probit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Marginal effects: '</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">probit_margeff</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">probit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Marginal effects: '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">probit_margeff</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -818,9 +817,9 @@ x3             0.3165      0.090      3.508      0.000       0.140       0.493
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">anes_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">anes96</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">anes_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">anes96</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">anes_exog</span> <span class="o">=</span> <span class="n">anes_data</span><span class="o">.</span><span class="n">exog</span>
-<span class="n">anes_exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">anes_exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">anes_exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">anes_exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -830,8 +829,8 @@ x3             0.3165      0.090      3.508      0.000       0.140       0.493
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">anes_data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anes_data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">anes_data</span><span class="o">.</span><span class="n">exog</span><span class="p">[:</span><span class="mi">5</span><span class="p">,:])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">anes_data</span><span class="o">.</span><span class="n">endog</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -856,7 +855,7 @@ x3             0.3165      0.090      3.508      0.000       0.140       0.493
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mlogit_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MNLogit</span><span class="p">(</span><span class="n">anes_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">anes_exog</span><span class="p">)</span>
 <span class="n">mlogit_res</span> <span class="o">=</span> <span class="n">mlogit_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mlogit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mlogit_res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -891,9 +890,9 @@ Optimization terminated successfully.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rand_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">randhie</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">rand_data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">randhie</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">rand_exog</span> <span class="o">=</span> <span class="n">rand_data</span><span class="o">.</span><span class="n">exog</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rand_data</span><span class="o">.</span><span class="n">exog</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">rand_exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">rand_exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">rand_exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">rand_exog</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -905,7 +904,7 @@ Optimization terminated successfully.
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">poisson_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="n">rand_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">rand_exog</span><span class="p">)</span>
 <span class="n">poisson_res</span> <span class="o">=</span> <span class="n">poisson_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"newton"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">poisson_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">poisson_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -922,8 +921,8 @@ Optimization terminated successfully.
 Dep. Variable:                      y   No. Observations:                20190
 Model:                        Poisson   Df Residuals:                    20180
 Method:                           MLE   Df Model:                            9
-Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                 0.06343
-Time:                        18:55:06   Log-Likelihood:                -62420.
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                 0.06343
+Time:                        18:58:51   Log-Likelihood:                -62420.
 converged:                       True   LL-Null:                       -66647.
 Covariance Type:            nonrobust   LLR p-value:                     0.000
 ==============================================================================
@@ -952,8 +951,8 @@ const          0.7004      0.011     62.741      0.000       0.678       0.722
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mod_nbin</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">NegativeBinomial</span><span class="p">(</span><span class="n">rand_data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">rand_exog</span><span class="p">)</span>
-<span class="n">res_nbin</span> <span class="o">=</span> <span class="n">mod_nbin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_nbin</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_nbin</span> <span class="o">=</span> <span class="n">mod_nbin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_nbin</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -962,7 +961,7 @@ const          0.7004      0.011     62.741      0.000       0.678       0.722
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
 </pre></div></div>
 </div>
@@ -976,8 +975,8 @@ const          0.7004      0.011     62.741      0.000       0.678       0.722
 Dep. Variable:                      y   No. Observations:                20190
 Model:               NegativeBinomial   Df Residuals:                    20180
 Method:                           MLE   Df Model:                            9
-Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                 0.01845
-Time:                        18:55:07   Log-Likelihood:                -43384.
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                 0.01845
+Time:                        18:58:52   Log-Likelihood:                -43384.
 converged:                      False   LL-Null:                       -44199.
 Covariance Type:            nonrobust   LLR p-value:                     0.000
 ==============================================================================
@@ -1007,7 +1006,7 @@ alpha          1.2930      0.019     69.477      0.000       1.256       1.329
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mlogit_res</span> <span class="o">=</span> <span class="n">mlogit_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'bfgs'</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mlogit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mlogit_res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1028,7 +1027,7 @@ Warning: Maximum number of iterations has been exceeded.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   "Check mle_retvals", ConvergenceWarning)
 </pre></div></div>
 </div>
@@ -1042,8 +1041,8 @@ Warning: Maximum number of iterations has been exceeded.
 Dep. Variable:                      y   No. Observations:                  944
 Model:                        MNLogit   Df Residuals:                      908
 Method:                           MLE   Df Model:                           30
-Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.1648
-Time:                        18:55:08   Log-Likelihood:                -1461.9
+Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.1648
+Time:                        18:58:52   Log-Likelihood:                -1461.9
 converged:                      False   LL-Null:                       -1750.3
 Covariance Type:            nonrobust   LLR p-value:                1.827e-102
 ==============================================================================
@@ -1153,10 +1152,10 @@ const        -12.0913      1.059    -11.415      0.000     -14.167     -10.015
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1165,6 +1164,9 @@ const        -12.0913      1.059    -11.415      0.000     -14.167     -10.015
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

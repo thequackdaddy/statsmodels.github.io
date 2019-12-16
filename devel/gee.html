@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#gee" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -431,9 +430,9 @@ Linear models (<cite>GLM</cite>).</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>The following illustrates a Poisson regression with exchangeable correlation
 within clusters using data on epilepsy seizures.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
 
 <span class="gp">In [3]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s1">'epil'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">'MASS'</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 
@@ -447,7 +446,7 @@ within clusters using data on epilepsy seizures.</p>
 
 <span class="gp">In [7]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                               GEE Regression Results                              </span>
 <span class="go">===================================================================================</span>
 <span class="go">Dep. Variable:                           y   No. Observations:                  236</span>
@@ -456,8 +455,8 @@ within clusters using data on epilepsy seizures.</p>
 <span class="go">                      Estimating Equations   Max. cluster size:                   4</span>
 <span class="go">Family:                            Poisson   Mean cluster size:                 4.0</span>
 <span class="go">Dependence structure:         Exchangeable   Num. iterations:                     2</span>
-<span class="go">Date:                     Sat, 14 Dec 2019   Scale:                           1.000</span>
-<span class="go">Covariance type:                    robust   Time:                         19:01:07</span>
+<span class="go">Date:                     Sun, 15 Dec 2019   Scale:                           1.000</span>
+<span class="go">Covariance type:                    robust   Time:                         19:01:54</span>
 <span class="go">====================================================================================</span>
 <span class="go">                       coef    std err          z      P&gt;|z|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------------</span>
@@ -657,7 +656,7 @@ The list of available link functions can be obtained by</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.cauchy.html#statsmodels.genmod.families.links.cauchy" title="statsmodels.genmod.families.links.cauchy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cauchy</span></code></a>()</p></td>
 <td><p>The Cauchy (standard Cauchy CDF) transform</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.cloglog.html#statsmodels.genmod.families.links.cloglog" title="statsmodels.genmod.families.links.cloglog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cloglog</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cloglog</span></code></p></td>
 <td><p>The CLogLog transform link function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.identity.html#statsmodels.genmod.families.links.identity" title="statsmodels.genmod.families.links.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a>()</p></td>
@@ -669,10 +668,10 @@ The list of available link functions can be obtained by</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.inverse_squared.html#statsmodels.genmod.families.links.inverse_squared" title="statsmodels.genmod.families.links.inverse_squared"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inverse_squared</span></code></a>()</p></td>
 <td><p>The inverse squared transform</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.log.html#statsmodels.genmod.families.links.log" title="statsmodels.genmod.families.links.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></p></td>
 <td><p>The log transform</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/statsmodels.genmod.families.links.logit.html#statsmodels.genmod.families.links.logit" title="statsmodels.genmod.families.links.logit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logit</span></code></a></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">logit</span></code></p></td>
 <td><p><p class="rubric">Methods</p>
 </p></td>
 </tr>
@@ -735,10 +734,10 @@ The list of available link functions can be obtained by</p>
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -747,6 +746,9 @@ The list of available link functions can be obtained by</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/robust/robust_linear_model" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -294,8 +293,8 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="kn">import</span> <span class="n">cache_readonly</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.decorators</span> <span class="k">import</span> <span class="n">cache_readonly</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="k">import</span> <span class="n">ConvergenceWarning</span>
 <span class="kn">import</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="k">as</span> <span class="nn">lm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.regression._tools</span> <span class="k">as</span> <span class="nn">reg_tools</span>
 <span class="kn">import</span> <span class="nn">statsmodels.robust.norms</span> <span class="k">as</span> <span class="nn">norms</span>
@@ -383,7 +382,7 @@
 <span class="s2">    """</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'params'</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="n">_model_params_doc</span><span class="p">,</span>
            <span class="s1">'extra_params'</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="n">_missing_param_doc</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span> <span class="k">if</span> <span class="n">M</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">norms</span><span class="o">.</span><span class="n">HuberT</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span>
@@ -435,12 +434,12 @@
 <div class="viewcode-block" id="RLM.loglike"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.robust_linear_model.RLM.loglike.html#statsmodels.robust.robust_linear_model.RLM.loglike">[docs]</a>    <span class="k">def</span> <span class="nf">loglike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-    <span class="k">def</span> <span class="nf">deviance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmp_results</span><span class="p">):</span>
+<div class="viewcode-block" id="RLM.deviance"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.robust_linear_model.RLM.deviance.html#statsmodels.robust.robust_linear_model.RLM.deviance">[docs]</a>    <span class="k">def</span> <span class="nf">deviance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmp_results</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns the (unnormalized) log-likelihood from the M estimator.</span>
 <span class="sd">        """</span>
         <span class="n">tmp_resid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endog</span> <span class="o">-</span> <span class="n">tmp_results</span><span class="o">.</span><span class="n">fittedvalues</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">tmp_resid</span> <span class="o">/</span> <span class="n">tmp_results</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">tmp_resid</span> <span class="o">/</span> <span class="n">tmp_results</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_update_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmp_results</span><span class="p">,</span> <span class="n">history</span><span class="p">,</span> <span class="n">conv</span><span class="p">):</span>
         <span class="n">history</span><span class="p">[</span><span class="s1">'params'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
@@ -468,7 +467,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">scale</span><span class="o">.</span><span class="n">scale_est</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resid</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">scale_est</span><span class="o">=</span><span class="s1">'mad'</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="s1">'H1'</span><span class="p">,</span>
+<div class="viewcode-block" id="RLM.fit"><a class="viewcode-back" href="../../../generated/generated/statsmodels.robust.robust_linear_model.RLM.fit.html#statsmodels.robust.robust_linear_model.RLM.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">scale_est</span><span class="o">=</span><span class="s1">'mad'</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="s1">'H1'</span><span class="p">,</span>
             <span class="n">update_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">conv</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span> <span class="n">start_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Fits the model using iteratively reweighted least squares.</span>
@@ -587,7 +586,7 @@
         <span class="c1"># doing the next causes exception</span>
         <span class="c1"># self.cov = self.scale_est = None #reset for additional fits</span>
         <span class="c1"># iteration and history could contain wrong state with repeated fit</span>
-        <span class="k">return</span> <span class="n">RLMResultsWrapper</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">RLMResultsWrapper</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="RLMResults"><a class="viewcode-back" href="../../../generated/statsmodels.robust.robust_linear_model.RLMResults.html#statsmodels.robust.robust_linear_model.RLMResults">[docs]</a><span class="k">class</span> <span class="nc">RLMResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">):</span>
@@ -676,7 +675,7 @@
 <span class="sd">    statsmodels.base.model.LikelihoodModelResults</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RLMResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
                                          <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
@@ -782,7 +781,7 @@
             <span class="n">title</span> <span class="o">=</span> <span class="s2">"Robust linear Model Regression Results"</span>
 
         <span class="c1"># boiler plate</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="k">import</span> <span class="n">Summary</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">()</span>
         <span class="n">smry</span><span class="o">.</span><span class="n">add_table_2cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gleft</span><span class="o">=</span><span class="n">top_left</span><span class="p">,</span> <span class="n">gright</span><span class="o">=</span><span class="n">top_right</span><span class="p">,</span>
                              <span class="n">yname</span><span class="o">=</span><span class="n">yname</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="n">xname</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
@@ -831,7 +830,7 @@
 <span class="sd">        --------</span>
 <span class="sd">        statsmodels.iolib.summary2.Summary : class to hold summary results</span>
 <span class="sd">        """</span>
-        <span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="kn">import</span> <span class="n">summary2</span>
+        <span class="kn">from</span> <span class="nn">statsmodels.iolib</span> <span class="k">import</span> <span class="n">summary2</span>
         <span class="n">smry</span> <span class="o">=</span> <span class="n">summary2</span><span class="o">.</span><span class="n">Summary</span><span class="p">()</span>
         <span class="n">smry</span><span class="o">.</span><span class="n">add_base</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="n">float_format</span><span class="p">,</span>
                       <span class="n">xname</span><span class="o">=</span><span class="n">xname</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="n">yname</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
@@ -868,10 +867,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -880,6 +879,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

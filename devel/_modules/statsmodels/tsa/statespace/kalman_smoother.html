@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/tsa/statespace/kalman_smoother" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -285,12 +284,12 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.representation</span> <span class="kn">import</span> <span class="n">OptionWrapper</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.kalman_filter</span> <span class="kn">import</span> <span class="p">(</span><span class="n">KalmanFilter</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.representation</span> <span class="k">import</span> <span class="n">OptionWrapper</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.kalman_filter</span> <span class="k">import</span> <span class="p">(</span><span class="n">KalmanFilter</span><span class="p">,</span>
                                                       <span class="n">FilterResults</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.tools</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.tools</span> <span class="k">import</span> <span class="p">(</span>
     <span class="n">reorder_missing_matrix</span><span class="p">,</span> <span class="n">reorder_missing_vector</span><span class="p">,</span> <span class="n">copy_index_matrix</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace</span> <span class="kn">import</span> <span class="n">tools</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace</span> <span class="k">import</span> <span class="n">tools</span>
 
 <span class="n">SMOOTHER_STATE</span> <span class="o">=</span> <span class="mh">0x01</span>              <span class="c1"># Durbin and Koopman (2012), Chapter 4.4.2</span>
 <span class="n">SMOOTHER_STATE_COV</span> <span class="o">=</span> <span class="mh">0x02</span>          <span class="c1"># ibid., Chapter 4.4.3</span>
@@ -377,7 +376,7 @@
     <span class="n">smoother_output</span> <span class="o">=</span> <span class="n">SMOOTHER_ALL</span>
     <span class="n">smooth_method</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">,</span> <span class="n">k_states</span><span class="p">,</span> <span class="n">k_posdef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">results_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">,</span> <span class="n">k_states</span><span class="p">,</span> <span class="n">k_posdef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">results_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">kalman_smoother_classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Set the default results class</span>
         <span class="k">if</span> <span class="n">results_class</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -833,7 +832,7 @@
 
     <span class="n">_attributes</span> <span class="o">=</span> <span class="n">FilterResults</span><span class="o">.</span><span class="n">_model_attributes</span> <span class="o">+</span> <span class="n">_smoother_attributes</span>
 
-    <span class="k">def</span> <span class="nf">update_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">only_options</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="SmootherResults.update_representation"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.kalman_smoother.SmootherResults.update_representation.html#statsmodels.tsa.statespace.kalman_smoother.SmootherResults.update_representation">[docs]</a>    <span class="k">def</span> <span class="nf">update_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">only_options</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Update the results to match a given model</span>
 
@@ -859,9 +858,9 @@
         <span class="c1"># Initialize holders for smoothed forecasts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_smoothed_forecasts</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_smoothed_forecasts_error</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_smoothed_forecasts_error_cov</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_smoothed_forecasts_error_cov</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-    <span class="k">def</span> <span class="nf">update_smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smoother</span><span class="p">):</span>
+<div class="viewcode-block" id="SmootherResults.update_smoother"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.kalman_smoother.SmootherResults.update_smoother.html#statsmodels.tsa.statespace.kalman_smoother.SmootherResults.update_smoother">[docs]</a>    <span class="k">def</span> <span class="nf">update_smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smoother</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Update the smoother results</span>
 
@@ -982,7 +981,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">smoothed_measurement_disturbance_cov</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">scaled_smoothed_estimator</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">scaled_smoothed_estimator_cov</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">smoothing_error</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">smoothing_error</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span></div>
 
     <span class="k">def</span> <span class="nf">_get_smoothed_forecasts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smoothed_forecasts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1058,10 +1057,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1070,6 +1069,9 @@
     </div>
   </footer>
   <script src="../../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

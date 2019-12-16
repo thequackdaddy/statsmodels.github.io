@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/robust_models_0" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -404,16 +403,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -422,13 +421,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -436,35 +435,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -472,56 +471,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -615,9 +614,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.predstd</span> <span class="kn">import</span> <span class="n">wls_prediction_std</span>
 </pre></div>
 </div>
@@ -630,7 +629,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">stackloss</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">stackloss</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">as_pandas</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -643,9 +642,9 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">huber_t</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">robust</span><span class="o">.</span><span class="n">norms</span><span class="o">.</span><span class="n">HuberT</span><span class="p">())</span>
 <span class="n">hub_results</span> <span class="o">=</span> <span class="n">huber_t</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">yname</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">yname</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span>
             <span class="n">xname</span><span class="o">=</span><span class="p">[</span><span class="s1">'var_</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hub_results</span><span class="o">.</span><span class="n">params</span><span class="p">))]))</span>
 </pre></div>
 </div>
@@ -665,8 +664,8 @@ Method:                          IRLS   Df Model:                            3
 Norm:                          HuberT
 Scale Est.:                       mad
 Cov Type:                          H1
-Date:                Sat, 14 Dec 2019
-Time:                        18:58:44
+Date:                Sun, 15 Dec 2019
+Time:                        18:58:43
 No. Iterations:                    19
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -687,8 +686,8 @@ If the model instance has been used for another fit with different fit parameter
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">hub_results2</span> <span class="o">=</span> <span class="n">huber_t</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov</span><span class="o">=</span><span class="s2">"H2"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hub_results2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hub_results2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hub_results2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hub_results2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -709,7 +708,7 @@ If the model instance has been used for another fit with different fit parameter
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">andrew_mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">exog</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">robust</span><span class="o">.</span><span class="n">norms</span><span class="o">.</span><span class="n">AndrewWave</span><span class="p">())</span>
 <span class="n">andrew_results</span> <span class="o">=</span> <span class="n">andrew_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scale_est</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">robust</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">HuberScale</span><span class="p">(),</span> <span class="n">cov</span><span class="o">=</span><span class="s2">"H3"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">andrew_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Parameters: '</span><span class="p">,</span> <span class="n">andrew_results</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -752,9 +751,9 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -763,17 +762,17 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.00901555  0.53292013 -0.01560731]
-[0.45503492 0.07025125 0.00621615]
-[ 4.61883269  4.8974543   5.17087564  5.4390967   5.7021175   5.95993802
-  6.21255827  6.45997825  6.70219796  6.9392174   7.17103657  7.39765546
-  7.61907409  7.83529244  8.04631052  8.25212833  8.45274587  8.64816314
-  8.83838013  9.02339686  9.20321331  9.37782949  9.5472454   9.71146104
-  9.87047641 10.02429151 10.17290633 10.31632089 10.45453517 10.58754918
- 10.71536292 10.83797639 10.95538959 11.06760251 11.17461517 11.27642755
- 11.37303966 11.4644515  11.55066307 11.63167437 11.7074854  11.77809616
- 11.84350664 11.90371685 11.95872679 12.00853646 12.05314586 12.09255499
- 12.12676385 12.15577243]
+[ 5.09915871  0.51423201 -0.01244993]
+[0.43784794 0.06759781 0.00598136]
+[ 4.78791056  5.04654308  5.30102735  5.55136338  5.79755116  6.03959069
+  6.27748197  6.51122501  6.7408198   6.96626635  7.18756465  7.4047147
+  7.6177165   7.82657006  8.03127537  8.23183243  8.42824125  8.62050181
+  8.80861414  8.99257821  9.17239404  9.34806162  9.51958095  9.68695204
+  9.85017488 10.00924947 10.16417582 10.31495392 10.46158377 10.60406537
+ 10.74239873 10.87658384 11.0066207  11.13250932 11.25424969 11.37184181
+ 11.48528569 11.59458132 11.6997287  11.80072783 11.89757872 11.99028136
+ 12.07883576 12.1632419  12.2434998  12.31960945 12.39157086 12.45938402
+ 12.52304893 12.5825656 ]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -783,8 +782,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">resrlm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">resrlm</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">resrlm</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resrlm</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resrlm</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -793,8 +792,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.94650498e+00  5.16108621e-01 -4.81812534e-03]
-[0.1638591  0.02529763 0.00223845]
+[ 5.04834517e+00  4.95616125e-01 -1.91112034e-03]
+[0.13618244 0.02102473 0.00186036]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>
@@ -820,10 +819,10 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7febd18b78d0&gt;
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.legend.Legend at 0x122e4ea90&gt;
+</pre></div>
+</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -843,8 +842,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">X2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">res2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,8 +852,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.63808587 0.37684699]
-[0.40028119 0.03448985]
+[5.60096697 0.38973275]
+[0.37797235 0.03256763]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -864,8 +863,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">resrlm2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">resrlm2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">resrlm2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resrlm2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resrlm2</span><span class="o">.</span><span class="n">bse</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -874,8 +873,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.11183033 0.47170113]
-[0.12645429 0.01089581]
+[5.09994709 0.48037946]
+[0.10810884 0.0093151 ]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>
@@ -955,10 +954,10 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -967,6 +966,9 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

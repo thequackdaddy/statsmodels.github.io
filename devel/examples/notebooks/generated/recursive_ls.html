@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/recursive_ls" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -483,16 +482,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -501,13 +500,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -515,35 +514,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -551,56 +550,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -689,13 +688,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">pandas_datareader.data</span> <span class="kn">import</span> <span class="n">DataReader</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -707,7 +706,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">copper</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">copper</span><span class="o">.</span><span class="n">DESCRLONG</span><span class="p">)</span>
 
 <span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">copper</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
 <span class="n">dta</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'1951-01-01'</span><span class="p">,</span> <span class="s1">'1975-01-01'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'AS'</span><span class="p">)</span>
@@ -738,7 +737,7 @@ and a time trend.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
 </div>
@@ -751,7 +750,7 @@ and a time trend.
 <span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RecursiveLS</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -764,8 +763,8 @@ and a time trend.
 ==============================================================================
 Dep. Variable:       WORLDCONSUMPTION   No. Observations:                   25
 Model:                    RecursiveLS   Log Likelihood                -154.720
-Date:                Sat, 14 Dec 2019   R-squared:                       0.965
-Time:                        18:53:53   AIC                            319.441
+Date:                Sun, 15 Dec 2019   R-squared:                       0.965
+Time:                        18:59:02   AIC                            319.441
 Sample:                    01-01-1951   BIC                            325.535
                          - 01-01-1975   HQIC                           321.131
 Covariance Type:            nonrobust   Scale                       117717.127
@@ -794,8 +793,8 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">recursive_coefficients</span><span class="o">.</span><span class="n">filtered</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">res</span><span class="o">.</span><span class="n">plot_recursive_coefficient</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">k_exog</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">));</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">recursive_coefficients</span><span class="o">.</span><span class="n">filtered</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">res</span><span class="o">.</span><span class="n">plot_recursive_coefficient</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">k_exog</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -804,13 +803,13 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[     2.88890087      4.94795049   1558.41803037   1958.43326647
- -51474.95653949  -4168.95010015  -2252.61351252   -446.55910053
-  -5288.3979429   -6942.31935003  -7846.08902378  -6643.15120355
-  -6274.11014673  -7272.01695475  -6319.02647946  -5822.239286
-  -6256.30902239  -6737.40445526  -6477.42840909  -5995.90746352
-  -6450.80677247  -6022.92165976  -5258.35152305  -5320.89135907
-  -6562.37193091]
+[     2.88890087      4.94795049   1558.41803044   1958.43326658
+ -51474.9578655   -4168.94974946  -2252.61351091   -446.55908471
+  -5288.3979463   -6942.31935705  -7846.0890346   -6643.1512131
+  -6274.11015489  -7272.01696246  -6319.02648502  -5822.23929071
+  -6256.30902603  -6737.40445827  -6477.42841239  -5995.9074669
+  -6450.80677574  -6022.92166235  -5258.35152382  -5320.89135971
+  -6562.37193033]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -818,7 +817,7 @@ Warnings:
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/pandas/plotting/_matplotlib/converter.py:103: FutureWarning: Using an implicitly registered datetime converter for a matplotlib plotting method. The converter was registered by pandas on import. Future versions of pandas will require you to explicitly register matplotlib converters.
+/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/pandas/plotting/_matplotlib/converter.py:102: FutureWarning: Using an implicitly registered datetime converter for a matplotlib plotting method. The converter was registered by pandas on import. Future versions of pandas will require you to explicitly register matplotlib converters.
 
 To register the converters:
         &gt;&gt;&gt; from pandas.plotting import register_matplotlib_converters
@@ -839,7 +838,7 @@ To register the converters:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">cusum</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">cusum</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">plot_cusum</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -849,10 +848,10 @@ To register the converters:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.69971508  0.65841243  1.24629673  2.05476031  2.39888918  3.17861979
-  2.67244671  2.01783214  2.46131746  2.05268637  0.95054335 -1.04505547
- -2.55465287 -2.29908152 -1.45289493 -1.95353994 -1.35046621  0.15789828
-  0.63286529 -1.48184587]
+[ 0.69971508  0.65841244  1.24629674  2.05476032  2.39888918  3.1786198
+  2.67244672  2.01783215  2.46131747  2.05268638  0.95054336 -1.04505546
+ -2.55465286 -2.29908152 -1.45289492 -1.95353993 -1.3504662   0.15789829
+  0.6328653  -1.48184586]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -950,7 +949,7 @@ To register the converters:
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RecursiveLS</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -963,8 +962,8 @@ To register the converters:
 ==============================================================================
 Dep. Variable:               CPIAUCSL   No. Observations:                  141
 Model:                    RecursiveLS   Log Likelihood                 692.796
-Date:                Sat, 14 Dec 2019   R-squared:                       0.813
-Time:                        18:53:56   AIC                          -1381.592
+Date:                Sun, 15 Dec 2019   R-squared:                       0.813
+Time:                        18:59:06   AIC                          -1381.592
 Sample:                    01-01-1970   BIC                          -1375.694
                          - 01-01-2005   HQIC                         -1379.195
 Covariance Type:            nonrobust   Scale                            0.000
@@ -989,7 +988,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">res</span><span class="o">.</span><span class="n">plot_recursive_coefficient</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">);</span>
+<span></span><span class="n">res</span><span class="o">.</span><span class="n">plot_recursive_coefficient</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="bp">None</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1049,7 @@ Warnings:
 
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RecursiveLS</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="s1">'COPPERPRICE = ALUMPRICE'</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1062,11 +1061,11 @@ Warnings:
                            Statespace Model Results
 ==============================================================================
 Dep. Variable:       WORLDCONSUMPTION   No. Observations:                   25
-Model:                    RecursiveLS   Log Likelihood                -150.911
-Date:                Sat, 14 Dec 2019   R-squared:                       0.989
-Time:                        18:53:57   AIC                            309.822
-Sample:                    01-01-1951   BIC                            314.698
-                         - 01-01-1975   HQIC                           311.174
+Model:                    RecursiveLS   Log Likelihood                -161.429
+Date:                Sun, 15 Dec 2019   R-squared:                       0.989
+Time:                        18:59:07   AIC                            330.858
+Sample:                    01-01-1951   BIC                            335.734
+                         - 01-01-1975   HQIC                           332.210
 Covariance Type:            nonrobust   Scale                       137155.014
 ==================================================================================
                      coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -1085,7 +1084,7 @@ Prob(H) (two-sided):                  0.48   Kurtosis:                         2
 
 Warnings:
 [1] Parameters and covariance matrix estimates are RLS estimates conditional on the entire sample.
-[2] Covariance matrix is singular or near-singular, with condition number 2.75e+17. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 4.32e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 
@@ -1101,7 +1100,7 @@ Warnings:
     <span class="s1">'WORLDCONSUMPTION ~ COPPERPRICE + INCOMEINDEX + ALUMPRICE + INVENTORYINDEX'</span><span class="p">,</span> <span class="n">dta</span><span class="p">,</span>
     <span class="n">constraints</span><span class="o">=</span><span class="s1">'COPPERPRICE = ALUMPRICE'</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1113,11 +1112,11 @@ Warnings:
                            Statespace Model Results
 ==============================================================================
 Dep. Variable:       WORLDCONSUMPTION   No. Observations:                   25
-Model:                    RecursiveLS   Log Likelihood                -150.911
-Date:                Sat, 14 Dec 2019   R-squared:                       0.989
-Time:                        18:53:57   AIC                            309.822
-Sample:                    01-01-1951   BIC                            314.698
-                         - 01-01-1975   HQIC                           311.174
+Model:                    RecursiveLS   Log Likelihood                -161.429
+Date:                Sun, 15 Dec 2019   R-squared:                       0.989
+Time:                        18:59:07   AIC                            330.858
+Sample:                    01-01-1951   BIC                            335.734
+                         - 01-01-1975   HQIC                           332.210
 Covariance Type:            nonrobust   Scale                       137155.014
 ==================================================================================
                      coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -1136,7 +1135,7 @@ Prob(H) (two-sided):                  0.48   Kurtosis:                         2
 
 Warnings:
 [1] Parameters and covariance matrix estimates are RLS estimates conditional on the entire sample.
-[2] Covariance matrix is singular or near-singular, with condition number 2.75e+17. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 4.32e+17. Standard errors may be unstable.
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1144,7 +1143,7 @@ Warnings:
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/build/statsmodels/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency AS-JAN will be used.
+/Users/peter/git/statsmodels/statsmodels/tsa/base/tsa_model.py:163: ValueWarning: No frequency information was provided, so inferred frequency AS-JAN will be used.
   % freq, ValueWarning)
 </pre></div></div>
 </div>
@@ -1198,10 +1197,10 @@ Warnings:
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1210,6 +1209,9 @@ Warnings:
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

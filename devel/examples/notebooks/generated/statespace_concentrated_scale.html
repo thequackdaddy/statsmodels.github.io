@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#examples/notebooks/generated/statespace_concentrated_scale" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -402,16 +401,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -420,13 +419,13 @@ div.nboutput.container div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
+div.nboutput div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
+div.nbinput,
+div.nboutput {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -434,35 +433,35 @@ div.nboutput.container {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
+    div.nbinput,
+    div.nboutput {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput.container {
+div.nbinput {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast.container {
+div.nblast {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput.container div.prompt pre {
+div.nbinput div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput.container div.prompt pre {
+div.nboutput div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
+div.nbinput div.prompt,
+div.nboutput div.prompt {
     min-width: 7ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -470,56 +469,56 @@ div.nboutput.container div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput.container div.prompt.empty {
+    div.nboutput div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
+div.nbinput div.input_area,
+div.nboutput div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput.container div.input_area {
+div.nbinput div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
+div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
+div.nboutput div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput.container div.output_area.stderr {
+div.nboutput div.output_area.stderr {
     background: #fdd;
 }
 
@@ -604,9 +603,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="n">dta</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">macrodata</span><span class="o">.</span><span class="n">load_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
 <span class="n">dta</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">PeriodIndex</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">'1959Q1'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'2009Q3'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'Q'</span><span class="p">)</span>
@@ -618,7 +617,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/travis/miniconda/envs/statsmodels-test/lib/python3.7/site-packages/ipykernel_launcher.py:6: FutureWarning: Creating a PeriodIndex by passing range endpoints is deprecated.  Use `pandas.period_range` instead.
+/Users/peter/.pyenv/versions/anaconda3-2019.03/envs/smtest/lib/python3.7/site-packages/ipykernel_launcher.py:6: FutureWarning: Creating a PeriodIndex by passing range endpoints is deprecated.  Use `pandas.period_range` instead.
 
 </pre></div></div>
 </div>
@@ -687,8 +686,8 @@ y_t &amp; = \alpha_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\vare
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">LocalLevel</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">infl</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -701,8 +700,8 @@ y_t &amp; = \alpha_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\vare
 ==============================================================================
 Dep. Variable:                   infl   No. Observations:                  203
 Model:                     LocalLevel   Log Likelihood                -457.632
-Date:                Sat, 14 Dec 2019   AIC                            921.263
-Time:                        18:55:15   BIC                            931.203
+Date:                Sun, 15 Dec 2019   AIC                            921.263
+Time:                        18:58:41   BIC                            931.203
 Sample:                    03-31-1959   HQIC                           925.285
                          - 09-30-2009
 Covariance Type:                  opg
@@ -728,7 +727,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -737,7 +736,7 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{'fopt': 2.2543435113821833, 'gopt': array([-7.10298487e-06, -9.72852909e-06]), 'fcalls': 27, 'warnflag': 0, 'converged': True, 'iterations': 7}
+{'fopt': 2.2543435113821833, 'gopt': array([-7.10302928e-06, -9.72857350e-06]), 'fcalls': 27, 'warnflag': 0, 'converged': True, 'iterations': 7}
 </pre></div></div>
 </div>
 
@@ -769,7 +768,7 @@ Warnings:
         <span class="bp">self</span><span class="p">[</span><span class="s1">'selection'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="p">[</span><span class="s1">'state_cov'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">filter_concentrated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">filter_concentrated</span> <span class="o">=</span> <span class="bp">True</span>
 
     <span class="k">def</span> <span class="nf">transform_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unconstrained</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">unconstrained</span><span class="o">**</span><span class="mi">2</span>
@@ -791,8 +790,8 @@ Warnings:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mod_conc</span> <span class="o">=</span> <span class="n">LocalLevelConcentrated</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">infl</span><span class="p">)</span>
-<span class="n">res_conc</span> <span class="o">=</span> <span class="n">mod_conc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">res_conc</span> <span class="o">=</span> <span class="n">mod_conc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -805,8 +804,8 @@ Warnings:
 ==================================================================================
 Dep. Variable:                       infl   No. Observations:                  203
 Model:             LocalLevelConcentrated   Log Likelihood                -457.632
-Date:                    Sat, 14 Dec 2019   AIC                            921.263
-Time:                            18:55:15   BIC                            931.203
+Date:                    Sun, 15 Dec 2019   AIC                            921.263
+Time:                            18:58:41   BIC                            931.203
 Sample:                        03-31-1959   HQIC                           925.285
                              - 09-30-2009   Scale                            0.745
 Covariance Type:                      opg
@@ -832,7 +831,7 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,13 +852,13 @@ Warnings:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Original model'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'var.level     = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'var.irregular = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Original model'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'var.level     = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'var.irregular = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Concentrated model'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'scale         = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'h * scale     = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">res_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Concentrated model'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'scale         = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'h * scale     = </span><span class="si">%.5f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">res_conc</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">res_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -889,11 +888,11 @@ h * scale     = 3.37338
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Typical approach</span>
 <span class="n">mod_ar</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">cpi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'ct'</span><span class="p">)</span>
-<span class="n">res_ar</span> <span class="o">=</span> <span class="n">mod_ar</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">res_ar</span> <span class="o">=</span> <span class="n">mod_ar</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="c1"># Estimating the model with the scale concentrated out</span>
-<span class="n">mod_ar_conc</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">cpi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'ct'</span><span class="p">,</span> <span class="n">concentrate_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">res_ar_conc</span> <span class="o">=</span> <span class="n">mod_ar_conc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mod_ar_conc</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">dta</span><span class="o">.</span><span class="n">cpi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">'ct'</span><span class="p">,</span> <span class="n">concentrate_scale</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">res_ar_conc</span> <span class="o">=</span> <span class="n">mod_ar_conc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -903,13 +902,13 @@ h * scale     = 3.37338
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Loglikelihood'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar</span><span class="o">.</span><span class="n">llf</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar_conc</span><span class="o">.</span><span class="n">llf</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Loglikelihood'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar</span><span class="o">.</span><span class="n">llf</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar_conc</span><span class="o">.</span><span class="n">llf</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Parameters'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">res_ar</span><span class="o">.</span><span class="n">params</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">res_ar_conc</span><span class="o">.</span><span class="n">params</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">res_ar_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">,)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Parameters'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">res_ar</span><span class="o">.</span><span class="n">params</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">res_ar_conc</span><span class="o">.</span><span class="n">params</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">res_ar_conc</span><span class="o">.</span><span class="n">scale</span><span class="p">,)))</span>
 </pre></div>
 </div>
 </div>
@@ -933,9 +932,9 @@ Parameters
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Optimizer iterations'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">[</span><span class="s1">'iterations'</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar_conc</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">[</span><span class="s1">'iterations'</span><span class="p">])</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Optimizer iterations'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Original model:     </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">[</span><span class="s1">'iterations'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'- Concentrated model: </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">res_ar_conc</span><span class="o">.</span><span class="n">mle_retvals</span><span class="p">[</span><span class="s1">'iterations'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -999,10 +998,10 @@ Optimizer iterations
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1011,6 +1010,9 @@ Optimizer iterations
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

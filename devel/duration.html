@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#duration" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -403,7 +402,7 @@ testing procedures for comparing survival distributions.</p>
 <p>Here we create a <code class="docutils literal notranslate"><span class="pre">SurvfuncRight</span></code> object using data from the
 <cite>flchain</cite> study, which is available through the R datasets repository.
 We fit the survival distribution only for the female subjects.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"flchain"</span><span class="p">,</span> <span class="s2">"survival"</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s2">"F"</span><span class="p">,</span> <span class="p">:]</span>
@@ -432,7 +431,7 @@ to not plot the censoring symbols:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">pt</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can also add a 95% simultaneous confidence band to the plot.
@@ -458,8 +457,8 @@ the same axes:</p>
     <span class="n">sf</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">SurvfuncRight</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"futime"</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"death"</span><span class="p">])</span>
     <span class="n">sf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">li</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()</span>
-<span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">li</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">li</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figlegend</span><span class="p">((</span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">sexes</span><span class="p">,</span> <span class="s2">"center right"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Proportion alive"</span><span class="p">)</span>
@@ -493,8 +492,8 @@ in a linear or generalized linear regression model.  These models
 express the covariate effects in terms of “hazard ratios”, meaning the
 the hazard (instantaneous event rate) is multiplied by a given factor
 depending on the value of the covariates.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">"flchain"</span><span class="p">,</span> <span class="s2">"survival"</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s2">"chapter"</span><span class="p">]</span>
@@ -508,7 +507,7 @@ depending on the value of the covariates.</p>
                 <span class="s2">"np.sqrt(kappa) + np.sqrt(lam) + year + mgus"</span><span class="p">,</span>
                 <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">ties</span><span class="o">=</span><span class="s2">"efron"</span><span class="p">)</span>
 <span class="n">rslt</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">rslt</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">rslt</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="examples/index.html#statsmodels-examples"><span class="std std-ref">Examples</span></a> for more detailed examples.</p>
@@ -618,10 +617,10 @@ depending on the value of the covariates.</p>
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -630,6 +629,9 @@ depending on the value of the covariates.</p>
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

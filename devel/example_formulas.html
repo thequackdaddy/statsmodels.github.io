@@ -63,7 +63,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -93,7 +92,7 @@
   <a href="#example_formulas" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -408,11 +407,11 @@ docs:</p>
 </ul>
 
 <h2 id="loading-modules-and-functions">Loading modules and functions<a class="headerlink" href="#loading-modules-and-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
 
-<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">pandas</span>
 </pre></div>
@@ -454,14 +453,14 @@ and list-wise delete to remove missing observations:</p>
 
 <span class="gp">In [9]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                Lottery   R-squared:                       0.338</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.287</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     6.636</span>
-<span class="go">Date:                Sat, 14 Dec 2019   Prob (F-statistic):           1.07e-05</span>
-<span class="go">Time:                        18:59:57   Log-Likelihood:                -375.30</span>
+<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.07e-05</span>
+<span class="go">Time:                        19:00:43   Log-Likelihood:                -375.30</span>
 <span class="go">No. Observations:                  85   AIC:                             764.6</span>
 <span class="go">Df Residuals:                      78   BIC:                             781.7</span>
 <span class="go">Df Model:                           6                                         </span>
@@ -499,7 +498,7 @@ explicitly as categorical, we could have done so by using the <code class="docut
 operator:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ Literacy + Wealth + C(Region)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [12]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">In [12]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 <span class="go">Intercept         38.651655</span>
 <span class="go">C(Region)[T.E]   -15.427785</span>
 <span class="go">C(Region)[T.N]   -10.016961</span>
@@ -525,7 +524,7 @@ matrix.</p>
 can remove the intercept from a model by:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ Literacy + Wealth + C(Region) -1 '</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [14]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">In [14]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 <span class="go">C(Region)[C]    38.651655</span>
 <span class="go">C(Region)[E]    23.223870</span>
 <span class="go">C(Region)[N]    28.634694</span>
@@ -542,21 +541,19 @@ can remove the intercept from a model by:</p>
 <p>“:” adds a new column to the design matrix with the product of the other
 two columns. “*” will also include the individual columns that were
 multiplied together:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">res1</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ Literacy : Wealth - 1'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<pre class="literal-block">In [15]: res1 = smf.ols(formula='Lottery ~ Literacy : Wealth - 1', data=df).fit()
 
-<span class="gp">In [16]: </span><span class="n">res2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ Literacy * Wealth - 1'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+In [16]: res2 = smf.ols(formula='Lottery ~ Literacy * Wealth - 1', data=df).fit()
 
-<span class="gp">In [17]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res1</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="go">Literacy:Wealth    0.018176</span>
-<span class="go">dtype: float64</span>
+In [17]: print(res1.params)
+Literacy:Wealth    0.018176
+dtype: float64
 
-<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="go">Literacy           0.427386</span>
-<span class="go">Wealth             1.080987</span>
-<span class="go">Literacy:Wealth   -0.013609</span>
-<span class="go">dtype: float64</span>
-</pre></div>
-</div>
+In [18]: print(res2.params)
+Literacy           0.427386
+Wealth             1.080987
+Literacy:Wealth   -0.013609
+dtype: float64</pre>
 <p>Many other things are possible with operators. Please consult the <a class="reference external" href="https://patsy.readthedocs.io/en/latest/formulas.html">patsy
 docs</a> to learn
 more.</p>
@@ -567,7 +564,7 @@ more.</p>
 <p>You can apply vectorized functions to the variables in your model:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ np.log(Literacy)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">In [20]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 <span class="go">Intercept           115.609119</span>
 <span class="go">np.log(Literacy)    -20.393959</span>
 <span class="go">dtype: float64</span>
@@ -580,7 +577,7 @@ more.</p>
 
 <span class="gp">In [22]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">'Lottery ~ log_plus_1(Literacy)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="gp">In [23]: </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">In [23]: </span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 <span class="go">Intercept               136.003079</span>
 <span class="go">log_plus_1(Literacy)    -20.393959</span>
 <span class="go">dtype: float64</span>
@@ -598,58 +595,54 @@ can still use <code class="docutils literal notranslate"><span class="pre">patsy
 Those matrices can then be fed to the fitting function as <code class="docutils literal notranslate"><span class="pre">endog</span></code> and
 <code class="docutils literal notranslate"><span class="pre">exog</span></code> arguments.</p>
 <p>To generate <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="kn">import</span> <span class="nn">patsy</span>
+<pre class="literal-block">In [24]: import patsy
 
-<span class="gp">In [25]: </span><span class="n">f</span> <span class="o">=</span> <span class="s1">'Lottery ~ Literacy * Wealth'</span>
+In [25]: f = 'Lottery ~ Literacy * Wealth'
 
-<span class="gp">In [26]: </span><span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">'matrix'</span><span class="p">)</span>
+In [26]: y, X = patsy.dmatrices(f, df, return_type='matrix')
 
-<span class="gp">In [27]: </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">[[41.]</span>
-<span class="go"> [38.]</span>
-<span class="go"> [66.]</span>
-<span class="go"> [80.]</span>
-<span class="go"> [79.]]</span>
+In [27]: print(y[:5])
+[[41.]
+ [38.]
+ [66.]
+ [80.]
+ [79.]]
 
-<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">[[   1.   37.   73. 2701.]</span>
-<span class="go"> [   1.   51.   22. 1122.]</span>
-<span class="go"> [   1.   13.   61.  793.]</span>
-<span class="go"> [   1.   46.   76. 3496.]</span>
-<span class="go"> [   1.   69.   83. 5727.]]</span>
-</pre></div>
-</div>
+In [28]: print(X[:5])
+[[   1.   37.   73. 2701.]
+ [   1.   51.   22. 1122.]
+ [   1.   13.   61.  793.]
+ [   1.   46.   76. 3496.]
+ [   1.   69.   83. 5727.]]</pre>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">X</span></code> would be instances of <code class="docutils literal notranslate"><span class="pre">patsy.DesignMatrix</span></code> which is a subclass of <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
 <p>To generate pandas data frames:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">f</span> <span class="o">=</span> <span class="s1">'Lottery ~ Literacy * Wealth'</span>
+<pre class="literal-block">In [29]: f = 'Lottery ~ Literacy * Wealth'
 
-<span class="gp">In [30]: </span><span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">'dataframe'</span><span class="p">)</span>
+In [30]: y, X = patsy.dmatrices(f, df, return_type='dataframe')
 
-<span class="gp">In [31]: </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">   Lottery</span>
-<span class="go">0     41.0</span>
-<span class="go">1     38.0</span>
-<span class="go">2     66.0</span>
-<span class="go">3     80.0</span>
-<span class="go">4     79.0</span>
+In [31]: print(y[:5])
+   Lottery
+0     41.0
+1     38.0
+2     66.0
+3     80.0
+4     79.0
 
-<span class="gp">In [32]: </span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">   Intercept  Literacy  Wealth  Literacy:Wealth</span>
-<span class="go">0        1.0      37.0    73.0           2701.0</span>
-<span class="go">1        1.0      51.0    22.0           1122.0</span>
-<span class="go">2        1.0      13.0    61.0            793.0</span>
-<span class="go">3        1.0      46.0    76.0           3496.0</span>
-<span class="go">4        1.0      69.0    83.0           5727.0</span>
-</pre></div>
-</div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+In [32]: print(X[:5])
+  Intercept  Literacy  Wealth  Literacy:Wealth
+0        1.0      37.0    73.0           2701.0
+1        1.0      51.0    22.0           1122.0
+2        1.0      13.0    61.0            793.0
+3        1.0      46.0    76.0           3496.0
+4        1.0      69.0    83.0           5727.0</pre>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="k">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
 <span class="go">Dep. Variable:                Lottery   R-squared:                       0.309</span>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.283</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     12.06</span>
-<span class="go">Date:                Sat, 14 Dec 2019   Prob (F-statistic):           1.32e-06</span>
-<span class="go">Time:                        18:59:58   Log-Likelihood:                -377.13</span>
+<span class="go">Date:                Sun, 15 Dec 2019   Prob (F-statistic):           1.32e-06</span>
+<span class="go">Time:                        19:00:44   Log-Likelihood:                -377.13</span>
 <span class="go">No. Observations:                  85   AIC:                             762.3</span>
 <span class="go">Df Residuals:                      81   BIC:                             772.0</span>
 <span class="go">Df Model:                           3                                         </span>
@@ -724,10 +717,10 @@ Those matrices can then be fed to the fitting function as <code class="docutils 
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -736,6 +729,9 @@ Those matrices can then be fed to the fitting function as <code class="docutils 
     </div>
   </footer>
   <script src="_static/javascripts/application.js"></script>
+  
+    <script src="_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

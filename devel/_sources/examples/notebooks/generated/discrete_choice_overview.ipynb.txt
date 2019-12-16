@@ -187,8 +187,8 @@
       "Dep. Variable:                      y   No. Observations:                   32\n",
       "Model:                          Logit   Df Residuals:                       28\n",
       "Method:                           MLE   Df Model:                            3\n",
-      "Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.3740\n",
-      "Time:                        18:55:06   Log-Likelihood:                -12.890\n",
+      "Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.3740\n",
+      "Time:                        18:58:51   Log-Likelihood:                -12.890\n",
       "converged:                       True   LL-Null:                       -20.592\n",
       "Covariance Type:            nonrobust   LLR p-value:                  0.001502\n",
       "==============================================================================\n",
@@ -408,8 +408,8 @@
       "Dep. Variable:                      y   No. Observations:                20190\n",
       "Model:                        Poisson   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
-      "Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                 0.06343\n",
-      "Time:                        18:55:06   Log-Likelihood:                -62420.\n",
+      "Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                 0.06343\n",
+      "Time:                        18:58:51   Log-Likelihood:                -62420.\n",
       "converged:                       True   LL-Null:                       -66647.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -455,7 +455,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals\n",
+      "/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals\n",
       "  \"Check mle_retvals\", ConvergenceWarning)\n"
      ]
     },
@@ -468,8 +468,8 @@
       "Dep. Variable:                      y   No. Observations:                20190\n",
       "Model:               NegativeBinomial   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
-      "Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                 0.01845\n",
-      "Time:                        18:55:07   Log-Likelihood:                -43384.\n",
+      "Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                 0.01845\n",
+      "Time:                        18:58:52   Log-Likelihood:                -43384.\n",
       "converged:                      False   LL-Null:                       -44199.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -527,7 +527,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals\n",
+      "/Users/peter/git/statsmodels/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals\n",
       "  \"Check mle_retvals\", ConvergenceWarning)\n"
      ]
     },
@@ -540,8 +540,8 @@
       "Dep. Variable:                      y   No. Observations:                  944\n",
       "Model:                        MNLogit   Df Residuals:                      908\n",
       "Method:                           MLE   Df Model:                           30\n",
-      "Date:                Sat, 14 Dec 2019   Pseudo R-squ.:                  0.1648\n",
-      "Time:                        18:55:08   Log-Likelihood:                -1461.9\n",
+      "Date:                Sun, 15 Dec 2019   Pseudo R-squ.:                  0.1648\n",
+      "Time:                        18:58:52   Log-Likelihood:                -1461.9\n",
       "converged:                      False   LL-Null:                       -1750.3\n",
       "Covariance Type:            nonrobust   LLR p-value:                1.827e-102\n",
       "==============================================================================\n",
@@ -624,7 +624,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.5"
+   "version": "3.7.3"
   }
  },
  "nbformat": 4,

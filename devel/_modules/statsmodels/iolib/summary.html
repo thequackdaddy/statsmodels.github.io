@@ -63,7 +63,6 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
@@ -91,7 +90,7 @@
   <a href="#_modules/statsmodels/iolib/summary" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../../../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -277,15 +276,15 @@
             
   <h1 id="modules-statsmodels-iolib-summary--page-root">Source code for statsmodels.iolib.summary</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">zip_longest</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">zip_longest</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="kn">import</span> <span class="n">lrange</span><span class="p">,</span> <span class="n">lmap</span><span class="p">,</span> <span class="n">lzip</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.python</span> <span class="k">import</span> <span class="n">lrange</span><span class="p">,</span> <span class="n">lmap</span><span class="p">,</span> <span class="n">lzip</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="kn">import</span> <span class="n">SimpleTable</span>
-<span class="kn">from</span> <span class="nn">statsmodels.iolib.tableformatting</span> <span class="kn">import</span> <span class="p">(</span><span class="n">gen_fmt</span><span class="p">,</span> <span class="n">fmt_2</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.table</span> <span class="k">import</span> <span class="n">SimpleTable</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.tableformatting</span> <span class="k">import</span> <span class="p">(</span><span class="n">gen_fmt</span><span class="p">,</span> <span class="n">fmt_2</span><span class="p">,</span>
                                                <span class="n">fmt_params</span><span class="p">,</span> <span class="n">fmt_2cols</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">.summary2</span> <span class="kn">import</span> <span class="n">_model_types</span>
+<span class="kn">from</span> <span class="nn">.summary2</span> <span class="k">import</span> <span class="n">_model_types</span>
 
 
 <span class="k">def</span> <span class="nf">forg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prec</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
@@ -792,7 +791,7 @@
 
     <span class="n">_</span><span class="p">,</span> <span class="n">xname</span> <span class="o">=</span> <span class="n">_getnames</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="n">yname</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="n">xname</span><span class="p">)</span>
 
-    <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+    <span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
     <span class="n">table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">params</span><span class="p">,</span> <span class="n">std_err</span><span class="p">,</span> <span class="n">tvalues</span><span class="p">,</span> <span class="n">pvalues</span><span class="p">,</span> <span class="n">conf_int</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">param_header</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">xname</span><span class="p">)</span>
 
@@ -957,7 +956,7 @@
 <span class="sd">        merged tables as a single SimpleTable instance</span>
 
 <span class="sd">    '''</span>
-    <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+    <span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
     <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tables</span><span class="p">[:]):</span> <span class="c1">#[1:]:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
@@ -1022,21 +1021,21 @@
 <span class="sd">        extra lines that are added to the text output, used for warnings</span>
 <span class="sd">        and explanations.</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_text</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">"""</span><span class="se">\n</span><span class="s1">'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">"""'</span>
 
     <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''Display as HTML in IPython notebook.'''</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_html</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">add_table_2cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span>  <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gleft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gright</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Summary.add_table_2cols"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.add_table_2cols.html#statsmodels.iolib.summary.Summary.add_table_2cols">[docs]</a>    <span class="k">def</span> <span class="nf">add_table_2cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span>  <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gleft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gright</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Add a double table, 2 tables with one column merged horizontally</span>
@@ -1062,9 +1061,9 @@
 
         <span class="n">table</span> <span class="o">=</span> <span class="n">summary_top</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">gleft</span><span class="o">=</span><span class="n">gleft</span><span class="p">,</span> <span class="n">gright</span><span class="o">=</span><span class="n">gright</span><span class="p">,</span>
                             <span class="n">yname</span><span class="o">=</span><span class="n">yname</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="n">xname</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">add_table_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span>
+<div class="viewcode-block" id="Summary.add_table_params"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.add_table_params.html#statsmodels.iolib.summary.Summary.add_table_params">[docs]</a>    <span class="k">def</span> <span class="nf">add_table_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span>
                          <span class="n">use_t</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">'''create and add a table for the parameter estimates</span>
 
@@ -1097,9 +1096,9 @@
                                              <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="n">use_t</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'params has to be 1d or 2d'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">add_extra_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etext</span><span class="p">):</span>
+<div class="viewcode-block" id="Summary.add_extra_txt"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.add_extra_txt.html#statsmodels.iolib.summary.Summary.add_extra_txt">[docs]</a>    <span class="k">def</span> <span class="nf">add_extra_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etext</span><span class="p">):</span>
         <span class="sd">'''add additional text that will be added at the end in text format</span>
 
 <span class="sd">        Parameters</span>
@@ -1108,9 +1107,9 @@
 <span class="sd">            string with lines that are added to the text output.</span>
 
 <span class="sd">        '''</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">etext</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">etext</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">as_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Summary.as_text"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.as_text.html#statsmodels.iolib.summary.Summary.as_text">[docs]</a>    <span class="k">def</span> <span class="nf">as_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''return tables as string</span>
 
 <span class="sd">        Returns</span>
@@ -1122,9 +1121,9 @@
         <span class="n">txt</span> <span class="o">=</span> <span class="n">summary_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">,</span> <span class="n">return_fmt</span><span class="o">=</span><span class="s1">'text'</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">txt</span> <span class="o">=</span> <span class="n">txt</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span>
-        <span class="k">return</span> <span class="n">txt</span>
+        <span class="k">return</span> <span class="n">txt</span></div>
 
-    <span class="k">def</span> <span class="nf">as_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Summary.as_latex"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.as_latex.html#statsmodels.iolib.summary.Summary.as_latex">[docs]</a>    <span class="k">def</span> <span class="nf">as_latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''return tables as string</span>
 
 <span class="sd">        Returns</span>
@@ -1142,9 +1141,9 @@
         <span class="n">latex</span> <span class="o">=</span> <span class="n">summary_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">,</span> <span class="n">return_fmt</span><span class="o">=</span><span class="s1">'latex'</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">latex</span> <span class="o">=</span> <span class="n">latex</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">' </span><span class="se">\\</span><span class="s1">newline</span><span class="se">\n</span><span class="s1"> '</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">latex</span>
+        <span class="k">return</span> <span class="n">latex</span></div>
 
-    <span class="k">def</span> <span class="nf">as_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Summary.as_csv"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.as_csv.html#statsmodels.iolib.summary.Summary.as_csv">[docs]</a>    <span class="k">def</span> <span class="nf">as_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''return tables as string</span>
 
 <span class="sd">        Returns</span>
@@ -1156,9 +1155,9 @@
         <span class="n">csv</span> <span class="o">=</span> <span class="n">summary_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">,</span> <span class="n">return_fmt</span><span class="o">=</span><span class="s1">'csv'</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">csv</span> <span class="o">=</span> <span class="n">csv</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span>
-        <span class="k">return</span> <span class="n">csv</span>
+        <span class="k">return</span> <span class="n">csv</span></div>
 
-    <span class="k">def</span> <span class="nf">as_html</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Summary.as_html"><a class="viewcode-back" href="../../../generated/generated/statsmodels.iolib.summary.Summary.as_html.html#statsmodels.iolib.summary.Summary.as_html">[docs]</a>    <span class="k">def</span> <span class="nf">as_html</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">'''return tables as string</span>
 
 <span class="sd">        Returns</span>
@@ -1170,7 +1169,7 @@
         <span class="n">html</span> <span class="o">=</span> <span class="n">summary_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">,</span> <span class="n">return_fmt</span><span class="o">=</span><span class="s1">'html'</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">html</span> <span class="o">=</span> <span class="n">html</span> <span class="o">+</span> <span class="s1">'&lt;br/&gt;&lt;br/&gt;'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_txt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">'&lt;br/&gt;'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">html</span></div>
+        <span class="k">return</span> <span class="n">html</span></div></div>
 </pre></div>
 
           </article>
@@ -1195,10 +1194,10 @@
               
           </div>
             Last updated on
-              Dec 14, 2019.
+              Dec 15, 2019.
             <br/>
             Created using
-            <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.2.
+            <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1207,6 +1206,9 @@
     </div>
   </footer>
   <script src="../../../_static/javascripts/application.js"></script>
+  
+    <script src="../../../_static/javascripts/dropdown.js"></script>
+  
   <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>
