@@ -188,7 +188,7 @@
       "Model:                          Logit   Df Residuals:                       28\n",
       "Method:                           MLE   Df Model:                            3\n",
       "Date:                Mon, 16 Dec 2019   Pseudo R-squ.:                  0.3740\n",
-      "Time:                        16:46:26   Log-Likelihood:                -12.890\n",
+      "Time:                        17:54:42   Log-Likelihood:                -12.890\n",
       "converged:                       True   LL-Null:                       -20.592\n",
       "Covariance Type:            nonrobust   LLR p-value:                  0.001502\n",
       "==============================================================================\n",
@@ -394,14 +394,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Optimization terminated successfully."
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n",
+      "Optimization terminated successfully.\n",
       "         Current function value: 3.091609\n",
       "         Iterations 6\n"
      ]
@@ -416,7 +409,7 @@
       "Model:                        Poisson   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
       "Date:                Mon, 16 Dec 2019   Pseudo R-squ.:                 0.06343\n",
-      "Time:                        16:46:27   Log-Likelihood:                -62420.\n",
+      "Time:                        17:54:42   Log-Likelihood:                -62420.\n",
       "converged:                       True   LL-Null:                       -66647.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -476,7 +469,7 @@
       "Model:               NegativeBinomial   Df Residuals:                    20180\n",
       "Method:                           MLE   Df Model:                            9\n",
       "Date:                Mon, 16 Dec 2019   Pseudo R-squ.:                 0.01845\n",
-      "Time:                        16:46:27   Log-Likelihood:                -43384.\n",
+      "Time:                        17:54:43   Log-Likelihood:                -43384.\n",
       "converged:                      False   LL-Null:                       -44199.\n",
       "Covariance Type:            nonrobust   LLR p-value:                     0.000\n",
       "==============================================================================\n",
@@ -548,7 +541,7 @@
       "Model:                        MNLogit   Df Residuals:                      908\n",
       "Method:                           MLE   Df Model:                           30\n",
       "Date:                Mon, 16 Dec 2019   Pseudo R-squ.:                  0.1648\n",
-      "Time:                        16:46:29   Log-Likelihood:                -1461.9\n",
+      "Time:                        17:54:44   Log-Likelihood:                -1461.9\n",
       "converged:                      False   LL-Null:                       -1750.3\n",
       "Covariance Type:            nonrobust   LLR p-value:                1.827e-102\n",
       "==============================================================================\n",

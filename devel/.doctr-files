@@ -31,7 +31,7 @@ devel/_images/examples_notebooks_generated_discrete_choice_example_64_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_12_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_12_1.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_14_0.png
-devel/_images/examples_notebooks_generated_exponential_smoothing_16_0.png
+devel/_images/examples_notebooks_generated_exponential_smoothing_16_1.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_21_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_4_0.png
 devel/_images/examples_notebooks_generated_exponential_smoothing_6_0.png
@@ -217,6 +217,7 @@ devel/_images/examples_notebooks_generated_wls_15_0.png
 devel/_images/exponential_smoothing.png
 devel/_images/fairs_data.png
 devel/_images/formulas_intro.png
+devel/_images/gee-cov-struct.png
 devel/_images/gee-score-tests.png
 devel/_images/generic_mle.png
 devel/_images/gettingstarted_0.png
@@ -5708,6 +5709,7 @@ devel/_static/images/exponential_smoothing.png
 devel/_static/images/fairs_data.png
 devel/_static/images/favicon.png
 devel/_static/images/formulas_intro.png
+devel/_static/images/gee-cov-struct.png
 devel/_static/images/gee-score-tests.png
 devel/_static/images/generic_mle.png
 devel/_static/images/glm_formulas.png

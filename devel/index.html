@@ -107,7 +107,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+695)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+697)</span>
           <span class="md-header-nav__topic"> Introduction </span>
         </div>
       </div>
@@ -188,7 +188,7 @@
       
     </a>
     <a href="#"
-       title="statsmodels">statsmodels v0.11.0dev0 (+695)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+697)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -232,7 +232,7 @@
     </li>
     <li class="md-nav__item">
     
-      <a href="release/index.html" class="md-nav__link">What’s new in statsmodels</a>
+      <a href="release/index.html" class="md-nav__link">Release Notes</a>
       
     </li>
     <li class="md-nav__item">
@@ -316,7 +316,7 @@ Here is a simple example using ordinary least squares:</p>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.333</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     22.20</span>
 <span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           1.90e-08</span>
-<span class="go">Time:                        16:50:55   Log-Likelihood:                -379.82</span>
+<span class="go">Time:                        17:59:31   Log-Likelihood:                -379.82</span>
 <span class="go">No. Observations:                  86   AIC:                             765.6</span>
 <span class="go">Df Residuals:                      83   BIC:                             773.0</span>
 <span class="go">Df Model:                           2                                         </span>
@@ -363,26 +363,26 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                      y   R-squared:                       0.130</span>
-<span class="go">Model:                            OLS   Adj. R-squared:                  0.113</span>
-<span class="go">Method:                 Least Squares   F-statistic:                     7.277</span>
-<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):            0.00114</span>
-<span class="go">Time:                        16:50:55   Log-Likelihood:                -15.777</span>
-<span class="go">No. Observations:                 100   AIC:                             37.55</span>
-<span class="go">Df Residuals:                      97   BIC:                             45.37</span>
+<span class="go">Dep. Variable:                      y   R-squared:                       0.375</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.362</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     29.06</span>
+<span class="go">Date:                Mon, 16 Dec 2019   Prob (F-statistic):           1.29e-10</span>
+<span class="go">Time:                        17:59:32   Log-Likelihood:                -15.279</span>
+<span class="go">No. Observations:                 100   AIC:                             36.56</span>
+<span class="go">Df Residuals:                      97   BIC:                             44.37</span>
 <span class="go">Df Model:                           2                                         </span>
 <span class="go">Covariance Type:            nonrobust                                         </span>
 <span class="go">==============================================================================</span>
 <span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>          <span class="mf">1.6162</span>      <span class="mf">0.083</span>     <span class="mf">19.414</span>      <span class="mf">0.000</span>       <span class="mf">1.451</span>       <span class="mf">1.781</span>
-<span class="n">x1</span>            <span class="o">-</span><span class="mf">0.0348</span>      <span class="mf">0.096</span>     <span class="o">-</span><span class="mf">0.363</span>      <span class="mf">0.717</span>      <span class="o">-</span><span class="mf">0.225</span>       <span class="mf">0.155</span>
-<span class="n">x2</span>             <span class="mf">0.3786</span>      <span class="mf">0.103</span>      <span class="mf">3.678</span>      <span class="mf">0.000</span>       <span class="mf">0.174</span>       <span class="mf">0.583</span>
+<span class="n">const</span>          <span class="mf">1.3336</span>      <span class="mf">0.074</span>     <span class="mf">18.140</span>      <span class="mf">0.000</span>       <span class="mf">1.188</span>       <span class="mf">1.480</span>
+<span class="n">x1</span>             <span class="mf">0.1867</span>      <span class="mf">0.101</span>      <span class="mf">1.854</span>      <span class="mf">0.067</span>      <span class="o">-</span><span class="mf">0.013</span>       <span class="mf">0.387</span>
+<span class="n">x2</span>             <span class="mf">0.7278</span>      <span class="mf">0.102</span>      <span class="mf">7.170</span>      <span class="mf">0.000</span>       <span class="mf">0.526</span>       <span class="mf">0.929</span>
 <span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                       44.077   Durbin-Watson:                   2.086
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.670</span>
-<span class="ne">Skew</span>:                          -0.075   Prob(JB):                       0.0356
-<span class="ne">Kurtosis</span>:                       1.744   Cond. No.                         5.82
+<span class="ne">Omnibus</span>:                       21.194   Durbin-Watson:                   2.058
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">5.206</span>
+<span class="ne">Skew</span>:                           0.113   Prob(JB):                       0.0741
+<span class="ne">Kurtosis</span>:                       1.905   Cond. No.                         5.12
 <span class="o">==============================================================================</span>
 
 <span class="ne">Warnings</span>:
@@ -413,7 +413,7 @@ of the 9th Python in Science Conference.</em> 2010.</p>
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release/index.html">What’s new in statsmodels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About statsmodels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev/index.html">Developer Page</a></li>
