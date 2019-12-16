@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+695)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.exponential_smoothing </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+695)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -323,11 +323,17 @@
 <span class="sd">        (Holt-Winters) models. For example, 4 for quarterly data with an</span>
 <span class="sd">        annual cycle or 7 for daily data with a weekly cycle. Default is</span>
 <span class="sd">        no seasonal effects.</span>
-<span class="sd">    initialization_method: {'estimated', 'concentrated',</span>
-<span class="sd">                            'heuristic', 'known'}, optional</span>
-<span class="sd">        Method for initialize the recursions. If 'known' initialization is</span>
-<span class="sd">        used, then `initial_level` must be passed, as well as `initial_slope`</span>
-<span class="sd">        and `initial_seasonal` if applicable. Default is 'estimated'.</span>
+<span class="sd">    initialization_method: str, optional</span>
+<span class="sd">        Method for initialize the recursions. One of:</span>
+
+<span class="sd">        * 'estimated'</span>
+<span class="sd">        * 'concentrated'</span>
+<span class="sd">        * 'heuristic'</span>
+<span class="sd">        * 'known'</span>
+
+<span class="sd">        If 'known' initialization is used, then `initial_level` must be</span>
+<span class="sd">        passed, as well as `initial_slope` and `initial_seasonal` if</span>
+<span class="sd">        applicable. Default is 'estimated'.</span>
 <span class="sd">    initial_level : float, optional</span>
 <span class="sd">        The initial level component. Only used if initialization is 'known'.</span>
 <span class="sd">    initial_trend : float, optional</span>
@@ -337,7 +343,7 @@
 <span class="sd">        or length `seasonal - 1` (in which case the last initial value</span>
 <span class="sd">        is computed to make the average effect zero). Only used if</span>
 <span class="sd">        initialization is 'known'.</span>
-<span class="sd">    bounds : iterable of tuple, optional</span>
+<span class="sd">    bounds : iterable[tuple], optional</span>
 <span class="sd">        An iterable containing bounds for the parameters. Must contain four</span>
 <span class="sd">        elements, where each element is a tuple of the form (lower, upper).</span>
 <span class="sd">        Default is (0.0001, 0.9999) for the level, trend, and seasonal</span>

@@ -93,7 +93,7 @@
       "Model:                            OLS   Adj. R-squared:                  1.000\n",
       "Method:                 Least Squares   F-statistic:                 4.020e+06\n",
       "Date:                Mon, 16 Dec 2019   Prob (F-statistic):          2.83e-239\n",
-      "Time:                        16:16:02   Log-Likelihood:                -146.51\n",
+      "Time:                        16:49:49   Log-Likelihood:                -146.51\n",
       "No. Observations:                 100   AIC:                             299.0\n",
       "Df Residuals:                      97   BIC:                             306.8\n",
       "Df Model:                           2                                         \n",
@@ -195,7 +195,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.928\n",
       "Method:                 Least Squares   F-statistic:                     211.8\n",
       "Date:                Mon, 16 Dec 2019   Prob (F-statistic):           6.30e-27\n",
-      "Time:                        16:16:02   Log-Likelihood:                -34.438\n",
+      "Time:                        16:49:49   Log-Likelihood:                -34.438\n",
       "No. Observations:                  50   AIC:                             76.88\n",
       "Df Residuals:                      46   BIC:                             84.52\n",
       "Df Model:                           3                                         \n",
@@ -392,7 +392,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.976\n",
       "Method:                 Least Squares   F-statistic:                     671.7\n",
       "Date:                Mon, 16 Dec 2019   Prob (F-statistic):           5.69e-38\n",
-      "Time:                        16:16:03   Log-Likelihood:                -64.643\n",
+      "Time:                        16:49:49   Log-Likelihood:                -64.643\n",
       "No. Observations:                  50   AIC:                             137.3\n",
       "Df Residuals:                      46   BIC:                             144.9\n",
       "Df Model:                           3                                         \n",
@@ -623,7 +623,7 @@
       "Model:                            OLS   Adj. R-squared:                  0.992\n",
       "Method:                 Least Squares   F-statistic:                     330.3\n",
       "Date:                Mon, 16 Dec 2019   Prob (F-statistic):           4.98e-10\n",
-      "Time:                        16:16:03   Log-Likelihood:                -109.62\n",
+      "Time:                        16:49:50   Log-Likelihood:                -109.62\n",
       "No. Observations:                  16   AIC:                             233.2\n",
       "Df Residuals:                       9   BIC:                             238.6\n",
       "Df Model:                           6                                         \n",
@@ -835,14 +835,7 @@
       "12  258559.048569 -29296.334617  \n",
       "13  104434.061226 -30025.564763  \n",
       "14  275103.677859 -36060.612522  \n",
-      "15 -110176.960671 -28053.834556  "
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n"
+      "15 -110176.960671 -28053.834556  \n"
      ]
     },
     {

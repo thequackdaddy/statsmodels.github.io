@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+695)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.simulation_smoother </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+695)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -659,19 +659,20 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">generated_measurement_disturbance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
-<span class="sd">        Randomly drawn measurement disturbance variates, used to construct</span>
-<span class="sd">        `generated_obs`.</span>
+<span class="sd">        Randomly drawn measurement disturbance variates</span>
+
+<span class="sd">        Used to construct `generated_obs`.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            \varepsilon_t^+ ~ N(0, H_t)</span>
 
 <span class="sd">        If `disturbance_variates` were provided to the `simulate()` method,</span>
 <span class="sd">        then this returns those variates (which were N(0,1)) transformed to the</span>
 <span class="sd">        distribution above.</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generated_measurement_disturbance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">nobs</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">k_endog</span>

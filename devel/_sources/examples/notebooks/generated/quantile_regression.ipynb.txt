@@ -143,7 +143,7 @@
       "Model:                       QuantReg   Bandwidth:                       64.51\n",
       "Method:                 Least Squares   Sparsity:                        209.3\n",
       "Date:                Mon, 16 Dec 2019   No. Observations:                  235\n",
-      "Time:                        16:15:14   Df Residuals:                      233\n",
+      "Time:                        16:49:00   Df Residuals:                      233\n",
       "                                        Df Model:                            1\n",
       "==============================================================================\n",
       "                 coef    std err          t      P>|t|      [0.025      0.975]\n",

@@ -391,7 +391,7 @@
       "Model:                    local linear trend   Log Likelihood                 769.632\n",
       "                   + damped stochastic cycle   AIC                          -1527.263\n",
       "Date:                       Mon, 16 Dec 2019   BIC                          -1506.455\n",
-      "Time:                               16:14:17   HQIC                         -1518.876\n",
+      "Time:                               16:48:00   HQIC                         -1518.876\n",
       "Sample:                           01-01-1948                                         \n",
       "                                - 01-01-2008                                         \n",
       "Covariance Type:                         opg                                         \n",

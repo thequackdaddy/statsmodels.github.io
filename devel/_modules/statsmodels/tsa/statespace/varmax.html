@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+695)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.varmax </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+695)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -790,7 +790,7 @@
 
         <span class="k">return</span> <span class="n">param_names</span>
 
-    <span class="k">def</span> <span class="nf">transform_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unconstrained</span><span class="p">):</span>
+<div class="viewcode-block" id="VARMAX.transform_params"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAX.transform_params.html#statsmodels.tsa.statespace.varmax.VARMAX.transform_params">[docs]</a>    <span class="k">def</span> <span class="nf">transform_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unconstrained</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Transform unconstrained parameters used by the optimizer to constrained</span>
 <span class="sd">        parameters used in likelihood evaluation</span>
@@ -871,9 +871,9 @@
             <span class="n">constrained</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">unconstrained</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">constrained</span>
+        <span class="k">return</span> <span class="n">constrained</span></div>
 
-    <span class="k">def</span> <span class="nf">untransform_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constrained</span><span class="p">):</span>
+<div class="viewcode-block" id="VARMAX.untransform_params"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAX.untransform_params.html#statsmodels.tsa.statespace.varmax.VARMAX.untransform_params">[docs]</a>    <span class="k">def</span> <span class="nf">untransform_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constrained</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Transform constrained parameters used in likelihood evaluation</span>
 <span class="sd">        to unconstrained parameters used by the optimizer.</span>
@@ -948,7 +948,7 @@
             <span class="n">unconstrained</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">constrained</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">unconstrained</span>
+        <span class="k">return</span> <span class="n">unconstrained</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_can_fix_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_names</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">VARMAX</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_validate_can_fix_params</span><span class="p">(</span><span class="n">param_names</span><span class="p">)</span>
@@ -980,7 +980,7 @@
                         <span class="s1">' must either fix all moving average parameters or'</span>
                         <span class="s1">' none.'</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">includes_fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="VARMAX.update"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAX.update.html#statsmodels.tsa.statespace.varmax.VARMAX.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">includes_fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                <span class="n">complex_step</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="n">transformed</span><span class="p">,</span>
                                     <span class="n">includes_fixed</span><span class="o">=</span><span class="n">includes_fixed</span><span class="p">)</span>
@@ -1044,7 +1044,7 @@
 
         <span class="c1"># 4. Observation covariance</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">measurement_error</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_idx_obs_cov</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ssm</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_idx_obs_cov</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_obs_cov</span><span class="p">]</span></div>
 
     <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
     <span class="k">def</span> <span class="nf">_set_final_exog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">):</span>
@@ -1087,7 +1087,7 @@
         <span class="k">finally</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_final_exog</span> <span class="o">=</span> <span class="n">cache_value</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEModel</span><span class="o">.</span><span class="n">simulate</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="VARMAX.simulate"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAX.simulate.html#statsmodels.tsa.statespace.varmax.VARMAX.simulate">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEModel</span><span class="o">.</span><span class="n">simulate</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">state_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">repetitions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extend_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1101,7 +1101,7 @@
                 <span class="n">extend_model</span><span class="o">=</span><span class="n">extend_model</span><span class="p">,</span> <span class="n">extend_kwargs</span><span class="o">=</span><span class="n">extend_kwargs</span><span class="p">,</span>
                 <span class="n">transformed</span><span class="o">=</span><span class="n">transformed</span><span class="p">,</span> <span class="n">includes_fixed</span><span class="o">=</span><span class="n">includes_fixed</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">out</span></div>
+        <span class="k">return</span> <span class="n">out</span></div></div>
 
 
 <div class="viewcode-block" id="VARMAXResults"><a class="viewcode-back" href="../../../../generated/statsmodels.tsa.statespace.varmax.VARMAXResults.html#statsmodels.tsa.statespace.varmax.VARMAXResults">[docs]</a><span class="k">class</span> <span class="nc">VARMAXResults</span><span class="p">(</span><span class="n">MLEResults</span><span class="p">):</span>
@@ -1172,7 +1172,7 @@
                 <span class="n">ma_params</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">k_endog</span> <span class="o">*</span> <span class="n">k_ma</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">k_endog</span><span class="p">,</span> <span class="n">k_endog</span><span class="p">,</span> <span class="n">k_ma</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
-    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="VARMAXResults.extend"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAXResults.extend.html#statsmodels.tsa.statespace.varmax.VARMAXResults.extend">[docs]</a>    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># If we have exog, then the last element of predicted_state and</span>
         <span class="c1"># predicted_state_cov are nan (since they depend on the exog associated</span>
         <span class="c1"># with the first out-of-sample point), so we need to compute them here</span>
@@ -1197,7 +1197,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
     <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
     <span class="k">def</span> <span class="nf">_set_final_predicted_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">out_of_sample</span><span class="p">):</span>
@@ -1251,7 +1251,7 @@
             <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">filter_results</span><span class="o">.</span><span class="n">predicted_state</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">get_prediction</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="VARMAXResults.get_prediction"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAXResults.get_prediction.html#statsmodels.tsa.statespace.varmax.VARMAXResults.get_prediction">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">get_prediction</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1276,9 +1276,9 @@
                 <span class="n">out</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">VARMAXResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span>
                     <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="n">dynamic</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
                     <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span> <span class="n">extend_kwargs</span><span class="o">=</span><span class="n">extend_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">out</span>
+        <span class="k">return</span> <span class="n">out</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">simulate</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="VARMAXResults.simulate"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAXResults.simulate.html#statsmodels.tsa.statespace.varmax.VARMAXResults.simulate">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">simulate</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsimulations</span><span class="p">,</span> <span class="n">measurement_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">state_shocks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">repetitions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extend_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1309,9 +1309,9 @@
                 <span class="n">extend_model</span><span class="o">=</span><span class="n">extend_model</span><span class="p">,</span> <span class="n">extend_kwargs</span><span class="o">=</span><span class="n">extend_kwargs</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">out</span>
+        <span class="k">return</span> <span class="n">out</span></div>
 
-    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="VARMAXResults.summary"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.statespace.varmax.VARMAXResults.summary.html#statsmodels.tsa.statespace.varmax.VARMAXResults.summary">[docs]</a>    <span class="nd">@Appender</span><span class="p">(</span><span class="n">MLEResults</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">separate_params</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">statsmodels.iolib.summary</span> <span class="kn">import</span> <span class="n">summary_params</span>
 
@@ -1436,7 +1436,7 @@
                                    <span class="n">strip_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
                 <span class="n">summary</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">summary</span></div>
+        <span class="k">return</span> <span class="n">summary</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">VARMAXResultsWrapper</span><span class="p">(</span><span class="n">MLEResultsWrapper</span><span class="p">):</span>

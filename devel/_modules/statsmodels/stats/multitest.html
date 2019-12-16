@@ -106,7 +106,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+693)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+695)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.multitest </span>
         </div>
       </div>
@@ -187,7 +187,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+693)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+695)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -340,7 +340,7 @@
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">multitest_alias</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'hs'</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="multipletests"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.multipletests.html#statsmodels.stats.multitest.multipletests">[docs]</a><span class="k">def</span> <span class="nf">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'hs'</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">returnsorted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Test results and p-value correction for multiple tests</span>
@@ -540,10 +540,10 @@
         <span class="k">del</span> <span class="n">pvals_corrected</span>
         <span class="n">reject_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">reject</span><span class="p">)</span>
         <span class="n">reject_</span><span class="p">[</span><span class="n">sortind</span><span class="p">]</span> <span class="o">=</span> <span class="n">reject</span>
-        <span class="k">return</span> <span class="n">reject_</span><span class="p">,</span> <span class="n">pvals_corrected_</span><span class="p">,</span> <span class="n">alphacSidak</span><span class="p">,</span> <span class="n">alphacBonf</span>
+        <span class="k">return</span> <span class="n">reject_</span><span class="p">,</span> <span class="n">pvals_corrected_</span><span class="p">,</span> <span class="n">alphacSidak</span><span class="p">,</span> <span class="n">alphacBonf</span></div>
 
 
-<span class="k">def</span> <span class="nf">fdrcorrection</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'indep'</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="fdrcorrection"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.fdrcorrection.html#statsmodels.stats.multitest.fdrcorrection">[docs]</a><span class="k">def</span> <span class="nf">fdrcorrection</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'indep'</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''pvalue correction for false discovery rate</span>
 
 <span class="sd">    This covers Benjamini/Hochberg for independent or positively correlated and</span>
@@ -617,10 +617,10 @@
         <span class="n">reject_</span><span class="p">[</span><span class="n">pvals_sortind</span><span class="p">]</span> <span class="o">=</span> <span class="n">reject</span>
         <span class="k">return</span> <span class="n">reject_</span><span class="p">,</span> <span class="n">pvals_corrected_</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">reject</span><span class="p">,</span> <span class="n">pvals_corrected</span>
+        <span class="k">return</span> <span class="n">reject</span><span class="p">,</span> <span class="n">pvals_corrected</span></div>
 
 
-<span class="k">def</span> <span class="nf">fdrcorrection_twostage</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'bky'</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="fdrcorrection_twostage"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.fdrcorrection_twostage.html#statsmodels.stats.multitest.fdrcorrection_twostage">[docs]</a><span class="k">def</span> <span class="nf">fdrcorrection_twostage</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'bky'</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                            <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">'''(iterated) two stage linear step-up procedure with estimation of number of true</span>
 <span class="sd">    hypotheses</span>
@@ -726,10 +726,10 @@
         <span class="n">reject</span><span class="p">[</span><span class="n">pvals_sortind</span><span class="p">]</span> <span class="o">=</span> <span class="n">rej</span>
         <span class="k">return</span> <span class="n">reject</span><span class="p">,</span> <span class="n">pvalscorr_</span><span class="p">,</span> <span class="n">ntests</span> <span class="o">-</span> <span class="n">ri</span><span class="p">,</span> <span class="n">alpha_stages</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">rej</span><span class="p">,</span> <span class="n">pvalscorr</span><span class="p">,</span> <span class="n">ntests</span> <span class="o">-</span> <span class="n">ri</span><span class="p">,</span> <span class="n">alpha_stages</span>
+        <span class="k">return</span> <span class="n">rej</span><span class="p">,</span> <span class="n">pvalscorr</span><span class="p">,</span> <span class="n">ntests</span> <span class="o">-</span> <span class="n">ri</span><span class="p">,</span> <span class="n">alpha_stages</span></div>
 
 
-<span class="k">def</span> <span class="nf">local_fdr</span><span class="p">(</span><span class="n">zscores</span><span class="p">,</span> <span class="n">null_proportion</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">null_pdf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<div class="viewcode-block" id="local_fdr"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.local_fdr.html#statsmodels.stats.multitest.local_fdr">[docs]</a><span class="k">def</span> <span class="nf">local_fdr</span><span class="p">(</span><span class="n">zscores</span><span class="p">,</span> <span class="n">null_proportion</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">null_pdf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
               <span class="n">nbins</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Calculate local FDR values for a list of Z-scores.</span>
@@ -816,10 +816,10 @@
 
     <span class="n">fdr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">fdr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fdr</span>
+    <span class="k">return</span> <span class="n">fdr</span></div>
 
 
-<span class="k">class</span> <span class="nc">NullDistribution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="NullDistribution"><a class="viewcode-back" href="../../../generated/statsmodels.stats.multitest.NullDistribution.html#statsmodels.stats.multitest.NullDistribution">[docs]</a><span class="k">class</span> <span class="nc">NullDistribution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Estimate a Gaussian distribution for the null Z-scores.</span>
 
@@ -966,7 +966,7 @@
 <span class="sd">        """</span>
 
         <span class="n">zval</span> <span class="o">=</span> <span class="p">(</span><span class="n">zscores</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sd</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">zval</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sd</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">zval</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sd</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span></div>
 </pre></div>
 
           </article>
