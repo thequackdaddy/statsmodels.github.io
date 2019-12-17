@@ -108,7 +108,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+699)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+701)</span>
           <span class="md-header-nav__topic"> Prediction (out of sample) </span>
         </div>
       </div>
@@ -189,7 +189,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+699)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+701)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -411,11 +411,6 @@
     </li>
     <li class="md-nav__item">
     
-      <a href="../../../release/index.html" class="md-nav__link">Release Notes</a>
-      
-    </li>
-    <li class="md-nav__item">
-    
       <a href="../../../api.html" class="md-nav__link">API Reference</a>
       
     </li>
@@ -427,6 +422,11 @@
     <li class="md-nav__item">
     
       <a href="../../../dev/index.html" class="md-nav__link">Developer Page</a>
+      
+    </li>
+    <li class="md-nav__item">
+    
+      <a href="../../../release/index.html" class="md-nav__link">Release Notes</a>
       
     </li>
   </ul>
@@ -733,27 +733,27 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
                             OLS Regression Results
 ==============================================================================
-Dep. Variable:                      y   R-squared:                       0.982
-Model:                            OLS   Adj. R-squared:                  0.981
-Method:                 Least Squares   F-statistic:                     850.3
-Date:                Mon, 16 Dec 2019   Prob (F-statistic):           2.81e-40
-Time:                        18:45:47   Log-Likelihood:                -1.3330
-No. Observations:                  50   AIC:                             10.67
-Df Residuals:                      46   BIC:                             18.31
+Dep. Variable:                      y   R-squared:                       0.983
+Model:                            OLS   Adj. R-squared:                  0.982
+Method:                 Least Squares   F-statistic:                     889.3
+Date:                Tue, 17 Dec 2019   Prob (F-statistic):           1.02e-40
+Time:                        00:24:50   Log-Likelihood:                 1.0064
+No. Observations:                  50   AIC:                             5.987
+Df Residuals:                      46   BIC:                             13.64
 Df Model:                           3
 Covariance Type:            nonrobust
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.9280      0.088     55.805      0.000       4.750       5.106
-x1             0.5133      0.014     37.688      0.000       0.486       0.541
-x2             0.5769      0.054     10.775      0.000       0.469       0.685
-x3            -0.0215      0.001    -17.981      0.000      -0.024      -0.019
+const          5.1304      0.084     60.879      0.000       4.961       5.300
+x1             0.4858      0.013     37.381      0.000       0.460       0.512
+x2             0.5155      0.051     10.090      0.000       0.413       0.618
+x3            -0.0191      0.001    -16.759      0.000      -0.021      -0.017
 ==============================================================================
-Omnibus:                        3.135   Durbin-Watson:                   2.015
-Prob(Omnibus):                  0.209   Jarque-Bera (JB):                2.922
-Skew:                           0.578   Prob(JB):                        0.232
-Kurtosis:                       2.746   Cond. No.                         221.
+Omnibus:                        1.621   Durbin-Watson:                   2.175
+Prob(Omnibus):                  0.445   Jarque-Bera (JB):                1.233
+Skew:                           0.152   Prob(JB):                        0.540
+Kurtosis:                       2.293   Cond. No.                         221.
 ==============================================================================
 
 Warnings:
@@ -778,15 +778,15 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.39047068  4.9131434   5.39102989  5.79268926  6.09802746  6.30159872
-  6.4135002   6.45771314  6.46816274  6.4831444   6.53903185  6.66430107
-  6.87485179  7.17139515  7.53933693  7.95117527  8.37101922  8.76048545
-  9.0850046   9.31950084  9.45251183  9.48807192  9.44504932  9.35404611
-  9.25237039  9.1779067   9.16289165  9.22861757  9.38193425  9.61412349
-  9.90233152 10.2133238  10.50894535 10.75238951 10.91424517 10.97732895
- 10.93950835 10.81405212 10.62745027 10.41506181 10.21530536 10.0633471
-  9.98532307  9.99404504 10.08689566 10.24625841 10.44241195 10.63841332
- 10.79616748 10.88268625]
+[ 4.65229029  5.13008498  5.56788809  5.9376037   6.22127558  6.41403731
+  6.52491183  6.57532901  6.59560479  6.6199603   6.6808995   6.80386883
+  7.00307642  7.27915779  7.61907136  7.9982412   8.38459479  8.74383239
+  9.04506245  9.26587696  9.39603305  9.43913586  9.41204622  9.34211046
+  9.26266748  9.2075713   9.20562889  9.2758673   9.42440757  9.64345901
+  9.91259928 10.20212964 10.47795441 10.70718277 10.86353266 10.93164882
+ 10.90962563 10.80932019 10.65440424 10.47647496 10.30986362 10.1859951
+ 10.1282248  10.1480015  10.24298626 10.39743679 10.58479382 10.77204471
+ 10.92514734 11.01462315]
 </pre></div></div>
 </div>
 
@@ -810,8 +810,8 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[10.85982936 10.68542276 10.38209053 10.00139013  9.61118927  9.2790496
-  9.05568521  8.96254607  8.98656633  9.0833633 ]
+[11.00913681 10.86826887 10.61223646 10.28711184  9.9535423   9.67190164
+  9.48750848  9.41953075  9.45629266  9.55813338]
 </pre></div></div>
 </div>
 
@@ -872,10 +872,10 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Intercept           4.928004
-x1                  0.513290
-np.sin(x1)          0.576906
-I((x1 - 5) ** 2)   -0.021501
+Intercept           5.130396
+x1                  0.485826
+np.sin(x1)          0.515530
+I((x1 - 5) ** 2)   -0.019124
 dtype: float64
 </pre></div></div>
 </div>
@@ -895,16 +895,16 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    10.859829
-1    10.685423
-2    10.382091
-3    10.001390
-4     9.611189
-5     9.279050
-6     9.055685
-7     8.962546
-8     8.986566
-9     9.083363
+0    11.009137
+1    10.868269
+2    10.612236
+3    10.287112
+4     9.953542
+5     9.671902
+6     9.487508
+7     9.419531
+8     9.456293
+9     9.558133
 dtype: float64
 </pre></div></div>
 </div>
@@ -958,7 +958,7 @@ dtype: float64
               
           </div>
             Last updated on
-              Dec 16, 2019.
+              Dec 17, 2019.
             <br/>
             Created using
             <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
