@@ -76,7 +76,7 @@
   
   <script src="_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = ""versions.json"",
+    var json_loc = "_static/versions.json",
         target_loc = "../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -116,7 +116,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> Introduction </span>
         </div>
       </div>
@@ -197,7 +197,7 @@
       
     </a>
     <a href="#"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -325,7 +325,7 @@ Here is a simple example using ordinary least squares:</p>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.333</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     22.20</span>
 <span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           1.90e-08</span>
-<span class="go">Time:                        19:08:27   Log-Likelihood:                -379.82</span>
+<span class="go">Time:                        23:44:05   Log-Likelihood:                -379.82</span>
 <span class="go">No. Observations:                  86   AIC:                             765.6</span>
 <span class="go">Df Residuals:                      83   BIC:                             773.0</span>
 <span class="go">Df Model:                           2                                         </span>
@@ -372,26 +372,26 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                      y   R-squared:                       0.169</span>
-<span class="go">Model:                            OLS   Adj. R-squared:                  0.152</span>
-<span class="go">Method:                 Least Squares   F-statistic:                     9.896</span>
-<span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           0.000123</span>
-<span class="go">Time:                        19:08:27   Log-Likelihood:                -19.864</span>
-<span class="go">No. Observations:                 100   AIC:                             45.73</span>
-<span class="go">Df Residuals:                      97   BIC:                             53.54</span>
+<span class="go">Dep. Variable:                      y   R-squared:                       0.114</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.096</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     6.236</span>
+<span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):            0.00283</span>
+<span class="go">Time:                        23:44:05   Log-Likelihood:                -17.692</span>
+<span class="go">No. Observations:                 100   AIC:                             41.38</span>
+<span class="go">Df Residuals:                      97   BIC:                             49.20</span>
 <span class="go">Df Model:                           2                                         </span>
 <span class="go">Covariance Type:            nonrobust                                         </span>
 <span class="go">==============================================================================</span>
 <span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>          <span class="mf">1.5223</span>      <span class="mf">0.086</span>     <span class="mf">17.687</span>      <span class="mf">0.000</span>       <span class="mf">1.351</span>       <span class="mf">1.693</span>
-<span class="n">x1</span>             <span class="mf">0.0814</span>      <span class="mf">0.108</span>      <span class="mf">0.755</span>      <span class="mf">0.452</span>      <span class="o">-</span><span class="mf">0.132</span>       <span class="mf">0.295</span>
-<span class="n">x2</span>             <span class="mf">0.4784</span>      <span class="mf">0.108</span>      <span class="mf">4.447</span>      <span class="mf">0.000</span>       <span class="mf">0.265</span>       <span class="mf">0.692</span>
+<span class="n">const</span>          <span class="mf">1.5651</span>      <span class="mf">0.081</span>     <span class="mf">19.276</span>      <span class="mf">0.000</span>       <span class="mf">1.404</span>       <span class="mf">1.726</span>
+<span class="n">x1</span>             <span class="mf">0.1139</span>      <span class="mf">0.099</span>      <span class="mf">1.147</span>      <span class="mf">0.254</span>      <span class="o">-</span><span class="mf">0.083</span>       <span class="mf">0.311</span>
+<span class="n">x2</span>             <span class="mf">0.3581</span>      <span class="mf">0.108</span>      <span class="mf">3.326</span>      <span class="mf">0.001</span>       <span class="mf">0.144</span>       <span class="mf">0.572</span>
 <span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                       41.400   Durbin-Watson:                   2.176
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.460</span>
-<span class="ne">Skew</span>:                          -0.028   Prob(JB):                       0.0395
-<span class="ne">Kurtosis</span>:                       1.756   Cond. No.                         5.82
+<span class="ne">Omnibus</span>:                       16.291   Durbin-Watson:                   2.033
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">4.537</span>
+<span class="ne">Skew</span>:                          -0.066   Prob(JB):                        0.103
+<span class="ne">Kurtosis</span>:                       1.965   Cond. No.                         5.55
 <span class="o">==============================================================================</span>
 
 <span class="ne">Warnings</span>:

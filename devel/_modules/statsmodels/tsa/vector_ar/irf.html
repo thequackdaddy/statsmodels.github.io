@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.vector_ar.irf </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -488,7 +488,6 @@
 <span class="sd">            Number of replications for monte carlo standard errors</span>
 <span class="sd">        seed: int</span>
 <span class="sd">            np.random.seed for Monte Carlo replications</span>
-
 <span class="sd">        """</span>
 
         <span class="k">if</span> <span class="n">orth</span><span class="p">:</span>
@@ -547,7 +546,7 @@
         <span class="c1"># memoize dict for G matrix function</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_g_memo</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">def</span> <span class="nf">cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.cov"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.cov.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.cov">[docs]</a>    <span class="k">def</span> <span class="nf">cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Compute asymptotic standard errors for impulse response coefficients</span>
 
@@ -567,9 +566,9 @@
             <span class="n">Gi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gi</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Gi</span><span class="o">.</span><span class="n">T</span>
 
-        <span class="k">return</span> <span class="n">covs</span>
+        <span class="k">return</span> <span class="n">covs</span></div>
 
-    <span class="k">def</span> <span class="nf">errband_mc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<div class="viewcode-block" id="IRAnalysis.errband_mc"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.errband_mc.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.errband_mc">[docs]</a>    <span class="k">def</span> <span class="nf">errband_mc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                    <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        IRF Monte Carlo integrated error bands</span>
@@ -583,9 +582,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">irf_errband_mc</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="n">repl</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span>
                                         <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
-                                        <span class="n">burn</span><span class="o">=</span><span class="n">burn</span><span class="p">,</span> <span class="n">cum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                                        <span class="n">burn</span><span class="o">=</span><span class="n">burn</span><span class="p">,</span> <span class="n">cum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">err_band_sz1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<div class="viewcode-block" id="IRAnalysis.err_band_sz1"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz1.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz1">[docs]</a>    <span class="k">def</span> <span class="nf">err_band_sz1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                      <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        IRF Sims-Zha error band method 1. Assumes symmetric error bands around</span>
@@ -640,9 +639,9 @@
                 <span class="n">lower</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:,</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]]</span><span class="o">*</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eigva</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]])</span>
                 <span class="n">upper</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:,</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]]</span><span class="o">*</span><span class="n">q</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eigva</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]])</span>
 
-        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span>
+        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span></div>
 
-    <span class="k">def</span> <span class="nf">err_band_sz2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+<div class="viewcode-block" id="IRAnalysis.err_band_sz2"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz2.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz2">[docs]</a>    <span class="k">def</span> <span class="nf">err_band_sz2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
                      <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        IRF Sims-Zha error band method 2.</span>
@@ -704,9 +703,9 @@
                 <span class="n">lower</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">gamma_sort</span><span class="p">[</span><span class="n">indx</span><span class="p">[</span><span class="mi">0</span><span class="p">],:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
                 <span class="n">upper</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">gamma_sort</span><span class="p">[</span><span class="n">indx</span><span class="p">[</span><span class="mi">1</span><span class="p">],:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span>
+        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span></div>
 
-    <span class="k">def</span> <span class="nf">err_band_sz3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+<div class="viewcode-block" id="IRAnalysis.err_band_sz3"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz3.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.err_band_sz3">[docs]</a>    <span class="k">def</span> <span class="nf">err_band_sz3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">svar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
                      <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        IRF Sims-Zha error band method 3. Does not assume symmetric error bands around mean.</span>
@@ -785,7 +784,7 @@
                 <span class="n">lower</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">gamma_sort</span><span class="p">[</span><span class="n">indx</span><span class="p">[</span><span class="mi">0</span><span class="p">],:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
                 <span class="n">upper</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">irfs</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">gamma_sort</span><span class="p">[</span><span class="n">indx</span><span class="p">[</span><span class="mi">1</span><span class="p">],:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span>
+        <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span></div>
 
     <span class="k">def</span> <span class="nf">_eigval_decomp_SZ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">irf_resim</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -794,7 +793,6 @@
 <span class="sd">        W: array of eigenvectors</span>
 <span class="sd">        eigva: list of eigenvalues</span>
 <span class="sd">        k: matrix indicating column # of largest eigenvalue for each c_i,j</span>
-
 <span class="sd">        """</span>
         <span class="n">neqs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span>
         <span class="n">periods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">periods</span>
@@ -867,7 +865,7 @@
 
         <span class="k">return</span> <span class="n">covs</span>
 
-    <span class="k">def</span> <span class="nf">cum_effect_cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.cum_effect_cov"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_effect_cov.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_effect_cov">[docs]</a>    <span class="k">def</span> <span class="nf">cum_effect_cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Compute asymptotic standard errors for cumulative impulse response</span>
 <span class="sd">        coefficients</span>
@@ -882,7 +880,6 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        """</span>
         <span class="n">Ik</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neqs</span><span class="p">)</span>
         <span class="n">PIk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Ik</span><span class="p">)</span>
@@ -911,9 +908,9 @@
 
                 <span class="n">covs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span>
 
-        <span class="k">return</span> <span class="n">covs</span>
+        <span class="k">return</span> <span class="n">covs</span></div>
 
-    <span class="k">def</span> <span class="nf">cum_errband_mc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<div class="viewcode-block" id="IRAnalysis.cum_errband_mc"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_errband_mc.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_errband_mc">[docs]</a>    <span class="k">def</span> <span class="nf">cum_errband_mc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                        <span class="n">signif</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        IRF Monte Carlo integrated error bands of cumulative effect</span>
@@ -921,13 +918,12 @@
         <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
         <span class="n">periods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">periods</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">irf_errband_mc</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="n">repl</span><span class="p">,</span>
-                                    <span class="n">T</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="n">burn</span><span class="p">,</span> <span class="n">cum</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                    <span class="n">T</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">signif</span><span class="o">=</span><span class="n">signif</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="n">burn</span><span class="p">,</span> <span class="n">cum</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">lr_effect_cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.lr_effect_cov"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.lr_effect_cov.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.lr_effect_cov">[docs]</a>    <span class="k">def</span> <span class="nf">lr_effect_cov</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        """</span>
         <span class="n">lre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_effects</span>
         <span class="n">Finfty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">lre</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lags</span><span class="p">),</span> <span class="n">lre</span><span class="p">)</span>
@@ -940,19 +936,19 @@
             <span class="k">return</span> <span class="p">(</span><span class="n">Binf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Binf</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span>
                     <span class="n">Binfbar</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_sig</span> <span class="o">@</span> <span class="n">Binfbar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">Finfty</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Finfty</span><span class="o">.</span><span class="n">T</span>
+            <span class="k">return</span> <span class="n">Finfty</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov_a</span> <span class="o">@</span> <span class="n">Finfty</span><span class="o">.</span><span class="n">T</span></div>
 
-    <span class="k">def</span> <span class="nf">stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.stderr"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.stderr.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.stderr">[docs]</a>    <span class="k">def</span> <span class="nf">stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tsa</span><span class="o">.</span><span class="n">unvec</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
-                         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">)])</span>
+                         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">)])</span></div>
 
-    <span class="k">def</span> <span class="nf">cum_effect_stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.cum_effect_stderr"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_effect_stderr.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.cum_effect_stderr">[docs]</a>    <span class="k">def</span> <span class="nf">cum_effect_stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tsa</span><span class="o">.</span><span class="n">unvec</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
-                         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cum_effect_cov</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">)])</span>
+                         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cum_effect_cov</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">)])</span></div>
 
-    <span class="k">def</span> <span class="nf">lr_effect_stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="IRAnalysis.lr_effect_stderr"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.lr_effect_stderr.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.lr_effect_stderr">[docs]</a>    <span class="k">def</span> <span class="nf">lr_effect_stderr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_effect_cov</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="n">orth</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tsa</span><span class="o">.</span><span class="n">unvec</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">cov</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">tsa</span><span class="o">.</span><span class="n">unvec</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">cov</span><span class="p">)))</span></div>
 
     <span class="k">def</span> <span class="nf">_empty_covm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">periods</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">periods</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neqs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
@@ -973,8 +969,8 @@
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Lk</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">fevd_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+<div class="viewcode-block" id="IRAnalysis.fevd_table"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.tsa.vector_ar.irf.IRAnalysis.fevd_table.html#statsmodels.tsa.vector_ar.irf.IRAnalysis.fevd_table">[docs]</a>    <span class="k">def</span> <span class="nf">fevd_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 </pre></div>
 
           </article>

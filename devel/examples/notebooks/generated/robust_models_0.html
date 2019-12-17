@@ -77,7 +77,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> Robust Linear Models </span>
         </div>
       </div>
@@ -198,7 +198,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -675,7 +675,7 @@ Norm:                          HuberT
 Scale Est.:                       mad
 Cov Type:                          H1
 Date:                Tue, 17 Dec 2019
-Time:                        19:07:19
+Time:                        23:42:49
 No. Iterations:                    19
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -772,17 +772,17 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.12853085  0.50730431 -0.01243669]
-[0.44853561 0.06924784 0.00612737]
-[ 4.81761354  5.07336662  5.32497585  5.57244125  5.81576281  6.05494053
-  6.28997442  6.52086447  6.74761068  6.97021305  7.18867159  7.40298629
-  7.61315715  7.81918417  8.02106736  8.21880671  8.41240222  8.60185389
-  8.78716173  8.96832572  9.14534589  9.31822221  9.4869547   9.65154334
-  9.81198816  9.96828913 10.12044627 10.26845957 10.41232903 10.55205465
- 10.68763644 10.81907439 10.9463685  11.06951877 11.18852521 11.30338781
- 11.41410657 11.5206815  11.62311258 11.72139983 11.81554324 11.90554282
- 11.99139856 12.07311046 12.15067852 12.22410274 12.29338313 12.35851968
- 12.41951239 12.47636127]
+[ 4.82458099  0.55057398 -0.01504094]
+[0.44879492 0.06928788 0.00613091]
+[ 4.4485574   4.7321673   5.01076564  5.28435242  5.55292764  5.8164913
+  6.07504341  6.32858395  6.57711293  6.82063036  7.05913622  7.29263052
+  7.52111326  7.74458445  7.96304407  8.17649214  8.38492864  8.58835358
+  8.78676697  8.98016879  9.16855906  9.35193776  9.53030491  9.70366049
+  9.87200452 10.03533698 10.19365789 10.34696723 10.49526502 10.63855125
+ 10.77682591 10.91008902 11.03834057 11.16158055 11.27980898 11.39302585
+ 11.50123115 11.6044249  11.70260709 11.79577772 11.88393678 11.96708429
+ 12.04522024 12.11834463 12.18645746 12.24955873 12.30764843 12.36072658
+ 12.40879317 12.4518482 ]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -802,8 +802,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.05280749e+00  4.94156171e-01 -1.86947562e-03]
-[0.11397333 0.01759594 0.00155697]
+[ 4.75652165  0.53825171 -0.00527687]
+[0.14075398 0.02173051 0.00192282]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>
@@ -831,7 +831,7 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7ff4c9f3d710&gt;
+&lt;matplotlib.legend.Legend at 0x7fe03854f790&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -862,8 +862,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.62980569 0.38293739]
-[0.38639515 0.03329337]
+[5.43082312 0.40016454]
+[0.39373415 0.03392573]
 </pre></div></div>
 </div>
 <p>Estimate RLM:</p>
@@ -883,8 +883,8 @@ Parameters:  [-40.8817957    0.79276138   1.04857556  -0.13360865]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.1106695  0.47848445]
-[0.08665819 0.00746682]
+[4.96600288 0.4900169 ]
+[0.10874737 0.00937011]
 </pre></div></div>
 </div>
 <p>Draw a plot to compare OLS estimates to the robust estimates:</p>

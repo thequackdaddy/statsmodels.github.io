@@ -77,7 +77,7 @@
   
   <script src="../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../"versions.json"",
+    var json_loc = "../_static/versions.json",
         target_loc = "../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.arima.model.ARIMAResults </span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -343,7 +343,55 @@
 <dl class="class">
 <dt id="statsmodels.tsa.arima.model.ARIMAResults">
 <em class="property">class </em><code class="sig-prename descclassname">statsmodels.tsa.arima.model.</code><code class="sig-name descname">ARIMAResults</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">params</em>, <em class="sig-param">filter_results</em>, <em class="sig-param">cov_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/statsmodels/tsa/arima/model.html#ARIMAResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.tsa.arima.model.ARIMAResults" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Class to hold results from fitting an SARIMAX model.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SARIMAX</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">instance</span></code></span></dt><dd><p>The fitted model instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="statsmodels.tsa.statespace.kalman_filter.FilterResults.html#statsmodels.tsa.statespace.kalman_filter.FilterResults" title="statsmodels.tsa.statespace.kalman_filter.FilterResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statsmodels.tsa.statespace.kalman_filter.FilterResults</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="statsmodels.tsa.statespace.mlemodel.MLEResults.html#statsmodels.tsa.statespace.mlemodel.MLEResults" title="statsmodels.tsa.statespace.mlemodel.MLEResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statsmodels.tsa.statespace.mlemodel.MLEResults</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl>
+<dt><strong>specification</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dictionary</span></code></span></dt><dd><p>Dictionary including all attributes from the SARIMAX model instance.</p>
+</dd>
+<dt><strong>polynomial_ar</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array containing autoregressive lag polynomial coefficients,
+ordered from lowest degree to highest. Initialized with ones, unless
+a coefficient is constrained to be zero (in which case it is zero).</p>
+</dd>
+<dt><strong>polynomial_ma</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array containing moving average lag polynomial coefficients,
+ordered from lowest degree to highest. Initialized with ones, unless
+a coefficient is constrained to be zero (in which case it is zero).</p>
+</dd>
+<dt><strong>polynomial_seasonal_ar</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array containing seasonal autoregressive lag polynomial coefficients,
+ordered from lowest degree to highest. Initialized with ones, unless
+a coefficient is constrained to be zero (in which case it is zero).</p>
+</dd>
+<dt><strong>polynomial_seasonal_ma</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array containing seasonal moving average lag polynomial coefficients,
+ordered from lowest degree to highest. Initialized with ones, unless
+a coefficient is constrained to be zero (in which case it is zero).</p>
+</dd>
+<dt><strong>polynomial_trend</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Array containing trend polynomial coefficients, ordered from lowest
+degree to highest. Initialized with ones, unless a coefficient is
+constrained to be zero (in which case it is zero).</p>
+</dd>
+<dt><strong>model_orders</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The orders of each of the polynomials in the model.</p>
+</dd>
+<dt><strong>param_terms</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>List of parameters actually included in the model, in sorted order.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>

@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.contrast </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -303,7 +303,6 @@
 
 <span class="sd">    The attributes depend on the statistical test and are either based on the</span>
 <span class="sd">    normal, the t, the F or the chisquare distribution.</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">F</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">effect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df_denom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -368,7 +367,6 @@
 <span class="sd">        ci : ndarray, (k_constraints, 2)</span>
 <span class="sd">            The array has the lower and the upper limit of the confidence</span>
 <span class="sd">            interval in the columns.</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">effect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># confidence intervals</span>
@@ -406,7 +404,6 @@
 <span class="sd">            in the same form as the parameter results table in the model</span>
 <span class="sd">            results summary.</span>
 <span class="sd">            For F or Wald test, the return is a string.</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">effect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># TODO: should also add some extra information, e.g. robust cov ?</span>
@@ -532,7 +529,6 @@
 <span class="sd">    &gt;&gt;&gt; test2 = [0]*2 + [1] + [0]*7</span>
 <span class="sd">    &gt;&gt;&gt; np.allclose(c3.contrast_matrix, test2)</span>
 <span class="sd">    True</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="nf">_get_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
@@ -731,7 +727,6 @@
 <span class="sd">    contrasts : ndarray</span>
 <span class="sd">        restriction matrix with k_params columns and number of rows equal to</span>
 <span class="sd">        the number of restrictions.</span>
-
 <span class="sd">    """</span>
     <span class="n">k_level_m1</span> <span class="o">=</span> <span class="n">k_level</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">idx_pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">k_level_m1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>

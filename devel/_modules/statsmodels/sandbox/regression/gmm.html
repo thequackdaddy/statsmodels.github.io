@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.sandbox.regression.gmm </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -486,7 +486,6 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    RegressionResults</span>
-
 <span class="sd">    """</span>
 
     <span class="nd">@cache_readonly</span>
@@ -562,7 +561,6 @@
 <span class="sd">        --------</span>
 <span class="sd">        statsmodels.iolib.summary.Summary : class to hold summary</span>
 <span class="sd">            results</span>
-
 <span class="sd">        """</span>
 
         <span class="c1">#TODO: import where we need it (for now), add as cached attributes</span>
@@ -1596,7 +1594,6 @@
 <span class="sd">        --------</span>
 <span class="sd">        statsmodels.iolib.summary.Summary : class to hold summary</span>
 <span class="sd">            results</span>
-
 <span class="sd">        """</span>
         <span class="c1">#TODO: add a summary text for options that have been used</span>
 
@@ -1714,8 +1711,6 @@
 <span class="sd">        Instrumental variables, variables that are exogenous to the error</span>
 <span class="sd">        in the linear model containing both included and excluded exogenous</span>
 <span class="sd">        variables</span>
-
-
 <span class="sd">    """</span>
 
 <div class="viewcode-block" id="LinearIVGMM.fitgmm"><a class="viewcode-back" href="../../../../generated/generated/statsmodels.sandbox.regression.gmm.LinearIVGMM.fitgmm.html#statsmodels.sandbox.regression.gmm.LinearIVGMM.fitgmm">[docs]</a>    <span class="k">def</span> <span class="nf">fitgmm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optim_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
@@ -1834,7 +1829,6 @@
 <span class="sd">    a method `jac_func`.</span>
 
 <span class="sd">    TODO: check required signature of jac_error and jac_func</span>
-
 <span class="sd">    """</span>
     <span class="c1"># This should be reversed:</span>
     <span class="c1"># NonlinearIVGMM is IVGMM and need LinearIVGMM as special case (fit, predict)</span>

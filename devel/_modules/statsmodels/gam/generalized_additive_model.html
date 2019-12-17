@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.gam.generalized_additive_model </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -327,8 +327,6 @@
 
 <span class="sd">    Note: this is copied from base.model.Results.predict and converted to</span>
 <span class="sd">    standalone function with additional options.</span>
-
-
 <span class="sd">    """</span>
 
     <span class="n">is_pandas</span> <span class="o">=</span> <span class="n">_is_using_pandas</span><span class="p">(</span><span class="n">exog</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -400,7 +398,6 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    status: experimental</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">normalized_cov_params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
@@ -447,7 +444,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        exog_transformed : ndarray</span>
 <span class="sd">            design matrix for the prediction</span>
-
 <span class="sd">        """</span>
         <span class="n">exog_index</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">transform</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
@@ -540,7 +536,6 @@
 <span class="sd">            variance and can on demand calculate confidence intervals and</span>
 <span class="sd">            summary tables for the prediction of the mean and of new</span>
 <span class="sd">            observations.</span>
-
 <span class="sd">        """</span>
         <span class="n">ex</span><span class="p">,</span> <span class="n">exog_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tranform_predict_exog</span><span class="p">(</span><span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span>
                                                      <span class="n">exog_smooth</span><span class="o">=</span><span class="n">exog_smooth</span><span class="p">,</span>
@@ -571,7 +566,6 @@
 <span class="sd">            linear.</span>
 <span class="sd">        se_pred : nd_array</span>
 <span class="sd">            standard error of linear prediction</span>
-
 <span class="sd">        """</span>
         <span class="n">variable</span> <span class="o">=</span> <span class="n">smooth_index</span>
         <span class="n">smoother</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">smoother</span>
@@ -623,7 +617,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        fig : matplotlib Figure instance</span>
-
 <span class="sd">        """</span>
         <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_ax</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
@@ -795,7 +788,6 @@
 <span class="sd">    (Binomial with counts, i.e. with n_trials, is most likely wrong in pirls.</span>
 <span class="sd">    User specified var or freq weights are most likely also not correct for</span>
 <span class="sd">    all results.)</span>
-
 <span class="sd">    """</span>
 
     <span class="n">_results_class</span> <span class="o">=</span> <span class="n">GLMGamResults</span>
@@ -885,7 +877,6 @@
 <span class="sd">        alpha : list</span>
 <span class="sd">            penalization weight, list with length equal to the number of</span>
 <span class="sd">            smooth terms</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
             <span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="n">alpha</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">smoother</span><span class="o">.</span><span class="n">smoothers</span><span class="p">)</span>
@@ -950,7 +941,6 @@
                    <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cov_type</span><span class="o">=</span><span class="s1">'nonrobust'</span><span class="p">,</span> <span class="n">cov_kwds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""fit model with penalized reweighted least squares</span>
-
 <span class="sd">        """</span>
         <span class="c1"># TODO: this currently modifies several attributes</span>
         <span class="c1"># self.scale, self.scaletype, self.mu, self.weights</span>
@@ -1103,7 +1093,6 @@
 <span class="sd">        Status: experimental, It is possible that defaults change if there</span>
 <span class="sd">        is a better way to find a global optimum. API (e.g. type of return)</span>
 <span class="sd">        might also change.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># copy attributes that are changed, so we can reset them</span>
         <span class="n">scale_keep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
@@ -1190,7 +1179,6 @@
 <span class="sd">        -----</span>
 <span class="sd">        The default alphas are defined as</span>
 <span class="sd">        ``alphas = [np.logspace(0, 7, k_grid) for _ in range(k_smooths)]``</span>
-
 <span class="sd">        """</span>
 
         <span class="k">if</span> <span class="n">cost</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1221,7 +1209,6 @@
 <span class="sd">    penalization</span>
 
 <span class="sd">    not verified yet.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">smoother</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>

@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.multivariate.factor </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -482,7 +482,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        results: FactorResults</span>
-
 <span class="sd">        """</span>
         <span class="n">method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'pa'</span><span class="p">:</span>
@@ -508,7 +507,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        results : FactorResults instance</span>
-
 <span class="sd">        """</span>
 
         <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># inplace modification below</span>
@@ -821,7 +819,6 @@
 
 <span class="sd">    Status: experimental, Some refactoring will be necessary when new</span>
 <span class="sd">        features are added.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">factor</span>
@@ -1232,7 +1229,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        figs : a list of figure handles</span>
-
 <span class="sd">        """</span>
         <span class="n">_import_mpl</span><span class="p">()</span>
         <span class="kn">from</span> <span class="nn">.plots</span> <span class="kn">import</span> <span class="n">plot_loadings</span>

@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod.generalized_linear_model </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -546,7 +546,6 @@
 <span class="s2">    interpretation. The loglikelihood is not correctly specified in this case,</span>
 <span class="s2">    and statistics based on it, such AIC or likelihood ratio tests, are not</span>
 <span class="s2">    appropriate.</span>
-
 <span class="s2">    """</span> <span class="o">%</span> <span class="p">{</span><span class="s1">'extra_params'</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="n">_missing_param_doc</span><span class="p">}</span>
     <span class="c1"># Maximum number of endogenous variables when using a formula</span>
     <span class="n">_formula_max_endog</span> <span class="o">=</span> <span class="mi">2</span>
@@ -720,7 +719,6 @@
 <span class="sd">        score_obs : ndarray, 2d</span>
 <span class="sd">            The first derivative of the loglikelihood function evaluated at</span>
 <span class="sd">            params for each observation.</span>
-
 <span class="sd">        """</span>
 
         <span class="n">score_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score_factor</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
@@ -743,7 +741,6 @@
 <span class="sd">        score : ndarray_1d</span>
 <span class="sd">            The first derivative of the loglikelihood function calculated as</span>
 <span class="sd">            the sum of `score_obs`</span>
-
 <span class="sd">        """</span>
         <span class="n">score_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score_factor</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">score_factor</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span></div>
@@ -767,7 +764,6 @@
 <span class="sd">        score_factor : ndarray_1d</span>
 <span class="sd">            A 1d weight vector used in the calculation of the score_obs.</span>
 <span class="sd">            The score_obs are obtained by `score_factor[:, None] * exog`</span>
-
 <span class="sd">        """</span>
         <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -915,7 +911,6 @@
 <span class="sd">            The derivative of the score_obs with respect to endog. This</span>
 <span class="sd">            can is given by `score_factor0[:, None] * exog` where</span>
 <span class="sd">            `score_factor0` is the score_factor without the residual.</span>
-
 <span class="sd">        """</span>
         <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -970,7 +965,6 @@
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        not yet verified for case with scale not equal to 1.</span>
-
 <span class="sd">        """</span>
 
         <span class="k">if</span> <span class="n">exog_extra</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1309,7 +1303,6 @@
 <span class="sd">        in future versions. If attach_wls' is true, then the final WLS</span>
 <span class="sd">        instance of the IRLS iteration is attached to the results instance</span>
 <span class="sd">        as `results_wls` attribute.</span>
-
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scaletype</span> <span class="o">=</span> <span class="n">scale</span>
 
@@ -1632,7 +1625,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        results : Results instance</span>
-
 <span class="sd">        """</span>
 
         <span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">DesignInfo</span>
@@ -2216,7 +2208,6 @@
     <span class="c1"># print(GLMT[0])</span>
     <span class="c1"># print(GLMT[2])</span>
     <span class="n">GLMTp</span> <span class="o">=</span> <span class="n">GLMmod</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Test GLM'</span><span class="p">)</span>
-
     <span class="sd">"""</span>
 <span class="sd">From Stata</span>
 <span class="sd">. webuse beetle</span>

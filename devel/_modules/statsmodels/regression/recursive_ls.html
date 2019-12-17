@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.regression.recursive_ls </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -346,7 +346,6 @@
 <span class="sd">    .. [*] Durbin, James, and Siem Jan Koopman. 2012.</span>
 <span class="sd">       Time Series Analysis by State Space Methods: Second Edition.</span>
 <span class="sd">       Oxford University Press.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Standardize data</span>
@@ -632,7 +631,6 @@
 <span class="sd">        variance is not necessarily equal to unity as the mean need not be</span>
 <span class="sd">        equal to zero", and he defines an alternative version (which are</span>
 <span class="sd">        not provided here).</span>
-
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_results</span><span class="o">.</span><span class="n">standardized_forecasts_error</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
@@ -675,7 +673,6 @@
 <span class="sd">           Regression Relationships over Time."</span>
 <span class="sd">           Journal of the Royal Statistical Society.</span>
 <span class="sd">           Series B (Methodological) 37 (2): 149-92.</span>
-
 <span class="sd">        """</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs_diffuse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglikelihood_burn</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid_recursive</span><span class="p">[</span><span class="n">d</span><span class="p">:])</span> <span class="o">/</span>
@@ -713,7 +710,6 @@
 <span class="sd">           Regression Relationships over Time."</span>
 <span class="sd">           Journal of the Royal Statistical Society.</span>
 <span class="sd">           Series B (Methodological) 37 (2): 149-92.</span>
-
 <span class="sd">        """</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs_diffuse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loglikelihood_burn</span><span class="p">)</span>
         <span class="n">numer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid_recursive</span><span class="p">[</span><span class="n">d</span><span class="p">:]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -1000,7 +996,6 @@
 <span class="sd">           Regression Relationships over Time."</span>
 <span class="sd">           Journal of the Royal Statistical Society.</span>
 <span class="sd">           Series B (Methodological) 37 (2): 149-92.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># Create the plot</span>
         <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
@@ -1100,7 +1095,6 @@
 <span class="sd">           "Critical Values for the Cusumsq Statistic</span>
 <span class="sd">           in Medium and Large Sized Samples."</span>
 <span class="sd">           Oxford Bulletin of Economics and Statistics 56 (3): 355-65.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># Create the plot</span>
         <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>

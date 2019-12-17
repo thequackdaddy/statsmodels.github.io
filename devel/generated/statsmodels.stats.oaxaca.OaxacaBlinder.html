@@ -77,7 +77,7 @@
   
   <script src="../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../"versions.json"",
+    var json_loc = "../_static/versions.json",
         target_loc = "../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.oaxaca.OaxacaBlinder </span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -379,31 +379,31 @@
 <dt id="statsmodels.stats.oaxaca.OaxacaBlinder">
 <em class="property">class </em><code class="sig-prename descclassname">statsmodels.stats.oaxaca.</code><code class="sig-name descname">OaxacaBlinder</code><span class="sig-paren">(</span><em class="sig-param">endog</em>, <em class="sig-param">exog</em>, <em class="sig-param">bifurcate</em>, <em class="sig-param">hasconst=True</em>, <em class="sig-param">swap=True</em>, <em class="sig-param">cov_type='nonrobust'</em>, <em class="sig-param">cov_kwds=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/statsmodels/stats/oaxaca.html#OaxacaBlinder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statsmodels.stats.oaxaca.OaxacaBlinder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to perform Oaxaca-Blinder Decomposition.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>endog: array_like</strong></dt><dd><p>‘endog’ is the endogenous variable or the dependent variable
-that you are trying to explain.</p>
+<dd class="field-odd"><dl>
+<dt><strong>endog</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a></span></dt><dd><p>The endogenous variable or the dependent variable that you are trying
+to explain.</p>
 </dd>
-<dt><strong>exog: array_like</strong></dt><dd><p>‘exog’ is the exogenous variable(s) or the independent variable(s)
-that you are using to explain the endogenous variable.</p>
+<dt><strong>exog</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a></span></dt><dd><p>The exogenous variable(s) or the independent variable(s) that you are
+using to explain the endogenous variable.</p>
 </dd>
-<dt><strong>bifurcate: int or string</strong></dt><dd><p>‘bifurcate’ is the column of the exogenous variable(s) that you
-wish to split on. This would generally be the group that you wish
-to explain the two means for. Int of the column for a NumPy array
-or int/string for the name of the column in Pandas</p>
+<dt><strong>bifurcate</strong><span class="classifier">{<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>}</span></dt><dd><p>The column of the exogenous variable(s) on which to split. This would
+generally be the group that you wish to explain the two means for.
+Int of the column for a NumPy array or int/string for the name of
+the column in Pandas.</p>
 </dd>
-<dt><strong>hasconst: bool, optional</strong></dt><dd><p>Indicates whether the two exogenous variables include a user-supplied
+<dt><strong>hasconst</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Indicates whether the two exogenous variables include a user-supplied
 constant. If True, a constant is assumed. If False, a constant is added
 at the start. If nothing is supplied, then True is assumed.</p>
 </dd>
-<dt><strong>swap: bool, optional</strong></dt><dd><p>Imitates the STATA Oaxaca command by allowing users to choose to swap
+<dt><strong>swap</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Imitates the STATA Oaxaca command by allowing users to choose to swap
 groups. Unlike STATA, this is assumed to be True instead of False</p>
 </dd>
-<dt><strong>cov_type: string, optional</strong></dt><dd><p>See regression.linear_model.RegressionResults for a description of the
+<dt><strong>cov_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>See regression.linear_model.RegressionResults for a description of the
 available covariance estimators</p>
 </dd>
-<dt><strong>cov_kwdslist or None, optional</strong></dt><dd><p>See linear_model.RegressionResults.get_robustcov_results for a
+<dt><strong>cov_kwds</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>See linear_model.RegressionResults.get_robustcov_results for a
 description required keywords for alternative covariance estimators</p>
 </dd>
 </dl>

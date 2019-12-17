@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.graphics.gofplots </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -863,7 +863,6 @@
 <span class="sd">    -----</span>
 <span class="sd">    Depends on matplotlib. If `fit` is True then the parameters are fit using</span>
 <span class="sd">    the distribution's fit() method.</span>
-
 <span class="sd">    """</span>
     <span class="n">probplot</span> <span class="o">=</span> <span class="n">ProbPlot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="n">dist</span><span class="p">,</span> <span class="n">distargs</span><span class="o">=</span><span class="n">distargs</span><span class="p">,</span>
                          <span class="n">fit</span><span class="o">=</span><span class="n">fit</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
@@ -937,7 +936,6 @@
 <span class="sd">       created using the default parameters. Therefore, it is recommended to use</span>
 <span class="sd">       `ProbPlot` instance if fine-grained control is needed in the computation</span>
 <span class="sd">       of the quantiles.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">ProbPlot</span><span class="p">):</span>
         <span class="n">data1</span> <span class="o">=</span> <span class="n">ProbPlot</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
@@ -1003,7 +1001,6 @@
 <span class="sd">    &gt;&gt;&gt; plt.show()</span>
 
 <span class="sd">    .. plot:: plots/graphics_gofplots_qqplot_qqline.py</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">'45'</span><span class="p">:</span>
         <span class="n">end_pts</span> <span class="o">=</span> <span class="n">lzip</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
@@ -1129,7 +1126,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    fig : Matplotlib Figure instance</span>
 <span class="sd">    ax : Matplotlib AxesSubplot instance (see Parameters)</span>
-
 <span class="sd">    """</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">create_mpl_ax</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xmargin</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>

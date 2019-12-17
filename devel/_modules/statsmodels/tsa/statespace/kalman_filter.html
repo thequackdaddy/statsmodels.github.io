@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.kalman_filter </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -1144,7 +1144,6 @@
 <span class="sd">        This context manager is most useful in models which are explicitly</span>
 <span class="sd">        concentrating out the scale, so that the set of parameters they are</span>
 <span class="sd">        estimating does not include the scale.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># If a scale was provided, use it and do not concentrate it out of the</span>
         <span class="c1"># loglikelihood</span>
@@ -1539,7 +1538,6 @@
 <span class="sd">        doing impulse responses after the end of the model. To compute impulse</span>
 <span class="sd">        responses from arbitrary time points, it is necessary to clone a new</span>
 <span class="sd">        model with the appropriate system matrices.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># We need to add an additional step, since the first simulated value</span>
         <span class="c1"># will always be zeros (note that we take this value out at the end).</span>
@@ -2478,7 +2476,6 @@
 
 <span class="sd">    This class is essentially a view to the FilterResults object, but</span>
 <span class="sd">    returning the appropriate ranges for everything.</span>
-
 <span class="sd">    """</span>
     <span class="n">representation_attributes</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">'endog'</span><span class="p">,</span> <span class="s1">'design'</span><span class="p">,</span> <span class="s1">'design'</span><span class="p">,</span> <span class="s1">'obs_intercept'</span><span class="p">,</span>

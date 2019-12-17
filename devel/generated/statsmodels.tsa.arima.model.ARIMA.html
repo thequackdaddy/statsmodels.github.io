@@ -77,7 +77,7 @@
   
   <script src="../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../"versions.json"",
+    var json_loc = "../_static/versions.json",
         target_loc = "../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.arima.model.ARIMA </span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -389,6 +389,10 @@ to an invertible process.</p>
 out of the likelihood. This reduces the number of parameters by one.
 This is only applicable when considering estimation by numerical
 maximum likelihood.</p>
+</dd>
+<dt><strong>trend_offset</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The offset at which to start time trend values. Default is 1, so that
+if <cite>trend=’t’</cite> the trend is equal to 1, 2, …, nobs. Typically is only
+set when the model created by extending a previous dataset.</p>
 </dd>
 <dt><strong>dates</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-array-like" title="(in NumPy v1.17)"><span>array_like</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If no index is given by <cite>endog</cite> or <cite>exog</cite>, an array-like object of
 datetime objects can be provided.</p>

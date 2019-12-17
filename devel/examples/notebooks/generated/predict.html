@@ -77,7 +77,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> Prediction (out of sample) </span>
         </div>
       </div>
@@ -198,7 +198,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -742,27 +742,27 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
                             OLS Regression Results
 ==============================================================================
-Dep. Variable:                      y   R-squared:                       0.987
-Model:                            OLS   Adj. R-squared:                  0.986
-Method:                 Least Squares   F-statistic:                     1168.
-Date:                Tue, 17 Dec 2019   Prob (F-statistic):           2.13e-43
-Time:                        19:04:33   Log-Likelihood:                 5.5112
-No. Observations:                  50   AIC:                            -3.022
-Df Residuals:                      46   BIC:                             4.626
+Dep. Variable:                      y   R-squared:                       0.989
+Model:                            OLS   Adj. R-squared:                  0.988
+Method:                 Least Squares   F-statistic:                     1326.
+Date:                Tue, 17 Dec 2019   Prob (F-statistic):           1.18e-44
+Time:                        23:39:41   Log-Likelihood:                 8.4408
+No. Observations:                  50   AIC:                            -8.882
+Df Residuals:                      46   BIC:                            -1.234
 Df Model:                           3
 Covariance Type:            nonrobust
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.9755      0.077     64.608      0.000       4.820       5.131
-x1             0.4945      0.012     41.632      0.000       0.471       0.518
-x2             0.4394      0.047      9.410      0.000       0.345       0.533
-x3            -0.0183      0.001    -17.567      0.000      -0.020      -0.016
+const          4.8426      0.073     66.676      0.000       4.696       4.989
+x1             0.5258      0.011     46.943      0.000       0.503       0.548
+x2             0.5333      0.044     12.111      0.000       0.445       0.622
+x3            -0.0219      0.001    -22.256      0.000      -0.024      -0.020
 ==============================================================================
-Omnibus:                        1.826   Durbin-Watson:                   2.296
-Prob(Omnibus):                  0.401   Jarque-Bera (JB):                0.982
-Skew:                          -0.193   Prob(JB):                        0.612
-Kurtosis:                       3.567   Cond. No.                         221.
+Omnibus:                        3.262   Durbin-Watson:                   2.218
+Prob(Omnibus):                  0.196   Jarque-Bera (JB):                2.222
+Skew:                          -0.402   Prob(JB):                        0.329
+Kurtosis:                       3.648   Cond. No.                         221.
 ==============================================================================
 
 Warnings:
@@ -787,15 +787,15 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.51752976  4.96546348  5.37864108  5.73311767  6.01358992  6.21591042
-  6.34776901  6.42742944  6.48072862  6.53683174  6.62344047  6.76224169
-  6.96534438  7.23329014  7.55496422  7.90942165  8.26932842  8.60545238
-  8.89146602  9.10827199  9.24714074  9.31114477  9.31465382  9.28097396
-  9.23851847  9.21613964  9.23838837  9.32148058  9.47063296  9.67920586
-  9.92979421 10.19708708 10.45202623 10.66658028 10.81835017 10.89424929
- 10.89265358 10.8236683  10.70746785 10.5709811  10.4434671  10.35170785
- 10.31560816 10.3449253  10.43766591 10.58041353 10.75053286 10.91988867
- 11.05946839 11.14414872]
+[ 4.29539098  4.80736761  5.27727471  5.67604936  5.98511733  6.19944471
+  6.32836499  6.3940456   6.42784586  6.46516473  6.53962487  6.6775485
+  6.8936328   7.18853511  7.54876503  7.94890079  8.35576599  8.7338804
+  9.05128925  9.2848133   9.42385717  9.47215005  9.44713309  9.37709381
+  9.29651856  9.24042651  9.23861612  9.31076928  9.46321769  9.68790257
+  9.96369866 10.25988507 10.54119263 10.77359851 10.92991608 10.9942616
+ 10.96466386 10.85338805 10.68492063 10.49194626 10.30997784 10.17152178
+ 10.10073735 10.10946733 10.19529231 10.34192817 10.52190155 10.70106359
+ 10.84420053 10.92081924]
 </pre></div></div>
 </div>
 
@@ -819,8 +819,8 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[11.14887517 11.03721187 10.82638896 10.55567182 10.27674747 10.0410698
-  9.88726191  9.83165975  9.86431257  9.95141921]
+[10.89466562 10.72741816 10.43998979 10.08003848  9.71029886  9.39322261
+  9.17568813  9.07752305  9.08664973  9.16204231]
 </pre></div></div>
 </div>
 
@@ -881,10 +881,10 @@ Warnings:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Intercept           4.975498
-x1                  0.494462
-np.sin(x1)          0.439363
-I((x1 - 5) ** 2)   -0.018319
+Intercept           4.842590
+x1                  0.525808
+np.sin(x1)          0.533273
+I((x1 - 5) ** 2)   -0.021888
 dtype: float64
 </pre></div></div>
 </div>
@@ -904,16 +904,16 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    11.148875
-1    11.037212
-2    10.826389
-3    10.555672
-4    10.276747
-5    10.041070
-6     9.887262
-7     9.831660
-8     9.864313
-9     9.951419
+0    10.894666
+1    10.727418
+2    10.439990
+3    10.080038
+4     9.710299
+5     9.393223
+6     9.175688
+7     9.077523
+8     9.086650
+9     9.162042
 dtype: float64
 </pre></div></div>
 </div>

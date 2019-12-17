@@ -75,7 +75,7 @@
        "  <th>Date:</th>            <td>Tue, 17 Dec 2019</td> <th>  Deviance:          </th> <td>  8.5477</td>\n",
        "</tr>\n",
        "<tr>\n",
-       "  <th>Time:</th>                <td>19:07:26</td>     <th>  Pearson chi2:      </th>  <td>  8.48</td> \n",
+       "  <th>Time:</th>                <td>23:42:58</td>     <th>  Pearson chi2:      </th>  <td>  8.48</td> \n",
        "</tr>\n",
        "<tr>\n",
        "  <th>No. Iterations:</th>          <td>4</td>        <th>                     </th>     <td> </td>   \n",
@@ -164,7 +164,7 @@
        "Link Function:                  logit   Scale:                          1.0000\n",
        "Method:                          IRLS   Log-Likelihood:                -127.33\n",
        "Date:                Tue, 17 Dec 2019   Deviance:                       8.5477\n",
-       "Time:                        19:07:26   Pearson chi2:                     8.48\n",
+       "Time:                        23:42:58   Pearson chi2:                     8.48\n",
        "No. Iterations:                     4                                         \n",
        "Covariance Type:            nonrobust                                         \n",
        "============================================================================================\n",
@@ -243,7 +243,7 @@
        "  <th>Date:</th>            <td>Tue, 17 Dec 2019</td> <th>  Deviance:          </th> <td>  8.5477</td>\n",
        "</tr>\n",
        "<tr>\n",
-       "  <th>Time:</th>                <td>19:07:26</td>     <th>  Pearson chi2:      </th>  <td>  8.48</td> \n",
+       "  <th>Time:</th>                <td>23:42:58</td>     <th>  Pearson chi2:      </th>  <td>  8.48</td> \n",
        "</tr>\n",
        "<tr>\n",
        "  <th>No. Iterations:</th>          <td>4</td>        <th>                     </th>     <td> </td>   \n",
@@ -332,7 +332,7 @@
        "Link Function:                  logit   Scale:                          1.0000\n",
        "Method:                          IRLS   Log-Likelihood:                -127.33\n",
        "Date:                Tue, 17 Dec 2019   Deviance:                       8.5477\n",
-       "Time:                        19:07:26   Pearson chi2:                     8.48\n",
+       "Time:                        23:42:58   Pearson chi2:                     8.48\n",
        "No. Iterations:                     4                                         \n",
        "Covariance Type:            nonrobust                                         \n",
        "============================================================================================\n",
@@ -395,8 +395,8 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "-0.02039598715475569\n",
-      "-0.020395987154757333\n"
+      "-0.02039598715475573\n",
+      "-0.02039598715475726\n"
      ]
     }
    ],

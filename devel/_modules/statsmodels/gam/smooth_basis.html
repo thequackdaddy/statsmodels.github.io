@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.gam.smooth_basis </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -427,7 +427,6 @@
 
 <span class="sd">    The first corresponds to splines as used by patsy. the second is the</span>
 <span class="sd">    knot spacing for P-Splines.</span>
-
 <span class="sd">    """</span>
     <span class="c1"># based on patsy memorize_finish</span>
     <span class="k">if</span> <span class="n">all_knots</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -729,7 +728,6 @@
 <span class="sd">        - all_knots : None or array</span>
 <span class="sd">          If all knots are provided, then those will be taken as given and</span>
 <span class="sd">          all other options will be ignored.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">include_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variable_name</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span>
@@ -1074,7 +1072,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        basis : ndarray</span>
 <span class="sd">            design matrix for the spline basis for given ``x_new``.</span>
-
 <span class="sd">        """</span>
         <span class="n">exog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">smoothers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_new</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
                          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_variables</span><span class="p">)))</span>
@@ -1188,8 +1185,6 @@
 <span class="sd">    support anymore. This is obtained ``constraints='center'``. In this case</span>
 <span class="sd">    ``include_intercept`` will be automatically set to True to avoid</span>
 <span class="sd">    dropping an additional column.</span>
-
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">include_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">knot_kwds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1224,7 +1219,6 @@
 
 <span class="sd">    Note, these splines do NOT use the same spline basis as</span>
 <span class="sd">    ``Cubic Regression Splines``.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s1">'domain'</span><span class="p">,</span>
                  <span class="n">variable_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1267,7 +1261,6 @@
 <span class="sd">        The names for the underlying explanatory variables, x used in for</span>
 <span class="sd">        creating the column and parameter names for the basis functions.</span>
 <span class="sd">        If ``x`` is a pandas object, then the names will be taken from it.</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span> <span class="o">=</span> <span class="n">df</span>

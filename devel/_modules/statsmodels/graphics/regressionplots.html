@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.graphics.regressionplots </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -418,7 +418,6 @@
 <span class="sd">    &gt;&gt;&gt; plt.show()</span>
 
 <span class="sd">    .. plot:: plots/graphics_plot_fit_ex.py</span>
-
 <span class="sd">    """</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">create_mpl_ax</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
@@ -498,7 +497,6 @@
 <span class="sd">    &gt;&gt;&gt; plt.show()</span>
 
 <span class="sd">    .. plot:: plots/graphics_regression_regress_exog.py</span>
-
 <span class="sd">    """</span>
 
     <span class="n">fig</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">create_mpl_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -575,7 +573,6 @@
 <span class="sd">    (res1a, res1b) : tuple of OLS results instances</span>
 <span class="sd">         results from regression of endog on exog_others and of exog_i on</span>
 <span class="sd">         exog_others</span>
-
 <span class="sd">    """</span>
     <span class="c1">#FIXME: This function does not appear to be used.</span>
     <span class="n">res1a</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog_others</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -666,7 +663,6 @@
 
 <span class="sd">    More detailed examples can be found in the Regression Plots notebook</span>
 <span class="sd">    on the examples page.</span>
-
 <span class="sd">    """</span>
     <span class="c1">#NOTE: there is no interaction between possible missing data and</span>
     <span class="c1">#obs_labels yet, so this will need to be tweaked a bit for this case</span>
@@ -807,7 +803,6 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    See http://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/partregr.htm</span>
-
 <span class="sd">    """</span>
     <span class="kn">import</span> <span class="nn">pandas</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">create_mpl_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -910,7 +905,6 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    http://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/ccpr.htm</span>
-
 <span class="sd">    """</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">create_mpl_ax</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 

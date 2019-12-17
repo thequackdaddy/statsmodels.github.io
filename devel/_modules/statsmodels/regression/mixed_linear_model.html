@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.regression.mixed_linear_model </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -868,7 +868,7 @@
     <span class="k">return</span> <span class="n">VCSpec</span><span class="p">(</span><span class="n">vc_names</span><span class="p">,</span> <span class="n">vc_colnames</span><span class="p">,</span> <span class="n">vc_mats</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="MixedLM"><a class="viewcode-back" href="../../../generated/statsmodels.regression.mixed_linear_model.MixedLM.html#statsmodels.regression.mixed_linear_model.MixedLM">[docs]</a><span class="k">class</span> <span class="nc">MixedLM</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MixedLM</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModel</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Linear Mixed Effects Model</span>
 
@@ -2480,7 +2480,7 @@
         <span class="k">return</span> <span class="n">MixedLMResultsWrapper</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">exog</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">_mixedlm_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">_mixedlm_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">_mixedlm_distribution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -2563,7 +2563,7 @@
         <span class="k">return</span> <span class="n">y</span>
 
 
-<div class="viewcode-block" id="MixedLMResults"><a class="viewcode-back" href="../../../generated/statsmodels.regression.mixed_linear_model.MixedLMResults.html#statsmodels.regression.mixed_linear_model.MixedLMResults">[docs]</a><span class="k">class</span> <span class="nc">MixedLMResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">ResultMixin</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MixedLMResults</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodModelResults</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">ResultMixin</span><span class="p">):</span>
     <span class="sd">'''</span>
 <span class="sd">    Class to contain results of fitting a linear mixed effects model.</span>
 
@@ -2783,7 +2783,7 @@
 
     <span class="c1"># Need to override since t-tests are only used for fixed effects</span>
     <span class="c1"># parameters.</span>
-<div class="viewcode-block" id="MixedLMResults.t_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.t_test.html#statsmodels.regression.mixed_linear_model.MixedLMResults.t_test">[docs]</a>    <span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r_matrix</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MixedLMResults.t_test"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.t_test.html#statsmodels.formula.api.MixedLMResults.t_test">[docs]</a>    <span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r_matrix</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Compute a t-test for a each linear hypothesis of the form Rb = q</span>
 
@@ -2826,7 +2826,7 @@
         <span class="n">tst_rslt</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MixedLMResults</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">t_test</span><span class="p">(</span><span class="n">r_matrix</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="n">use_t</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tst_rslt</span></div>
 
-<div class="viewcode-block" id="MixedLMResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.summary.html#statsmodels.regression.mixed_linear_model.MixedLMResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname_fe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname_re</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="MixedLMResults.summary"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.summary.html#statsmodels.formula.api.MixedLMResults.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname_fe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xname_re</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Summarize the mixed model regression results.</span>
@@ -2968,7 +2968,7 @@
             <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">llf</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span>
 
-<div class="viewcode-block" id="MixedLMResults.profile_re"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.profile_re.html#statsmodels.regression.mixed_linear_model.MixedLMResults.profile_re">[docs]</a>    <span class="k">def</span> <span class="nf">profile_re</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">re_ix</span><span class="p">,</span> <span class="n">vtype</span><span class="p">,</span> <span class="n">num_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dist_low</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">num_high</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<div class="viewcode-block" id="MixedLMResults.profile_re"><a class="viewcode-back" href="../../../generated/generated/statsmodels.regression.mixed_linear_model.MixedLMResults.profile_re.html#statsmodels.formula.api.MixedLMResults.profile_re">[docs]</a>    <span class="k">def</span> <span class="nf">profile_re</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">re_ix</span><span class="p">,</span> <span class="n">vtype</span><span class="p">,</span> <span class="n">num_low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dist_low</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">num_high</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                    <span class="n">dist_high</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Profile-likelihood inference for variance parameters.</span>
@@ -3097,7 +3097,7 @@
 
         <span class="n">likev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">likev</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">likev</span></div></div>
+        <span class="k">return</span> <span class="n">likev</span></div>
 
 
 <span class="k">class</span> <span class="nc">MixedLMResultsWrapper</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LikelihoodResultsWrapper</span><span class="p">):</span>

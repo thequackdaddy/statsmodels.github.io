@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.genmod._prediction </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -389,7 +389,6 @@
 <span class="sd">        ci : ndarray, (k_constraints, 2)</span>
 <span class="sd">            The array has the lower and the upper limit of the confidence</span>
 <span class="sd">            interval in the columns.</span>
-
 <span class="sd">        """</span>
         <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
         <span class="n">is_linear</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">link</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">==</span> <span class="n">tmp</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -463,7 +462,6 @@
 <span class="sd">        The prediction results instance contains prediction and prediction</span>
 <span class="sd">        variance and can on demand calculate confidence intervals and summary</span>
 <span class="sd">        tables for the prediction of the mean and of new observations.</span>
-
 <span class="sd">    """</span>
 
     <span class="c1"># prepare exog and row_labels, based on base Results.predict</span>
@@ -532,7 +530,6 @@
 <span class="sd">    for transformations of parameters, for example in calculating rates with</span>
 <span class="sd">    `exp(params)` in the case of Poisson or other models with exponential</span>
 <span class="sd">    mean function.</span>
-
 <span class="sd">    """</span>
 
     <span class="kn">from</span> <span class="nn">statsmodels.genmod.families</span> <span class="kn">import</span> <span class="n">links</span>

@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.dynamic_factor </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -425,7 +425,6 @@
 <span class="sd">    .. [*] Lütkepohl, Helmut. 2007.</span>
 <span class="sd">       New Introduction to Multiple Time Series Analysis.</span>
 <span class="sd">       Berlin: Springer.</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">k_factors</span><span class="p">,</span> <span class="n">factor_order</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1202,7 +1201,6 @@
 <span class="sd">          we assume that the first :math:`m^2` parameters fill the first</span>
 <span class="sd">          coefficient matrix (starting at [0,0] and filling along rows), the</span>
 <span class="sd">          second :math:`m^2` parameters fill the second matrix, etc.</span>
-
 <span class="sd">        """</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="n">transformed</span><span class="p">,</span>
                                     <span class="n">includes_fixed</span><span class="o">=</span><span class="n">includes_fixed</span><span class="p">)</span>
@@ -1394,7 +1392,6 @@
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        plot_coefficients_of_determination</span>
-
 <span class="sd">        """</span>
         <span class="kn">from</span> <span class="nn">statsmodels.tools</span> <span class="kn">import</span> <span class="n">add_constant</span>
         <span class="n">spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">specification</span>
@@ -1439,7 +1436,6 @@
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        coefficients_of_determination</span>
-
 <span class="sd">        """</span>
         <span class="kn">from</span> <span class="nn">statsmodels.graphics.utils</span> <span class="kn">import</span> <span class="n">_import_mpl</span><span class="p">,</span> <span class="n">create_mpl_fig</span>
         <span class="n">_import_mpl</span><span class="p">()</span>

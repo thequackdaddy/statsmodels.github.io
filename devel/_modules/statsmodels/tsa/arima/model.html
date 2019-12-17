@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.arima.model </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -291,6 +291,7 @@
 <span class="sd">Author: Chad Fulton</span>
 <span class="sd">License: BSD-3</span>
 <span class="sd">"""</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat.pandas</span> <span class="kn">import</span> <span class="n">Appender</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 
@@ -347,17 +348,21 @@
 <span class="sd">        an iterable defining a polynomial, as in `numpy.poly1d`, where</span>
 <span class="sd">        `[1,1,0,1]` would denote :math:`a + bt + ct^3`. Default is 'c' for</span>
 <span class="sd">        models without integration, and no trend for models with integration.</span>
-<span class="sd">    enforce_stationarity : boolean, optional</span>
+<span class="sd">    enforce_stationarity : bool, optional</span>
 <span class="sd">        Whether or not to require the autoregressive parameters to correspond</span>
 <span class="sd">        to a stationarity process.</span>
-<span class="sd">    enforce_invertibility : boolean, optional</span>
+<span class="sd">    enforce_invertibility : bool, optional</span>
 <span class="sd">        Whether or not to require the moving average parameters to correspond</span>
 <span class="sd">        to an invertible process.</span>
-<span class="sd">    concentrate_scale : boolean, optional</span>
+<span class="sd">    concentrate_scale : bool, optional</span>
 <span class="sd">        Whether or not to concentrate the scale (variance of the error term)</span>
 <span class="sd">        out of the likelihood. This reduces the number of parameters by one.</span>
 <span class="sd">        This is only applicable when considering estimation by numerical</span>
 <span class="sd">        maximum likelihood.</span>
+<span class="sd">    trend_offset : int, optional</span>
+<span class="sd">        The offset at which to start time trend values. Default is 1, so that</span>
+<span class="sd">        if `trend='t'` the trend is equal to 1, 2, ..., nobs. Typically is only</span>
+<span class="sd">        set when the model created by extending a previous dataset.</span>
 <span class="sd">    dates : array-like of datetime, optional</span>
 <span class="sd">        If no index is given by `endog` or `exog`, an array-like object of</span>
 <span class="sd">        datetime objects can be provided.</span>
@@ -386,7 +391,6 @@
 <span class="sd">    &gt;&gt;&gt; mod = sm.tsa.arima.ARIMA(endog, order=(1, 0, 0))</span>
 <span class="sd">    &gt;&gt;&gt; res = mod.fit()</span>
 <span class="sd">    &gt;&gt;&gt; print(res.summary())</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
                  <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -412,8 +416,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_spec_arima</span> <span class="o">=</span> <span class="n">SARIMAXSpecification</span><span class="p">(</span>
             <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="n">seasonal_order</span><span class="p">,</span>
             <span class="n">trend</span><span class="o">=</span><span class="n">trend</span><span class="p">,</span> <span class="n">enforce_stationarity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-            <span class="n">concentrate_scale</span><span class="o">=</span><span class="n">concentrate_scale</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span>
-            <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">)</span>
+            <span class="n">concentrate_scale</span><span class="o">=</span><span class="n">concentrate_scale</span><span class="p">,</span> <span class="n">trend_offset</span><span class="o">=</span><span class="n">trend_offset</span><span class="p">,</span>
+            <span class="n">dates</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">)</span>
         <span class="n">exog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spec_arima</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">orig_exog</span>
 
         <span class="c1"># Initialize the base SARIMAX class</span>
@@ -532,7 +536,6 @@
 <span class="sd">        &gt;&gt;&gt; mod = sm.tsa.arima.ARIMA(endog, order=(1, 0, 0))</span>
 <span class="sd">        &gt;&gt;&gt; res = mod.fit()</span>
 <span class="sd">        &gt;&gt;&gt; print(res.summary())</span>
-
 <span class="sd">        """</span>
         <span class="c1"># Determine which method to use</span>
         <span class="c1"># 1. If method is specified, make sure it is valid</span>
@@ -707,7 +710,8 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="ARIMAResults"><a class="viewcode-back" href="../../../../generated/statsmodels.tsa.arima.model.ARIMAResults.html#statsmodels.tsa.arima.model.ARIMAResults">[docs]</a><span class="k">class</span> <span class="nc">ARIMAResults</span><span class="p">(</span><span class="n">sarimax</span><span class="o">.</span><span class="n">SARIMAXResults</span><span class="p">):</span>
+<div class="viewcode-block" id="ARIMAResults"><a class="viewcode-back" href="../../../../generated/statsmodels.tsa.arima.model.ARIMAResults.html#statsmodels.tsa.arima.model.ARIMAResults">[docs]</a><span class="nd">@Appender</span><span class="p">(</span><span class="n">sarimax</span><span class="o">.</span><span class="n">SARIMAXResults</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ARIMAResults</span><span class="p">(</span><span class="n">sarimax</span><span class="o">.</span><span class="n">SARIMAXResults</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 

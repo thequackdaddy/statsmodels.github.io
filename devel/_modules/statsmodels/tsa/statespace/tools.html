@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.tools </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -460,7 +460,6 @@
 <span class="sd">    The coefficients from this form are defined to be :math:`c_i = - a_i`, and</span>
 <span class="sd">    it is the :math:`c_i` coefficients that this function expects to be</span>
 <span class="sd">    provided.</span>
-
 <span class="sd">    """</span>
     <span class="n">identity_matrix</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">polynomial</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
@@ -821,7 +820,6 @@
 <span class="sd">    There is a Cython implementation of this function that can be much faster,</span>
 <span class="sd">    but which requires SciPy 0.14.0 or greater. See</span>
 <span class="sd">    `constrain_stationary_multivariate` for details.</span>
-
 <span class="sd">    """</span>
 
     <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
@@ -1081,7 +1079,6 @@
 <span class="sd">       "Multivariate Partial Autocorrelations."</span>
 <span class="sd">       In Proceedings of the Business and Economic Statistics Section, 349-53.</span>
 <span class="sd">       American Statistical Association</span>
-
 <span class="sd">    """</span>
 
     <span class="n">use_list</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">unconstrained</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span>
@@ -1189,7 +1186,6 @@
 <span class="sd">    -----</span>
 <span class="sd">    Corresponds to the inverse of Lemma 2.2 in Ansley and Kohn (1986). See</span>
 <span class="sd">    `unconstrain_stationary_multivariate` for more details.</span>
-
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
@@ -1316,7 +1312,6 @@
 
 <span class="sd">    Autocovariances are calculated by solving the associated discrete Lyapunov</span>
 <span class="sd">    equation of the state space representation of the VAR process.</span>
-
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
@@ -1389,7 +1384,6 @@
 <span class="sd">    sample_pacf : list</span>
 <span class="sd">        A list of the first `maxlag` sample partial autocorrelation matrices.</span>
 <span class="sd">        Each matrix is shaped `k_endog` x `k_endog`.</span>
-
 <span class="sd">    """</span>
     <span class="n">sample_autocovariances</span> <span class="o">=</span> <span class="n">_compute_multivariate_sample_acovf</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">maxlag</span><span class="p">)</span>
 
@@ -1428,7 +1422,6 @@
 <span class="sd">    -----</span>
 <span class="sd">    Computes sample partial autocorrelations if sample autocovariances are</span>
 <span class="sd">    given.</span>
-
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
@@ -1654,7 +1647,6 @@
 <span class="sd">       "A Note on Reparameterizing a Vector Autoregressive Moving Average Model</span>
 <span class="sd">       to Enforce Stationarity."</span>
 <span class="sd">       Journal of Statistical Computation and Simulation 24 (2): 99-106.</span>
-
 <span class="sd">    """</span>
     <span class="n">use_list</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">constrained</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">use_list</span><span class="p">:</span>
@@ -1819,7 +1811,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    reordered_matrix : array_like</span>
 <span class="sd">        The reordered matrix.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">matrix</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span>
@@ -1855,7 +1846,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    reordered_vector : array_like</span>
 <span class="sd">        The reordered vector.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">vector</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span>
@@ -1904,7 +1894,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    copied_matrix : array_like</span>
 <span class="sd">        The matrix B with the non-missing submatrix of A copied onto it.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
@@ -1950,7 +1939,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    copied_vector : array_like</span>
 <span class="sd">        The vector b with the non-missing subvector of b copied onto it.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
@@ -2007,7 +1995,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    copied_matrix : array_like</span>
 <span class="sd">        The matrix B with the non-index submatrix of A copied onto it.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
@@ -2053,7 +2040,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    copied_vector : array_like</span>
 <span class="sd">        The vector b with the non-index subvector of b copied onto it.</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">find_best_blas_type</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>

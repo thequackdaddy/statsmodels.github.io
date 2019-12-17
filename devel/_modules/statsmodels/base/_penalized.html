@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.base._penalized </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -315,7 +315,6 @@
 
 <span class="sd">    TODO: do we adjust the inherited docstrings?</span>
 <span class="sd">    We would need templating to add the penalization parameters</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
@@ -385,7 +384,6 @@
 
     <span class="k">def</span> <span class="nf">score_numdiff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pen_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'fd'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="sd">"""score based on finite difference derivative</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="n">pen_weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pen_weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pen_weight</span>
@@ -430,7 +428,6 @@
 
     <span class="k">def</span> <span class="nf">hessian_numdiff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pen_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="sd">"""hessian based on finite difference derivative</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="n">pen_weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pen_weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pen_weight</span>
@@ -476,7 +473,6 @@
 <span class="sd">            fit method of the underlying model class.</span>
 <span class="sd">            Specifically, additional optimizer keywords and cov_type related</span>
 <span class="sd">            keywords can be added.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># If method is None, then we choose a default method ourselves</span>
 

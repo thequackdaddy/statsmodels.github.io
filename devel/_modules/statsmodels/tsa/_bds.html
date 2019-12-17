@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa._bds </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -333,7 +333,6 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    Since this can be a very large matrix, use np.int8 to save some space.</span>
-
 <span class="sd">    """</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">array_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">)</span>
 
@@ -372,7 +371,6 @@
 <span class="sd">        Correlation sum</span>
 <span class="sd">    indicators_joint</span>
 <span class="sd">        matrix of joint-distance-threshold indicators</span>
-
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">indicators</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Indicators must be a matrix'</span><span class="p">)</span>
@@ -405,7 +403,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    corrsums : 1d array</span>
 <span class="sd">        Correlation sums</span>
-
 <span class="sd">    """</span>
 
     <span class="n">corrsums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_dim</span><span class="p">))</span>
@@ -432,7 +429,6 @@
 <span class="sd">    -------</span>
 <span class="sd">    variances : float</span>
 <span class="sd">        Variance of BDS effect</span>
-
 <span class="sd">    """</span>
     <span class="n">nobs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">indicators</span><span class="p">)</span>
     <span class="n">corrsum_1dim</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">correlation_sum</span><span class="p">(</span><span class="n">indicators</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>

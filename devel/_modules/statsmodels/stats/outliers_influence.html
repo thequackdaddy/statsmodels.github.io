@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.outliers_influence </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -471,7 +471,6 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    https://en.wikipedia.org/wiki/Variance_inflation_factor</span>
-
 <span class="sd">    """</span>
     <span class="n">k_vars</span> <span class="o">=</span> <span class="n">exog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">x_i</span> <span class="o">=</span> <span class="n">exog</span><span class="p">[:,</span> <span class="n">exog_idx</span><span class="p">]</span>
@@ -553,7 +552,6 @@
 <span class="sd">            In dfbetas this refers to the column indes.</span>
 <span class="sd">        kwds : optional keywords</span>
 <span class="sd">            Keywords will be used in the call to matplotlib scatter function.</span>
-
 <span class="sd">        """</span>
         <span class="n">criterion</span> <span class="o">=</span> <span class="n">y_var</span>  <span class="c1"># alias</span>
         <span class="k">if</span> <span class="n">threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -645,8 +643,6 @@
 <span class="sd">    This class will need changes to support different kinds of models, e.g.</span>
 <span class="sd">    extra parameters in discrete.NegativeBinomial or two-part models like</span>
 <span class="sd">    ZeroInflatedPoisson.</span>
-
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">resid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -674,7 +670,6 @@
         <span class="sd">"""Diagonal of the generalized leverage</span>
 
 <span class="sd">        This is the analogue of the hat matrix diagonal for general MLE.</span>
-
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'_hat_matrix_diag'</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hat_matrix_diag</span>
@@ -730,7 +725,6 @@
 <span class="sd">        Warning: The definition of p-values might change if we switch to using</span>
 <span class="sd">        chi-square distribution instead of F-distribution, or if we make it</span>
 <span class="sd">        dependent on the fit keyword use_t.</span>
-
 <span class="sd">        """</span>
         <span class="n">cooks_d2</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_params</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov_params</span><span class="p">,</span>
                                                     <span class="bp">self</span><span class="o">.</span><span class="n">d_params</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -813,7 +807,6 @@
 <span class="sd">          `hat_matrix_diag`</span>
 <span class="sd">        * dffits_internal : DFFITS statistics using internally Studentized</span>
 <span class="sd">          residuals defined in `d_fittedvalues_scaled`</span>
-
 <span class="sd">        """</span>
         <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
 
@@ -862,7 +855,6 @@
 
 <span class="sd">    The leave-one-variable-out (LOVO) auxiliary regression are currently not</span>
 <span class="sd">    used.</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
@@ -978,7 +970,6 @@
 <span class="sd">        where resid are the residuals from the regression, sigma is an</span>
 <span class="sd">        estimate of the standard deviation of the residuals, and hii is the</span>
 <span class="sd">        diagonal of the hat_matrix.</span>
-
 <span class="sd">        """</span>
         <span class="n">hii</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hat_matrix_diag</span>
         <span class="k">if</span> <span class="n">sigma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1021,7 +1012,6 @@
 
 <span class="sd">        based on resid_studentized_internal</span>
 <span class="sd">        uses original results, no nobs loop</span>
-
 <span class="sd">        """</span>
         <span class="c1"># TODO: do I want to use different sigma estimate in</span>
         <span class="c1">#      resid_studentized_external</span>
@@ -1050,7 +1040,6 @@
 <span class="sd">        References</span>
 <span class="sd">        ----------</span>
 <span class="sd">        `Wikipedia &lt;https://en.wikipedia.org/wiki/DFFITS&gt;`_</span>
-
 <span class="sd">        """</span>
         <span class="c1"># TODO: do I want to use different sigma estimate in</span>
         <span class="c1">#      resid_studentized_external</span>
@@ -1113,7 +1102,6 @@
 <span class="sd">        This uses determinant of the estimate of the parameter covariance</span>
 <span class="sd">        from leave-one-out estimates.</span>
 <span class="sd">        requires leave one out loop for observations</span>
-
 <span class="sd">        """</span>
         <span class="c1"># do not use inplace division / because then we change original</span>
         <span class="n">cov_ratio</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">det_cov_params_not_obsi</span>
@@ -1129,7 +1117,6 @@
 <span class="sd">           sigma2 = sigma2_OLS * (1 - hii)</span>
 
 <span class="sd">        where hii is the diagonal of the hat matrix</span>
-
 <span class="sd">        """</span>
         <span class="c1"># TODO:check if correct outside of ols</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">hat_matrix_diag</span><span class="p">)</span>
@@ -1141,7 +1128,6 @@
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        resid_var</span>
-
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resid_var</span><span class="p">)</span>
 
@@ -1323,9 +1309,6 @@
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        This also attaches table_data to the instance.</span>
-
-
-
 <span class="sd">        """</span>
         <span class="c1"># print self.dfbetas</span>
 

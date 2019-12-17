@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.anova </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -696,7 +696,6 @@
 <span class="sd">        residual sum of squares</span>
 <span class="sd">    df : int</span>
 <span class="sd">        degrees of freedom</span>
-
 <span class="sd">    """</span>
     <span class="n">ind</span> <span class="o">=</span> <span class="n">_not_slice</span><span class="p">(</span><span class="n">term_slices</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">params1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
@@ -760,7 +759,6 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [*] Rutherford, Andrew. Anova and ANCOVA: a GLM approach. John Wiley &amp; Sons, 2011.</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">depvar</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">within</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">between</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -806,7 +804,6 @@
 <span class="sd">        returns None if it is balance</span>
 
 <span class="sd">        Return might change</span>
-
 <span class="sd">        """</span>
         <span class="n">factor_levels</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">for</span> <span class="n">wi</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">within</span><span class="p">:</span>
@@ -839,7 +836,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        AnovaResults instance</span>
-
 <span class="sd">        """</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">depvar</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
@@ -921,7 +917,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        summary : summary2.Summary instance</span>
-
 <span class="sd">        """</span>
         <span class="n">summ</span> <span class="o">=</span> <span class="n">summary2</span><span class="o">.</span><span class="n">Summary</span><span class="p">()</span>
         <span class="n">summ</span><span class="o">.</span><span class="n">add_title</span><span class="p">(</span><span class="s1">'Anova'</span><span class="p">)</span>

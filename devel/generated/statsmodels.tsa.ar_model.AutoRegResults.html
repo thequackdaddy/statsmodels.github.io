@@ -77,7 +77,7 @@
   
   <script src="../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../"versions.json"",
+    var json_loc = "../_static/versions.json",
         target_loc = "../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -117,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.ar_model.AutoRegResults </span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -350,6 +350,8 @@
 <dt><strong>model</strong><span class="classifier"><a class="reference internal" href="statsmodels.tsa.ar_model.AutoReg.html#statsmodels.tsa.ar_model.AutoReg" title="statsmodels.tsa.ar_model.AutoReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AutoReg</span></code></a></span></dt><dd><p>Reference to the model that is fit.</p>
 </dd>
 <dt><strong>params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The fitted parameters from the AR Model.</p>
+</dd>
+<dt><strong>cov_params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The estimated covariance matrix of the model parameters.</p>
 </dd>
 <dt><strong>normalized_cov_params</strong><span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>The array inv(dot(x.T,x)) where x contains the regressors in the
 model.</p>

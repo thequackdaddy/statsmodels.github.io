@@ -75,7 +75,7 @@
   
   <script src="../../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../../"versions.json"",
+    var json_loc = "../../../../_static/versions.json",
         target_loc = "../../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.tsa.statespace.mlemodel </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -468,7 +468,6 @@
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional keyword arguments to pass to the state space class</span>
 <span class="sd">            constructor.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># (Now self.endog is C-ordered and in long format (nobs x k_endog). To</span>
         <span class="c1"># get F-ordered and in wide format just need to transpose)</span>
@@ -999,7 +998,6 @@
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; mod = sm.tsa.SARIMAX(endog, order=(1, 0, 1))</span>
 <span class="sd">        &gt;&gt;&gt; res = mod.fit_constrained({'ar.L1': 0.5})</span>
-
 <span class="sd">        """</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">fix_params</span><span class="p">(</span><span class="n">constraints</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">start_params</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwds</span><span class="p">)</span>
@@ -1373,7 +1371,6 @@
 <span class="sd">        Harvey, Andrew C. 1990.</span>
 <span class="sd">        Forecasting, Structural Time Series Models and the Kalman Filter.</span>
 <span class="sd">        Cambridge University Press.</span>
-
 <span class="sd">        """</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -1456,7 +1453,6 @@
 <span class="sd">        Berndt, Ernst R., Bronwyn Hall, Robert Hall, and Jerry Hausman. 1974.</span>
 <span class="sd">        Estimation and Inference in Nonlinear Structural Models.</span>
 <span class="sd">        NBER Chapters. National Bureau of Economic Research, Inc.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># We cannot use complex-step differentiation with non-transformed</span>
         <span class="c1"># parameters</span>
@@ -1520,7 +1516,6 @@
 <span class="sd">        Harvey, Andrew C. 1990.</span>
 <span class="sd">        Forecasting, Structural Time Series Models and the Kalman Filter.</span>
 <span class="sd">        Cambridge University Press.</span>
-
 <span class="sd">        """</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
@@ -2052,7 +2047,6 @@
 <span class="sd">            this argument describes whether or not `start_params` also includes</span>
 <span class="sd">            the fixed parameters, in addition to the free parameters. Default</span>
 <span class="sd">            is False.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># Get the appropriate exog for the extended sample</span>
         <span class="n">exog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_out_of_sample_exog</span><span class="p">(</span><span class="n">exog</span><span class="p">,</span> <span class="n">out_of_sample</span><span class="p">)</span>
@@ -2329,7 +2323,6 @@
 <span class="sd">        TODO: add an option to allow changing the ordering for the</span>
 <span class="sd">              orthogonalized option. Will require permuting matrices when</span>
 <span class="sd">              constructing the extended model.</span>
-
 <span class="sd">        """</span>
         <span class="c1"># Make sure the model class has the current parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">transformed</span><span class="o">=</span><span class="n">transformed</span><span class="p">,</span>
@@ -3786,7 +3779,6 @@
 <span class="sd">        -----</span>
 <span class="sd">        Intercepts in the measurement and state equation are ignored when</span>
 <span class="sd">        calculating impulse responses.</span>
-
 <span class="sd">        """</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_results</span><span class="o">.</span><span class="n">filter_concentrated</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">fixed_scale</span><span class="p">(</span><span class="n">scale</span><span class="p">):</span>
@@ -4408,7 +4400,6 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">prediction_results</span><span class="p">,</span> <span class="n">row_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">k_endog</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>

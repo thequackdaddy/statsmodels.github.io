@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.stattools </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -367,26 +367,26 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    data : array_like</span>
-<span class="sd">        Data to test for normality</span>
+<span class="sd">    resids : array_like</span>
+<span class="sd">        Data to test for normality. Usually regression model residuals that</span>
+<span class="sd">        are mean 0.</span>
 <span class="sd">    axis : int, optional</span>
-<span class="sd">        Axis to use if data has more than 1 dimension. Default is 0</span>
+<span class="sd">        Axis to use if data has more than 1 dimension. Default is 0.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    JB : float or array</span>
-<span class="sd">        The Jarque-Bera test statistic</span>
-<span class="sd">    JBpv : float or array</span>
-<span class="sd">        The pvalue of the test statistic</span>
-<span class="sd">    skew : float or array</span>
-<span class="sd">        Estimated skewness of the data</span>
-<span class="sd">    kurtosis : float or array</span>
-<span class="sd">        Estimated kurtosis of the data</span>
+<span class="sd">    JB : {float, ndarray}</span>
+<span class="sd">        The Jarque-Bera test statistic.</span>
+<span class="sd">    JBpv : {float, ndarray}</span>
+<span class="sd">        The pvalue of the test statistic.</span>
+<span class="sd">    skew : {float, ndarray}</span>
+<span class="sd">        Estimated skewness of the data.</span>
+<span class="sd">    kurtosis : {float, ndarray}</span>
+<span class="sd">        Estimated kurtosis of the data.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    Each output returned has 1 dimension fewer than data</span>
-
 
 <span class="sd">    The Jarque-Bera test statistic tests the null that the data is normally</span>
 <span class="sd">    distributed against an alternative that the data follow some other</span>
@@ -421,7 +421,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : array_like</span>
-
+<span class="sd">        Data to compute use in the estimator.</span>
 <span class="sd">    axis : int or None, optional</span>
 <span class="sd">        Axis along which the skewness measures are computed.  If `None`, the</span>
 <span class="sd">        entire array is used.</span>
@@ -497,6 +497,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : array_like, 1-d</span>
+<span class="sd">        Data to compute use in the estimator.</span>
 <span class="sd">    alpha : float, optional</span>
 <span class="sd">        Lower cut-off for measuring expectation in tail.</span>
 <span class="sd">    beta :  float, optional</span>
@@ -577,6 +578,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : array_like</span>
+<span class="sd">        Data to compute use in the estimator.</span>
 <span class="sd">    axis : int or None, optional</span>
 <span class="sd">        Axis along which the kurtosis are computed.  If `None`, the</span>
 <span class="sd">        entire array is used.</span>
@@ -665,6 +667,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : array_like, 1-d</span>
+<span class="sd">        Data to compute use in the estimator.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -726,7 +729,8 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : array_like</span>
-<span class="sd">    axis : int or None, optional</span>
+<span class="sd">        Data to compute use in the estimator.</span>
+<span class="sd">    axis : {int, None}</span>
 <span class="sd">        Axis along which the medcouple statistic is computed.  If `None`, the</span>
 <span class="sd">        entire array is used.</span>
 

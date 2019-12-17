@@ -203,7 +203,7 @@
       "Link Function:                  logit   Scale:                          1.0000\n",
       "Method:                          IRLS   Log-Likelihood:                -2998.6\n",
       "Date:                Tue, 17 Dec 2019   Deviance:                       4078.8\n",
-      "Time:                        19:03:59   Pearson chi2:                 4.05e+03\n",
+      "Time:                        23:39:08   Pearson chi2:                 4.05e+03\n",
       "No. Iterations:                     5                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",
@@ -617,7 +617,7 @@
       "Link Function:          inverse_power   Scale:                       0.0035843\n",
       "Method:                          IRLS   Log-Likelihood:                -83.017\n",
       "Date:                Tue, 17 Dec 2019   Deviance:                     0.087389\n",
-      "Time:                        19:04:01   Pearson chi2:                   0.0860\n",
+      "Time:                        23:39:09   Pearson chi2:                   0.0860\n",
       "No. Iterations:                     6                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",
@@ -638,7 +638,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/travis/build/statsmodels/statsmodels/statsmodels/genmod/generalized_linear_model.py:279: DomainWarning: The inverse_power link function does not respect the domain of the Gamma family.\n",
+      "/home/travis/build/statsmodels/statsmodels/statsmodels/genmod/generalized_linear_model.py:278: DomainWarning: The inverse_power link function does not respect the domain of the Gamma family.\n",
       "  DomainWarning)\n"
      ]
     }
@@ -696,7 +696,7 @@
       "Link Function:                    log   Scale:                      1.0531e-07\n",
       "Method:                          IRLS   Log-Likelihood:                 662.92\n",
       "Date:                Tue, 17 Dec 2019   Deviance:                   1.0215e-05\n",
-      "Time:                        19:04:01   Pearson chi2:                 1.02e-05\n",
+      "Time:                        23:39:09   Pearson chi2:                 1.02e-05\n",
       "No. Iterations:                     7                                         \n",
       "Covariance Type:            nonrobust                                         \n",
       "==============================================================================\n",

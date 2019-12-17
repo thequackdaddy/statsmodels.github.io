@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.moment_helpers </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -323,7 +323,6 @@
 <div class="viewcode-block" id="mc2mnc"><a class="viewcode-back" href="../../../generated/statsmodels.stats.moment_helpers.mc2mnc.html#statsmodels.stats.moment_helpers.mc2mnc">[docs]</a><span class="k">def</span> <span class="nf">mc2mnc</span><span class="p">(</span><span class="n">mc</span><span class="p">):</span>
     <span class="sd">"""convert central to non-central moments, uses recursive formula</span>
 <span class="sd">    optionally adjusts first moment to return mean</span>
-
 <span class="sd">    """</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">_convert_to_multidim</span><span class="p">(</span><span class="n">mc</span><span class="p">)</span>
 
@@ -347,7 +346,6 @@
 <div class="viewcode-block" id="mnc2mc"><a class="viewcode-back" href="../../../generated/statsmodels.stats.moment_helpers.mnc2mc.html#statsmodels.stats.moment_helpers.mnc2mc">[docs]</a><span class="k">def</span> <span class="nf">mnc2mc</span><span class="p">(</span><span class="n">mnc</span><span class="p">,</span> <span class="n">wmean</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">"""convert non-central to central moments, uses recursive formula</span>
 <span class="sd">    optionally adjusts first moment to return mean</span>
-
 <span class="sd">    """</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">_convert_to_multidim</span><span class="p">(</span><span class="n">mnc</span><span class="p">)</span>
 
@@ -566,7 +564,6 @@
 <span class="sd">    This function does not convert subclasses of ndarrays. This requires</span>
 <span class="sd">    that multiplication is defined elementwise. np.ma.array are allowed, but</span>
 <span class="sd">    not matrices.</span>
-
 <span class="sd">    """</span>
     <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
     <span class="n">std_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">std</span><span class="p">)</span>

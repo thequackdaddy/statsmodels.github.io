@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.robust.norms </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -366,7 +366,6 @@
 
 
 <div class="viewcode-block" id="LeastSquares"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.LeastSquares.html#statsmodels.robust.norms.LeastSquares">[docs]</a><span class="k">class</span> <span class="nc">LeastSquares</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
-
     <span class="sd">"""</span>
 <span class="sd">    Least squares rho for M-estimation and its derived functions.</span>
 
@@ -643,7 +642,6 @@
 
 
 <div class="viewcode-block" id="AndrewWave"><a class="viewcode-back" href="../../../generated/statsmodels.robust.norms.AndrewWave.html#statsmodels.robust.norms.AndrewWave">[docs]</a><span class="k">class</span> <span class="nc">AndrewWave</span><span class="p">(</span><span class="n">RobustNorm</span><span class="p">):</span>
-
     <span class="sd">"""</span>
 <span class="sd">    Andrew's wave for M estimation.</span>
 
@@ -824,7 +822,6 @@
 <span class="sd">            psi(z) = z              for \|z\| &lt;= c</span>
 
 <span class="sd">            psi(z) = 0              for \|z\| &gt; c</span>
-
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -847,7 +844,6 @@
 <span class="sd">            weights(z) = 1             for \|z\| &lt;= c</span>
 
 <span class="sd">            weights(z) = 0             for \|z\| &gt; c</span>
-
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subset</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -985,7 +981,6 @@
 <span class="sd">            weights(z) = a*(c - \|z\|)/(\|z\|*(c-b))      for b &lt; \|z\| &lt;= c</span>
 
 <span class="sd">            weights(z) = 0                            for \|z\| &gt; c</span>
-
 <span class="sd">        """</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>

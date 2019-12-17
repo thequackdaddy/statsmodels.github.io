@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.stats.oaxaca </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -343,28 +343,28 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    endog: array_like</span>
-<span class="sd">        'endog' is the endogenous variable or the dependent variable</span>
-<span class="sd">        that you are trying to explain.</span>
-<span class="sd">    exog: array_like</span>
-<span class="sd">        'exog' is the exogenous variable(s) or the independent variable(s)</span>
-<span class="sd">        that you are using to explain the endogenous variable.</span>
-<span class="sd">    bifurcate: int or string</span>
-<span class="sd">        'bifurcate' is the column of the exogenous variable(s) that you</span>
-<span class="sd">        wish to split on. This would generally be the group that you wish</span>
-<span class="sd">        to explain the two means for. Int of the column for a NumPy array</span>
-<span class="sd">        or int/string for the name of the column in Pandas</span>
-<span class="sd">    hasconst: bool, optional</span>
+<span class="sd">    endog : array_like</span>
+<span class="sd">        The endogenous variable or the dependent variable that you are trying</span>
+<span class="sd">        to explain.</span>
+<span class="sd">    exog : array_like</span>
+<span class="sd">        The exogenous variable(s) or the independent variable(s) that you are</span>
+<span class="sd">        using to explain the endogenous variable.</span>
+<span class="sd">    bifurcate : {int, str}</span>
+<span class="sd">        The column of the exogenous variable(s) on which to split. This would</span>
+<span class="sd">        generally be the group that you wish to explain the two means for.</span>
+<span class="sd">        Int of the column for a NumPy array or int/string for the name of</span>
+<span class="sd">        the column in Pandas.</span>
+<span class="sd">    hasconst : bool, optional</span>
 <span class="sd">        Indicates whether the two exogenous variables include a user-supplied</span>
 <span class="sd">        constant. If True, a constant is assumed. If False, a constant is added</span>
 <span class="sd">        at the start. If nothing is supplied, then True is assumed.</span>
-<span class="sd">    swap: bool, optional</span>
+<span class="sd">    swap : bool, optional</span>
 <span class="sd">        Imitates the STATA Oaxaca command by allowing users to choose to swap</span>
 <span class="sd">        groups. Unlike STATA, this is assumed to be True instead of False</span>
-<span class="sd">    cov_type: string, optional</span>
+<span class="sd">    cov_type : str, optional</span>
 <span class="sd">        See regression.linear_model.RegressionResults for a description of the</span>
 <span class="sd">        available covariance estimators</span>
-<span class="sd">    cov_kwdslist or None, optional</span>
+<span class="sd">    cov_kwds : dict, optional</span>
 <span class="sd">        See linear_model.RegressionResults.get_robustcov_results for a</span>
 <span class="sd">        description required keywords for alternative covariance estimators</span>
 

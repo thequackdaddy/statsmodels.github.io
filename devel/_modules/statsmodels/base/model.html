@@ -75,7 +75,7 @@
   
   <script src="../../../_static/javascripts/version_dropdown.js"></script>
   <script>
-    var json_loc = "../../../"versions.json"",
+    var json_loc = "../../../_static/versions.json",
         target_loc = "../../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
@@ -115,7 +115,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+708)</span>
           <span class="md-header-nav__topic"> statsmodels.base.model </span>
         </div>
       </div>
@@ -196,7 +196,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+708)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -890,7 +890,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        results : Results instance</span>
-
 <span class="sd">        """</span>
         <span class="c1"># we need to append index of extra params to keep_index as in</span>
         <span class="c1"># NegativeBinomial</span>
@@ -1065,7 +1064,6 @@
 <span class="sd">    res = mod.fit(method="nm", maxiter = 500)</span>
 <span class="sd">    import numpy as np</span>
 <span class="sd">    np.allclose(res.params, probit_res.params)</span>
-
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loglike</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">hessian</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">extra_params_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1157,7 +1155,6 @@
 
 <span class="sd">        this could also be replaced by a more general parameter</span>
 <span class="sd">        transformation.</span>
-
 <span class="sd">        """</span>
         <span class="n">paramsfull</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">paramsfull</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fixed_paramsmask</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
@@ -2752,7 +2749,6 @@
 <span class="sd">        with degrees of freedom `df_model`.</span>
 <span class="sd">    prsquared : float</span>
 <span class="sd">        McFadden's pseudo-R-squared. 1 - (`llf`/`llnull`)</span>
-
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">mlefit</span><span class="p">):</span>
