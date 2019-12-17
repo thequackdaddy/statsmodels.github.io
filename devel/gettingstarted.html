@@ -74,26 +74,35 @@
     <link rel="prev" title="Installing statsmodels" href="install.html" />
   
    
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+
 
   </head>
   <body dir=ltr
         data-md-color-primary=indigo data-md-color-accent=blue>
+  
   <svg class="md-svg">
     <defs data-children-count="0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448"
-           id="__github">
-        <path fill="currentColor"
-              d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"></path>
-      </svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
     </defs>
   </svg>
+  
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
   <a href="#gettingstarted" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -108,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+701)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
           <span class="md-header-nav__topic"> Getting started </span>
         </div>
       </div>
@@ -182,7 +191,7 @@
       
     </a>
     <a href="index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+701)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -518,7 +527,7 @@ using <code class="docutils literal notranslate"><span class="pre">R</span></cod
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.287</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     6.636</span>
 <span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           1.07e-05</span>
-<span class="go">Time:                        00:30:20   Log-Likelihood:                -375.30</span>
+<span class="go">Time:                        19:09:25   Log-Likelihood:                -375.30</span>
 <span class="go">No. Observations:                  85   AIC:                             764.6</span>
 <span class="go">Df Residuals:                      78   BIC:                             781.7</span>
 <span class="go">Df Model:                           6                                         </span>
@@ -558,7 +567,7 @@ parameter estimates and r-squared by typing:</p>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [17]: </span><span class="n">res</span><span class="o">.</span><span class="n">rsquared</span>
-<span class="gh">Out[17]: </span><span class="go">0.3379508691928823</span>
+<span class="gh">Out[17]: </span><span class="go">0.337950869192882</span>
 </pre></div>
 </div>
 <p>Type <code class="docutils literal notranslate"><span class="pre">dir(res)</span></code> for a full list of attributes.</p>
@@ -571,7 +580,7 @@ and specification tests</a>.  For instance,
 apply the Rainbow test for linearity (the null hypothesis is that the
 relationship is properly modelled as linear):</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linear_rainbow</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="gh">Out[18]: </span><span class="go">(0.8472339976156906, 0.6997965543621644)</span>
+<span class="gh">Out[18]: </span><span class="go">(0.8472339976156913, 0.6997965543621643)</span>
 </pre></div>
 </div>
 <p>Admittedly, the output produced above is not very verbose, but we know from

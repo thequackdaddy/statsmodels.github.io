@@ -74,26 +74,35 @@
     <link rel="prev" title="Release Notes" href="index.html" />
   
    
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+
 
   </head>
   <body dir=ltr
         data-md-color-primary=indigo data-md-color-accent=blue>
+  
   <svg class="md-svg">
     <defs data-children-count="0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448"
-           id="__github">
-        <path fill="currentColor"
-              d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"></path>
-      </svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
     </defs>
   </svg>
+  
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
   <a href="#release/version0.11" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../index.html" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -108,7 +117,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+701)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
           <span class="md-header-nav__topic"> Release 0.11.0 </span>
         </div>
       </div>
@@ -189,7 +198,7 @@
       
     </a>
     <a href="../index.html"
-       title="statsmodels">statsmodels v0.11.0dev0 (+701)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -265,51 +274,17 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#release-summary" class="md-nav__link">Release summary</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#stats" class="md-nav__link">Stats</a>
+        <li class="md-nav__item"><a href="#release-statistics" class="md-nav__link">Release Statistics</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#the-highlights" class="md-nav__link">The Highlights</a>
-        </li>
-        <li class="md-nav__item"><a href="#what-s-new-an-overview" class="md-nav__link">What’s new - an overview</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#the-highlights" class="md-nav__link">The Highlights</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#base" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">base</span></code></a>
+        <li class="md-nav__item"><a href="#regression" class="md-nav__link">Regression</a>
         </li>
-        <li class="md-nav__item"><a href="#discrete" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">discrete</span></code></a>
+        <li class="md-nav__item"><a href="#statistics" class="md-nav__link">Statistics</a>
         </li>
-        <li class="md-nav__item"><a href="#genmod" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">genmod</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">graphics</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#imputation" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">imputation</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#iolib" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">iolib</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#multivariate" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">multivariate</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#nonparametric" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#regression" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">regression</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#sandbox" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sandbox</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">stats</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
-        </li>
-        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
-        </li>
-        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#statespace-models" class="md-nav__link">Statespace Models</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear exponential smoothing models</a>
         </li>
@@ -325,9 +300,61 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#maintenance" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code></a>
+        <li class="md-nav__item"><a href="#time-series-analysis" class="md-nav__link">Time-Series Analysis</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#stl-decomposition" class="md-nav__link">STL Decomposition</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
+        </li>
+        <li class="md-nav__item"><a href="#zivot-andrews-test" class="md-nav__link">Zivot-Andrews Test</a>
+        </li>
+        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
         </li></ul>
             </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#what-s-new-an-overview" class="md-nav__link">What’s new - an overview</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#major-feature" class="md-nav__link">Major Feature</a>
+        </li>
+        <li class="md-nav__item"><a href="#performance-improvements" class="md-nav__link">Performance Improvements</a>
+        </li>
+        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#base" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">base</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#discrete" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">discrete</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#genmod" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">genmod</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">graphics</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#io" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">io</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#nonparametric" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">regression</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#robust" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">robust</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#stats" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">stats</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-vector-ar" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.vector.ar</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#build" class="md-nav__link">Build</a>
+        </li>
+        <li class="md-nav__item"><a href="#maintenance" class="md-nav__link">Maintenance</a>
         </li>
         <li class="md-nav__item"><a href="#bug-wrong" class="md-nav__link">bug-wrong</a>
         </li></ul>
@@ -438,51 +465,17 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#release-summary" class="md-nav__link">Release summary</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#stats" class="md-nav__link">Stats</a>
+        <li class="md-nav__item"><a href="#release-statistics" class="md-nav__link">Release Statistics</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#the-highlights" class="md-nav__link">The Highlights</a>
-        </li>
-        <li class="md-nav__item"><a href="#what-s-new-an-overview" class="md-nav__link">What’s new - an overview</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#the-highlights" class="md-nav__link">The Highlights</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#base" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">base</span></code></a>
+        <li class="md-nav__item"><a href="#regression" class="md-nav__link">Regression</a>
         </li>
-        <li class="md-nav__item"><a href="#discrete" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">discrete</span></code></a>
+        <li class="md-nav__item"><a href="#statistics" class="md-nav__link">Statistics</a>
         </li>
-        <li class="md-nav__item"><a href="#genmod" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">genmod</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">graphics</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#imputation" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">imputation</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#iolib" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">iolib</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#multivariate" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">multivariate</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#nonparametric" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#regression" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">regression</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#sandbox" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sandbox</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">stats</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
-        </li>
-        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
-        </li>
-        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#statespace-models" class="md-nav__link">Statespace Models</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#linear-exponential-smoothing-models" class="md-nav__link">Linear exponential smoothing models</a>
         </li>
@@ -498,9 +491,61 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#maintenance" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code></a>
+        <li class="md-nav__item"><a href="#time-series-analysis" class="md-nav__link">Time-Series Analysis</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#stl-decomposition" class="md-nav__link">STL Decomposition</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-ar-model" class="md-nav__link">New AR model</a>
+        </li>
+        <li class="md-nav__item"><a href="#new-arima-model" class="md-nav__link">New ARIMA model</a>
+        </li>
+        <li class="md-nav__item"><a href="#zivot-andrews-test" class="md-nav__link">Zivot-Andrews Test</a>
+        </li>
+        <li class="md-nav__item"><a href="#more-robust-regime-switching-models" class="md-nav__link">More robust regime switching models</a>
         </li></ul>
             </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#what-s-new-an-overview" class="md-nav__link">What’s new - an overview</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#major-feature" class="md-nav__link">Major Feature</a>
+        </li>
+        <li class="md-nav__item"><a href="#performance-improvements" class="md-nav__link">Performance Improvements</a>
+        </li>
+        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#base" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">base</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#discrete" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">discrete</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#genmod" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">genmod</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">graphics</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#io" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">io</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#nonparametric" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">regression</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#robust" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">robust</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#stats" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">stats</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tools" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tools</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-statespace" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#tsa-vector-ar" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">tsa.vector.ar</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#build" class="md-nav__link">Build</a>
+        </li>
+        <li class="md-nav__item"><a href="#maintenance" class="md-nav__link">Maintenance</a>
         </li>
         <li class="md-nav__item"><a href="#bug-wrong" class="md-nav__link">bug-wrong</a>
         </li></ul>
@@ -547,73 +592,103 @@ was already in statsmodels master and how much usage it has already
 seen.  If there are specific known problems or limitations, then they
 are mentioned in the docstrings.</p>
 
-<h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h3>
+<h3 id="release-statistics">Release Statistics<a class="headerlink" href="#release-statistics" title="Permalink to this headline">¶</a></h3>
 <p><strong>Issues Closed</strong>: 320</p>
-<p><strong>Pull Requests Merged</strong>: 260</p>
+<p><strong>Pull Requests Merged</strong>: 266</p>
 
 
 
 <h2 id="the-highlights">The Highlights<a class="headerlink" href="#the-highlights" title="Permalink to this headline">¶</a></h2>
 
-
-<h2 id="what-s-new-an-overview">What’s new - an overview<a class="headerlink" href="#what-s-new-an-overview" title="Permalink to this headline">¶</a></h2>
-<p>The following lists the main new features of statsmodels 0.10. In addition,
-release 0.10 includes bug fixes, refactorings and improvements in many areas.</p>
-
-<h3 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
-
-<h4 id="base"><code class="docutils literal notranslate"><span class="pre">base</span></code><a class="headerlink" href="#base" title="Permalink to this headline">¶</a></h4>
+<h3 id="regression">Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
+<p>Rolling OLS and WLS are implemented in <a class="reference internal" href="../generated/statsmodels.regression.rolling.RollingOLS.html#statsmodels.regression.rolling.RollingOLS" title="statsmodels.regression.rolling.RollingOLS"><code class="xref py py-class docutils literal notranslate"><span class="pre">RollingOLS</span></code></a>
+and <a class="reference internal" href="../generated/statsmodels.regression.rolling.RollingWLS.html#statsmodels.regression.rolling.RollingWLS" title="statsmodels.regression.rolling.RollingWLS"><code class="xref py py-class docutils literal notranslate"><span class="pre">RollingWLS</span></code></a>. These function similarly to the estimators
+recently removed from pandas.</p>
 
 
-<h4 id="discrete"><code class="docutils literal notranslate"><span class="pre">discrete</span></code><a class="headerlink" href="#discrete" title="Permalink to this headline">¶</a></h4>
+<h3 id="statistics">Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<p>Add the Oaxaca-Blinder decomposition (<a class="reference internal" href="../generated/statsmodels.stats.oaxaca.OaxacaBlinder.html#statsmodels.stats.oaxaca.OaxacaBlinder" title="statsmodels.stats.oaxaca.OaxacaBlinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OaxacaBlinder</span></code></a>) that
+decomposes the difference in group means into with and between components.</p>
 
 
-<h4 id="genmod"><code class="docutils literal notranslate"><span class="pre">genmod</span></code><a class="headerlink" href="#genmod" title="Permalink to this headline">¶</a></h4>
+<h3 id="statespace-models">Statespace Models<a class="headerlink" href="#statespace-models" title="Permalink to this headline">¶</a></h3>
 
-
-<h4 id="graphics"><code class="docutils literal notranslate"><span class="pre">graphics</span></code><a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="imputation"><code class="docutils literal notranslate"><span class="pre">imputation</span></code><a class="headerlink" href="#imputation" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="iolib"><code class="docutils literal notranslate"><span class="pre">iolib</span></code><a class="headerlink" href="#iolib" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="multivariate"><code class="docutils literal notranslate"><span class="pre">multivariate</span></code><a class="headerlink" href="#multivariate" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="nonparametric"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code><a class="headerlink" href="#nonparametric" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="regression"><code class="docutils literal notranslate"><span class="pre">regression</span></code><a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="sandbox"><code class="docutils literal notranslate"><span class="pre">sandbox</span></code><a class="headerlink" href="#sandbox" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="id1"><code class="docutils literal notranslate"><span class="pre">stats</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="tools"><code class="docutils literal notranslate"><span class="pre">tools</span></code><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h4>
-
-
-<h4 id="tsa"><code class="docutils literal notranslate"><span class="pre">tsa</span></code><a class="headerlink" href="#tsa" title="Permalink to this headline">¶</a></h4>
-
-<h5 id="new-ar-model">New AR model<a class="headerlink" href="#new-ar-model" title="Permalink to this headline">¶</a></h5>
+<h4 id="linear-exponential-smoothing-models">Linear exponential smoothing models<a class="headerlink" href="#linear-exponential-smoothing-models" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Model class: <cite>sm.tsa.AutoReg</cite></p></li>
+<li><p>Model class: <code class="xref py py-class docutils literal notranslate"><span class="pre">ExponentialSmoothing</span></code></p></li>
+<li><p>Alternative to <a class="reference internal" href="../generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing.html#statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing" title="statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExponentialSmoothing</span></code></a></p></li>
+<li><p>Only supports linear models</p></li>
+<li><p>Is part of the class of state space models and so inherits some additional
+functionality.</p></li>
+</ul>
+
+
+<h4 id="methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset">Methods to apply parameters fitted on one dataset to another dataset<a class="headerlink" href="#methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Methods: <code class="docutils literal notranslate"><span class="pre">extend</span></code>, <code class="docutils literal notranslate"><span class="pre">append</span></code>, and <code class="docutils literal notranslate"><span class="pre">apply</span></code>, for state space results classes</p></li>
+<li><p>These methods allow applying fitted parameters from a training dataset to a
+test dataset in various ways</p></li>
+<li><p>Useful for conveniently performing cross-validation exercises</p></li>
+</ul>
+
+
+<h4 id="method-to-hold-some-parameters-fixed-at-known-values">Method to hold some parameters fixed at known values<a class="headerlink" href="#method-to-hold-some-parameters-fixed-at-known-values" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Methods: <a class="reference internal" href="../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params.html#statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params" title="statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params"><code class="xref py py-func docutils literal notranslate"><span class="pre">statsmodels.tsa.statespace.mlemodel.MLEModel.fix_params</span></code></a> and <a class="reference internal" href="../generated/generated/statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained.html#statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained" title="statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained"><code class="xref py py-func docutils literal notranslate"><span class="pre">statsmodels.tsa.statespace.mlemodel.MLEModel.fit_constrained</span></code></a>
+for state space model classes.</p></li>
+<li><p>These methods allow setting some parameters to known values and then
+estimating the remaining parameters</p></li>
+</ul>
+
+
+<h4 id="option-for-low-memory-operations">Option for low memory operations<a class="headerlink" href="#option-for-low-memory-operations" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Argument: <code class="docutils literal notranslate"><span class="pre">low_memory=True</span></code>, for <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, and <code class="docutils literal notranslate"><span class="pre">smooth</span></code></p></li>
+<li><p>Only a subset of results are available when using this option, but it does
+allow for prediction, diagnostics, and forecasting</p></li>
+<li><p>Useful to speed up cross-validation exercises</p></li>
+</ul>
+
+
+<h4 id="improved-access-to-state-estimates">Improved access to state estimates<a class="headerlink" href="#improved-access-to-state-estimates" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Attribute: <code class="docutils literal notranslate"><span class="pre">states</span></code>, for state space results classes</p></li>
+<li><p>Wraps estimated states (predicted, filtered, smoothed) as Pandas objects with
+the appropriate index.</p></li>
+<li><p>Adds human-readable names for states, where possible.</p></li>
+</ul>
+
+
+<h4 id="improved-simulation-and-impulse-responses-for-time-varying-models">Improved simulation and impulse responses for time-varying models<a class="headerlink" href="#improved-simulation-and-impulse-responses-for-time-varying-models" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Argument: <code class="docutils literal notranslate"><span class="pre">anchor</span></code> allows specifying the period after which to begin the simulation.</p></li>
+<li><p>Example: to simulate data following the sample period, use <code class="docutils literal notranslate"><span class="pre">anchor='end'</span></code></p></li>
+</ul>
+
+
+
+<h3 id="time-series-analysis">Time-Series Analysis<a class="headerlink" href="#time-series-analysis" title="Permalink to this headline">¶</a></h3>
+
+<h4 id="stl-decomposition">STL Decomposition<a class="headerlink" href="#stl-decomposition" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Class implementing the STL decomposition <a class="reference internal" href="../generated/statsmodels.tsa.seasonal.STL.html#statsmodels.tsa.seasonal.STL" title="statsmodels.tsa.seasonal.STL"><code class="xref py py-class docutils literal notranslate"><span class="pre">STL</span></code></a>.</p></li>
+</ul>
+
+
+<h4 id="new-ar-model">New AR model<a class="headerlink" href="#new-ar-model" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Model class: <a class="reference internal" href="../generated/statsmodels.tsa.ar_model.AutoReg.html#statsmodels.tsa.ar_model.AutoReg" title="statsmodels.tsa.ar_model.AutoReg"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoReg</span></code></a></p></li>
 <li><p>Estimates parameters using conditional MLE (OLS)</p></li>
 <li><p>Adds the ability to specify exogenous variables, include time trends,
 and add seasonal dummies.</p></li>
-<li><p>The function <cite>sm.tsa.ar_model.ar_select_order</cite> performs lag length selection
+<li><p>The function <a class="reference internal" href="../generated/statsmodels.tsa.ar_model.ar_select_order.html#statsmodels.tsa.ar_model.ar_select_order" title="statsmodels.tsa.ar_model.ar_select_order"><code class="xref py py-class docutils literal notranslate"><span class="pre">ar_select_order</span></code></a> performs lag length selection
 for AutoReg models.</p></li>
 </ul>
 
 
-<h5 id="new-arima-model">New ARIMA model<a class="headerlink" href="#new-arima-model" title="Permalink to this headline">¶</a></h5>
+<h4 id="new-arima-model">New ARIMA model<a class="headerlink" href="#new-arima-model" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Model class: <cite>sm.tsa.arima.ARIMA</cite></p></li>
+<li><p>Model class: <a class="reference internal" href="../generated/statsmodels.tsa.arima.model.ARIMA.html#statsmodels.tsa.arima.model.ARIMA" title="statsmodels.tsa.arima.model.ARIMA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIMA</span></code></a></p></li>
 <li><dl class="simple">
 <dt>Incorporates a variety of SARIMA estimators</dt><dd><ul>
 <li><p>MLE via state space methods (SARIMA models)</p></li>
@@ -632,7 +707,12 @@ functionality.</p></li>
 </ul>
 
 
-<h5 id="more-robust-regime-switching-models">More robust regime switching models<a class="headerlink" href="#more-robust-regime-switching-models" title="Permalink to this headline">¶</a></h5>
+<h4 id="zivot-andrews-test">Zivot-Andrews Test<a class="headerlink" href="#zivot-andrews-test" title="Permalink to this headline">¶</a></h4>
+<p>The Zivot-Andrews test for unit roots in the presence of structural breaks has
+been added in <a class="reference internal" href="../generated/statsmodels.tsa.stattools.zivot_andrews.html#statsmodels.tsa.stattools.zivot_andrews" title="statsmodels.tsa.stattools.zivot_andrews"><code class="xref py py-func docutils literal notranslate"><span class="pre">zivot_andrews</span></code></a>.</p>
+
+
+<h4 id="more-robust-regime-switching-models">More robust regime switching models<a class="headerlink" href="#more-robust-regime-switching-models" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Implementation of the Hamilton filter and Kim smoother in log space avoids
 underflow errors.</p></li>
@@ -640,63 +720,273 @@ underflow errors.</p></li>
 
 
 
+
+<h2 id="what-s-new-an-overview">What’s new - an overview<a class="headerlink" href="#what-s-new-an-overview" title="Permalink to this headline">¶</a></h2>
+<p>The following lists the main new features of statsmodels 0.10. In addition,
+release 0.10 includes bug fixes, refactorings and improvements in many areas.</p>
+
+<h3 id="major-feature">Major Feature<a class="headerlink" href="#major-feature" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allow fixing parameters in state space models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5735">PR #5735</a>)</p></li>
+<li><p>Add new version of ARIMA-type estimators (AR, ARIMA, SARIMAX)  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5827">PR #5827</a>)</p></li>
+<li><p>Add STL decomposition for time series  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5926">PR #5926</a>)</p></li>
+<li><p>Functional SIR  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5963">PR #5963</a>)</p></li>
+<li><p>Zivot Andrews test  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6014">PR #6014</a>)</p></li>
+<li><p>Added Oaxaca-Blinder Decomposition  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6026">PR #6026</a>)</p></li>
+<li><p>Add rolling WLS and OLS  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6028">PR #6028</a>)</p></li>
+<li><p>Replacement for AR  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6087">PR #6087</a>)</p></li>
+</ul>
+
+
+<h3 id="performance-improvements">Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cythonize innovations algo and filter  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5947">PR #5947</a>)</p></li>
+<li><p>Only perform required predict iterations in state space models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6064">PR #6064</a>)</p></li>
+<li><p>State space: Improve low memory usability; allow in fit, loglike  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6071">PR #6071</a>)</p></li>
+</ul>
+
+
+<h3 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
+
+<h4 id="base"><code class="docutils literal notranslate"><span class="pre">base</span></code><a class="headerlink" href="#base" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Clarify xname length and purpose  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5957">PR #5957</a>)</p></li>
+<li><p>Remove unnecessary pickle use  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6091">PR #6091</a>)</p></li>
+<li><p>Fix accepting of eval environment for formula  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6152">PR #6152</a>)</p></li>
+<li><p>Workaround NumPy ptp issue  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6316">PR #6316</a>)</p></li>
+</ul>
+
+
+<h4 id="discrete"><code class="docutils literal notranslate"><span class="pre">discrete</span></code><a class="headerlink" href="#discrete" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Test_constrained  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5821">PR #5821</a>)</p></li>
+<li><p>Improve the cvxopt not found error  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6163">PR #6163</a>)</p></li>
+</ul>
+
+
+<h4 id="genmod"><code class="docutils literal notranslate"><span class="pre">genmod</span></code><a class="headerlink" href="#genmod" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Improvements to BayesMixedGLM docs, argument checking  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5895">PR #5895</a>)</p></li>
+<li><p>Scale parameter handling in GEE  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6208">PR #6208</a>)</p></li>
+<li><p>Add example notebook for GEE score tests  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6299">PR #6299</a>)</p></li>
+</ul>
+
+
+<h4 id="graphics"><code class="docutils literal notranslate"><span class="pre">graphics</span></code><a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Plot only unique censored points  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6124">PR #6124</a>)</p></li>
+<li><p>Add missing keyword argument to plot_acf  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6227">PR #6227</a>)</p></li>
+<li><p>And vlines option to plot_fit  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6266">PR #6266</a>)</p></li>
+<li><p>Pass arguments through in plot_leverage_resid2  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6281">PR #6281</a>)</p></li>
+</ul>
+
+
+<h4 id="io"><code class="docutils literal notranslate"><span class="pre">io</span></code><a class="headerlink" href="#io" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Clarify summary2 documentation  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6118">PR #6118</a>)</p></li>
+</ul>
+
+
+<h4 id="nonparametric"><code class="docutils literal notranslate"><span class="pre">nonparametric</span></code><a class="headerlink" href="#nonparametric" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Ensure BW is not 0  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6292">PR #6292</a>)</p></li>
+<li><p>Check dtype in KDEUnivariate  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6314">PR #6314</a>)</p></li>
+</ul>
+
+
+<h4 id="id1"><code class="docutils literal notranslate"><span class="pre">regression</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Test for anova_nistcertified  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5797">PR #5797</a>)</p></li>
+<li><p>Remove no-longer-needed HC_se lookups  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5841">PR #5841</a>)</p></li>
+<li><p>Dimension reduction for covariance matrices  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5852">PR #5852</a>)</p></li>
+<li><p>Use class to define MixedLM variance components structure  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5898">PR #5898</a>)</p></li>
+<li><p>Add rolling WLS and OLS  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6028">PR #6028</a>)</p></li>
+<li><p>Prepare for Rolling Least Squares  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6056">PR #6056</a>)</p></li>
+<li><p>Improve regression doc strings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6077">PR #6077</a>)</p></li>
+<li><p>Fix summary table header for mixedlm  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6217">PR #6217</a>)</p></li>
+</ul>
+
+
+<h4 id="robust"><code class="docutils literal notranslate"><span class="pre">robust</span></code><a class="headerlink" href="#robust" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Robust  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5819">PR #5819</a>)</p></li>
+<li><p>Make mad function behave correctly when used on empty inputs  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5968">PR #5968</a>)</p></li>
+</ul>
+
+
+<h4 id="stats"><code class="docutils literal notranslate"><span class="pre">stats</span></code><a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Lilliefors min nobs not set  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5610">PR #5610</a>)</p></li>
+<li><p>Replace alpha=0.05 with alpha=alpha  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5998">PR #5998</a>)</p></li>
+<li><p>Added Oaxaca-Blinder Decomposition  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6026">PR #6026</a>)</p></li>
+<li><p>Improve Ljung-Box  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6079">PR #6079</a>)</p></li>
+<li><p>Correct thresholding in corrrelation tools  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6105">PR #6105</a>)</p></li>
+<li><p>Use self.data consistently  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6144">PR #6144</a>)</p></li>
+<li><p>Better argument checking for StratifiedTable  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6294">PR #6294</a>)</p></li>
+<li><p>Restore multicomp  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6320">PR #6320</a>)</p></li>
+<li><p>Improve Ljung Box diagnostics  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6324">PR #6324</a>)</p></li>
+</ul>
+
+
+<h4 id="tools"><code class="docutils literal notranslate"><span class="pre">tools</span></code><a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Fix error introduced in isestimable  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6081">PR #6081</a>)</p></li>
+</ul>
+
+
+<h4 id="tsa"><code class="docutils literal notranslate"><span class="pre">tsa</span></code><a class="headerlink" href="#tsa" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Use cython fused types to simplify statespace code  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5283">PR #5283</a>)</p></li>
+<li><p>Allow fixing parameters in state space models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5735">PR #5735</a>)</p></li>
+<li><p>Markov switching in log space: Hamilton filter / Kim smoother  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5826">PR #5826</a>)</p></li>
+<li><p>Add new version of ARIMA-type estimators (AR, ARIMA, SARIMAX)  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5827">PR #5827</a>)</p></li>
+<li><p>Exponential smoothing - damped trend gives incorrect param, predictions  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5893">PR #5893</a>)</p></li>
+<li><p>State space: add methods to apply fitted parameters to new observations or new dataset  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5915">PR #5915</a>)</p></li>
+<li><p>TVTP for Markov regression  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5917">PR #5917</a>)</p></li>
+<li><p>Add STL decomposition for time series  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5926">PR #5926</a>)</p></li>
+<li><p>Cythonize innovations algo and filter  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5947">PR #5947</a>)</p></li>
+<li><p>Zivot Andrews test  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6014">PR #6014</a>)</p></li>
+<li><p>Improve ARMA startparams  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6018">PR #6018</a>)</p></li>
+<li><p>Fix ARMA so that it works with exog when trend=nc  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6070">PR #6070</a>)</p></li>
+<li><p>Clean tsatools docs  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6075">PR #6075</a>)</p></li>
+<li><p>Improve Ljung-Box  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6079">PR #6079</a>)</p></li>
+<li><p>Replacement for AR  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6087">PR #6087</a>)</p></li>
+<li><p>Incorrect TSA index if loc resolves to slice  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6130">PR #6130</a>)</p></li>
+<li><p>Division by zero in exponential smoothing if damping_slope=0  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6232">PR #6232</a>)</p></li>
+<li><p>Forecasts now ignore non-monotonic period index  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6242">PR #6242</a>)</p></li>
+<li><p>Hannan-Rissanen third stage is invalid if non-stationary/invertible  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6258">PR #6258</a>)</p></li>
+<li><p>Fix notebook  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6279">PR #6279</a>)</p></li>
+<li><p>Correct VAR sumary when model contains exog variables  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6286">PR #6286</a>)</p></li>
+<li><p>Fix conf interval with MI  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6297">PR #6297</a>)</p></li>
+<li><p>Ensure inputs are finite in granger causalty test  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6318">PR #6318</a>)</p></li>
+<li><p>Fix trend due to recent changes  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6321">PR #6321</a>)</p></li>
+<li><p>Improve Ljung Box diagnostics  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6324">PR #6324</a>)</p></li>
+<li><p>Documentation for release v0.11  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6338">PR #6338</a>)</p></li>
+<li><p>Fix _get_index_loc with date strings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6340">PR #6340</a>)</p></li>
+</ul>
+
+
 <h4 id="tsa-statespace"><code class="docutils literal notranslate"><span class="pre">tsa.statespace</span></code><a class="headerlink" href="#tsa-statespace" title="Permalink to this headline">¶</a></h4>
-
-<h5 id="linear-exponential-smoothing-models">Linear exponential smoothing models<a class="headerlink" href="#linear-exponential-smoothing-models" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
-<li><p>Model class: <cite>sm.tsa.statespace.ExponentialSmoothing</cite></p></li>
-<li><p>Alternative to <cite>sm.tsa.ExponentialSmoothing</cite></p></li>
-<li><p>Only supports linear models</p></li>
-<li><p>Is part of the class of state space models and so inherits some additional
-functionality.</p></li>
+<li><p>Use cython fused types to simplify statespace code  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5283">PR #5283</a>)</p></li>
+<li><p>Allow fixing parameters in state space models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5735">PR #5735</a>)</p></li>
+<li><p>Add new version of ARIMA-type estimators (AR, ARIMA, SARIMAX)  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5827">PR #5827</a>)</p></li>
+<li><p>MLEModel now passes nobs to Representation  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6050">PR #6050</a>)</p></li>
+<li><p>Only perform required predict iterations in state space models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6064">PR #6064</a>)</p></li>
+<li><p>State space: Improve low memory usability; allow in fit, loglike  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6071">PR #6071</a>)</p></li>
+<li><p>State space: cov_params computation in fix_params context  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6072">PR #6072</a>)</p></li>
+<li><p>Add conserve memory tests.  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6073">PR #6073</a>)</p></li>
+<li><p>Improve cov_params in append, extend, apply  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6074">PR #6074</a>)</p></li>
+<li><p>Seasonality in SARIMAX Notebook  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6096">PR #6096</a>)</p></li>
+<li><p>Improve SARIMAX start_params if too few nobs  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6102">PR #6102</a>)</p></li>
+<li><p>Fix score computation with fixed params  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6104">PR #6104</a>)</p></li>
+<li><p>Add exact diffuse initialization as an option for SARIMAX, UnobservedComponents  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6111">PR #6111</a>)</p></li>
+<li><p>Compute standardized forecast error in diffuse period if possible  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6131">PR #6131</a>)</p></li>
+<li><p>Start_params for VMA model with exog.  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6133">PR #6133</a>)</p></li>
+<li><p>Adds state space version of linear exponential smoothing models  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6179">PR #6179</a>)</p></li>
+<li><p>State space: add wrapped states and, where possible, named states  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6181">PR #6181</a>)</p></li>
+<li><p>Allow dynamic factor starting parameters computation with NaNs values  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6231">PR #6231</a>)</p></li>
+<li><p>Dynamic factor model use AR model for error start params if error_var=False  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6233">PR #6233</a>)</p></li>
+<li><p>SARIMAX index behavior with simple_differencing=True  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6239">PR #6239</a>)</p></li>
+<li><p>Parameter names in DynamicFactor for unstructured error covariance matrix  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6240">PR #6240</a>)</p></li>
+<li><p>SARIMAX: basic validation for order, seasonal_order  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6241">PR #6241</a>)</p></li>
+<li><p>Update SARIMAX to use SARIMAXSpecification for more consistent input handling  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6250">PR #6250</a>)</p></li>
+<li><p>State space: Add finer-grained memory conserve settings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6254">PR #6254</a>)</p></li>
+<li><p>Cloning of arima.ARIMA models.  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6260">PR #6260</a>)</p></li>
+<li><p>State space: saving fixed params w/ extend, apply, append  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6261">PR #6261</a>)</p></li>
+<li><p>State space: Improve simulate, IRF, prediction  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6280">PR #6280</a>)</p></li>
+<li><p>State space: deprecate out-of-sample w/ unsupported index  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6332">PR #6332</a>)</p></li>
+<li><p>State space: integer params can cause imaginary output  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6333">PR #6333</a>)</p></li>
+<li><p>Append, extend check that index matches model  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6334">PR #6334</a>)</p></li>
+<li><p>Fix k_exog, k_trend in arima.ARIMA; raise error when cloning a model with exog if no new exog given  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6337">PR #6337</a>)</p></li>
+<li><p>Documentation for release v0.11  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6338">PR #6338</a>)</p></li>
 </ul>
 
 
-<h5 id="methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset">Methods to apply parameters fitted on one dataset to another dataset<a class="headerlink" href="#methods-to-apply-parameters-fitted-on-one-dataset-to-another-dataset" title="Permalink to this headline">¶</a></h5>
+<h4 id="tsa-vector-ar"><code class="docutils literal notranslate"><span class="pre">tsa.vector.ar</span></code><a class="headerlink" href="#tsa-vector-ar" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Methods: <cite>extend</cite>, <cite>append</cite>, and <cite>apply</cite>, for state space results classes</p></li>
-<li><p>These methods allow applying fitted parameters from a training dataset to a
-test dataset in various ways</p></li>
-<li><p>Useful for conveniently performing cross-validation exercises</p></li>
-</ul>
-
-
-<h5 id="method-to-hold-some-parameters-fixed-at-known-values">Method to hold some parameters fixed at known values<a class="headerlink" href="#method-to-hold-some-parameters-fixed-at-known-values" title="Permalink to this headline">¶</a></h5>
-<ul class="simple">
-<li><p>Methods: <cite>fix_params</cite> and <cite>fit_constrained</cite>, for state space model classes</p></li>
-<li><p>These methods allow setting some parameters to known values and then
-estimating the remaining parameters</p></li>
-</ul>
-
-
-<h5 id="option-for-low-memory-operations">Option for low memory operations<a class="headerlink" href="#option-for-low-memory-operations" title="Permalink to this headline">¶</a></h5>
-<ul class="simple">
-<li><p>Argument: <cite>low_memory=True</cite>, for <cite>fit</cite>, <cite>filter</cite>, and <cite>smooth</cite></p></li>
-<li><p>Only a subset of results are available when using this option, but it does
-allow for prediction, diagnostics, and forecasting</p></li>
-<li><p>Useful to speed up cross-validation exercises</p></li>
-</ul>
-
-
-<h5 id="improved-access-to-state-estimates">Improved access to state estimates<a class="headerlink" href="#improved-access-to-state-estimates" title="Permalink to this headline">¶</a></h5>
-<ul class="simple">
-<li><p>Attribute: <cite>states</cite>, for state space results classes</p></li>
-<li><p>Wraps estimated states (predicted, filtered, smoothed) as Pandas objects with
-the appropriate index.</p></li>
-<li><p>Adds human-readable names for states, where possible.</p></li>
-</ul>
-
-
-<h5 id="improved-simulation-and-impulse-responses-for-time-varying-models">Improved simulation and impulse responses for time-varying models<a class="headerlink" href="#improved-simulation-and-impulse-responses-for-time-varying-models" title="Permalink to this headline">¶</a></h5>
-<ul class="simple">
-<li><p>Argument: <cite>anchor</cite> allows specifying the period after which to begin the simulation.</p></li>
-<li><p>Example: to simulate data following the sample period, use <cite>anchor=’end’</cite></p></li>
+<li><p>Raise in GC test for VAR(0)  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6285">PR #6285</a>)</p></li>
+<li><p>Correct VAR sumary when model contains exog variables  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6286">PR #6286</a>)</p></li>
 </ul>
 
 
 
-<h4 id="maintenance"><code class="docutils literal notranslate"><span class="pre">maintenance</span></code><a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h4>
+<h3 id="build">Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ignore warns on 32 bit linux  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6005">PR #6005</a>)</p></li>
+<li><p>Travis CI: The sudo: tag is deprecated in Travis  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6161">PR #6161</a>)</p></li>
+<li><p>Relax precision for ppc64el  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6222">PR #6222</a>)</p></li>
+</ul>
 
+
+<h3 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Implement cached_value, cached_data proof of concept  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/4421">PR #4421</a>)</p></li>
+<li><p>Use Appender pattern for docstrings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5235">PR #5235</a>)</p></li>
+<li><p>Remove sandbox.formula, supplanted by patsy  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5692">PR #5692</a>)</p></li>
+<li><p>Remove docstring’d-out traceback for code that no longer raises  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5757">PR #5757</a>)</p></li>
+<li><p>Enable/mark mangled/commented-out tests  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5768">PR #5768</a>)</p></li>
+<li><p>Implement parts of #5220, deprecate ancient aliases  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5784">PR #5784</a>)</p></li>
+<li><p>Catch warnings produced during tests  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5799">PR #5799</a>)</p></li>
+<li><p>Parts of iolib  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5814">PR #5814</a>)</p></li>
+<li><p>E701 multiple statements on one line (colon)  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5842">PR #5842</a>)</p></li>
+<li><p>Remove ex_pairwise file dominated by try_tukey_hsd  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5856">PR #5856</a>)</p></li>
+<li><p>Fix pandas compat  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5892">PR #5892</a>)</p></li>
+<li><p>Use pytest.raises to check error message  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5897">PR #5897</a>)</p></li>
+<li><p>Bump dependencies  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5910">PR #5910</a>)</p></li>
+<li><p>Fix pandas imports  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5922">PR #5922</a>)</p></li>
+<li><p>Remove Python 2.7 from Appveyor  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5927">PR #5927</a>)</p></li>
+<li><p>Relax tol on test that randomly fails  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5931">PR #5931</a>)</p></li>
+<li><p>Fix test that fails with positive probability  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5933">PR #5933</a>)</p></li>
+<li><p>Port parts of #5220  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5935">PR #5935</a>)</p></li>
+<li><p>Remove Python 2.7 from travis  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5938">PR #5938</a>)</p></li>
+<li><p>Fix linting failures  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5940">PR #5940</a>)</p></li>
+<li><p>Drop redendant travis configs  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5950">PR #5950</a>)</p></li>
+<li><p>Mark MPL test as MPL  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5954">PR #5954</a>)</p></li>
+<li><p>Deprecate periodogram  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5958">PR #5958</a>)</p></li>
+<li><p>Ensure seaborn is available for docbuild  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5960">PR #5960</a>)</p></li>
+<li><p>Cython cleanups  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5962">PR #5962</a>)</p></li>
+<li><p>Remove PY3  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5965">PR #5965</a>)</p></li>
+<li><p>Remove future and Python 2.7  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5969">PR #5969</a>)</p></li>
+<li><p>Remove string_types in favor of str  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5972">PR #5972</a>)</p></li>
+<li><p>Restore ResettableCache  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5976">PR #5976</a>)</p></li>
+<li><p>Cleanup legacy imports  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5977">PR #5977</a>)</p></li>
+<li><p>Follow-up to #5956  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5982">PR #5982</a>)</p></li>
+<li><p>Clarify breusch_pagan is for scalars  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5984">PR #5984</a>)</p></li>
+<li><p>Add W605 to lint codes  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5987">PR #5987</a>)</p></li>
+<li><p>Follow-up to #5928  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5988">PR #5988</a>)</p></li>
+<li><p>Add spell checking  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5990">PR #5990</a>)</p></li>
+<li><p>Remove comment no longer relevant  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5991">PR #5991</a>)</p></li>
+<li><p>Refactor X13 testing  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6001">PR #6001</a>)</p></li>
+<li><p>Standardized on nlags for acf/pacf  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6002">PR #6002</a>)</p></li>
+<li><p>Rename forecast years to forecast periods  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6007">PR #6007</a>)</p></li>
+<li><p>Improve testing of seasonal decompose  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6011">PR #6011</a>)</p></li>
+<li><p>Remove notes about incorrect test  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6015">PR #6015</a>)</p></li>
+<li><p>Turn relative import into an absolute import  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6030">PR #6030</a>)</p></li>
+<li><p>Change types for future changes in NumPy  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6039">PR #6039</a>)</p></li>
+<li><p>Move garch to archive/  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6059">PR #6059</a>)</p></li>
+<li><p>Fix small lint issue  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6066">PR #6066</a>)</p></li>
+<li><p>Stop testing on old, bugy SciPy  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6069">PR #6069</a>)</p></li>
+<li><p>Small fixes in preperation for larger changes  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6088">PR #6088</a>)</p></li>
+<li><p>Add tools for programatically manipulating docstrings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6090">PR #6090</a>)</p></li>
+<li><p>Ensure r download cache works  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6092">PR #6092</a>)</p></li>
+<li><p>Fix new cache name  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6093">PR #6093</a>)</p></li>
+<li><p>Fix wrong test  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6094">PR #6094</a>)</p></li>
+<li><p>Remove extra LICENSE.txt and setup.cfg  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6117">PR #6117</a>)</p></li>
+<li><p>Be compatible with scipy 1.3  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6164">PR #6164</a>)</p></li>
+<li><p>Don’t assume that ‘python’ is Python 3  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6165">PR #6165</a>)</p></li>
+<li><p>Exclude pytest-xdist 1.30  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6205">PR #6205</a>)</p></li>
+<li><p>Add Python 3.8 environment  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6246">PR #6246</a>)</p></li>
+<li><p>Ignore vscode  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6255">PR #6255</a>)</p></li>
+<li><p>Update test tolerance  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6288">PR #6288</a>)</p></li>
+<li><p>Remove open_help method  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6290">PR #6290</a>)</p></li>
+<li><p>Remove deprecated code in preperation for release  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6291">PR #6291</a>)</p></li>
+<li><p>Deprecate recarray support  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6310">PR #6310</a>)</p></li>
+<li><p>Reduce test size to prevent 32-bit crash  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6311">PR #6311</a>)</p></li>
+<li><p>Remove chain dot  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6312">PR #6312</a>)</p></li>
+<li><p>Catch and fix warnings  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6313">PR #6313</a>)</p></li>
+<li><p>Use NumPy’s linalg when available  (<a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6315">PR #6315</a>)</p></li>
+</ul>
 
 
 <h3 id="bug-wrong">bug-wrong<a class="headerlink" href="#bug-wrong" title="Permalink to this headline">¶</a></h3>
@@ -733,44 +1023,46 @@ important contributions to general maintenance for this release came from</p>
 <p>Additionally, many users contributed by participation in github issues and
 providing feedback.</p>
 <p>Thanks to all of the contributors for the 0.10 release (based on git log):</p>
-<p>Atticus Yang
-Austin Adams
-Brock Mendel
-Chad Fulton
-Christian Clauss
-Emil Mirzayev
-Graham Inggs
-Guglielmo Saggiorato
-Hassan Kibirige
-Ian Preston
-Jefferson Tweed
-Josef Perktold
-Keller Scholl
-Kerby Shedden
-Kevin Sheppard
-Lucas Roberts
-Mandy Gu
-Omer Ozen
-Padarn Wilson
-Peter Quackenbush
-Qingqing Mao
-Rebecca N. Palmer
-Samesh Lakhotia
-Sandu Ursu
-Tim Staley
-Yasine Gangat
-comatrion
-luxiform
-partev
-vegcev
-郭飞</p>
+<ul class="simple">
+<li><p>Atticus Yang</p></li>
+<li><p>Austin Adams</p></li>
+<li><p>Brock Mendel</p></li>
+<li><p>Chad Fulton</p></li>
+<li><p>Christian Clauss</p></li>
+<li><p>Emil Mirzayev</p></li>
+<li><p>Graham Inggs</p></li>
+<li><p>Guglielmo Saggiorato</p></li>
+<li><p>Hassan Kibirige</p></li>
+<li><p>Ian Preston</p></li>
+<li><p>Jefferson Tweed</p></li>
+<li><p>Josef Perktold</p></li>
+<li><p>Keller Scholl</p></li>
+<li><p>Kerby Shedden</p></li>
+<li><p>Kevin Sheppard</p></li>
+<li><p>Lucas Roberts</p></li>
+<li><p>Mandy Gu</p></li>
+<li><p>Omer Ozen</p></li>
+<li><p>Padarn Wilson</p></li>
+<li><p>Peter Quackenbush</p></li>
+<li><p>Qingqing Mao</p></li>
+<li><p>Rebecca N. Palmer</p></li>
+<li><p>Samesh Lakhotia</p></li>
+<li><p>Sandu Ursu</p></li>
+<li><p>Tim Staley</p></li>
+<li><p>Yasine Gangat</p></li>
+<li><p>comatrion</p></li>
+<li><p>luxiform</p></li>
+<li><p>partev</p></li>
+<li><p>vegcev</p></li>
+<li><p>郭飞</p></li>
+</ul>
 <p>These lists of names are automatically generated based on git log, and may not
 be complete.</p>
 
 <h3 id="merged-pull-requests">Merged Pull Requests<a class="headerlink" href="#merged-pull-requests" title="Permalink to this headline">¶</a></h3>
 <p>The following Pull Requests were merged since the last release:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/4421">PR #4421</a>: implement cached_value, cached_data proof of concept</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/4421">PR #4421</a>: ENH: Implement cached_value, cached_data proof of concept</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5235">PR #5235</a>: STY: use Appender pattern for docstrings</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5283">PR #5283</a>: ENH: Use cython fused types to simplify statespace code</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5610">PR #5610</a>: BUG: Lilliefors min nobs not set</p></li>
@@ -802,8 +1094,8 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5917">PR #5917</a>: BUG: TVTP for Markov regression</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5921">PR #5921</a>: BUG: Ensure exponential smoothers has continuous double data</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5922">PR #5922</a>: MAINT: Fix pandas imports</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5926">PR #5926</a>: Add STL decomposition for time series</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5927">PR #5927</a>: MAINT: Remove Python 2.7 from Appveyory</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5926">PR #5926</a>: ENH: Add STL decomposition for time series</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5927">PR #5927</a>: MAINT: Remove Python 2.7 from Appveyor</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5928">PR #5928</a>: ENH: Add array_like function to simplify input checking</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5929">PR #5929</a>: DOC: array-like -&gt; array_like</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5930">PR #5930</a>: BUG: Limit lags in KPSS</p></li>
@@ -833,7 +1125,7 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5965">PR #5965</a>: MAINT: Remove PY3</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5966">PR #5966</a>: ENH: Add JohansenResults class</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5967">PR #5967</a>: BUG/ENH: Improve RLM in the case of perfect fit</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5968">PR #5968</a>: Rlucas7 mad fun empty</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5968">PR #5968</a>: BUG: Make mad function behave correctly when used on empty inputs</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5969">PR #5969</a>: MAINT: Remove future and Python 2.7</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5971">PR #5971</a>: BUG: Fix a future issue in ExpSmooth</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5972">PR #5972</a>: MAINT: Remove string_types in favor of str</p></li>
@@ -848,18 +1140,18 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5990">PR #5990</a>: MAINT/DOC: Add spell checking</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5991">PR #5991</a>: MAINT: Remove comment no longer relevant</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5992">PR #5992</a>: DOC: Fix many spelling errors</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5994">PR #5994</a>: DOC: Small fixups after teh spell check</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5994">PR #5994</a>: DOC: Small fixups after the spell check</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5995">PR #5995</a>: ENH: Add R-squared and Adj. R_squared to summary_col</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5996">PR #5996</a>: BUG: Limit lags in KPSS</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5997">PR #5997</a>: ENH/BUG: Add check to AR instance to prevent bugs</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5998">PR #5998</a>: Replace alpha=0.05 with alpha=alpha</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5998">PR #5998</a>: BUG: Replace alpha=0.05 with alpha=alpha</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/5999">PR #5999</a>: ENH: Add summary to AR</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6000">PR #6000</a>: DOC: Clarify that GARCH models are deprecated</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6001">PR #6001</a>: MAINT: Refactor X13 testing</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6002">PR #6002</a>: MAINT: Standardized on nlags for acf/pacf</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6003">PR #6003</a>: BUG: Do not fit when fit=False</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6004">PR #6004</a>: ENH/BUG: Allow ARMA predict to swallow typ</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6005">PR #6005</a>: Ignore warns on 32 bit linux</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6005">PR #6005</a>: MAINT: Ignore warns on 32 bit linux</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6006">PR #6006</a>: BUG/ENH: Check exog in ARMA and ARIMA predict</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6007">PR #6007</a>: MAINT: Rename forecast years to forecast periods</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6008">PR #6008</a>: ENH: Allow GC testing for specific lags</p></li>
@@ -871,20 +1163,20 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6015">PR #6015</a>: CLN: Remove notes about incorrect test</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6016">PR #6016</a>: TST: Add check for dtyppes in Binomial</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6017">PR #6017</a>: ENH: Set limit for number of endog variables when using formulas</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6018">PR #6018</a>: Josef pkt arma startparams2</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6018">PR #6018</a>: ENH: Improve ARMA startparams</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6019">PR #6019</a>: BUG: Fix ARMA cov_params</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6020">PR #6020</a>: TST: Correct test to use trend not level</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6022">PR #6022</a>: DOC: added content for two headings in VAR docs</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6023">PR #6023</a>: TST: Verify missing exog raises in ARIMA</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6026">PR #6026</a>: WIP: Added Oaxaca-Blinder Decomposition</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6028">PR #6028</a>: ENH: Add rolling WLS and OLS</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6030">PR #6030</a>: Turn relative import into an absolute import</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6030">PR #6030</a>: MAINT: Turn relative import into an absolute import</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6031">PR #6031</a>: DOC: Fix regression doc strings</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6036">PR #6036</a>: BLD/DOC: Add doc string check to doc build</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6038">PR #6038</a>: DOC: Apply documentation standardizations</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6039">PR #6039</a>: MAINT: Change types for future changes in NumPy</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6041">PR #6041</a>: DOC: Fix spelling</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6042">PR #6042</a>: Merge pull request #6041 from bashtage/doc-fixes</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6042">PR #6042</a>: DOC: Merge pull request #6041 from bashtage/doc-fixes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6044">PR #6044</a>: DOC: Fix notebook due to pandas index change</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6045">PR #6045</a>: DOC/MAINT: Remove warning due to deprecated features</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6046">PR #6046</a>: DOC: Remove DynamicVAR</p></li>
@@ -894,7 +1186,7 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6053">PR #6053</a>: DOC: More small doc fixes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6054">PR #6054</a>: DOC: Small changes to doc building</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6055">PR #6055</a>: DOC: Use the working branch of numpy doc</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6056">PR #6056</a>: Rolling ls prep</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6056">PR #6056</a>: MAINT: Prepare for Rolling Least Squares</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6057">PR #6057</a>: DOC: Fix spelling in notebooks</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6058">PR #6058</a>: DOC: Fix missing spaces around colon</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6059">PR #6059</a>: REF: move garch to archive/</p></li>
@@ -916,7 +1208,7 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6080">PR #6080</a>: DOC: Improve docs in tools and ar_model</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6081">PR #6081</a>: BUG: Fix error introduced in isestimable</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6082">PR #6082</a>: DOC: Improve filter docstrings</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6085">PR #6085</a>: DOC: Spelling and motebook link</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6085">PR #6085</a>: DOC: Spelling and notebook link</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6087">PR #6087</a>: ENH: Replacement for AR</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6088">PR #6088</a>: MAINT: Small fixes in preperation for larger changes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6089">PR #6089</a>: DOC: Website fix</p></li>
@@ -928,24 +1220,24 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6096">PR #6096</a>: DOC: Seasonality in SARIMAX Notebook</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6102">PR #6102</a>: ENH: Improve SARIMAX start_params if too few nobs</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6104">PR #6104</a>: BUG: Fix score computation with fixed params</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6105">PR #6105</a>: Update correlation_tools.py</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6105">PR #6105</a>: BUG: Correct thresholding in corrrelation tools</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6106">PR #6106</a>: DOC: Changes summary_col’s docstring to match variables</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6107">PR #6107</a>: DOC: Update CONTRIBUTING.rst “relase”-&gt; “release”</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6108">PR #6108</a>: DOC: Update link in CONTRIBUTING.rst</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6110">PR #6110</a>: DOC: Update PR template Numpy guide link</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6111">PR #6111</a>: ENH: Add exact diffuse initialization as an option for SARIMAX, UnobservedComponents</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6113">PR #6113</a>: added interpretations to LogitResults.get_margeff</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6113">PR #6113</a>: DOC: added interpretations to LogitResults.get_margeff</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6116">PR #6116</a>: DOC: Improve docstrings</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6117">PR #6117</a>: BUG: Remove extra LICENSE.txt and setup.cfg</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6118">PR #6118</a>: Update summary2.py</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6117">PR #6117</a>: MAINT: Remove extra LICENSE.txt and setup.cfg</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6118">PR #6118</a>: DOC: Clarify summary2 documentation</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6119">PR #6119</a>: DOC: Switch doc theme</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6120">PR #6120</a>: DOC: Add initial API doc</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6122">PR #6122</a>: DOC: Small improvements to docs</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6123">PR #6123</a>: DOC: Switch doc icon</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6124">PR #6124</a>: Plot only unique censored points</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6124">PR #6124</a>: ENH: Plot only unique censored points</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6125">PR #6125</a>: DOC: Fix doc build failure</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6126">PR #6126</a>: DOC: Update templates and add missing API functions</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6130">PR #6130</a>:  BUG: Incorrect TSA index if loc resolves to slice</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6130">PR #6130</a>: BUG: Incorrect TSA index if loc resolves to slice</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6131">PR #6131</a>: ENH: Compute standardized forecast error in diffuse period if possible</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6133">PR #6133</a>: BUG: start_params for VMA model with exog.</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6134">PR #6134</a>: DOC: Add missing functions from the API</p></li>
@@ -956,11 +1248,11 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6145">PR #6145</a>: DOC: Add formula API</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6152">PR #6152</a>: BUG: Fix accepting of eval environment for formula</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6160">PR #6160</a>: DOC: fix sidebartoc</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6161">PR #6161</a>: Travis CI: The sudo: tag is deprecated in Travis</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6161">PR #6161</a>: BLD: Travis CI: The sudo: tag is deprecated in Travis</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6162">PR #6162</a>: DOC/SEC: Warn that only trusted files should be unpickled</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6163">PR #6163</a>: Improve the cvxopt not found error</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6164">PR #6164</a>: Be compatible with scipy 1.3</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6165">PR #6165</a>: Don’t assume that ‘python’ is Python 3</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6163">PR #6163</a>: ENH: Improve the cvxopt not found error</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6164">PR #6164</a>: MAINT: Be compatible with scipy 1.3</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6165">PR #6165</a>: MAINT: Don’t assume that ‘python’ is Python 3</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6166">PR #6166</a>: DOC: Update pickle warning</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6167">PR #6167</a>: DOC: Fix warning format</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6179">PR #6179</a>: ENH: Adds state space version of linear exponential smoothing models</p></li>
@@ -969,11 +1261,11 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6204">PR #6204</a>: DOC: Spelling and Doc String Fixes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6205">PR #6205</a>: MAINT: Exclude pytest-xdist 1.30</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6208">PR #6208</a>: ENH: Scale parameter handling in GEE</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6214">PR #6214</a>: fix a typo</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6215">PR #6215</a>: fix typos in install.rst</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6216">PR #6216</a>: fix a typo</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6214">PR #6214</a>: DOC: fix a typo</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6215">PR #6215</a>: DOC: fix typos in install.rst</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6216">PR #6216</a>: DOC: fix a typo</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6217">PR #6217</a>: BUG: Fix summary table header for mixedlm</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6222">PR #6222</a>: WIP: Relax precision for ppc64el</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6222">PR #6222</a>: MAINT: Relax precision for ppc64el</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6227">PR #6227</a>: ENH: Add missing keyword argument to plot_acf</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6231">PR #6231</a>: BUG: allow dynamic factor starting parameters computation with NaNs values</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6232">PR #6232</a>: BUG: division by zero in exponential smoothing if damping_slope=0</p></li>
@@ -986,7 +1278,7 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6246">PR #6246</a>: TST: Add Python 3.8 environment</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6250">PR #6250</a>: ENH: Update SARIMAX to use SARIMAXSpecification for more consistent input handling</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6254">PR #6254</a>: ENH: State space: Add finer-grained memory conserve settings</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6255">PR #6255</a>: ignore vscode</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6255">PR #6255</a>: MAINT: Ignore vscode</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6257">PR #6257</a>: DOC: Fix spelling in notebooks</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6258">PR #6258</a>: BUG: Hannan-Rissanen third stage is invalid if non-stationary/invertible</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6260">PR #6260</a>: BUG: cloning of arima.ARIMA models.</p></li>
@@ -996,17 +1288,17 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6279">PR #6279</a>: DOC: Fix notebook</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6280">PR #6280</a>: ENH: State space: Improve simulate, IRF, prediction</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6281">PR #6281</a>: BUG: Pass arguments through in plot_leverage_resid2</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6283">PR #6283</a>: Close issues</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6283">PR #6283</a>: MAINT/DOC: Close issues</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6285">PR #6285</a>: BUG: Raise in GC test for VAR(0)</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6286">PR #6286</a>: BUG: Correct VAR sumary when model contains exog variables</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6288">PR #6288</a>: MAINT: Update test tolerance</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6289">PR #6289</a>: DOC: doc string changes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6290">PR #6290</a>: MAINT: Remove open_help method</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6291">PR #6291</a>: MAINT: Remove deprecated code in preperation for release</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6292">PR #6292</a>: Padarn singlepointkde patch</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6292">PR #6292</a>: BUG: Ensure BW is not 0</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6294">PR #6294</a>: ENH: better argument checking for StratifiedTable</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6297">PR #6297</a>: BUG: Fix conf interval with MI</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6298">PR #6298</a>: Correct spells</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6298">PR #6298</a>: DOC: Correct spells</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6299">PR #6299</a>: DOC: Add example notebook for GEE score tests</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6303">PR #6303</a>: DOC/MAINT: Add simple, documented script to get github info</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6310">PR #6310</a>: MAINT: Deprecate recarray support</p></li>
@@ -1022,14 +1314,20 @@ be complete.</p>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6320">PR #6320</a>: BUG: Restore multicomp</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6321">PR #6321</a>: BUG: Fix trend due to recent changes</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6322">PR #6322</a>: DOC: fix alpha description for GLMGam</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6324">PR #6324</a>: Improve ljung box</p></li>
-<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6327">PR #6327</a>: Move api docs</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6324">PR #6324</a>: ENH: Improve Ljung Box diagnostics</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6327">PR #6327</a>: DOC: Move api docs</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6332">PR #6332</a>: DEPR: state space: deprecate out-of-sample w/ unsupported index</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6333">PR #6333</a>: BUG: state space: integer params can cause imaginary output</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6334">PR #6334</a>: ENH: append, extend check that index matches model</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6337">PR #6337</a>: BUG: fix k_exog, k_trend in arima.ARIMA; raise error when cloning a model with exog if no new exog given</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6338">PR #6338</a>: DOC: Documentation for release v0.11</p></li>
 <li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6340">PR #6340</a>: BUG: fix _get_index_loc with date strings</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6342">PR #6342</a>: DOC: Update Release Note</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6343">PR #6343</a>: DOC: Fix documentation errors</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6344">PR #6344</a>: DOC: Fixes in preparation for release</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6345">PR #6345</a>: DOC: Further doc fixes</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6347">PR #6347</a>: DOC: Fix minor doc errors</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels/pull/6348">PR #6348</a>: DOC: git notes</p></li>
 </ul>
 
 

@@ -73,26 +73,35 @@
     <link rel="next" title="Installing statsmodels" href="install.html" />
   
    
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+
 
   </head>
   <body dir=ltr
         data-md-color-primary=indigo data-md-color-accent=blue>
+  
   <svg class="md-svg">
     <defs data-children-count="0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448"
-           id="__github">
-        <path fill="currentColor"
-              d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"></path>
-      </svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
     </defs>
   </svg>
+  
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
   <a href="#index" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
+    <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="#" title="statsmodels"
            class="md-header-nav__button md-logo">
@@ -107,7 +116,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+701)</span>
+          <span class="md-header-nav__topic">statsmodels v0.11.0dev0 (+705)</span>
           <span class="md-header-nav__topic"> Introduction </span>
         </div>
       </div>
@@ -188,7 +197,7 @@
       
     </a>
     <a href="#"
-       title="statsmodels">statsmodels v0.11.0dev0 (+701)</a>
+       title="statsmodels">statsmodels v0.11.0dev0 (+705)</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/statsmodels/statsmodels" title="Go to repository" class="md-source" data-md-source="github">
@@ -316,7 +325,7 @@ Here is a simple example using ordinary least squares:</p>
 <span class="go">Model:                            OLS   Adj. R-squared:                  0.333</span>
 <span class="go">Method:                 Least Squares   F-statistic:                     22.20</span>
 <span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           1.90e-08</span>
-<span class="go">Time:                        00:29:12   Log-Likelihood:                -379.82</span>
+<span class="go">Time:                        19:08:27   Log-Likelihood:                -379.82</span>
 <span class="go">No. Observations:                  86   AIC:                             765.6</span>
 <span class="go">Df Residuals:                      83   BIC:                             773.0</span>
 <span class="go">Df Model:                           2                                         </span>
@@ -363,26 +372,26 @@ Here is a simple example using ordinary least squares:</p>
 <span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="go">                            OLS Regression Results                            </span>
 <span class="go">==============================================================================</span>
-<span class="go">Dep. Variable:                      y   R-squared:                       0.151</span>
-<span class="go">Model:                            OLS   Adj. R-squared:                  0.133</span>
-<span class="go">Method:                 Least Squares   F-statistic:                     8.624</span>
-<span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           0.000357</span>
-<span class="go">Time:                        00:29:12   Log-Likelihood:                -17.101</span>
-<span class="go">No. Observations:                 100   AIC:                             40.20</span>
-<span class="go">Df Residuals:                      97   BIC:                             48.02</span>
+<span class="go">Dep. Variable:                      y   R-squared:                       0.169</span>
+<span class="go">Model:                            OLS   Adj. R-squared:                  0.152</span>
+<span class="go">Method:                 Least Squares   F-statistic:                     9.896</span>
+<span class="go">Date:                Tue, 17 Dec 2019   Prob (F-statistic):           0.000123</span>
+<span class="go">Time:                        19:08:27   Log-Likelihood:                -19.864</span>
+<span class="go">No. Observations:                 100   AIC:                             45.73</span>
+<span class="go">Df Residuals:                      97   BIC:                             53.54</span>
 <span class="go">Df Model:                           2                                         </span>
 <span class="go">Covariance Type:            nonrobust                                         </span>
 <span class="go">==============================================================================</span>
 <span class="go">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
 <span class="gt">------------------------------------------------------------------------------</span>
-<span class="n">const</span>          <span class="mf">1.5971</span>      <span class="mf">0.075</span>     <span class="mf">21.238</span>      <span class="mf">0.000</span>       <span class="mf">1.448</span>       <span class="mf">1.746</span>
-<span class="n">x1</span>             <span class="mf">0.0118</span>      <span class="mf">0.104</span>      <span class="mf">0.113</span>      <span class="mf">0.910</span>      <span class="o">-</span><span class="mf">0.195</span>       <span class="mf">0.219</span>
-<span class="n">x2</span>             <span class="mf">0.4516</span>      <span class="mf">0.110</span>      <span class="mf">4.113</span>      <span class="mf">0.000</span>       <span class="mf">0.234</span>       <span class="mf">0.670</span>
+<span class="n">const</span>          <span class="mf">1.5223</span>      <span class="mf">0.086</span>     <span class="mf">17.687</span>      <span class="mf">0.000</span>       <span class="mf">1.351</span>       <span class="mf">1.693</span>
+<span class="n">x1</span>             <span class="mf">0.0814</span>      <span class="mf">0.108</span>      <span class="mf">0.755</span>      <span class="mf">0.452</span>      <span class="o">-</span><span class="mf">0.132</span>       <span class="mf">0.295</span>
+<span class="n">x2</span>             <span class="mf">0.4784</span>      <span class="mf">0.108</span>      <span class="mf">4.447</span>      <span class="mf">0.000</span>       <span class="mf">0.265</span>       <span class="mf">0.692</span>
 <span class="o">==============================================================================</span>
-<span class="ne">Omnibus</span>:                       36.119   Durbin-Watson:                   2.218
-<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.328</span>
-<span class="ne">Skew</span>:                          -0.105   Prob(JB):                       0.0423
-<span class="ne">Kurtosis</span>:                       1.786   Cond. No.                         5.21
+<span class="ne">Omnibus</span>:                       41.400   Durbin-Watson:                   2.176
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.000</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">6.460</span>
+<span class="ne">Skew</span>:                          -0.028   Prob(JB):                       0.0395
+<span class="ne">Kurtosis</span>:                       1.756   Cond. No.                         5.82
 <span class="o">==============================================================================</span>
 
 <span class="ne">Warnings</span>:

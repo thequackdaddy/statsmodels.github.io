@@ -213,7 +213,7 @@
       "Dep. Variable:                      y   No. Observations:                   99\n",
       "Model:               SARIMAX(1, 0, 1)   Log Likelihood                -225.770\n",
       "Date:                Tue, 17 Dec 2019   AIC                            457.541\n",
-      "Time:                        00:27:04   BIC                            465.326\n",
+      "Time:                        19:06:32   BIC                            465.326\n",
       "Sample:                             0   HQIC                           460.691\n",
       "                                 - 99                                         \n",
       "Covariance Type:                  opg                                         \n",
